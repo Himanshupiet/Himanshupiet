@@ -1,0 +1,27 @@
+{
+  "name": "marraforni",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3005",
+    "build": "next build",
+    "start": "next start -p 3005"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-regular-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "animate.css": "^3.5.1",
+    "bootstrap": "^4.6.0",
+    "boxicons": "^2.0.7",
+    "next": "10.1.2",
+    "react": "17.0.2",
+    "react-animate-on-scroll": "^2.1.5",
+    "react-bootstrap": "^1.5.2",
+    "react-dom": "17.0.2",
+    "react-slick": "^0.28.1",
+    "slick-carousel": "^1.8.1"
+  }
+}

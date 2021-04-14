@@ -1,0 +1,20 @@
+.section_outer{
+  padding-top: 80px;
+  padding-bottom: 50px;
+  background-image: url(../../../public/images/Marra-Forni-elements-transparent-gradient.webp);
+  background-color: rgb(255 255 255 / 50%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: color;
+}
+.content_box{
+  margin-bottom: 20px;
+}
+.image_box{
+  margin-bottom: 20px;
+  text-align: center;
+}
+.image_box img{
+  box-shadow: 0 0 20px 5px rgb(86 86 86 / 50%) inset;
+  border-radius: 20px;
+}

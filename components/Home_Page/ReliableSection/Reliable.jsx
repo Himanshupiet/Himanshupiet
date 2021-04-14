@@ -1,0 +1,39 @@
+import Link from 'next/link';
+import React from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import ScrollAnimation from "react-animate-on-scroll";
+import ReliableStyle from './Reliable.module.css';
+
+/**
+* @author
+* @function Reliable
+**/
+
+const Reliable = (props) => {
+  return(
+    <section className={ReliableStyle.section_outer}>
+      <Container>
+        <Row>
+          <Col lg={6} className={ReliableStyle.image_box}>
+            <ScrollAnimation duration={2} animateIn="bounceInUp" animateOnce={true}>
+              <img className="img-fluid" src="./images/One-Stop-Shop-2.webp" alt="Reliable Appliances" width="1189" height="711" />
+            </ScrollAnimation>
+          </Col>
+          <Col lg={6} className={ReliableStyle.content_box}>
+            <ScrollAnimation duration={1} animateIn="zoomIn" animateOnce={true}>
+              <h2>Reliable Appliances</h2>
+              <h3>Slicers, Mixers & Prep Tables</h3>
+              <p>Marra Forni offers additional products to support our World Class <Link href="/product"><a title="Commercial Brick Oven Cooking Solutions">Commercial Brick Oven Cooking Solutions</a></Link>. Marra Forni <Link href="/mixers"><a title="Forked and Spiral dough mixers">Forked and Spiral dough mixers</a></Link> are the right solutions to achieve the perfect pizza crust by allowing the dough to oxygenate quickly without warming or overheating.</p>
+              <p>Marra Forni <Link href="/pdf/14-Slicers.pdf"><a title="flywheel slicers">flywheel slicers</a></Link> are the perfect accent to any kitchen or servery area. Cast in aluminum &amp; steel, the body of the slicer combines beauty with fast &amp; easy cleanup</p>
+              <p>Discover refrigerated pizza <Link href="/prep_tables"><a title="Prep Tables">Prep Tables</a></Link> in 2 and 3 door configurations to complement any high-volume pizza operation. With optional refrigerated stainless steel condiment rails and marble countertop, it’s the optimal pizza prep solution.</p>
+              <Link href="/connect"><a className="mf_btn" title="GET A QUOTE">GET A QUOTE</a></Link>
+            </ScrollAnimation>
+          </Col>
+        </Row>
+      </Container>
+    </section>
+   )
+  }
+
+
+export default Reliable;

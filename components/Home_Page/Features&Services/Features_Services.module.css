@@ -1,0 +1,37 @@
+.section_outer{
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-image: url(../../../public/images/Marra-Forni-elements-transparent-gradient.webp);
+  background-size: cover;
+}
+.title_box{
+  text-align: center;
+  margin-bottom: 50px;
+}
+.table_outer{
+  background-color: #e31422;
+  border-radius: 20px;
+  box-shadow: 0 0 20px 5px rgb(86 86 86 / 10%);
+  border: 1px solid #f6f7fc;
+  overflow-x: auto;
+}
+.table_outer table{
+  width: 100%;
+}
+.table_outer table tr:not(:last-child){
+  border-bottom: 1px solid #f6f7fc;
+}
+.table_outer table tr td,
+.table_outer table tr td h5{
+  color: #fff;
+}
+.table_outer table tr td{
+  padding: 25px 20px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.table_outer table tr td:not(:first-child){
+  text-align: center;
+  border-left: 1px solid #f6f7fc;
+  width: 33%;
+}
