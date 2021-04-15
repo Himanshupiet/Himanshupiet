@@ -13,12 +13,12 @@ import Link from 'next/link';
 
 const LogoSlider = (props) => {
   let LogoSliderSettings = {
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 800,
-    arrows: true,
+    arrows: false,
     slidesToShow: 5,
-    slidesToScroll: 1,
+    slidesToScroll: 5,
     autoplay: true,
     responsive: [
       {
@@ -49,49 +49,43 @@ const LogoSlider = (props) => {
   };
   return(
     <section className={SliderStyle.section_outer}>
-    <Container>
+    <Container fluid>
       <Slider {...LogoSliderSettings} className={SliderStyle.logoslider_outer}>
           <div className={SliderStyle.logoslider_inner}>
-            <Link href="https://www.wegmans.com/">
-              <a target="_blank" rel="noopener" title="Wegmans">
-                <img className="img-fluid" alt="Wegmans" width="115" height="70" src="./images/marraforni_clients_wegmans.webp" />
-              </a>
-            </Link>
+            <img className="img-fluid" alt="5StarGoogleReview.webp" width="115" height="70" src="./images/5StarGoogleReview.webp" />
           </div>
           <div className={SliderStyle.logoslider_inner}>
-            <Link href="https://www.wholefoodsmarket.com/">
-              <a target="_blank" rel="noopener" title="Whole Foods Market">
-                <img className="img-fluid" alt="Whole Foods Market" width="115" height="70" src="./images/marraforni_clients_wholefood.webp" />
-              </a>
-            </Link>
+            <img className="img-fluid" alt="NationalRestaurantAssociationlogo" width="115" height="70" src="./images/1200px-National_Restaurant_Association_logo.webp" />
           </div>
           <div className={SliderStyle.logoslider_inner}>
-            <Link href="https://sbarro.com/">
-              <a target="_blank" rel="noopener" title="Sbarro">
-                <img className="img-fluid" alt="Sbarro" width="115" height="70" src="./images/marraforni_clients_sbarro.webp" />
-              </a>
-            </Link>
+            <img className="img-fluid" alt="Sbarro" width="115" height="70" src="./images/marraforni_clients_sbarro.webp" />
           </div>
           <div className={SliderStyle.logoslider_inner}>
-            <Link href="https://modernmarket.com/">
-              <a target="_blank" rel="noopener" title="Modern Market">
-                <img className="img-fluid" alt="Modern Market" width="115" height="70" src="./images/marraforni_clients_modmarket.webp" />
-              </a>
-            </Link>
+            <img className="img-fluid" alt="AHFLogo" width="115" height="70" src="./images/AHFLogo.webp" />
           </div>
           <div className={SliderStyle.logoslider_inner}>
-            <Link href="https://urbanbrickspizza.com/">
-              <a target="_blank" rel="noopener" title="Urban Bricks Pizza">
-                <img className="img-fluid" alt="Urban Bricks Pizza" width="115" height="70" src="./images/marraforni_clients_urbanbricks.webp" />
-              </a>
-            </Link>
+            <img className="img-fluid" alt="download" width="115" height="70" src="./images/download.webp" />
           </div>
           <div className={SliderStyle.logoslider_inner}>
-            <Link href="https://kingsfoodmarkets.com/">
-              <a target="_blank" rel="noopener" title="Kingsfood Markets">
-                <img className="img-fluid" alt="Kingsfood Markets" width="115" height="70" src="./images/marraforni_clients_kings.webp" />
-              </a>
-            </Link>
+            <img className="img-fluid" alt="FEDALogoTransparent" width="115" height="70" src="./images/FEDA_Logo_Transparent2.webp" />
+          </div>
+          <div className={SliderStyle.logoslider_inner}>
+            <img className="img-fluid" alt="Manufactured-in-USA" width="115" height="70" src="./images/Manufactured-in-USA.webp" />
+          </div>
+          <div className={SliderStyle.logoslider_inner}>
+            <img className="img-fluid" alt="NACUFSLogo20201204" width="115" height="70" src="./images/NACUFSLogo20201204.webp" />
+          </div>
+          <div className={SliderStyle.logoslider_inner}>
+            <img className="img-fluid" alt="NAFEMLogo" width="115" height="70" src="./images/NAFEMLogo.webp" />
+          </div>
+          <div className={SliderStyle.logoslider_inner}>
+            <img className="img-fluid" alt="Pizza-U-Logo" width="115" height="70" src="./images/Pizza-U-Logo.webp" />
+          </div>
+          <div className={SliderStyle.logoslider_inner}>
+            <img className="img-fluid" alt="shfm_logo" width="115" height="70" src="./images/shfm_logo_400px.webp" />
+          </div>
+          <div className={SliderStyle.logoslider_inner}>
+            <img className="img-fluid" alt="VPNLogo" width="115" height="70" src="./images/VPNLogo.webp" />
           </div>
         </Slider>
     </Container>

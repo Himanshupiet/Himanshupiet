@@ -50,7 +50,7 @@ const Header = (props) => {
               </button>
             </div>
             <Link href="/">
-              <a title="MarraForni"><img alt="Marra Forni" src="./images/LogoBlack.png" width="226" height="60" /></a>
+              <a title="MarraForni"><img alt="Marra Forni" src={`${process.env.NEXT_PUBLIC_BASE_URL}/images/LogoBlack.png`} width="226" height="60" /></a>
             </Link>
             <div className={headerStyle.mobile_slbox}>
               <div className={`${headerStyle.searchicon} ${headerStyle.mobile_show}`}>
@@ -246,7 +246,7 @@ const Header = (props) => {
               <i className='bx bx-search-alt-2'></i>
             </div>
             <div className={headerStyle.desktop_show}>
-              <img alt="Language Flag" src="./images/en.png" width="18" height="12" />
+              <img alt="Language Flag" src="/images/en.png" width="18" height="12" />
             </div>
           </div>
         </nav>

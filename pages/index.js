@@ -15,8 +15,8 @@ export default function Home() {
   const {pathname} = useRouter();
 
   let highlightData1 = {
-    Heading: "High-Volume Pizza Making & More Recipes",
-    subHeading: "Grow Your Business & Expand Your Menu With Marra Forni’s Brick Oven Solutions.",
+    Heading: "High-Volume Cooking",
+    subHeading: "Grow your business and expand your menu with Marra Forni’s Brick Oven Cooking Solutions.",
     buttonText: "Build Your Own Oven!"
   }
   let highlightData2 = {
@@ -67,7 +67,6 @@ export default function Home() {
       </Head>
       <Header />
       <div style={{height:"610px",backgroundImage:"url(./images/Choose-Your-Model-Banner.png)",backgroundRepeat:"no-repeat"}}></div>
-      <LogoSlider />
       <Authentic />
       <HighLight highlightData={highlightData1} />
       <Product />
@@ -80,6 +79,7 @@ export default function Home() {
       <HighLight highlightData={highlightData4} />
       <Features_Services />
       {/* <GetAQuote /> */}
+      <LogoSlider />
       <Footer />
     </>
   )

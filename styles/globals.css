@@ -373,39 +373,15 @@ a:hover{
   display: flex;
   align-items: center;
 }
-.QodefSlider_qodefslider_outer__B3VrZ .slick-arrow,
-.LogoSlider_logoslider_outer__U31PH .slick-arrow{
-  width: 40px;
-  height: 40px;
-  background-color: #e31422;
-  border: 1px solid #fff;
-  border-radius: 50%;
-  z-index: 1;
-  transition: all 0.3s ease;
-}
-.QodefSlider_qodefslider_outer__B3VrZ .slick-arrow:focus,
-.LogoSlider_logoslider_outer__U31PH .slick-arrow:focus{
-  background-color: #e31422;
-}
-.QodefSlider_qodefslider_outer__B3VrZ .slick-arrow:hover,
-.LogoSlider_logoslider_outer__U31PH .slick-arrow:hover{
-  background-color: #04858b;
-}
-.QodefSlider_qodefslider_outer__B3VrZ .slick-prev::before,
-.QodefSlider_qodefslider_outer__B3VrZ .slick-next::before,
-.LogoSlider_logoslider_outer__U31PH .slick-prev::before,
-.LogoSlider_logoslider_outer__U31PH .slick-next::before {
-  font-family: 'boxicons'!important;
-  font-weight: normal;
-  font-style: normal;
-  display: inline-block;
+.QodefSlider_qodefslider_outer__B3VrZ .slick-dots li button::before,
+.LogoSlider_logoslider_outer__U31PH .slick-dots li button::before{
+  font-size: 13px;
+  color: #333;
   opacity: 1;
 }
-.QodefSlider_qodefslider_outer__B3VrZ .slick-prev::before,
-.LogoSlider_logoslider_outer__U31PH .slick-prev::before{
-  content: "\ec8c";
-}
-.QodefSlider_qodefslider_outer__B3VrZ .slick-next::before,
-.LogoSlider_logoslider_outer__U31PH .slick-next::before{
-  content: "\ec8f";
+.QodefSlider_qodefslider_outer__B3VrZ .slick-dots li.slick-active button::before,
+.LogoSlider_logoslider_outer__U31PH .slick-dots li.slick-active button::before{
+  font-size: 14px;
+  color: #e31422;
+  opacity: 1;
 }

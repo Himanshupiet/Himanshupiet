@@ -1,22 +1,23 @@
-.section_outer{
-  background-color: #e31422;
-}
 .logoslider_outer{
-  padding: 20px 0;
+  padding: 20px 0 35px;
   width: 95%;
   margin: 0 auto;
 }
+.logoslider_outer ul{
+  bottom: 10px;
+}
 .logoslider_inner{
   padding: 10px 15px 0px;
+  outline: none;
   text-align: -webkit-center;
 }
-.logoslider_inner a{
+.logoslider_inner img{
   display: block;
   outline: none;
   box-shadow: 0 0 10px 5px rgb(86 86 86 / 4%);
   transition: .2s cubic-bezier(.02,.22,.7,1.98);
 }
-.logoslider_inner:hover a{
+.logoslider_inner:hover img{
   box-shadow: 0 10px 25px rgb(0 0 0 / 20%);
   transform: translateY(-5px) translateZ(0);
 }

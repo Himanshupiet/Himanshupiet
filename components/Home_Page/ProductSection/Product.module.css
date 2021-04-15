@@ -1,11 +1,7 @@
 .section_outer{
   padding-top: 50px;
   padding-bottom: 20px;
-  background-image: url(../../../public/images/Marra-Forni-elements-transparent-gradient.webp);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-blend-mode: color;
-  background-color: rgb(255 255 255 / 50%);
+  background-color: #fff;
 }
 .product_inner{
   margin-bottom: 30px;
