@@ -10,13 +10,14 @@ import Features_Services from '../components/Home_Page/Features&Services/Feature
 import HighLight from '../components/Home_Page/HighLightSection/HighLight';
 import Product from '../components/Home_Page/ProductSection/Product';
 import Reliable from '../components/Home_Page/ReliableSection/Reliable';
+import RotateImage360D from '../components/Home_Page/RotateImage360D/RotateImage360D';
 
 export default function Home() {
   const {pathname} = useRouter();
 
   let highlightData1 = {
-    Heading: "High-Volume Pizza Making & More Recipes",
-    subHeading: "Grow Your Business & Expand Your Menu With Marra Forni’s Brick Oven Solutions.",
+    Heading: "High-Volume Cooking",
+    subHeading: "Grow your business and expand your menu with Marra Forni’s Brick Oven Cooking Solutions.",
     buttonText: "Build Your Own Oven!"
   }
   let highlightData2 = {
@@ -45,15 +46,15 @@ export default function Home() {
       <Head>
         <meta name="description" content="Authentic Commercial Brick Ovens: Welcome To The Marra Forni Nation! Where Artisan intersects with Technology and Innovation to build these Commercial Pizza Oven Cooking Solutions." />
         
-        <link rel="canonical" href={`${process.env.NEXT_PUBLIC_BASE_URL}${pathname}`} />
+        <link rel="canonical" href={`${process.env.NEXT_PUBLIC_BASE_URL}${process.env.NEXT_PUBLIC_BASE_PATH}${pathname}`} />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="MarraForni | Artisan Commercial Brick Oven | Stone Hearth Oven" />
         <meta property="og:description" content="Authentic Commercial Brick Ovens: Welcome To The Marra Forni Nation! Where Artisan intersects with Technology and Innovation to build these Commercial Pizza Oven Cooking Solutions." />
-        <meta property="og:url" content={`${process.env.NEXT_PUBLIC_BASE_URL}${pathname}`} />
+        <meta property="og:url" content={`${process.env.NEXT_PUBLIC_BASE_URL}${process.env.NEXT_PUBLIC_BASE_PATH}${pathname}`} />
         <meta property="og:site_name" content="MarraForni" />
-        <meta property="og:image" content={`${process.env.NEXT_PUBLIC_BASE_URL}/images/Rotator-Penny-Red.png`} />
-        <meta property="og:image:secure_url" content={`${process.env.NEXT_PUBLIC_BASE_URL}/images/Rotator-Penny-Red.png`} />
+        <meta property="og:image" content={`${process.env.NEXT_PUBLIC_BASE_URL}${process.env.NEXT_PUBLIC_BASE_PATH}/images/Rotator-Penny-Red.png`} />
+        <meta property="og:image:secure_url" content={`${process.env.NEXT_PUBLIC_BASE_URL}${process.env.NEXT_PUBLIC_BASE_PATH}/images/Rotator-Penny-Red.png`} />
         <meta property="og:image:width" content="372" />
         <meta property="og:image:height" content="500" />
         <meta property="og:image:alt" content="Marra Forni Rotator Penny Red" />
@@ -61,13 +62,12 @@ export default function Home() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="MarraForni | Artisan Commercial Brick Oven | Stone Hearth Oven" />
         <meta name="twitter:description" content="Authentic Commercial Brick Ovens: Welcome To The Marra Forni Nation! Where Artisan intersects with Technology and Innovation to build these Commercial Pizza Oven Cooking Solutions." />
-        <meta name="twitter:image" content={`${process.env.NEXT_PUBLIC_BASE_URL}/images/Rotator-Penny-Red.png`} />
+        <meta name="twitter:image" content={`${process.env.NEXT_PUBLIC_BASE_URL}${process.env.NEXT_PUBLIC_BASE_PATH}/images/Rotator-Penny-Red.png`} />
 
         <title>MarraForni | Artisan Commercial Brick Oven | Stone Hearth Oven</title>
       </Head>
       <Header />
-      <div style={{height:"610px",backgroundImage:"url(./images/Choose-Your-Model-Banner.png)",backgroundRepeat:"no-repeat"}}></div>
-      <LogoSlider />
+      <div style={{height:"610px",backgroundImage:`url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/Choose-Your-Model-Banner.png)`,backgroundRepeat:"no-repeat"}}></div>
       <Authentic />
       <HighLight highlightData={highlightData1} />
       <Product />
@@ -76,10 +76,11 @@ export default function Home() {
       <HighLight highlightData={highlightData2} />
       <QodefSlider />
       <HighLight highlightData={highlightData3} />
-      <div></div>
+      <RotateImage360D />
       <HighLight highlightData={highlightData4} />
       <Features_Services />
       {/* <GetAQuote /> */}
+      <LogoSlider />
       <Footer />
     </>
   )

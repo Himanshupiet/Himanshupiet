@@ -34,43 +34,43 @@ const Features_Services = (props) => {
                     </tr>
                     <tr>
                       <td>Worldwide Shipping</td>
-                      <td><FontAwesomeIcon icon={faCheck} /></td>
-                      <td><FontAwesomeIcon icon={faCheck} /></td>
+                      <td><span className={FSStyle.check_sign}><FontAwesomeIcon icon={faCheck} /></span></td>
+                      <td><span className={FSStyle.check_sign}><FontAwesomeIcon icon={faCheck} /></span></td>
                     </tr>
                     <tr>
                       <td>Precision Rotating Deck Control</td>
-                      <td><FontAwesomeIcon icon={faTimes} /></td>
-                      <td><FontAwesomeIcon icon={faCheck} /></td>
+                      <td><span className={FSStyle.cross_sign}><FontAwesomeIcon icon={faTimes} /></span></td>
+                      <td><span className={FSStyle.check_sign}><FontAwesomeIcon icon={faCheck} /></span></td>
                     </tr>
                     <tr>
                       <td>Touchscreen Control</td>
-                      <td><FontAwesomeIcon icon={faTimes} /></td>
-                      <td><FontAwesomeIcon icon={faCheck} /></td>
+                      <td><span className={FSStyle.cross_sign}><FontAwesomeIcon icon={faTimes} /></span></td>
+                      <td><span className={FSStyle.check_sign}><FontAwesomeIcon icon={faCheck} /></span></td>
                     </tr>
                     <tr>
                       <td>Auto On/Off</td>
-                      <td><FontAwesomeIcon icon={faTimes} /></td>
-                      <td><FontAwesomeIcon icon={faCheck} /></td>
+                      <td><span className={FSStyle.cross_sign}><FontAwesomeIcon icon={faTimes} /></span></td>
+                      <td><span className={FSStyle.check_sign}><FontAwesomeIcon icon={faCheck} /></span></td>
                     </tr>
                     <tr>
                       <td>Integrated Ventilation</td>
-                      <td><FontAwesomeIcon icon={faTimes} /></td>
-                      <td><FontAwesomeIcon icon={faCheck} /></td>
+                      <td><span className={FSStyle.cross_sign}><FontAwesomeIcon icon={faTimes} /></span></td>
+                      <td><span className={FSStyle.check_sign}><FontAwesomeIcon icon={faCheck} /></span></td>
                     </tr>
                     <tr>
                       <td>Consulting</td>
-                      <td><FontAwesomeIcon icon={faTimes} /></td>
-                      <td><FontAwesomeIcon icon={faCheck} /></td>
+                      <td><span className={FSStyle.cross_sign}><FontAwesomeIcon icon={faTimes} /></span></td>
+                      <td><span className={FSStyle.check_sign}><FontAwesomeIcon icon={faCheck} /></span></td>
                     </tr>
                     <tr>
                       <td>Unlimited Tile, Color & Branding Customization</td>
-                      <td><FontAwesomeIcon icon={faTimes} /></td>
-                      <td><FontAwesomeIcon icon={faCheck} /></td>
+                      <td><span className={FSStyle.cross_sign}><FontAwesomeIcon icon={faTimes} /></span></td>
+                      <td><span className={FSStyle.check_sign}><FontAwesomeIcon icon={faCheck} /></span></td>
                     </tr>
                     <tr>
                       <td>84,000 BTUs</td>
-                      <td><FontAwesomeIcon icon={faTimes} /></td>
-                      <td><FontAwesomeIcon icon={faCheck} /></td>
+                      <td><span className={FSStyle.cross_sign}><FontAwesomeIcon icon={faTimes} /></span></td>
+                      <td><span className={FSStyle.check_sign}><FontAwesomeIcon icon={faCheck} /></span></td>
                     </tr>
                   </tbody>
                 </table>

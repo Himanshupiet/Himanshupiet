@@ -1,0 +1,11 @@
+.section_outer{
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+.iconbox{
+  text-align: center;
+  margin-bottom: 30px;
+}
+.iconbox h5{
+  margin-top: 15px;
+}

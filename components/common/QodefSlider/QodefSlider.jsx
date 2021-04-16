@@ -11,13 +11,13 @@ import ScrollAnimation from 'react-animate-on-scroll';
 
 const QodefSlider = (props) => {
   let QodefSliderSettings = {
-    dots: false,
     infinite: true,
     speed: 800,
-    arrows: true,
+    arrows: false,
+    dots: true,
     slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: false,
+    slidesToScroll: 4,
+    autoplay: true,
     infinite: true,
     responsive: [
       {
@@ -53,27 +53,42 @@ const QodefSlider = (props) => {
           <Slider {...QodefSliderSettings} className={QodefSliderStyle.qodefslider_outer}>
             <div className={QodefSliderStyle.qodefslider_inner}>
               <div className={QodefSliderStyle.qodefslider_innermain}>
-                <img className="img-fluid" alt="Wegmans" width="376" height="498" src="./images/WholeFoods.webp" />
+                <img className="img-fluid" alt="Wegmans" width="376" height="498" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/WholeFoods.webp`} />
+                <div className={QodefSliderStyle.hover_content}>
+                  <a className="mf_btn" title="Product" href="/">Explore more</a>
+                </div>
               </div>
             </div>
             <div className={QodefSliderStyle.qodefslider_inner}>
               <div className={QodefSliderStyle.qodefslider_innermain}>
-                <img className="img-fluid" alt="Wegmans" width="376" height="498" src="./images/Wegmans.webp" />
+                <img className="img-fluid" alt="Wegmans" width="376" height="498" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Wegmans.webp`} />
+                <div className={QodefSliderStyle.hover_content}>
+                  <a className="mf_btn" title="Product" href="/">Explore more</a>
+                </div>
               </div>
             </div>
             <div className={QodefSliderStyle.qodefslider_inner}>
               <div className={QodefSliderStyle.qodefslider_innermain}>
-                <img className="img-fluid" alt="Wegmans" width="376" height="498" src="./images/UrbanBrick.webp" />
+                <img className="img-fluid" alt="Wegmans" width="376" height="498" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/UrbanBrick.webp`} />
+                <div className={QodefSliderStyle.hover_content}>
+                  <a className="mf_btn" title="Product" href="/">Explore more</a>
+                </div>
               </div>
             </div>
             <div className={QodefSliderStyle.qodefslider_inner}>
               <div className={QodefSliderStyle.qodefslider_innermain}>
-                <img className="img-fluid" alt="Wegmans" width="376" height="498" src="./images/PizzaFire.webp" />
+                <img className="img-fluid" alt="Wegmans" width="376" height="498" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/PizzaFire.webp`} />
+                <div className={QodefSliderStyle.hover_content}>
+                  <a className="mf_btn" title="Product" href="/">Explore more</a>
+                </div>
               </div>
             </div>
             <div className={QodefSliderStyle.qodefslider_inner}>
               <div className={QodefSliderStyle.qodefslider_innermain}>
-                <img className="img-fluid" alt="Wegmans" width="376" height="498" src="./images/WholeFoods.webp" />
+                <img className="img-fluid" alt="Wegmans" width="376" height="498" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/WholeFoods.webp`} />
+                <div className={QodefSliderStyle.hover_content}>
+                  <a className="mf_btn" title="Product" href="/">Explore more</a>
+                </div>
               </div>
             </div>
           </Slider>
