@@ -17,7 +17,7 @@ const Product = (props) => {
           <Col lg={3} md={6}>
             <ScrollAnimation duration={1} animateIn="fadeInLeft" animateOnce={true}>
               <div className={ProductStyle.product_inner}>
-                <img className="img-fluid" alt="Card image cap" src="./images/WholeFoods.webp" width="376" height="498" />
+                <img className="img-fluid" alt="Card image cap" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/WholeFoods.webp`} width="376" height="498" />
                 <div className={ProductStyle.product_info}>
                   <h4>Rotator</h4>
                   <p>High-performance, high-efficiency, user-friendly for unskilled labor</p>
@@ -31,7 +31,7 @@ const Product = (props) => {
           <Col lg={3} md={6}>
             <ScrollAnimation duration={1} animateIn="fadeInUp" animateOnce={true}>
               <div className={ProductStyle.product_inner}>
-                <img className="img-fluid" alt="Card image cap" src="./images/Neapolitan_Broken_Red.webp" width="376" height="498" />
+                <img className="img-fluid" alt="Card image cap" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Neapolitan_Broken_Red.webp`} width="376" height="498" />
                 <div className={ProductStyle.product_info}>
                   <h4>Neapolitan</h4>
                   <p>The “Classic” brick oven solution for static and mobile applications.  Available in Wood, Gas, and Combination</p>
@@ -45,7 +45,7 @@ const Product = (props) => {
           <Col lg={3} md={6}>
             <ScrollAnimation duration={1} animateIn="fadeInUp" animateOnce={true}>
               <div className={ProductStyle.product_inner}>
-                <img className="img-fluid" alt="Card image cap" src="./images/bice-500.webp" width="376" height="498" />
+                <img className="img-fluid" alt="Card image cap" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/bice-500.webp`} width="376" height="498" />
                 <div className={ProductStyle.product_info}>
                   <h4>Electric</h4>
                   <p>The look of a Traditional wood or gas-fired oven with Top and bottom heat controls</p>
@@ -59,7 +59,7 @@ const Product = (props) => {
           <Col lg={3} md={6}>
             <ScrollAnimation duration={1} animateIn="fadeInRight" animateOnce={true}>
               <div className={ProductStyle.product_inner}>
-                <img className="img-fluid" alt="Card image cap" src="./images/Due_Bocche_White_Broken.webp" width="376" height="498" />
+                <img className="img-fluid" alt="Card image cap" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Due_Bocche_White_Broken.webp`} width="376" height="498" />
                 <div className={ProductStyle.product_info}>
                   <h4>Due Bocche</h4>
                   <p>All of the benefits of the Classic Neapolitan or the Rotator in a Pass-Thru configuration</p>

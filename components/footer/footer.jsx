@@ -57,7 +57,7 @@ const Footer = (props) => {
                 Fax. 240.667.7991<br /><br />
                 <Link href="mailto:inquiries@marraforni.com"><a title="inquiries@marraforni.com">inquiries@marraforni.com</a></Link>
               </div>
-              <img alt="Marra Forni Logo" src="./images/LogoRed.png"  width="226" height="60" className="img-fluid" />
+              <img alt="Marra Forni Logo" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/LogoRed.png`}  width="226" height="60" className="img-fluid" />
             </Col>
             <Col lg={3} md={6} className={footerStyle.footer_inner}>
               <h3>Products</h3>

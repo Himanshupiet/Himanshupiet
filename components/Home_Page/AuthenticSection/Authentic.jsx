@@ -25,7 +25,7 @@ const Authentic = (props) => {
           </Col>
           <Col lg={6} className={AuthenticStyle.image_box}>
             <ScrollAnimation duration={1} animateIn="fadeInRight" animateOnce={true}>
-              <img className="img-fluid" src="./images/firedupbrewing-banner.webp" alt="Commercial Brick Oven" width="480" height="546" />
+              <img className="img-fluid" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/firedupbrewing-banner.webp`} alt="Commercial Brick Oven" width="480" height="546" />
             </ScrollAnimation>
           </Col>
         </Row>

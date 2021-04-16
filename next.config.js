@@ -8,7 +8,7 @@ module.exports = (phase, { defaultConfig }) => {
   }
 
   return {
-    basePath: '/docs',
+    basePath: process.env.NEXT_PUBLIC_BASE_PATH,
     /* config options for all phases except development here */
   }
 }

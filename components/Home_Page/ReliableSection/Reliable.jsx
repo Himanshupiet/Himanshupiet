@@ -16,7 +16,7 @@ const Reliable = (props) => {
         <Row className="align-items-center">
           <Col lg={6} className={ReliableStyle.image_box}>
             <ScrollAnimation duration={2} animateIn="bounceInUp" animateOnce={true}>
-              <img className="img-fluid" src="./images/One-Stop-Shop-2.webp" alt="Reliable Appliances" width="1189" height="711" />
+              <img className="img-fluid" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/One-Stop-Shop-2.webp`} alt="Reliable Appliances" width="1189" height="711" />
             </ScrollAnimation>
           </Col>
           <Col lg={6} className={ReliableStyle.content_box}>

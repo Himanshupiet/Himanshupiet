@@ -53,7 +53,7 @@ const QodefSlider = (props) => {
           <Slider {...QodefSliderSettings} className={QodefSliderStyle.qodefslider_outer}>
             <div className={QodefSliderStyle.qodefslider_inner}>
               <div className={QodefSliderStyle.qodefslider_innermain}>
-                <img className="img-fluid" alt="Wegmans" width="376" height="498" src="./images/WholeFoods.webp" />
+                <img className="img-fluid" alt="Wegmans" width="376" height="498" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/WholeFoods.webp`} />
                 <div className={QodefSliderStyle.hover_content}>
                   <a className="mf_btn" title="Product" href="/">Explore more</a>
                 </div>
@@ -61,7 +61,7 @@ const QodefSlider = (props) => {
             </div>
             <div className={QodefSliderStyle.qodefslider_inner}>
               <div className={QodefSliderStyle.qodefslider_innermain}>
-                <img className="img-fluid" alt="Wegmans" width="376" height="498" src="./images/Wegmans.webp" />
+                <img className="img-fluid" alt="Wegmans" width="376" height="498" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Wegmans.webp`} />
                 <div className={QodefSliderStyle.hover_content}>
                   <a className="mf_btn" title="Product" href="/">Explore more</a>
                 </div>
@@ -69,7 +69,7 @@ const QodefSlider = (props) => {
             </div>
             <div className={QodefSliderStyle.qodefslider_inner}>
               <div className={QodefSliderStyle.qodefslider_innermain}>
-                <img className="img-fluid" alt="Wegmans" width="376" height="498" src="./images/UrbanBrick.webp" />
+                <img className="img-fluid" alt="Wegmans" width="376" height="498" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/UrbanBrick.webp`} />
                 <div className={QodefSliderStyle.hover_content}>
                   <a className="mf_btn" title="Product" href="/">Explore more</a>
                 </div>
@@ -77,7 +77,7 @@ const QodefSlider = (props) => {
             </div>
             <div className={QodefSliderStyle.qodefslider_inner}>
               <div className={QodefSliderStyle.qodefslider_innermain}>
-                <img className="img-fluid" alt="Wegmans" width="376" height="498" src="./images/PizzaFire.webp" />
+                <img className="img-fluid" alt="Wegmans" width="376" height="498" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/PizzaFire.webp`} />
                 <div className={QodefSliderStyle.hover_content}>
                   <a className="mf_btn" title="Product" href="/">Explore more</a>
                 </div>
@@ -85,7 +85,7 @@ const QodefSlider = (props) => {
             </div>
             <div className={QodefSliderStyle.qodefslider_inner}>
               <div className={QodefSliderStyle.qodefslider_innermain}>
-                <img className="img-fluid" alt="Wegmans" width="376" height="498" src="./images/WholeFoods.webp" />
+                <img className="img-fluid" alt="Wegmans" width="376" height="498" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/WholeFoods.webp`} />
                 <div className={QodefSliderStyle.hover_content}>
                   <a className="mf_btn" title="Product" href="/">Explore more</a>
                 </div>
