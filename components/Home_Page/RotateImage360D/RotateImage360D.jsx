@@ -9,7 +9,6 @@ import Rotate360DStyle from './RotateImage360D.module.css';
 **/
 
 const RotateImage360D = (props) => {
-  
   return(
     <section className={Rotate360DStyle.section_outer}>
       <Container>

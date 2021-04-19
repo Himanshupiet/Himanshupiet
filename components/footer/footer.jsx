@@ -61,6 +61,73 @@ const Footer = (props) => {
             </Col>
             <Col lg={3} md={6} className={footerStyle.footer_inner}>
               <h3>Products</h3>
+              <ul>
+                <li>
+                  <Link href="/discover-the-rotator-brick-oven">
+                    <a title="Rotator Series">Rotator Series</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/neapolitan">
+                    <a title="Neapolitan Series">Neapolitan Series</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/metal-square">
+                    <a title="MS Series">MS Series</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/">
+                    <a title="ELECTRO Series">ELECTRO Series</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/">
+                    <a title="Stackable Electric Series">Stackable Electric Series</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/enclosed-facade">
+                    <a title="Enclosed Facade Series">Enclosed Facade Series</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/mobile">
+                    <a title="Mobile Solutions">Mobile Solutions</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/due-bocche">
+                    <a title="Due Bocche">Due Bocche</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/ventilation">
+                    <a title="Direct Ventilation">Direct Ventilation</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/marra-forni-prep-tables">
+                    <a title="Refrigerated Prep Tables">Refrigerated Prep Tables</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/mixers">
+                    <a title="Dough Mixers">Dough Mixers</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/pizza-oven-tools-and-accessories">
+                    <a title="Tools & Accessories">Tools & Accessories</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/demo-ovens">
+                    <a title="Demo Ovens">Demo Ovens</a>
+                  </Link>
+                </li>
+              </ul>
             </Col>
             <Col lg={3} md={6} className={footerStyle.footer_inner}>
               <h3>Resources</h3>
