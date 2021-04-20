@@ -30,10 +30,41 @@ const Footer = (props) => {
     <>
       <footer className={footerStyle.footer}>
         <Container>
+          <div className={footerStyle.top_footer}>
+            <p><b>★★★★★ Google Reviews • Exceptional Customer Experience • International Shipping</b></p>
+            <p>Marra Forni is the premier manufacturer of brick oven cooking solutions to the global commercial foodservice industry. We continue to exceed customer expectations through our handcrafted workmanship, innovative technology, and a continued commitment to achieving best-in-class quality, performance, and service.</p>
+            <p>Each oven is built brick-by-brick using the same tried and tested process used by Italian masons hundreds of years ago. Our flagship Rotator Smart oven gives you full control of crucial functions such as temperature, deck rotation speed, direction, and auto on/off. Enjoy labor and energy savings thanks to better heat absorption, retention, and faster, more consistent cooking. Every oven is tiled to order, offering you abundant color choices to complement your dream kitchen.</p>
+            <p>Our product line includes a full line of brick-oven cooking solutions, <Link href="/marra-forni-prep-tables"><a>refrigerated prep tables</a></Link>, <Link href="/mixers"><a>mixers</a></Link>, slicers, and <Link href="/ventilation"><a>direct venting</a></Link>. Marra Forni currently sells and supports its products in 5 continents and 23 countries worldwide.</p>
+          </div>
           <Row>
             <Col lg={3} md={6} className={footerStyle.footer_inner}>
               <h3>Our Company</h3>
               <ul>
+                <li>
+                  <Link href="/about-marra-forni">
+                    <a title="About Us">About Us</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/gallery">
+                    <a title="Client Gallery">Client Gallery</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/press">
+                    <a title="Press Coverage">Press Coverage</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/events">
+                    <a title="Marra Forni Events">Marra Forni Events</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/privacy-policy">
+                    <a title="Privacy Policy">Privacy Policy</a>
+                  </Link>
+                </li>
                 <li>
                   <Link href="/">
                     <a title="Terms and Conditions">Terms and Conditions</a>
@@ -83,7 +114,7 @@ const Footer = (props) => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/">
+                  <Link href="/electric">
                     <a title="Stackable Electric Series">Stackable Electric Series</a>
                   </Link>
                 </li>
@@ -131,9 +162,86 @@ const Footer = (props) => {
             </Col>
             <Col lg={3} md={6} className={footerStyle.footer_inner}>
               <h3>Resources</h3>
+              <ul>
+                <li>
+                  <Link href="/resources">
+                    <a title="Spec Sheets, CAD Blocks, Manuals">Spec Sheets, CAD Blocks, Manuals</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/connect">
+                    <a title="Get A Quote">Get A Quote</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/faqs">
+                    <a title="FAQs">FAQs</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="https://www.pizzauniversity.org/">
+                    <a target="_blank" rel="noreferrer" title="Pizza University">Pizza University</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/mock-up-request">
+                    <a title="Request A Mock-Up">Request A Mock-Up</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/">
+                    <a title="Recurso español">Recurso español</a>
+                  </Link>
+                </li>
+              </ul>
             </Col>
             <Col lg={3} md={6} className={footerStyle.footer_inner}>
               <h3>Let's Connect</h3>
+              <ul>
+                <li>
+                  <Link href="/connect">
+                    <a title="Contact Us!">Contact Us!</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog">
+                    <a title="Our Blog">Our Blog</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="https://www.youtube.com/user/marraforni">
+                    <a target="_blank" rel="noopener" title="Our Videos">Our Videos</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="https://www.linkedin.com/company/marraforni/">
+                    <a target="_blank" rel="noopener" title="Linkedin">Linkedin</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="https://www.instagram.com/marraforni">
+                    <a target="_blank" rel="noopener" title="Instagram">Instagram</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="https://www.facebook.com/marraforni">
+                    <a target="_blank" rel="noopener" title="Facebook">Facebook</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="https://www.pinterest.com/marraforni/">
+                    <a target="_blank" rel="noopener" title="Pinterest">Pinterest</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="https://twitter.com/MarraForni">
+                    <a target="_blank" rel="noopener" title="Twitter">Twitter</a>
+                  </Link>
+                </li>
+              </ul>
+              <Link href="/">
+                <a className="mf_btn" title="Rep portal">Rep portal</a>
+              </Link>
             </Col>
           </Row>
         </Container>
