@@ -7,6 +7,10 @@ import TopBanner from '../../components/ProductSingle/TopBanner/TopBanner';
 import Overview from '../../components/ProductSingle/Overview/Overview';
 import Modals from '../../components/ProductSingle/Modals/Modals';
 import Touchscreen from '../../components/ProductSingle/Touchscreen/Touchscreen';
+import ProductInfo from '../../components/ProductSingle/ProductInfo/ProductInfo';
+import Features from '../../components/ProductSingle/Features/Features';
+import HighLight from '../../components/Home_Page/HighLightSection/HighLight';
+import Resources from '../../components/ProductSingle/Resources/Resources';
 
 /**
 * @author
@@ -15,6 +19,11 @@ import Touchscreen from '../../components/ProductSingle/Touchscreen/Touchscreen'
 
 const SingleProduct = (props) => {
   const {pathname} = useRouter();
+  let highlightData = {
+    Heading: "",
+    subHeading: "You are a few clicks away from owning the most durable, energy-efficient, customizable and feature pack brick oven in the world.",
+    buttonText: "Build Your Own Oven!"
+  }
   return(
     <>
       <Head>
@@ -45,6 +54,10 @@ const SingleProduct = (props) => {
       <Overview />
       <Modals />
       <Touchscreen />
+      <ProductInfo />
+      <Features />
+      <Resources />
+      <HighLight highlightData={highlightData} />
       <Footer />
     </>
    )
