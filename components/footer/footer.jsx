@@ -24,6 +24,8 @@ const Footer = (props) => {
   useEffect(() => {
     window.addEventListener('scroll', checkbacktotop, {passive: true});
     checkbacktotop();
+
+    return () => window.removeEventListener("scroll", checkbacktotop, {passive: true});
   },[]);
 
   return(

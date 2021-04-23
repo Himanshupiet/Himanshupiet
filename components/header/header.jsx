@@ -31,6 +31,8 @@ const Header = (props) => {
   useEffect(() => {
     window.addEventListener('scroll', checkStickyHeader, {passive: true});
     checkStickyHeader();
+
+    return () => window.removeEventListener("scroll", checkStickyHeader, {passive: true});
   },[]);
   return(
     <>

@@ -1,0 +1,37 @@
+.section_outer{
+  padding: 50px 0 30px;
+  width: 100%;
+  background-color: #e31422;
+}
+.inner_approve,
+.inner{
+  margin-bottom: 30px;
+}
+.inner h4{
+  margin-bottom: 20px;
+  color: #fff;
+}
+.inner ol{
+  margin: 0;
+  padding: 0;
+}
+.inner ol li{
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  margin-left: 20px;
+}
+.inner ol li::marker{
+  font-weight: 600;
+}
+.inner_approve h4{
+  margin-bottom: 20px;
+  text-align: center;
+  color: #fff;
+}
+.inner_approve p{
+  color: #fff;
+}
+.inner_approve img{
+  margin: 0 10px;
+}
