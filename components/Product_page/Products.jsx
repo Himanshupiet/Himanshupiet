@@ -15,7 +15,7 @@ const Products = (props) => {
       <Container>
         <ScrollAnimation duration={2} animateIn="zoomIn" animateOnce={true}>
           <div className={ProductStyle.product_headingbox}>
-            <h4>Rotator Oven</h4>
+            <h4>Ovens</h4>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
           </div>
         </ScrollAnimation>
@@ -25,7 +25,7 @@ const Products = (props) => {
               <div className={ProductStyle.product_inner}>
                 <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/stainless_facade_square_black.webp`} width="400" height="500" className="img-fluid" alt="The Rotator" />
                 <div className={ProductStyle.product_info}>
-                  <h5>Enclosed Façade</h5>
+                  <h5>The Rotator</h5>
                   <p>{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s").substr(0,115)}{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,").length > 115 && "..."}</p>
                   <Link href="/discover-the-rotator-brick-oven">
                     <a className="mf_btn" title="The Rotator">Explore more</a>
@@ -39,7 +39,7 @@ const Products = (props) => {
               <div className={ProductStyle.product_inner}>
                 <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Blu-Penny-NP.webp`} width="400" height="500" className="img-fluid" alt="The Neapolitan" />
                 <div className={ProductStyle.product_info}>
-                  <h5>Gas</h5>
+                  <h5>The Neapolitan</h5>
                   <p>{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s").substr(0,115)}{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,").length > 115 && "..."}</p>
                   <Link href="/neapolitan">
                     <a className="mf_btn" title="The Neapolitan">Explore more</a>
@@ -53,7 +53,77 @@ const Products = (props) => {
               <div className={ProductStyle.product_inner}>
                 <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Due_Bocche_White_Broken.webp`} width="400" height="500" className="img-fluid" alt="Due Bocche" />
                 <div className={ProductStyle.product_info}>
-                  <h5>Gas With Wood Chamber</h5>
+                  <h5>Due Bocche</h5>
+                  <p>{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s").substr(0,115)}{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,").length > 115 && "..."}</p>
+                  <Link href="/due-bocche">
+                    <a className="mf_btn" title="Due Bocche">Explore more</a>
+                  </Link>
+                </div>
+              </div>
+            </ScrollAnimation>
+          </Col>
+          <Col lg={4} md={6}>
+            <ScrollAnimation duration={2} animateIn="fadeInUp" animateOnce={true}>
+              <div className={ProductStyle.product_inner}>
+                <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/EL_Square_Blue.webp`} width="400" height="500" className="img-fluid" alt="Due Bocche" />
+                <div className={ProductStyle.product_info}>
+                  <h5>Electric Oven</h5>
+                  <p>{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s").substr(0,115)}{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,").length > 115 && "..."}</p>
+                  <Link href="/due-bocche">
+                    <a className="mf_btn" title="Due Bocche">Explore more</a>
+                  </Link>
+                </div>
+              </div>
+            </ScrollAnimation>
+          </Col>
+          <Col lg={4} md={6}>
+            <ScrollAnimation duration={2} animateIn="fadeInUp" animateOnce={true}>
+              <div className={ProductStyle.product_inner}>
+                <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Big-Enclosed-BrIck-Oven-Rendering.webp`} width="400" height="500" className="img-fluid" alt="Due Bocche" />
+                <div className={ProductStyle.product_info}>
+                  <h5>Enclosed Facade</h5>
+                  <p>{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s").substr(0,115)}{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,").length > 115 && "..."}</p>
+                  <Link href="/due-bocche">
+                    <a className="mf_btn" title="Due Bocche">Explore more</a>
+                  </Link>
+                </div>
+              </div>
+            </ScrollAnimation>
+          </Col>
+          <Col lg={4} md={6}>
+            <ScrollAnimation duration={2} animateIn="fadeInUp" animateOnce={true}>
+              <div className={ProductStyle.product_inner}>
+                <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Small-Traditional-BrIck-Oven-Rendering.webp`} width="400" height="500" className="img-fluid" alt="Due Bocche" />
+                <div className={ProductStyle.product_info}>
+                  <h5>Traditional Ovens</h5>
+                  <p>{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s").substr(0,115)}{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,").length > 115 && "..."}</p>
+                  <Link href="/due-bocche">
+                    <a className="mf_btn" title="Due Bocche">Explore more</a>
+                  </Link>
+                </div>
+              </div>
+            </ScrollAnimation>
+          </Col>
+          <Col lg={4} md={6}>
+            <ScrollAnimation duration={2} animateIn="fadeInUp" animateOnce={true}>
+              <div className={ProductStyle.product_inner}>
+                <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Webp.net-resizeimage-1.webp`} width="400" height="500" className="img-fluid" alt="Due Bocche" />
+                <div className={ProductStyle.product_info}>
+                  <h5>Mobile Trailer</h5>
+                  <p>{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s").substr(0,115)}{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,").length > 115 && "..."}</p>
+                  <Link href="/due-bocche">
+                    <a className="mf_btn" title="Due Bocche">Explore more</a>
+                  </Link>
+                </div>
+              </div>
+            </ScrollAnimation>
+          </Col>
+          <Col lg={4} md={6}>
+            <ScrollAnimation duration={2} animateIn="fadeInUp" animateOnce={true}>
+              <div className={ProductStyle.product_inner}>
+                <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MS_42-31.webp`} width="400" height="500" className="img-fluid" alt="Due Bocche" />
+                <div className={ProductStyle.product_info}>
+                  <h5>Metal Square</h5>
                   <p>{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s").substr(0,115)}{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,").length > 115 && "..."}</p>
                   <Link href="/due-bocche">
                     <a className="mf_btn" title="Due Bocche">Explore more</a>
@@ -73,9 +143,9 @@ const Products = (props) => {
           <Col lg={4} md={6}>
             <ScrollAnimation duration={2} animateIn="fadeInUp" animateOnce={true}>
               <div className={ProductStyle.product_inner}>
-                <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/stainless_facade_square_black.webp`} width="400" height="500" className="img-fluid" alt="The Rotator" />
+                <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Marra-Forni-Full-Length-integrated-Venting-Pipes.webp`} width="400" height="500" className="img-fluid" alt="The Rotator" />
                 <div className={ProductStyle.product_info}>
-                  <h5>Electric Food Cart</h5>
+                  <h5>Venting System</h5>
                   <p>{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s").substr(0,115)}{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,").length > 115 && "..."}</p>
                   <Link href="/discover-the-rotator-brick-oven">
                     <a className="mf_btn" title="The Rotator">Explore more</a>
@@ -95,9 +165,9 @@ const Products = (props) => {
           <Col lg={4} md={6}>
             <ScrollAnimation duration={2} animateIn="fadeInUp" animateOnce={true}>
               <div className={ProductStyle.product_inner}>
-                <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/stainless_facade_square_black.webp`} width="400" height="500" className="img-fluid" alt="The Rotator" />
+                <img src={`https://marraforni.com/wp/wp-content/uploads/2017/11/Marra-Forni-Three-Door-Pizza-Prep-Table-without-Rail.jpg`} width="400" height="500" className="img-fluid" alt="The Rotator" />
                 <div className={ProductStyle.product_info}>
-                  <h5>Two Door Prep Table</h5>
+                  <h5>Refrigerated Prep Table</h5>
                   <p>{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s").substr(0,115)}{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,").length > 115 && "..."}</p>
                   <Link href="/discover-the-rotator-brick-oven">
                     <a className="mf_btn" title="The Rotator">Explore more</a>
@@ -109,9 +179,9 @@ const Products = (props) => {
           <Col lg={4} md={6}>
             <ScrollAnimation duration={2} animateIn="fadeInUp" animateOnce={true}>
               <div className={ProductStyle.product_inner}>
-                <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/stainless_facade_square_black.webp`} width="400" height="500" className="img-fluid" alt="The Rotator" />
+                <img src={`https://marraforni.com/wp/wp-content/uploads/2017/11/Marra-Forni-Three-Door-Pizza-Prep-Table-with-Rail.jpg`} width="400" height="500" className="img-fluid" alt="The Rotator" />
                 <div className={ProductStyle.product_info}>
-                  <h5>Three Door Prep Table</h5>
+                  <h5>Refrigerated Condiment Rail</h5>
                   <p>{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s").substr(0,115)}{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,").length > 115 && "..."}</p>
                   <Link href="/discover-the-rotator-brick-oven">
                     <a className="mf_btn" title="The Rotator">Explore more</a>
@@ -131,9 +201,9 @@ const Products = (props) => {
           <Col lg={4} md={6}>
             <ScrollAnimation duration={2} animateIn="fadeInUp" animateOnce={true}>
               <div className={ProductStyle.product_inner}>
-                <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/stainless_facade_square_black.webp`} width="400" height="500" className="img-fluid" alt="The Rotator" />
+                <img src={`https://marraforni.com/wp/wp-content/uploads/2017/11/Marra-Forni-Spiral-Dough-Mixer-IM-model.jpg`} width="400" height="500" className="img-fluid" alt="The Rotator" />
                 <div className={ProductStyle.product_info}>
-                  <h5>Spiral Mixers Mono</h5>
+                  <h5>Spiral Dough Mixers</h5>
                   <p>{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s").substr(0,115)}{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,").length > 115 && "..."}</p>
                   <Link href="/discover-the-rotator-brick-oven">
                     <a className="mf_btn" title="The Rotator">Explore more</a>
@@ -145,37 +215,9 @@ const Products = (props) => {
           <Col lg={4} md={6}>
             <ScrollAnimation duration={2} animateIn="fadeInUp" animateOnce={true}>
               <div className={ProductStyle.product_inner}>
-                <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/stainless_facade_square_black.webp`} width="400" height="500" className="img-fluid" alt="The Rotator" />
+                <img src={`https://marraforni.com/wp/wp-content/uploads/2017/11/Marra-Forni-Forked-Dough-Mixer.jpg`} width="400" height="500" className="img-fluid" alt="The Rotator" />
                 <div className={ProductStyle.product_info}>
-                  <h5>Spiral Mixers Dual</h5>
-                  <p>{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s").substr(0,115)}{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,").length > 115 && "..."}</p>
-                  <Link href="/discover-the-rotator-brick-oven">
-                    <a className="mf_btn" title="The Rotator">Explore more</a>
-                  </Link>
-                </div>
-              </div>
-            </ScrollAnimation>
-          </Col>
-          <Col lg={4} md={6}>
-            <ScrollAnimation duration={2} animateIn="fadeInUp" animateOnce={true}>
-              <div className={ProductStyle.product_inner}>
-                <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/stainless_facade_square_black.webp`} width="400" height="500" className="img-fluid" alt="The Rotator" />
-                <div className={ProductStyle.product_info}>
-                  <h5>Fork Dough Mixers Mono</h5>
-                  <p>{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s").substr(0,115)}{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,").length > 115 && "..."}</p>
-                  <Link href="/discover-the-rotator-brick-oven">
-                    <a className="mf_btn" title="The Rotator">Explore more</a>
-                  </Link>
-                </div>
-              </div>
-            </ScrollAnimation>
-          </Col>
-          <Col lg={4} md={6}>
-            <ScrollAnimation duration={2} animateIn="fadeInUp" animateOnce={true}>
-              <div className={ProductStyle.product_inner}>
-                <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/stainless_facade_square_black.webp`} width="400" height="500" className="img-fluid" alt="The Rotator" />
-                <div className={ProductStyle.product_info}>
-                  <h5>Fork Dough Mixers Dual</h5>
+                  <h5>Fork Dough Mixers</h5>
                   <p>{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s").substr(0,115)}{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,").length > 115 && "..."}</p>
                   <Link href="/discover-the-rotator-brick-oven">
                     <a className="mf_btn" title="The Rotator">Explore more</a>

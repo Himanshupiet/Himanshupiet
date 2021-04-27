@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Head from 'next/head'
+import Head from '../../components/common/Head'
 import Footer from '../../components/footer/footer'
 import Header from '../../components/header/header'
 import Products from '../../components/Product_page/Products'

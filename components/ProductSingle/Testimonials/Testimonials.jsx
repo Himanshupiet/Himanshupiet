@@ -4,6 +4,7 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import TestimonialsStyle from './Testimonials.module.css';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 /**
 * @author
@@ -32,6 +33,7 @@ const Testimonials = (props) => {
   return(
     <section className={TestimonialsStyle.section_outer}>
       <Container>
+      <ScrollAnimation duration={2} animateIn="fadeInUp" animateOnce={true}>
         <Slider {...T_SliderSettings} className={TestimonialsStyle.slider_outer}>
           <div className={TestimonialsStyle.slider_inner}>
             <h4>Caliente Pizza & Draft House</h4>
@@ -109,6 +111,7 @@ const Testimonials = (props) => {
             <p className={TestimonialsStyle.author}>Declan Mahar</p>
           </div>
         </Slider>
+      </ScrollAnimation>
       </Container>
     </section>
    )

@@ -17,14 +17,14 @@ const highlightData1 = {
     buttonText: 'Build Your Own Oven!'
 }
 let highlightData2 = {
-    Heading: "Customize Your Commercial Brick Oven, Add Logo!!",
-    subHeading: "Premium and Beautiful Tile Options.",
-    buttonText: "Build Your Own Oven!"
+    Heading: 'Customize Your Commercial Brick Oven, Add Logo!!',
+    subHeading: 'Premium and Beautiful Tile Options.',
+    buttonText: 'Build Your Own Oven!'
 }
 let highlightData3 = {
-    Heading: "Customized Handcrafted Brick Oven, Add Your Logo",
-    subHeading: "Premium and Beautiful Tile Options.",
-    buttonText: "Build Your Own Oven!"
+    Heading: 'Customized Handcrafted Brick Oven, Add Your Logo',
+    subHeading: 'Premium and Beautiful Tile Options.',
+    buttonText: 'Build Your Own Oven!'
 }
 let highlightData4 = {
     Heading: '',
@@ -49,19 +49,24 @@ const MainHomePage = props => {
             }}/>
             <Authentic />
             <HighLight
-                highlightData={ highlightData1 } />
+                highlightData={ highlightData1 } 
+            />
             <Product />
             <HighLight
-                highlightData={ highlightData5 } />
+                highlightData={ highlightData5 } 
+            />
             <Reliable />
             <HighLight
-                highlightData={ highlightData2 } />
+                highlightData={ highlightData2 } 
+            />
             <QodefSlider />
             <HighLight
-                highlightData={ highlightData3 } />
+                highlightData={ highlightData3 } 
+            />
             <RotateImage360D />
             <HighLight
-                highlightData={ highlightData4 } />
+                highlightData={ highlightData4 } 
+            />
             <Features_Services />
             <LogoSlider />
             <Footer />

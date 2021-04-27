@@ -10,3 +10,25 @@
 .section_outer p{
   color: #fff;
 }
+.section_outer ul{
+  margin: 30px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.section_outer ul li{
+  margin: 0 10px 20px;
+}
+.section_outer ul li button{
+  outline: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 0px;
+  transition: all 0.3s ease;
+}
+.section_outer ul li button:hover{
+  background-color: #04858b;
+  color: #fff;
+}
