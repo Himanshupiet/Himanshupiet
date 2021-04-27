@@ -9,8 +9,10 @@ import { Col, Container, Row } from 'react-bootstrap';
 **/
 
 const HighLight = ({highlightData}) => {
+  let background_color = highlightData.background=="grey" ? {backgroundColor:"#24262a"} : {backgroundImage:"linear-gradient(to right top, #e31422, #d71720, #cb191e, #bf1a1d, #b31b1b)"};
+
   return(
-    highlightData ? <section className={HighLightStyle.section_outer}>
+    highlightData ? <section className={HighLightStyle.section_outer} style={background_color}>
       <Container>
         <Row className="align-items-center">
           <Col lg={8} md={6} className={HighLightStyle.text_box}>

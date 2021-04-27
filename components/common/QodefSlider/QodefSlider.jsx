@@ -1,6 +1,8 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import QodefSliderStyle from './QodefSlider.module.css';
 import ScrollAnimation from 'react-animate-on-scroll';
 

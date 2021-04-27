@@ -38,7 +38,8 @@ export default function Home() {
   let highlightData5 = {
     Heading: "Explore Our Industrial Kitchen Appliances",
     subHeading: "Slicers, Mixers & Prep Tables",
-    buttonText: "GET A QUOTE"
+    buttonText: "GET A QUOTE",
+    background: "grey"
   }
 
   return (

@@ -11,6 +11,9 @@ import ProductInfo from '../../components/ProductSingle/ProductInfo/ProductInfo'
 import Features from '../../components/ProductSingle/Features/Features';
 import HighLight from '../../components/Home_Page/HighLightSection/HighLight';
 import Resources from '../../components/ProductSingle/Resources/Resources';
+import VideoPart from '../../components/ProductSingle/VideoPart/VideoPart';
+import KitchenNearYou from '../../components/ProductSingle/KitchenNearYou/KitchenNearYou';
+import Testimonials from '../../components/ProductSingle/Testimonials/Testimonials';
 
 /**
 * @author
@@ -58,6 +61,9 @@ const SingleProduct = (props) => {
       <Features />
       <Resources />
       <HighLight highlightData={highlightData} />
+      <VideoPart />
+      <KitchenNearYou />
+      <Testimonials />
       <Footer />
     </>
    )

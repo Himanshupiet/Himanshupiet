@@ -373,12 +373,14 @@ a:hover{
   display: flex;
   align-items: center;
 }
+.Testimonials_slider_outer__340kd .slick-dots li button::before,
 .QodefSlider_qodefslider_outer__B3VrZ .slick-dots li button::before,
 .LogoSlider_logoslider_outer__U31PH .slick-dots li button::before{
   font-size: 13px;
   color: #333;
   opacity: 1;
 }
+.Testimonials_slider_outer__340kd .slick-dots li.slick-active button::before,
 .QodefSlider_qodefslider_outer__B3VrZ .slick-dots li.slick-active button::before,
 .LogoSlider_logoslider_outer__U31PH .slick-dots li.slick-active button::before{
   font-size: 14px;

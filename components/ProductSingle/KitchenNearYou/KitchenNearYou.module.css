@@ -1,0 +1,12 @@
+.section_outer{
+  padding: 50px 0;
+  width: 100%;
+  background-color: #e31422;
+  text-align: center;
+  color: #fff;
+}
+.section_outer h3,
+.section_outer h4,
+.section_outer p{
+  color: #fff;
+}

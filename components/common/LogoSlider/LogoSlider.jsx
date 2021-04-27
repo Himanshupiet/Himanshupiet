@@ -58,9 +58,6 @@ const LogoSlider = (props) => {
             <img className="img-fluid" alt="NationalRestaurantAssociationlogo" width="115" height="70" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/1200px-National_Restaurant_Association_logo.webp`} />
           </div>
           <div className={SliderStyle.logoslider_inner}>
-            <img className="img-fluid" alt="Sbarro" width="115" height="70" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/marraforni_clients_sbarro.webp`} />
-          </div>
-          <div className={SliderStyle.logoslider_inner}>
             <img className="img-fluid" alt="AHFLogo" width="115" height="70" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/AHFLogo.webp`} />
           </div>
           <div className={SliderStyle.logoslider_inner}>
@@ -79,7 +76,7 @@ const LogoSlider = (props) => {
             <img className="img-fluid" alt="NAFEMLogo" width="115" height="70" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/NAFEMLogo.webp`} />
           </div>
           <div className={SliderStyle.logoslider_inner}>
-            <img className="img-fluid" alt="Pizza-U-Logo" width="115" height="70" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Pizza-U-Logo.webp`} />
+            <img className="img-fluid" alt="Pizza-U-Logo" width="115" height="70" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Pizza-U-Logo.png`} />
           </div>
           <div className={SliderStyle.logoslider_inner}>
             <img className="img-fluid" alt="shfm_logo" width="115" height="70" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/shfm_logo_400px.webp`} />
