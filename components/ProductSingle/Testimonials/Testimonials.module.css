@@ -1,0 +1,24 @@
+.section_outer{
+  background-color: #f6f7fc;
+  padding: 50px 0;
+  width: 100%;
+}
+.section_outer .slider_outer{
+  margin: 0 -20px;
+}
+.section_outer .slider_inner_main{
+  margin: 0 10px;
+}
+.section_outer .slider_inner{
+  text-align: center;
+  padding: 0 20px;
+}
+.section_outer .slider_inner .author{
+  font-weight: 500;
+}
+.section_outer .slider_inner .author::before{
+  content: "—";
+  color: #e31422;
+  margin-right: 5px;
+  font-weight: 700;
+}

@@ -17,6 +17,7 @@
 }
 .product_inner img{
   border-radius: 20px;
+  max-width: 80%;
 }
 .product_info{
   text-align: center;
@@ -24,6 +25,9 @@
 }
 .product_inner .product_info h4{
   color: #04858b;
+}
+.product_inner .product_info p{
+  min-height: 84px;
 }
 .product_inner .product_info a{
   padding: 5px 10px;

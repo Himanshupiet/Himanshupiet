@@ -373,12 +373,14 @@ a:hover{
   display: flex;
   align-items: center;
 }
+.Testimonials_slider_outer__340kd .slick-dots li button::before,
 .QodefSlider_qodefslider_outer__B3VrZ .slick-dots li button::before,
 .LogoSlider_logoslider_outer__U31PH .slick-dots li button::before{
   font-size: 13px;
   color: #333;
   opacity: 1;
 }
+.Testimonials_slider_outer__340kd .slick-dots li.slick-active button::before,
 .QodefSlider_qodefslider_outer__B3VrZ .slick-dots li.slick-active button::before,
 .LogoSlider_logoslider_outer__U31PH .slick-dots li.slick-active button::before{
   font-size: 14px;
@@ -611,4 +613,23 @@ a:hover{
     -webkit-transform: rotate3d(0, 1, 0, 104deg);
     transform: rotate3d(0, 1, 0, 104deg); 
   } 
+}
+
+select,
+input{
+  padding: 10px 15px;
+  outline: none;
+  border: 1px solid #333333;
+  background-color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333333;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+select:focus,
+input:focus{
+  box-shadow: 0 0 20px 0px rgb(51 51 51 / 15%)
 }

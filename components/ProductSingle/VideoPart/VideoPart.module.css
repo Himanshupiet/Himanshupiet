@@ -1,0 +1,18 @@
+.section_outer{
+  background-color: #f6f7fc;
+}
+.section_outer .video_section{
+  background-image: url('../../../public/images/World-Pizza-Champ.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  padding: 50px 20px;
+}
+.video_section iframe{
+  width: 100%;
+}
+.content_section{
+  padding: 50px 20px;
+  text-align: center;
+  align-self: center;
+}

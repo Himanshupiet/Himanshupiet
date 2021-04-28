@@ -16,7 +16,7 @@ const RotateImage360D = (props) => {
           <Col lg={3}>
             <ScrollAnimation duration={2} animateIn="fadeInLeft" animateOnce={true}>
               <div className={Rotate360DStyle.iconbox}>
-                <img alt="Rotating Deck" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Marra-Forni-Rotating-Deck-icon.webp`} width="68" height="68" />
+                <img alt="Rotating Deck" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MarraForniRotatingDeckicon.png`} width="68" height="68" />
                 <h5>Rotating Deck</h5>
                 <p>Increased production capacity, streamline cooking operation, simple to use even with limited skill set.</p>
               </div>
@@ -47,7 +47,7 @@ const RotateImage360D = (props) => {
                 <p>Control the temperature, rotation speed, auto on/off all from the integrated touchsreen</p>
               </div>
               <div className={Rotate360DStyle.iconbox}>
-                <img alt="84,000 BTU" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Marra-Forni-Rotating-Deck-icon.webp`} width="68" height="68" />
+                <img alt="84,000 BTU" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MarraForniRotatingDeckicon.png`} width="68" height="68" />
                 <h5>84,000 BTU</h5>
                 <p>Lower energy bills enable you to invest in the grow of you business</p>
               </div>
