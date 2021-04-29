@@ -3,6 +3,7 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import { Col, Container, Row, Tabs, Tab } from 'react-bootstrap';
 import Rotate360DStyle from './RotateImage360D.module.css';
 
+import React360 from './React360'
 /**
 * @author
 * @function RotateImage360D
@@ -12,6 +13,10 @@ const RotateImage360D = (props) => {
   return(
     <section className={Rotate360DStyle.section_outer}>
       <Container>
+        <React360
+            dir='awair-360'
+            numImages={55}
+        />
         <Row>
           <Col lg={3}>
             <ScrollAnimation duration={2} animateIn="fadeInLeft" animateOnce={true}>
