@@ -11,3 +11,9 @@
   -o-user-select: none;
   user-select: none;
 }
+
+@media only screen and (max-width:575px){
+  .react360 {
+    margin-top: -50px;
+  }
+}
