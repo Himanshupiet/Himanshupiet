@@ -13,10 +13,14 @@ function React360(props) {
   useEffect(() => {
     document.addEventListener("mousemove", handleMouseMove, false);
     document.addEventListener("mouseup", handleMouseUp, false);
+    document.addEventListener('pointermove', handleMouseMove, false);
+    document.addEventListener('pointerup', handleMouseUp, false);
 
     return function cleaup() {
       document.removeEventListener("mousemove", handleMouseMove, false);
       document.removeEventListener("mouseup", handleMouseUp, false);
+      document.removeEventListener('pointermove', handleMouseMove, false);
+      document.removeEventListener('pointerup', handleMouseUp, false);
     };
   }, [state.dragging, state.imageIndex, state.dragStartIndex]);
 
@@ -67,6 +71,7 @@ function React360(props) {
       <div 
         className={React360Style.react360} 
         onMouseDown={handleMouseDown}
+        onPointerDown={handleMouseDown}
         onDragStart={preventDragHandler}
       >
         <img
