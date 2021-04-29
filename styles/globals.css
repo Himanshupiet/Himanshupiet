@@ -389,6 +389,7 @@ a:hover{
 }
 .RotateImage360D_section_outer___BpRm .nav-tabs{
   border: 0;
+  position: relative;
 }
 .RotateImage360D_section_outer___BpRm .nav-tabs .nav-link{
   border: 0;

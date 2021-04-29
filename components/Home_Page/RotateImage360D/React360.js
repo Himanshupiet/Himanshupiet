@@ -1,28 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
+import React360Style from './React360.module.css'
 
-const React360Wrapper = styled.div`
-  cursor: grab;
-  .react360 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 500px;
-    background-color: white;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-    user-select: none;
-  }
-
-  .icon-react360 {
-    height: 4em;
-    position: relative;
-    padding-top: 3em;
-  }
-`
 const pixelsPerDegree = 3;
 
 function React360(props) {
@@ -86,24 +64,24 @@ function React360(props) {
     const { imageIndex } = state;
 
     return (
-      <div className='react360'>
+      <div 
+        className={React360Style.react360} 
+        onMouseDown={handleMouseDown}
+        onDragStart={preventDragHandler}
+      >
         <img
-          className='react-360-img'
-          alt=''
-          src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/${props.dir}/${imageIndex}.jpg`}
+          className='img-fluid'
+          alt='Rotator Image'
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/${props.dir}${imageIndex}.png`}
+          width='896'
+          height='1204'
         />
       </div>
     );
   };
 
   return (
-    <React360Wrapper
-      className='react-360-img'
-      onMouseDown={handleMouseDown}
-      onDragStart={preventDragHandler}
-    >
-      {renderImage()}
-    </React360Wrapper>
+    renderImage()
   )
 }
 
