@@ -6,8 +6,11 @@
   text-align: center;
   padding-bottom: 20px;
 }
-.product_main{
+.product_outer{
   margin-bottom: 30px;
+}
+.product_main{
+  height: 100%;
   -webkit-transition: .2s cubic-bezier(.02,.22,.7,1.98);
   transition: .2s cubic-bezier(.02,.22,.7,1.98);
   -webkit-box-shadow: 0 0 20px 5px rgb(86 86 86 / 30%);
@@ -42,4 +45,13 @@
   font-weight: 400;
   color: #565656;
   margin-left: 15px;
+}
+.info_box a{
+  margin-top: 20px;
+}
+
+@media only screen and (max-width:991px){
+  .product_main{
+    height: auto;
+  }
 }

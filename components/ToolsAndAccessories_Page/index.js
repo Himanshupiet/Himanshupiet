@@ -5,6 +5,7 @@ import GetAQuote from '../common/GetAQuote/GetAQuote'
 import T_and_A_Style from './index.module.css'
 import { Container } from 'react-bootstrap'
 import Products from './T&C_Products/Products'
+import GalleryImages from './GalleryImages/GalleryImages'
 
 const ToolsAndAccessoriesMain = (props) => {
   return(
@@ -27,6 +28,7 @@ const ToolsAndAccessoriesMain = (props) => {
       </Container>
       <Products />
       <GetAQuote />
+      <GalleryImages />
       <Footer />
     </>
    )

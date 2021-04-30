@@ -93,20 +93,6 @@ const Products = (props) => {
           <Col lg={4} md={6}>
             <ScrollAnimation duration={2} animateIn="fadeInUp" animateOnce={true}>
               <div className={ProductStyle.product_inner}>
-                <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Small-Traditional-BrIck-Oven-Rendering.webp`} width="400" height="500" className="img-fluid" alt="Due Bocche" />
-                <div className={ProductStyle.product_info}>
-                  <h5>Traditional Ovens</h5>
-                  <p>{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s").substr(0,115)}{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,").length > 115 && "..."}</p>
-                  <Link href="/due-bocche">
-                    <a className="mf_btn" title="Due Bocche">Explore more</a>
-                  </Link>
-                </div>
-              </div>
-            </ScrollAnimation>
-          </Col>
-          <Col lg={4} md={6}>
-            <ScrollAnimation duration={2} animateIn="fadeInUp" animateOnce={true}>
-              <div className={ProductStyle.product_inner}>
                 <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Webp.net-resizeimage-1.webp`} width="400" height="500" className="img-fluid" alt="Due Bocche" />
                 <div className={ProductStyle.product_info}>
                   <h5>Mobile Trailer</h5>

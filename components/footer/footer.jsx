@@ -1,3 +1,5 @@
+import { faFacebookF, faFacebookSquare, faInstagram, faLinkedinIn, faPinterestP, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
@@ -210,37 +212,27 @@ const Footer = (props) => {
                     <a title="Our Blog">Our Blog</a>
                   </Link>
                 </li>
-                <li>
-                  <Link href="https://www.youtube.com/user/marraforni">
-                    <a target="_blank" rel="noopener" title="Our Videos">Our Videos</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="https://www.linkedin.com/company/marraforni/">
-                    <a target="_blank" rel="noopener" title="Linkedin">Linkedin</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="https://www.instagram.com/marraforni">
-                    <a target="_blank" rel="noopener" title="Instagram">Instagram</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="https://www.facebook.com/marraforni">
-                    <a target="_blank" rel="noopener" title="Facebook">Facebook</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="https://www.pinterest.com/marraforni/">
-                    <a target="_blank" rel="noopener" title="Pinterest">Pinterest</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="https://twitter.com/MarraForni">
-                    <a target="_blank" rel="noopener" title="Twitter">Twitter</a>
-                  </Link>
-                </li>
               </ul>
+              <div className={footerStyle.social_outer}>
+                <Link href="https://www.facebook.com/marraforni">
+                  <a target="_blank" rel="noopener" title="Facebook"><span><FontAwesomeIcon icon={faFacebookF} /></span></a>
+                </Link>
+                <Link href="https://twitter.com/MarraForni">
+                  <a target="_blank" rel="noopener" title="Twitter"><span><FontAwesomeIcon icon={faTwitter} /></span></a>
+                </Link>
+                <Link href="https://www.instagram.com/marraforni">
+                  <a target="_blank" rel="noopener" title="Instagram"><span><FontAwesomeIcon icon={faInstagram} /></span></a>
+                </Link>
+                <Link href="https://www.linkedin.com/company/marraforni/">
+                  <a target="_blank" rel="noopener" title="Linkedin"><span><FontAwesomeIcon icon={faLinkedinIn} /></span></a>
+                </Link>
+                <Link href="https://www.pinterest.com/marraforni/">
+                  <a target="_blank" rel="noopener" title="Pinterest"><span><FontAwesomeIcon icon={faPinterestP} /></span></a>
+                </Link>
+                <Link href="https://www.youtube.com/user/marraforni">
+                  <a target="_blank" rel="noopener" title="Our Videos"><span><FontAwesomeIcon icon={faYoutube} /></span></a>
+                </Link>
+              </div>
               <Link href="/">
                 <a className="mf_btn" title="Rep portal">Rep portal</a>
               </Link>
