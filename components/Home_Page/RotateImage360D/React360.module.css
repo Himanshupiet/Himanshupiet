@@ -1,0 +1,19 @@
+.react360 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -100px;
+  cursor: grab;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+@media only screen and (max-width:575px){
+  .react360 {
+    margin-top: -50px;
+  }
+}

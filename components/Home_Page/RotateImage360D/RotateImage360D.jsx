@@ -1,12 +1,9 @@
-import React from 'react';
-import ScrollAnimation from 'react-animate-on-scroll';
-import { Col, Container, Row, Tabs, Tab } from 'react-bootstrap';
-import Rotate360DStyle from './RotateImage360D.module.css';
+import React from 'react'
+import ScrollAnimation from 'react-animate-on-scroll'
+import { Col, Container, Row, Tabs, Tab } from 'react-bootstrap'
+import Rotate360DStyle from './RotateImage360D.module.css'
 
-/**
-* @author
-* @function RotateImage360D
-**/
+import React360 from './React360'
 
 const RotateImage360D = (props) => {
   return(
@@ -31,10 +28,16 @@ const RotateImage360D = (props) => {
             <ScrollAnimation duration={2} animateIn="fadeIn" animateOnce={true}>
               <Tabs defaultActiveKey="RedPennyTile" id="uncontrolled-tab-example">
                 <Tab eventKey="RedPennyTile" title="Red Penny Tile">
-                Red Penny Tile
+                  <React360
+                    dir='penny_tile/marra-forni-penny-tile-brick-oven-lg-'
+                    numImages={72}
+                  />
                 </Tab>
                 <Tab eventKey="RedBrokenTile" title="Red Broken Tile">
-                Red Broken Tile
+                  <React360
+                    dir='broken_tile/marra-forni-broken-tile-brick-oven-lg-'
+                    numImages={72}
+                  />
                 </Tab>
               </Tabs>
             </ScrollAnimation>

@@ -40,6 +40,29 @@
   margin-right: 5px;
   font-weight: 700;
 }
+.social_outer{
+  margin-bottom: 10px;
+}
+.social_outer a{
+  margin-bottom: 15px;
+  margin-right: 15px;
+  display: inline-block;
+}
+.social_outer a span{
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  border: 1px solid #e31422;
+  color: #ccd0d9;
+  font-size: 25px;
+  transition: all 0.3s ease;
+}
+.social_outer a span:hover{
+  color: #e31422;
+}
 .footer .footer_inner{
   font-size: 15px;
   font-weight: 400;
@@ -73,5 +96,13 @@
 @media only screen and (max-width:767px){
   .footer .footer_inner{
     text-align: center;
+  }
+}
+@media only screen and (max-width:991px){
+  .social_outer a span{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
   }
 }

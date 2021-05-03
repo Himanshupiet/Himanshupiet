@@ -278,7 +278,7 @@ body{
   font-style: normal;
   font-stretch: normal;
   font-weight: 300;
-  color: #232323;
+  color: #565656;
 }
 p{
   font-size: 16px;
@@ -286,7 +286,7 @@ p{
   font-style: normal;
   font-stretch: normal;
   font-weight: 400;
-  color: #232323;
+  color: #565656;
 }
 h1{
   font-family: 'Roboto Slab', sans-serif;
@@ -387,8 +387,12 @@ a:hover{
   color: #e31422;
   opacity: 1;
 }
+.Testimonials_red_section_outer__2UGi2 .Testimonials_slider_outer__340kd .slick-dots li.slick-active button::before{
+  color: #fff;
+}
 .RotateImage360D_section_outer___BpRm .nav-tabs{
   border: 0;
+  position: relative;
 }
 .RotateImage360D_section_outer___BpRm .nav-tabs .nav-link{
   border: 0;

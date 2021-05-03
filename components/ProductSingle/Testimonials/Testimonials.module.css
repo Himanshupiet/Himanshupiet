@@ -22,3 +22,11 @@
   margin-right: 5px;
   font-weight: 700;
 }
+.red_section_outer{
+  background-color: #e31422;
+}
+.red_section_outer h4,
+.red_section_outer p,
+.red_section_outer .slider_inner .author::before{
+  color: #fff;
+}
