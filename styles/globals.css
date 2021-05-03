@@ -387,6 +387,9 @@ a:hover{
   color: #e31422;
   opacity: 1;
 }
+.Testimonials_red_section_outer__2UGi2 .Testimonials_slider_outer__340kd .slick-dots li.slick-active button::before{
+  color: #fff;
+}
 .RotateImage360D_section_outer___BpRm .nav-tabs{
   border: 0;
   position: relative;

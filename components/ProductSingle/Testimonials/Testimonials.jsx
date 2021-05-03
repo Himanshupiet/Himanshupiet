@@ -11,7 +11,7 @@ import ScrollAnimation from 'react-animate-on-scroll';
 * @function Testimonials
 **/
 
-const Testimonials = (props) => {
+const Testimonials = ({background}) => {
   let T_SliderSettings = {
     infinite: true,
     speed: 800,
@@ -30,8 +30,11 @@ const Testimonials = (props) => {
       }
     ]
   };
+
+  const bg_color = background=='red' ? TestimonialsStyle.red_section_outer : '';
+
   return(
-    <section className={TestimonialsStyle.section_outer}>
+    <section className={`${TestimonialsStyle.section_outer} ${bg_color}`}>
       <Container>
       <ScrollAnimation duration={2} animateIn="fadeInUp" animateOnce={true}>
         <Slider {...T_SliderSettings} className={TestimonialsStyle.slider_outer}>
