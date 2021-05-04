@@ -1,11 +1,10 @@
 import React from 'react'
-import GetAQuote from '../../components/common/GetAQuote/GetAQuote'
 
 import Head from '../../components/common/Head'
 import Footer from '../../components/footer/footer'
 import Header from '../../components/header/header'
 import Products from '../../components/Product_page/Products'
-
+import GetAQuote from '../../components/common/GetAQuote/GetAQuote'
 
 const Product = (props) => {
   return(

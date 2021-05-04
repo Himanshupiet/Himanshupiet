@@ -46,3 +46,5 @@ const SingleProduct = (props) => {
 }
 
 export default SingleProduct;
+
+

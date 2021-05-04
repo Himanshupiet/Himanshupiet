@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
+import { withRouter } from 'next/router'
+
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as productActions from '../../actions/product'
+
 import { Col, Container, Row } from 'react-bootstrap';
+
 import ProductStyle from './Products.module.css';
 import ScrollAnimation from "react-animate-on-scroll";
 
-/**
-* @author
-* @function Products
-**/
 
 const Products = (props) => {
+
+  useEffect(() => {
+    props.productActions.getAllProduct()
+    console.log(props)
+  },[])
+
   return(
     <section className={ProductStyle.section_outer}>
       <Container>
@@ -218,5 +227,14 @@ const Products = (props) => {
    )
   }
 
+const mapStateToProps = ({ product }) => {
+  return { product }
+}
 
-export default Products;
+const mapDispatchToProps = dispatch => {
+  return {
+    productActions: bindActionCreators(productActions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Products))
