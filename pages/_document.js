@@ -19,6 +19,10 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          <script type='text/javascript' src={`${process.env.NEXT_PUBLIC_BASE_PATH}/PaintbrushSlider_js/jquery.min9d52.js`} id='jquery-core-js'></script>
+          <script type='text/javascript' src={`${process.env.NEXT_PUBLIC_BASE_PATH}/PaintbrushSlider_js/rbtools.min1e39.js`} id='tp-tools-js'></script>
+          <script type='text/javascript' src={`${process.env.NEXT_PUBLIC_BASE_PATH}/PaintbrushSlider_js/rs6.min1e39.js`} id='revmin-js'></script>
+          <script type='text/javascript' src={`${process.env.NEXT_PUBLIC_BASE_PATH}/PaintbrushSlider_js/revolution.addon.paintbrush.mincc91.js`} id='rs-paintbrush-front-js'></script>
         </body>
       </Html>
     )
