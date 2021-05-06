@@ -637,3 +637,18 @@ select:focus,
 input:focus{
   box-shadow: 0 0 20px 0px rgb(51 51 51 / 15%)
 }
+h2{
+  font-size:79px;
+  font-weight: 600;
+  line-height: 79px;
+  color: #24262a;
+}
+h3{
+  font-size: 44px;
+  line-height: 1.2em;
+  letter-spacing: -1.3px;
+  font-weight: 500;
+  color: #24262a;
+  font-style: normal;
+  text-transform: capitalize;
+}
