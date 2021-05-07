@@ -109,7 +109,7 @@ const BannerSlider = (props) => {
     } 
     var once_revslider4771 = false;
     if (document.readyState === "loading") {document.addEventListener('readystatechange',function() { if((document.readyState === "interactive" || document.readyState === "complete") && !once_revslider4771 ) { once_revslider4771 = true; revinit_revslider4771();}});} else {once_revslider4771 = true; revinit_revslider4771();}
-  })
+  },[])
   
   return(
     <section className={BannerSliderStyle.section_outer}>
@@ -331,7 +331,7 @@ const BannerSlider = (props) => {
 
             </rs-slide>
             <rs-slide data-key="rs-1093" data-title="Slide" data-thumb="//www.sliderrevolution.com/wp-content/uploads/revslider/templates//paintbrushaddon/slide3.jpg" data-anim="ms:600;r:0;" data-in="o:0;" data-out="a:false;" data-revaddonpaintbrush='{"size":250,"origsize":250,"strength":0,"fadetime":600,"image":"https:\/\/www.sliderrevolution.com\/wp-content\/uploads\/2020\/04\/ferrari.jpg","fixedges":true,"style":"butt","responsive":true}' data-revaddonpaintbrushedges="true">
-              <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/transparent.png`} alt="Slide" title="Paintbrush Slider" style={{backgroundColor:"#f6b300"}} data-bg="c:#f6b300;" data-parallax="off" className="rev-slidebg" data-no-retina />
+              <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/transparent.png`} alt="Slide" title="Paintbrush Slider" data-bg="c:#f6b300;" data-parallax="off" className="rev-slidebg" data-no-retina />
 
               <rs-layer
                 id="slider-477-slide-1093-layer-1" 

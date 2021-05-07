@@ -175,6 +175,7 @@
     background-color: transparent;
     border: none;
     outline: none;
+    color: #333;
   }
   .mobile_navbar .site_nav > div{
     margin: 0;

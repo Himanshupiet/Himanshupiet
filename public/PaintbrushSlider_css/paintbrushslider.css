@@ -6008,12 +6008,20 @@ rs-sbg-px {
 	direction: rtl
 }
 
+@font-face{
+	font-display:swap;
+	font-family:'revicons';
+	src:url('../PaintbrushSlider_fonts/revicons.eot');
+	src:url('../PaintbrushSlider_fonts/revicons.eot') format('embedded-opentype'),url('../PaintbrushSlider_fonts/revicons.woff') format('woff'),url('../PaintbrushSlider_fonts/revicons.ttf') format('truetype'),url('../PaintbrushSlider_fonts/revicons.svg') format('svg');
+	font-weight:400;
+	font-style:normal;
+}
+
 [class^="revicon-"]:before,
 [class*=" revicon-"]:before {
 	font-family: "revicons";
 	font-style: normal;
 	font-weight: 400;
-	speak: none;
 	display: inline-block;
 	text-decoration: inherit;
 	width: 1em;
@@ -6040,7 +6048,12 @@ rs-module i[class*=" fa-"],
 #builderView i[class^="fa-"],
 #builderView i[class*=" fa-"] {
 	display: inline-block;
-	font: normal normal normal 14px/1 FontAwesome;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 1;
+	font-family: 'FontAwesome';
 	font-size: inherit;
 	text-rendering: auto;
 	-webkit-font-smoothing: antialiased;
@@ -6061,10 +6074,9 @@ rs-module [class*=" fa-"]:before,
 #rs_overview_menu [class*=" fa-"]:before,
 #builderView [class^="fa-"]:before,
 #builderView [class*=" fa-"]:before {
-	font-family: FontAwesome;
+	font-family: 'FontAwesome';
 	font-style: normal;
 	font-weight: 400;
-	speak: none;
 	display: inline-block;
 	text-decoration: inherit;
 	width: auto;
@@ -6073,7 +6085,7 @@ rs-module [class*=" fa-"]:before,
 	font-variant: normal;
 	text-transform: none;
 	line-height: inherit;
-	margin-left: 0
+	margin-left: 0;
 }
 
 rs-module .sr-only,
@@ -6090,7 +6102,7 @@ rs-module .sr-only,
 	margin: -1px;
 	overflow: hidden;
 	clip: rect(0, 0, 0, 0);
-	border: 0
+	border: 0;
 }
 
 rs-module .sr-only-focusable:active,
@@ -6112,224 +6124,224 @@ rs-module .sr-only-focusable:focus,
 	height: auto;
 	margin: 0;
 	overflow: visible;
-	clip: auto
+	clip: auto;
 }
 
 .revicon-search-1:before {
-	content: '\e802'
+	content: '\e802';
 }
 
 .revicon-pencil-1:before {
-	content: '\e831'
+	content: '\e831';
 }
 
 .revicon-picture-1:before {
-	content: '\e803'
+	content: '\e803';
 }
 
 .revicon-cancel:before {
-	content: '\e80a'
+	content: '\e80a';
 }
 
 .revicon-info-circled:before {
-	content: '\e80f'
+	content: '\e80f';
 }
 
 .revicon-trash:before {
-	content: '\e801'
+	content: '\e801';
 }
 
 .revicon-left-dir:before {
-	content: '\e817'
+	content: '\e817';
 }
 
 .revicon-right-dir:before {
-	content: '\e818'
+	content: '\e818';
 }
 
 .revicon-down-open:before {
-	content: '\e83b'
+	content: '\e83b';
 }
 
 .revicon-left-open:before {
-	content: '\e819'
+	content: '\e819';
 }
 
 .revicon-right-open:before {
-	content: '\e81a'
+	content: '\e81a';
 }
 
 .revicon-angle-left:before {
-	content: '\e820'
+	content: '\e820';
 }
 
 .revicon-angle-right:before {
-	content: '\e81d'
+	content: '\e81d';
 }
 
 .revicon-left-big:before {
-	content: '\e81f'
+	content: '\e81f';
 }
 
 .revicon-right-big:before {
-	content: '\e81e'
+	content: '\e81e';
 }
 
 .revicon-magic:before {
-	content: '\e807'
+	content: '\e807';
 }
 
 .revicon-picture:before {
-	content: '\e800'
+	content: '\e800';
 }
 
 .revicon-export:before {
-	content: '\e80b'
+	content: '\e80b';
 }
 
 .revicon-cog:before {
-	content: '\e832'
+	content: '\e832';
 }
 
 .revicon-login:before {
-	content: '\e833'
+	content: '\e833';
 }
 
 .revicon-logout:before {
-	content: '\e834'
+	content: '\e834';
 }
 
 .revicon-video:before {
-	content: '\e805'
+	content: '\e805';
 }
 
 .revicon-arrow-combo:before {
-	content: '\e827'
+	content: '\e827';
 }
 
 .revicon-left-open-1:before {
-	content: '\e82a'
+	content: '\e82a';
 }
 
 .revicon-right-open-1:before {
-	content: '\e82b'
+	content: '\e82b';
 }
 
 .revicon-left-open-mini:before {
-	content: '\e822'
+	content: '\e822';
 }
 
 .revicon-right-open-mini:before {
-	content: '\e823'
+	content: '\e823';
 }
 
 .revicon-left-open-big:before {
-	content: '\e824'
+	content: '\e824';
 }
 
 .revicon-right-open-big:before {
-	content: '\e825'
+	content: '\e825';
 }
 
 .revicon-left:before {
-	content: '\e836'
+	content: '\e836';
 }
 
 .revicon-right:before {
-	content: '\e826'
+	content: '\e826';
 }
 
 .revicon-ccw:before {
-	content: '\e808'
+	content: '\e808';
 }
 
 .revicon-arrows-ccw:before {
-	content: '\e806'
+	content: '\e806';
 }
 
 .revicon-palette:before {
-	content: '\e829'
+	content: '\e829';
 }
 
 .revicon-list-add:before {
-	content: '\e80c'
+	content: '\e80c';
 }
 
 .revicon-doc:before {
-	content: '\e809'
+	content: '\e809';
 }
 
 .revicon-left-open-outline:before {
-	content: '\e82e'
+	content: '\e82e';
 }
 
 .revicon-left-open-2:before {
-	content: '\e82c'
+	content: '\e82c';
 }
 
 .revicon-right-open-outline:before {
-	content: '\e82f'
+	content: '\e82f';
 }
 
 .revicon-right-open-2:before {
-	content: '\e82d'
+	content: '\e82d';
 }
 
 .revicon-equalizer:before {
-	content: '\e83a'
+	content: '\e83a';
 }
 
 .revicon-layers-alt:before {
-	content: '\e804'
+	content: '\e804';
 }
 
 .revicon-popup:before {
-	content: '\e828'
+	content: '\e828';
 }
 
 .tp-fullwidth-forcer {
 	z-index: 0;
-	pointer-events: none
+	pointer-events: none;
 }
 
 rs-module-wrap {
-	visibility: hidden
+	visibility: hidden;
 }
 
 rs-module-wrap,
 rs-module-wrap * {
 	box-sizing: border-box;
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 rs-module-wrap {
 	position: relative;
 	z-index: 1;
 	width: 100%;
-	display: block
+	display: block;
 }
 
 .rs-fixedscrollon rs-module-wrap {
 	position: fixed!important;
 	top: 0px!important;
 	z-index: 1000;
-	left: 0!important
+	left: 0!important;
 }
 
 .rs-stickyscrollon rs-module-wrap {
 	position: sticky!important;
 	top: 0;
-	z-index: 1000
+	z-index: 1000;
 }
 
 .rs-stickyscrollon {
-	overflow: visible!important
+	overflow: visible!important;
 }
 
 rs-fw-forcer {
 	display: block;
 	width: 100%;
-	pointer-events: none
+	pointer-events: none;
 }
 
 rs-module {
