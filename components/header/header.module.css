@@ -34,13 +34,11 @@
   font-size: 16px;
   font-weight: 400;
   position: relative;
-  overflow: hidden;
   display: inline-block;
   transition: all 0.2s ease;
 }
 .site_nav > div > a > span{
   transition: all 0.2s ease;
-  transform: none;
   display: inline-block;
 }
 .active_menu{
@@ -81,21 +79,22 @@
   display: block !important;
 }
 @media only screen and (min-width:992px){
-  .site_nav > div:hover > a > span{
-    transform: translateY(-100%);
-  }
+
   .site_nav > div > a::after{
     content: attr(data-title);
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    transform: translateY(100%);
-    transition: all 0.2s ease;
+    max-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #e31422;
+    transition: max-width 0.5s;
   }
   .site_nav > div:hover > a::after{
     color: #e31422;
-    transform: none;
+    max-width: 100%;
   }
   .sub_menu ul li a:hover{
     background-color: #04858b;
@@ -175,6 +174,7 @@
     background-color: transparent;
     border: none;
     outline: none;
+    color: #333;
   }
   .mobile_navbar .site_nav > div{
     margin: 0;

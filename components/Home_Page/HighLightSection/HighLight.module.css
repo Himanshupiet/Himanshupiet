@@ -6,9 +6,19 @@
   margin-bottom: 20px;
   color: #fff;
 }
-.text_box h3,
-.text_box h4{
+.text_box h3{
+  font-size: 37px;
+  line-height: 42px;
+  font-weight: 300;
+  letter-spacing: -1px;
   color: #fff;
+}
+.text_box h2{
+  color: #fff;
+  font-size: 45px;
+  line-height: 42px;
+  font-weight: 600;
+  letter-spacing: -1px;
 }
 .button_box{
   margin-bottom: 20px;

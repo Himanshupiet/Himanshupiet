@@ -16,7 +16,7 @@ const Features = (props) => {
           <Col md={4}>
             <ScrollAnimation animateOnce={true} duration={1} animateIn="fadeInLeft">
               <div className={FeaturesStyle.inner}>
-                <h4>Standard Features</h4>
+                <h2>Standard Features</h2>
                 <ol>
                   <li>Touchscreen</li>
                   <li>Dome Terra Cotta Finish</li>
@@ -35,7 +35,7 @@ const Features = (props) => {
           <Col md={4}>
             <ScrollAnimation animateOnce={true} duration={1} animateIn="fadeInUp">
               <div className={FeaturesStyle.inner}>
-                <h4>Optional Features</h4>
+                <h2>Optional Features</h2>
                 <ol>
                   <li>Custom Tile Application</li>
                   <li>Integrated Exhaust System</li>
@@ -51,7 +51,7 @@ const Features = (props) => {
           <Col md={4}>
             <ScrollAnimation animateOnce={true} duration={1} animateIn="fadeInRight">
               <div className={FeaturesStyle.inner_approve}>
-                <h4>Approved</h4>
+                <h2>Approved</h2>
                 <p>Marra Forni products that feature these logos meet rigorous standards for electrical safety and electromagnetic emissions. The acronyms are as follows:</p>
                 <p>
                   <span><b>UL: </b>Underwriters Laboratories, Inc.</span><br />

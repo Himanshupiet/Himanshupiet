@@ -5,7 +5,7 @@
   width: 100%;
   text-align: center;
 }
-.tabs_outer h4{
+.tabs_outer h2{
   color: #fff;
   margin-bottom: 25px;
 }
@@ -118,6 +118,7 @@
   border-radius: 3px;
   font-size: 15px;
   outline: none;
+  color: #565656;
   transition: all 0.3s ease-in-out;
 }
 .pagination li button:hover,

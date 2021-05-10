@@ -33,7 +33,7 @@ const Footer = (props) => {
   return(
     <>
       <footer className={footerStyle.footer}>
-        <Container>
+        <Container fluid>
           <div className={footerStyle.top_footer}>
             <p><b>★★★★★ Google Reviews • Exceptional Customer Experience • International Shipping</b></p>
             <p>Marra Forni is the premier manufacturer of brick oven cooking solutions to the global commercial foodservice industry. We continue to exceed customer expectations through our handcrafted workmanship, innovative technology, and a continued commitment to achieving best-in-class quality, performance, and service.</p>

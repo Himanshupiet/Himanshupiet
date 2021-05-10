@@ -13,8 +13,8 @@ const KitchenNearYou = (props) => {
     <section className={KitchenNearYouStyle.section_outer}>
       <Container>
         <ScrollAnimation animateOnce={true} animateIn="fadeInUp" duration={1}>
-          <h4>Want To Try Our Brick Ovens?</h4>
-          <h3>VISIT A TEST KITCHEN NEAR YOU</h3>
+          <h3>Want To Try Our Brick Ovens?</h3>
+          <h2>VISIT A TEST KITCHEN NEAR YOU</h2>
           <p>Marra Forni has multiple test kitchens located across the country. You can take your next authentic Italian wood, gas, and electric brick oven for a spin anytime. Schedule a visit now</p>
         </ScrollAnimation>
         <ScrollAnimation animateOnce={true} animateIn="zoomIn" duration={1}>

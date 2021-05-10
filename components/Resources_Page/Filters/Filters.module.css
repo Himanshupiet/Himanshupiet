@@ -1,0 +1,44 @@
+.filter_outer{
+
+}
+.filters_main{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.filters_main .filters{
+  padding: 10px 10px;
+  background-color: #f6f7fc;
+  font-size: 17px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.filter_option{
+  height: 0;
+  overflow: hidden;
+  margin-bottom: 10px;
+  border: 1px solid #f6f7fc;
+}
+.openFilterOption{
+  padding: 10px 10px;
+  height: auto;
+  overflow: visible;
+  transition: height 0.7s ease-in;
+}
+.filter_option ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.filter_option ul label{
+  width: 100%;
+}
+.filter_option ul label input[type="checkbox"]{
+  width: 15px !important;
+  margin: 0 10px 0 0 !important;
+  padding: 0 !important;
+  height: 15px;
+  vertical-align: middle;
+}

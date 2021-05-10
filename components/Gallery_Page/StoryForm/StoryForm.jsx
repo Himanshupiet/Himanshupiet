@@ -185,7 +185,7 @@ const StoryForm = (props) => {
         >
           <div 
             className={StoryFormStyle.section_inner}>
-            <h3>Are You A Marra Forni Owner? Tell Us Your Story!</h3>
+            <h2>Are You A Marra Forni Owner? Tell Us Your Story!</h2>
             <Row>
               <Col
                 md={6}

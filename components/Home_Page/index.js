@@ -10,6 +10,7 @@ import LogoSlider from '../common/LogoSlider/LogoSlider'
 import QodefSlider from '../common/QodefSlider/QodefSlider'
 import RotateImage360D from './RotateImage360D/RotateImage360D'
 import Features_Services from './Features&Services/Features_Services'
+import BannerSlider from './BannerSlider/BannerSlider'
 
 const highlightData1 = {
     Heading: 'High-Volume Cooking',
@@ -42,11 +43,12 @@ const MainHomePage = props => {
     return (
         <>
             <Header />
-            <div style={{
+            {/* <div style={{
                 height:'610px',
                 backgroundImage:`url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/Choose-Your-Model-Banner.png)`,
                 backgroundRepeat:'no-repeat'
-            }}/>
+            }}/> */}
+            <BannerSlider />
             <Authentic />
             <HighLight
                 highlightData={ highlightData1 } 

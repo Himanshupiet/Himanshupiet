@@ -8,7 +8,7 @@ const Product = (props) => {
   return(
     <section 
       className={ProductStyle.section_outer}>
-      <Container>
+      <Container fluid>
         <Row>
           <Col 
             lg={3} 
@@ -30,7 +30,7 @@ const Product = (props) => {
                 />
                 <div 
                   className={ProductStyle.product_info}>
-                  <h4>Rotator</h4>
+                  <h3>Rotator</h3>
                   <p>{('High-performance, high-efficiency, user-friendly for unskilled labor').substr(0,80)}
                   {('High-performance, high-efficiency, user-friendly for unskilled labor').length > 80 && '...'}</p>
                   <Link 
@@ -66,7 +66,7 @@ const Product = (props) => {
                 />
                 <div 
                   className={ProductStyle.product_info}>
-                  <h4>Neapolitan</h4>
+                  <h3>Neapolitan</h3>
                   <p>{('The “Classic” brick oven solution for static and mobile applications. Available in Wood, Gas, and Combination').substr(0,80)}
                   {('The “Classic” brick oven solution for static and mobile applications. Available in Wood, Gas, and Combination').length > 80 && '...'}</p>
                   <Link 
@@ -102,7 +102,7 @@ const Product = (props) => {
                 />
                 <div 
                   className={ProductStyle.product_info}>
-                  <h4>Electric</h4>
+                  <h3>Electric</h3>
                   <p>{('The look of a Traditional wood or gas-fired oven with Top and bottom heat controls').substr(0,80)}
                   {('The look of a Traditional wood or gas-fired oven with Top and bottom heat controls').length > 80 && '...'}</p>
                   <Link 
@@ -138,7 +138,7 @@ const Product = (props) => {
                 />
                 <div 
                   className={ProductStyle.product_info}>
-                  <h4>Due Bocche</h4>
+                  <h3>Due Bocche</h3>
                   <p>{('All of the benefits of the Classic Neapolitan or the Rotator in a Pass-Thru configuration').substr(0,80)}
                   {('All of the benefits of the Classic Neapolitan or the Rotator in a Pass-Thru configuration').length > 80 && '...'}</p>
                   <Link 

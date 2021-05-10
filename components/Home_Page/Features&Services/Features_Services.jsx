@@ -13,13 +13,13 @@ import ScrollAnimation from 'react-animate-on-scroll';
 const Features_Services = (props) => {
   return(
     <section className={FSStyle.section_outer}>
-      <Container>
+      <Container fluid>
         <Row>
           <Col xl={1}></Col>
           <Col xl={10}>
             <ScrollAnimation duration={1} animateIn="fadeIn" animateOnce={true}>
               <div className={FSStyle.title_box}>
-                <h3>Authentic Italian Design, Manufactured In American</h3>
+                <h2>Authentic Italian Design, Manufactured In American</h2>
                 <p>You don’t just buy a Brick Oven from Marra Forni, you join a growing family of passionate entrepreneurs, executives, pizzaiolos and mom-and-pops operations across the world.</p>
               </div>
             </ScrollAnimation>

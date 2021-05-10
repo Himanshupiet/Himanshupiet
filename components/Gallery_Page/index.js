@@ -21,7 +21,7 @@ const GalleryMain = (props) => {
       }}/>
       <Container>
         <div className={GalleryStyle.heading_main}>
-          <h3>Your Success Is Our Inspiration</h3>
+          <h1>Your Success Is Our Inspiration</h1>
           <p>Marra Forni is built for the people who believe in us and use our brick ovens and other Marra Forni products daily to feed thousands of hungry mouths around the world. Without our awesome clients, we do not have a product, nor do we have a company. We take your suggestions and comments to heart so that we may continue to innovate and support your own success and growth.</p>
         </div>
       </Container>

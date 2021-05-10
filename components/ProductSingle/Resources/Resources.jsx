@@ -15,7 +15,7 @@ const Resources = (props) => {
       <Container>
         <ScrollAnimation animateIn="zoomIn" animateOnce={true} duration={1}>
           <div className={ResourcesStyle.title_box}>
-            <h3>Model Resources</h3>
+            <h2>Model Resources</h2>
             <p>The Marra Forni Rotator Oven Spec Sheets, CAD Blocks, and REVIT Files refer to the resources option within the choices below.</p>
           </div>
         </ScrollAnimation>
