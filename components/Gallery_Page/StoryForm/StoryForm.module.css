@@ -12,7 +12,7 @@
 .section_inner .input_error{
   border: 1px solid red;
 }
-.section_inner h3{
+.section_inner h2{
   text-align: center;
   margin-bottom: 20px;
 }

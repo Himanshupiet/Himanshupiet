@@ -14,7 +14,7 @@ const Category_Gallery = (props) => {
             animateOnce={true}
             duration={1}  
           >
-            <h4>Ovens</h4>
+            <h2>Ovens</h2>
             <ul className={CategoryGalleryStyle.gallerytabs}>
               <li><button className={CategoryGalleryStyle.btn_active}>All</button></li>
               <li><button>Mobile Brick Oven</button></li>
@@ -270,7 +270,7 @@ const Category_Gallery = (props) => {
             animateOnce={true}
             duration={1}  
           >
-            <h4>Prep Tables</h4>
+            <h2>Prep Tables</h2>
             <ul className={CategoryGalleryStyle.gallerytabs}>
               <li><button className={CategoryGalleryStyle.btn_active}>All</button></li>
               <li><button>Refrigerated Prep Table</button></li>
@@ -302,7 +302,7 @@ const Category_Gallery = (props) => {
                       />
                       <div className={CategoryGalleryStyle.gallery_overlay}>
                         <div className={CategoryGalleryStyle.info_box}>
-                          <span>Refrigerated Condiment Rail</span>
+                          <span>Refrigerated Condiment</span>
                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
                         </div>
                       </div>
@@ -331,7 +331,7 @@ const Category_Gallery = (props) => {
                       />
                       <div className={CategoryGalleryStyle.gallery_overlay}>
                         <div className={CategoryGalleryStyle.info_box}>
-                          <span>Refrigerated Condiment Rail</span>
+                          <span>Refrigerated Condiment</span>
                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
                         </div>
                       </div>
@@ -360,7 +360,7 @@ const Category_Gallery = (props) => {
                       />
                       <div className={CategoryGalleryStyle.gallery_overlay}>
                         <div className={CategoryGalleryStyle.info_box}>
-                          <span>Refrigerated Condiment Rail</span>
+                          <span>Refrigerated Condiment</span>
                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
                         </div>
                       </div>
@@ -389,7 +389,7 @@ const Category_Gallery = (props) => {
                       />
                       <div className={CategoryGalleryStyle.gallery_overlay}>
                         <div className={CategoryGalleryStyle.info_box}>
-                          <span>Refrigerated Condiment Rail</span>
+                          <span>Refrigerated Condiment</span>
                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
                         </div>
                       </div>
@@ -418,7 +418,7 @@ const Category_Gallery = (props) => {
                       />
                       <div className={CategoryGalleryStyle.gallery_overlay}>
                         <div className={CategoryGalleryStyle.info_box}>
-                          <span>Refrigerated Condiment Rail</span>
+                          <span>Refrigerated Condiment</span>
                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
                         </div>
                       </div>
@@ -447,7 +447,7 @@ const Category_Gallery = (props) => {
                       />
                       <div className={CategoryGalleryStyle.gallery_overlay}>
                         <div className={CategoryGalleryStyle.info_box}>
-                          <span>Refrigerated Condiment Rail</span>
+                          <span>Refrigerated Condiment</span>
                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
                         </div>
                       </div>
@@ -476,7 +476,7 @@ const Category_Gallery = (props) => {
                       />
                       <div className={CategoryGalleryStyle.gallery_overlay}>
                         <div className={CategoryGalleryStyle.info_box}>
-                          <span>Refrigerated Condiment Rail</span>
+                          <span>Refrigerated Condiment</span>
                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
                         </div>
                       </div>
@@ -505,7 +505,7 @@ const Category_Gallery = (props) => {
                       />
                       <div className={CategoryGalleryStyle.gallery_overlay}>
                         <div className={CategoryGalleryStyle.info_box}>
-                          <span>Refrigerated Condiment Rail</span>
+                          <span>Refrigerated Condiment</span>
                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
                         </div>
                       </div>
@@ -524,7 +524,7 @@ const Category_Gallery = (props) => {
             animateOnce={true}
             duration={1}  
           >
-            <h4>Mixers</h4>
+            <h2>Mixers</h2>
             <ul className={CategoryGalleryStyle.gallerytabs}>
               <li><button className={CategoryGalleryStyle.btn_active}>All</button></li>
               <li><button>Spiral Dough Mixers</button></li>
@@ -778,7 +778,7 @@ const Category_Gallery = (props) => {
             animateOnce={true}
             duration={1}  
           >
-            <h4>Market Segments</h4>
+            <h2>Market Segments</h2>
           </ScrollAnimation>
         </Container>
       </section>
