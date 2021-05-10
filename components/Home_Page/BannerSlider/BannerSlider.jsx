@@ -222,7 +222,15 @@ const BannerSlider = (props) => {
               </rs-layer>
 
             </rs-slide>
-            <rs-slide data-key="rs-1092" data-title="Slide" data-thumb="//www.sliderrevolution.com/wp-content/uploads/revslider/pb_bw-100x50.jpg" data-anim="ms:600;r:0;" data-in="o:0;" data-out="a:false;" data-revaddonpaintbrush='{"size":200,"origsize":200,"strength":0,"fadetime":600,"image":"http://localhost:3005/images/PaintBrush_Slider/painthouse-two.jpg","fixedges":true,"blur":true,"disappear":true}' data-revaddonpaintbrushedges="true">
+            <rs-slide
+                data-key="rs-1092"
+                data-title="Slide"
+                data-thumb="//www.sliderrevolution.com/wp-content/uploads/revslider/pb_bw-100x50.jpg"
+                data-anim="ms:600;r:0;"
+                data-in="o:0;"
+                data-out="a:false;"
+                data-revaddonpaintbrush={`size:200,origsize:200,strength:0,fadetime:600,image:${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/painthouse-two.jpg,fixedges:true,blur:true,disappear:true`}
+                data-revaddonpaintbrushedges="true">
               <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/painthouse-two.jpg`} title="Paintbrush Slider" data-parallax="off" className="rev-slidebg" data-no-retina />
 
               <rs-layer
