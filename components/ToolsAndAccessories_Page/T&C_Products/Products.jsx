@@ -14,7 +14,7 @@ const Products = (props) => {
           duration={1}
         >
           <div className={ProductStyle.heading_inner}>
-            <h4>Aluminum Perforated Peels</h4>
+            <h2>Aluminum Perforated Peels</h2>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
           </div>
         </ScrollAnimation>
@@ -41,7 +41,7 @@ const Products = (props) => {
                   </Col>
                   <Col sm={6}>
                     <div className={ProductStyle.info_box}>
-                      <h5>Aluminum Loading/Unloading Peels</h5>
+                      <h3>Aluminum Loading/Unloading Peels</h3>
                       <ul>
                         <li>Perforated Rectangular, 14.5” with 59” handle –# MF.A-37RF</li>
                         <li>Perforated Rectangular 12.5” with 59” handle – # MF.A-32RF</li>
@@ -86,7 +86,7 @@ const Products = (props) => {
                   </Col>
                   <Col sm={6}>
                     <div className={ProductStyle.info_box}>
-                      <h5>Aluminum Turning Peels</h5>
+                      <h3>Aluminum Turning Peels</h3>
                       <ul>
                         <li>Perforated Round 8” with 59” handle – #MF.120</li>
                         <li>Perforated Round 10” with 59” handle – #MF.126</li>
@@ -116,7 +116,7 @@ const Products = (props) => {
           duration={1}
         >
           <div className={ProductStyle.heading_inner}>
-            <h4>Adjustable Copper Brush</h4>
+            <h2>Adjustable Copper Brush</h2>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
           </div>
         </ScrollAnimation>  
@@ -143,7 +143,7 @@ const Products = (props) => {
                   </Col>
                   <Col sm={6}>
                     <div className={ProductStyle.info_box}>
-                      <h5>Adjustable Brush</h5>
+                      <h3>Adjustable Brush</h3>
                       <ul>
                         <li>Adjustable brush, copper bristles with 59″ handle – #AK-D54</li>
                         <li>Wire cleaning brush, copper bristles with 59″ handle – #AC-SP</li>
@@ -184,7 +184,7 @@ const Products = (props) => {
                   </Col>
                   <Col sm={6}>
                     <div className={ProductStyle.info_box}>
-                      <h5>Replacement Brush Head</h5>
+                      <h3>Replacement Brush Head</h3>
                       <ul>
                         <li>Replacement brush head, copper bristles – #SPAZ-01</li>
                         <li>Adjustable brush, copper bristles with 59″ handle – #PTL-06</li>
@@ -211,7 +211,7 @@ const Products = (props) => {
           duration={1}
         >
           <div className={ProductStyle.heading_inner}>
-            <h4>Pizza Peel Kit</h4>
+            <h2>Pizza Peel Kit</h2>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
           </div>
         </ScrollAnimation>  
@@ -238,7 +238,7 @@ const Products = (props) => {
                   </Col>
                   <Col sm={6}>
                     <div className={ProductStyle.info_box}>
-                      <h5>Standard Peel Kit</h5>
+                      <h3>Standard Peel Kit</h3>
                       <ul>
                         <li>Standard Peel kit – Part #TKBASIC (includes (1) loading peel, (1) brush, (1) unloading peel, (1) bubble popper)</li>
                         <li>The kit does NOT include double-sided dual stand</li>
@@ -279,7 +279,7 @@ const Products = (props) => {
                   </Col>
                   <Col sm={6}>
                     <div className={ProductStyle.info_box}>
-                      <h5>Deluxe Peel Kit</h5>
+                      <h3>Deluxe Peel Kit</h3>
                       <ul>
                         <li>Deluxe Peel Kit – Part #TKPREMIUM (includes (2) loading peels, (2) unloading peels, (2) brushes, (2) bubble poppers, (1) Peel Stand)</li>
                         <li>Dual Sided Marble Base Stand (Supports tool length of up to 80″) – Part #MFPPC1618-G</li>
@@ -305,7 +305,7 @@ const Products = (props) => {
           duration={1}
         >
           <div className={ProductStyle.heading_inner}>
-            <h4>Dough Trays & Dolleys</h4>
+            <h2>Dough Trays & Dolleys</h2>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
           </div>
         </ScrollAnimation>  
@@ -332,7 +332,7 @@ const Products = (props) => {
                   </Col>
                   <Col sm={6}>
                     <div className={ProductStyle.info_box}>
-                      <h5>Dough Trays</h5>
+                      <h3>Dough Trays</h3>
                       <ul>
                         <li>Stackable plastic dough tray, (gray) – 24″ x 16″ x 3″-Part #MF.CPT-7D-G <br/>Available ONLY as a set of 6 Each</li>
                         <li>Lids for dough tray – Part #MF.HHTL</li>
@@ -373,7 +373,7 @@ const Products = (props) => {
                   </Col>
                   <Col sm={6}>
                     <div className={ProductStyle.info_box}>
-                      <h5>Dough Tray Dolley</h5>
+                      <h3>Dough Tray Dolley</h3>
                       <ul>
                         <li>Mobile dough tray trolley (steel) 17″ x 25″ – Part #MF.DTD-TRAYS</li>
                         <li>Shown with Dough Tray, NOT included</li>
@@ -399,7 +399,7 @@ const Products = (props) => {
           duration={1}
         >
           <div className={ProductStyle.heading_inner}>
-            <h4>Other Accessories</h4>
+            <h2>Other Accessories</h2>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
           </div>
         </ScrollAnimation>
@@ -426,7 +426,7 @@ const Products = (props) => {
                   </Col>
                   <Col sm={6}>
                     <div className={ProductStyle.info_box}>
-                      <h5>Wall Mounted Tool Rack</h5>
+                      <h3>Wall Mounted Tool Rack</h3>
                       <ul>
                         <li>5-Slot Wall</li>
                         <li>Mounted Tool Rack – Part<br/>#MFTOOLSPPC1618G</li>
@@ -467,7 +467,7 @@ const Products = (props) => {
                   </Col>
                   <Col sm={6}>
                     <div className={ProductStyle.info_box}>
-                      <h5>Pizza Tracker</h5>
+                      <h3>Pizza Tracker</h3>
                       <ul>
                         <li>Numbered Pizza</li>
                         <li>Tracker (set of 20)</li>
@@ -511,7 +511,7 @@ const Products = (props) => {
                   </Col>
                   <Col sm={6}>
                     <div className={ProductStyle.info_box}>
-                      <h5>Dough Bubble Popper</h5>
+                      <h3>Dough Bubble Popper</h3>
                       <ul>
                         <li>MF.TOOLSBUBBLEPOPPER</li>
                         <li>STEEL HOOK, 36″</li>

@@ -6,6 +6,17 @@
 .content_box{
   margin-bottom: 20px;
 }
+.content_box h1{
+  font-size: 79px;
+  line-height: 79px;
+  font-weight: 600;
+  letter-spacing: -2px;
+}
+.content_box h2{
+  font-size: 44px;
+  line-height: 1.2em;
+  letter-spacing: -1.3px;
+}
 .image_box{
   margin-bottom: 20px;
   text-align: center;

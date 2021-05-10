@@ -7,7 +7,7 @@ import Link from 'next/link'
 const Authentic = (props) => {
   return(
     <section className={AuthenticStyle.section_outer}>
-      <Container>
+      <Container fluid>
         <Row>
           <Col 
             lg={6} 
@@ -18,8 +18,8 @@ const Authentic = (props) => {
               animateIn='fadeInUp' 
               animateOnce={true}
             >
-              <h2>Authentic Handcrafted Brick Ovens</h2>
-              <h3>Welcome To The Marra Forni Nation!</h3>
+              <h1>Authentic Handcrafted Brick Ovens</h1>
+              <h2>Welcome To The Marra Forni Nation!</h2>
               <p>Where Artisan intersects with Technology and Innovation.  Each Marra Forni brick oven is uniquely handcrafted and built, brick by brick, resulting in the industry’s highest quality, most energy-efficient brick oven cooking solution available.  See why Marra Forni is the leading brick oven cooking solution manufacturer in the commercial foodservice industry.  We Create, We Innovate, We Inspire!</p>
               <p>Visit any of our culinary demonstration locations and test kitchen locations located throughout the US, Canada and Mexico and with International locations in Italy and Dubai.</p>
               <Link 

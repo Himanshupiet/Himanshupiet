@@ -42,7 +42,7 @@
   flex-direction: column;
   text-align: center;
 }
-.section_outer li .info h5{
+.section_outer li .info h3{
   color: #fff;
 }
 .section_outer li .info p{

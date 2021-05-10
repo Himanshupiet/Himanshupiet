@@ -9,23 +9,21 @@
 .product_inner{
   margin-bottom: 30px;
   transition: .2s cubic-bezier(.02,.22,.7,1.98);
-  box-shadow: 0 0 20px 5px rgb(86 86 86 / 30%);
   border-radius: 20px;
   text-align: center;
-  background-color: #f5f7fb;
+  border: 1px solid #e4e4e4;
 }
 .product_inner:hover{
   transform: translateY(-7px);
-  box-shadow: 0 10px 25px rgb(179 27 27 / 60%);
 }
 .product_inner img{
   border-radius: 20px;
 }
 .product_info{
   text-align: center;
-  padding: 0px 10px 20px;
+  padding: 0px 10px 25px;
 }
-.product_info h5{
+.product_info h3{
   color: #04858b;
 }
 .product_info p{

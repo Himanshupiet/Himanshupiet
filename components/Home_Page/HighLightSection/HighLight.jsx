@@ -11,7 +11,7 @@ const HighLight = ({highlightData}) => {
       className={HighLightStyle.section_outer} 
       style={background_color}
     >
-      <Container>
+      <Container fluid>
         <Row 
           className='align-items-center'>
           <Col 
@@ -24,8 +24,8 @@ const HighLight = ({highlightData}) => {
               animateIn='zoomIn' 
               animateOnce={true}
             >  
-              <h3>{highlightData.Heading}</h3>
-              <h4>{highlightData.subHeading}</h4>
+              <h2>{highlightData.Heading}</h2>
+              <h3>{highlightData.subHeading}</h3>
             </ScrollAnimation>
           </Col>
           <Col 

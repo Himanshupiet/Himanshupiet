@@ -13,11 +13,12 @@
   height: 100%;
   -webkit-transition: .2s cubic-bezier(.02,.22,.7,1.98);
   transition: .2s cubic-bezier(.02,.22,.7,1.98);
-  -webkit-box-shadow: 0 0 20px 5px rgb(86 86 86 / 30%);
-  box-shadow: 0 0 20px 5px rgb(86 86 86 / 30%);
   border-radius: 20px;
-  background-color: #f5f7fb;
-  padding: 20px 15px;
+  border: 1px solid #e4e4e4;
+  padding: 25px 15px;
+}
+.product_main:hover{
+  transform: translateY(-7px);
 }
 .image_box{
   width: 100%;
@@ -30,7 +31,7 @@
 .info_box{
   padding-top: 20px;
 }
-.info_box h5{
+.info_box h3{
   margin-bottom: 20px;
 }
 .info_box ul{

@@ -8,7 +8,7 @@ const Reliable = (props) => {
   return(
     <section 
       className={ReliableStyle.section_outer}>
-      <Container>
+      <Container fluid>
         <Row 
           className='align-items-center'>
           <Col 
@@ -38,8 +38,8 @@ const Reliable = (props) => {
               animateIn='zoomIn' 
               animateOnce={true}
             >
-              <h2>Reliable Appliances</h2>
-              <h3>Slicers, Mixers & Prep Tables</h3>
+              <h1>Reliable Appliances</h1>
+              <h2>Slicers, Mixers & Prep Tables</h2>
               <p>Marra Forni offers additional products to support our World Class Brick Oven Cooking Solutions.</p>
               <p>Marra Forni forked and spiral dough mixers are the right solution to achieve the perfect pizza crust by allowing the dough to oxygenate quickly without warming or overbeating.  Available in a variety of sizes, depending upon production requirements these mixers are durable and offer user-friendly features including a tilting mixer head, protective bowl screen guard, and simple on/off controls.</p>
               <p>Marra Forni “flywheel” slicers are the perfect accent to any kitchen or servery area.  Cast in aluminum and steel, the body of the slicer combines beauty with fast and easy cleanup.  With its built-in blade sharpener and protective guard, the slider offers precision combined with the classic appeal of a hand-operated flywheel.  The slicer and optional cast-iron pedestal base are available in a variety of custom colors to accent any décor.</p>

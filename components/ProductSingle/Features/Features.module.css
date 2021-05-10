@@ -7,7 +7,7 @@
 .inner{
   margin-bottom: 30px;
 }
-.inner h4{
+.inner h2{
   margin-bottom: 20px;
   color: #fff;
 }
@@ -24,7 +24,7 @@
 .inner ol li::marker{
   font-weight: 600;
 }
-.inner_approve h4{
+.inner_approve h2{
   margin-bottom: 20px;
   text-align: center;
   color: #fff;

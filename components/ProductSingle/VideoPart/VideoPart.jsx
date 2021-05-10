@@ -18,8 +18,8 @@ const VideoPart = (props) => {
           </Col>
           <Col md={6} className={VideoPartStyle.content_section}>
             <ScrollAnimation animateIn="zoomIn" duration={2} animateOnce={true}>
-              <h3>The Marra Forni Rotator</h3>
-              <h4>Due Bocci Demo</h4>
+              <h2>The Marra Forni Rotator</h2>
+              <h3>Due Bocci Demo</h3>
               <p>Discover the Rotator Brick Oven, recommended by top chefs globally for making pizzas in 90 seconds. The Rotator requires Little to No expertise required for cooking recipes and Pizzas by pizzaiolo. Easy to control with the innovative Touchscreen display.</p>
             </ScrollAnimation>
           </Col>
