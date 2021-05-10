@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react'
 import BannerSliderStyle from './BannerSlider.module.css'
 
-const BannerSlider = (props) => {
 
+const BannerSlider = (props) => {
   function setREVStartSize(e){			 
     window.RSIW = window.RSIW===undefined ? window.innerWidth : window.RSIW;	
     window.RSIH = window.RSIH===undefined ? window.innerHeight : window.RSIH;	
@@ -116,8 +116,8 @@ const BannerSlider = (props) => {
       <rs-module-wrap id="rev_slider_477_1_wrapper" data-source="gallery" style={{background:"transparent",padding:"0"}}>
         <rs-module id="rev_slider_477_1" className="rs-respect-topbar" data-version="6.4.2">
           <rs-slides>
-            <rs-slide data-key="rs-1091" data-title="Slide" data-thumb="//www.sliderrevolution.com/wp-content/uploads/revslider/paintbrush_bg2-100x50.jpg" data-anim="ms:600;r:0;" data-in="o:0;" data-out="a:false;" data-revaddonpaintbrush='{"size":200,"origsize":200,"strength":0,"fadetime":600,"image":"https:\/\/www.sliderrevolution.com\/wp-content\/uploads\/revslider\/paintbrush_bg2.jpg","fixedges":true,"blur":true,"disappear":true}' data-revaddonpaintbrushedges="true">
-              <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/paintbrush_bg2.jpg`} title="Paintbrush Slider" data-parallax="off" className="rev-slidebg" data-no-retina />
+            <rs-slide data-key="rs-1091" data-title="Slide" data-thumb="//www.sliderrevolution.com/wp-content/uploads/revslider/paintbrush_bg2-100x50.jpg" data-anim="ms:600;r:0;" data-in="o:0;" data-out="a:false;" data-revaddonpaintbrush='{"size":200,"origsize":200,"strength":0,"fadetime":600,"image":"http://localhost:3005/images/PaintBrush_Slider/painthouse-one.jpg","fixedges":true,"blur":true,"disappear":true}' data-revaddonpaintbrushedges="true">
+              <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/painthouse-one.jpg`} title="Paintbrush Slider" data-parallax="off" className="rev-slidebg" data-no-retina />
 
               <rs-layer
                 id="slider-477-slide-1091-layer-1" 
@@ -134,7 +134,7 @@ const BannerSlider = (props) => {
                 data-loop_0="x:-20;"
                 data-loop_999="x:20;sp:20000;yym:t;yys:t;yyf:t;"
                 style={{zIndex:"7",backgroundColor:"#000000",fontFamily:"Poppins"}}
-              >EACH COLOR LIVES 
+              >Discover The Rotator
               </rs-layer>
 
               <rs-layer
@@ -165,8 +165,7 @@ const BannerSlider = (props) => {
                 data-frame_1="e:back.inOut;st:1500;sp:1000;sR:1500;"
                 data-frame_999="y:50px;o:0;rX:45deg;st:w;sp:600;sR:6500;blu:10px;"
                 style={{zIndex:"3",fontFamily:"Poppins"}}
-              ><span style={{fontWeight:"600"}}>Paint Brush Add-On</span><br/>Now Available exclusively<br/>
-                for Slider Revolution. 
+              >
               </rs-layer>
 
               <a
@@ -184,7 +183,7 @@ const BannerSlider = (props) => {
                 data-frame_999="y:50px;o:0;rX:45deg;st:w;sp:600;sR:6300;blu:10px;"
                 data-frame_hover="sX:1.1;sY:1.1;c:#fff;boc:#fff;bos:solid;bow:3px,3px,3px,3px;oX:50;oY:50;sp:200;e:power1.inOut;"
                 style={{zIndex:"10",fontFamily:"Poppins",cursor:"pointer"}}
-              >GET IT NOW 
+              >Learn More
               </a>
 
               <rs-layer
@@ -202,7 +201,7 @@ const BannerSlider = (props) => {
                 data-loop_0="x:20;"
                 data-loop_999="x:-20;sp:20000;yym:t;yys:t;yyf:t;"
                 style={{zIndex:"8",backgroundColor:"#000000",fontFamily:"Poppins"}}
-              >BY ITS MYSTERIOUS LIFE 
+              >A New Way Of Making Great Food
               </rs-layer>
 
               <rs-layer
@@ -223,8 +222,8 @@ const BannerSlider = (props) => {
               </rs-layer>
 
             </rs-slide>
-            <rs-slide data-key="rs-1092" data-title="Slide" data-thumb="//www.sliderrevolution.com/wp-content/uploads/revslider/pb_bw-100x50.jpg" data-anim="ms:600;r:0;" data-in="o:0;" data-out="a:false;" data-revaddonpaintbrush='{"size":100,"origsize":100,"strength":0,"blurAmount":3,"fadetime":2000,"image":"https:\/\/www.sliderrevolution.com\/wp-content\/uploads\/2020\/04\/paintbrush_bg3.jpg","fixedges":true,"disappear":true}' data-revaddonpaintbrushedges="true">
-              <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/pb_bw.jpg`} title="Paintbrush Slider" data-parallax="off" className="rev-slidebg" data-no-retina />
+            <rs-slide data-key="rs-1092" data-title="Slide" data-thumb="//www.sliderrevolution.com/wp-content/uploads/revslider/pb_bw-100x50.jpg" data-anim="ms:600;r:0;" data-in="o:0;" data-out="a:false;" data-revaddonpaintbrush='{"size":200,"origsize":200,"strength":0,"fadetime":600,"image":"http://localhost:3005/images/PaintBrush_Slider/painthouse-two.jpg","fixedges":true,"blur":true,"disappear":true}' data-revaddonpaintbrushedges="true">
+              <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/painthouse-two.jpg`} title="Paintbrush Slider" data-parallax="off" className="rev-slidebg" data-no-retina />
 
               <rs-layer
                 id="slider-477-slide-1092-layer-1" 
@@ -241,7 +240,7 @@ const BannerSlider = (props) => {
                 data-loop_0="x:-20;"
                 data-loop_999="x:20;sp:20000;yym:t;yys:t;yyf:t;"
                 style={{zIndex:"7",backgroundColor:"#000000",fontFamily:"Poppins"}}
-              >COLOR IS A POWER WHICH 
+              >Go Mobile
               </rs-layer>
 
               <rs-layer
@@ -272,8 +271,7 @@ const BannerSlider = (props) => {
                 data-frame_1="e:back.inOut;st:1500;sp:1000;sR:1500;"
                 data-frame_999="y:50px;o:0;rX:45deg;st:w;sp:600;sR:6500;blu:10px;"
                 style={{zIndex:"10",fontFamily:"Poppins"}}
-              ><span style={{fontWeight:"600"}}>Paint Brush Add-On</span><br/>Now Available exclusively<br/>
-                for Slider Revolution. 
+              >
               </rs-layer>
 
               <a
@@ -291,7 +289,7 @@ const BannerSlider = (props) => {
                 data-frame_999="y:50px;o:0;rX:45deg;st:w;sp:600;sR:6300;blu:10px;"
                 data-frame_hover="sX:1.1;sY:1.1;c:#fff;boc:#fff;bos:solid;bow:3px,3px,3px,3px;oX:50;oY:50;sp:200;e:power1.inOut;"
                 style={{zIndex:"5",fontFamily:"Poppins",cursor:"pointer"}}
-              >GET IT NOW 
+              >Learn More
               </a>
 
               <rs-layer
@@ -309,7 +307,7 @@ const BannerSlider = (props) => {
                 data-loop_0="x:20;"
                 data-loop_999="x:-20;sp:20000;yym:t;yys:t;yyf:t;"
                 style={{zIndex:"8",backgroundColor:"#000000",fontFamily:"Poppins"}}
-              >DIRECTLY INFLUENCES THE SOUL 
+              >Expand Your Business With Mobile Brick Oven
               </rs-layer>
 
               <rs-layer
@@ -330,8 +328,10 @@ const BannerSlider = (props) => {
               </rs-layer>
 
             </rs-slide>
-            <rs-slide data-key="rs-1093" data-title="Slide" data-thumb="//www.sliderrevolution.com/wp-content/uploads/revslider/templates//paintbrushaddon/slide3.jpg" data-anim="ms:600;r:0;" data-in="o:0;" data-out="a:false;" data-revaddonpaintbrush='{"size":250,"origsize":250,"strength":0,"fadetime":600,"image":"https:\/\/www.sliderrevolution.com\/wp-content\/uploads\/2020\/04\/ferrari.jpg","fixedges":true,"style":"butt","responsive":true}' data-revaddonpaintbrushedges="true">
-              <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/transparent.png`} alt="Slide" title="Paintbrush Slider" data-bg="c:#f6b300;" data-parallax="off" className="rev-slidebg" data-no-retina />
+            <rs-slide data-key="rs-1093" data-title="Slide" data-thumb="http://localhost:3005/images/PaintBrush_Slider/painthouse-one.jpg" data-anim="ms:600;r:0;" data-in="o:0;" data-out="a:false;" data-revaddonpaintbrush='{"size":250,"origsize":250,"strength":0,"fadetime":600,"image":"http://localhost:3005/images/PaintBrush_Slider/painthouse-three.jpg","fixedges":true,"style":"butt","responsive":true}' data-revaddonpaintbrushedges="true">
+              <img src="//www.sliderrevolution.com/wp-content/plugins/revslider/public/assets/assets/transparent.png"
+                   alt="Slide" title="Paintbrush Slider" className="rev-slidebg tp-rs-img" data-bg="c:#f6b300;"
+                   data-parallax="off" data-no-retina/>
 
               <rs-layer
                 id="slider-477-slide-1093-layer-1" 
@@ -348,7 +348,7 @@ const BannerSlider = (props) => {
                 data-loop_0="x:-20;"
                 data-loop_999="x:20;sp:20000;yym:t;yys:t;yyf:t;"
                 style={{zIndex:"5",backgroundColor:"#000000",fontFamily:"Poppins"}}
-              >SCRATCH ME FREE 
+              >Oven Inventory Sale
               </rs-layer>
 
               <rs-layer
@@ -362,8 +362,7 @@ const BannerSlider = (props) => {
                 data-frame_1="e:back.inOut;st:1500;sp:1000;sR:1500;"
                 data-frame_999="y:50px;o:0;rX:45deg;st:w;sp:600;sR:6500;blu:10px;"
                 style={{zIndex:"8",fontFamily:"Poppins"}}
-              ><span style={{fontWeight:"600"}}>Paint Brush Add-On</span><br/>Now Available exclusively<br/>
-                for Slider Revolution. 
+              >
               </rs-layer>
 
               <a
@@ -381,7 +380,7 @@ const BannerSlider = (props) => {
                 data-frame_999="y:50px;o:0;rX:45deg;st:w;sp:600;sR:6300;blu:10px;"
                 data-frame_hover="sX:1.1;sY:1.1;c:#fff;boc:#fff;bos:solid;bow:3px,3px,3px,3px;oX:50;oY:50;sp:200;e:power1.inOut;"
                 style={{zIndex:"7",fontFamily:"Poppins",cursor:"pointer"}}
-              >GET IT NOW 
+              >Learn More
               </a>
 
               <rs-layer
@@ -399,7 +398,7 @@ const BannerSlider = (props) => {
                 data-loop_0="x:20;"
                 data-loop_999="x:-20;sp:20000;yym:t;yys:t;yyf:t;"
                 style={{zIndex:"6",backgroundColor:"#000000",fontFamily:"Poppins"}}
-              >FOR A SURPRISE! 
+              >Discounted Brick Ovens In Reduced Price
               </rs-layer>
             </rs-slide>
           </rs-slides>
