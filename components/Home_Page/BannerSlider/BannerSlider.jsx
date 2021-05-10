@@ -110,13 +110,19 @@ const BannerSlider = (props) => {
     var once_revslider4771 = false;
     if (document.readyState === "loading") {document.addEventListener('readystatechange',function() { if((document.readyState === "interactive" || document.readyState === "complete") && !once_revslider4771 ) { once_revslider4771 = true; revinit_revslider4771();}});} else {once_revslider4771 = true; revinit_revslider4771();}
   },[])
+
+  const slide1 = {"size":200,"origsize":200,"strength":0,"fadetime":600,"image":`${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/painthouse-one.jpg`,"fixedges":true,"blur":true,"disappear":true}
+
+  const slide2 = {"size":100,"origsize":100,"strength":0,"blurAmount":3,"fadetime":2000,"image":`${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/painthouse-two.jpg`,"fixedges":true,"blur":true,"disappear":true}
+
+  const slide3 = {"size":250,"origsize":250,"strength":0,"fadetime":600,"image":`${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/painthouse-three.jpg`,"fixedges":true,"style":"butt","responsive":true}
   
   return(
     <section className={BannerSliderStyle.section_outer}>
       <rs-module-wrap id="rev_slider_477_1_wrapper" data-source="gallery" style={{background:"transparent",padding:"0"}}>
         <rs-module id="rev_slider_477_1" className="rs-respect-topbar" data-version="6.4.2">
           <rs-slides>
-            <rs-slide data-key="rs-1091" data-title="Slide" data-thumb="//www.sliderrevolution.com/wp-content/uploads/revslider/paintbrush_bg2-100x50.jpg" data-anim="ms:600;r:0;" data-in="o:0;" data-out="a:false;" data-revaddonpaintbrush='{"size":200,"origsize":200,"strength":0,"fadetime":600,"image":"http://localhost:3005/images/PaintBrush_Slider/painthouse-one.jpg","fixedges":true,"blur":true,"disappear":true}' data-revaddonpaintbrushedges="true">
+            <rs-slide data-key="rs-1091" data-title="Slide" data-thumb="" data-anim="ms:600;r:0;" data-in="o:0;" data-out="a:false;" data-revaddonpaintbrush={JSON.stringify(slide1)} data-revaddonpaintbrushedges="true">
               <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/painthouse-one.jpg`} title="Paintbrush Slider" data-parallax="off" className="rev-slidebg" data-no-retina />
 
               <rs-layer
@@ -171,7 +177,7 @@ const BannerSlider = (props) => {
               <a
                 id="slider-477-slide-1091-layer-4" 
                 className="rs-layer rs-pxl-13"
-                href="https://www.sliderrevolution.com/pricing/" target="_blank" rel="noopener"
+                href="/" target="_blank" rel="noopener"
                 data-type="text"
                 data-rsp_ch="on"
                 data-xy="x:c;yo:730px,650px,650px,570px;"
@@ -225,11 +231,11 @@ const BannerSlider = (props) => {
             <rs-slide
                 data-key="rs-1092"
                 data-title="Slide"
-                data-thumb="//www.sliderrevolution.com/wp-content/uploads/revslider/pb_bw-100x50.jpg"
+                data-thumb=""
                 data-anim="ms:600;r:0;"
                 data-in="o:0;"
                 data-out="a:false;"
-                data-revaddonpaintbrush={`size:200,origsize:200,strength:0,fadetime:600,image:${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/painthouse-two.jpg,fixedges:true,blur:true,disappear:true`}
+                data-revaddonpaintbrush={JSON.stringify(slide2)}
                 data-revaddonpaintbrushedges="true">
               <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/painthouse-two.jpg`} title="Paintbrush Slider" data-parallax="off" className="rev-slidebg" data-no-retina />
 
@@ -285,7 +291,7 @@ const BannerSlider = (props) => {
               <a
                 id="slider-477-slide-1092-layer-4" 
                 className="rs-layer rs-pxl-13"
-                href="https://www.sliderrevolution.com/pricing/" target="_blank" rel="noopener"
+                href="/" target="_blank" rel="noopener"
                 data-type="text"
                 data-rsp_ch="on"
                 data-xy="x:c;yo:730px,650px,650px,570px;"
@@ -297,7 +303,7 @@ const BannerSlider = (props) => {
                 data-frame_999="y:50px;o:0;rX:45deg;st:w;sp:600;sR:6300;blu:10px;"
                 data-frame_hover="sX:1.1;sY:1.1;c:#fff;boc:#fff;bos:solid;bow:3px,3px,3px,3px;oX:50;oY:50;sp:200;e:power1.inOut;"
                 style={{zIndex:"5",fontFamily:"Poppins",cursor:"pointer"}}
-              >Learn More
+              >Go Mobile
               </a>
 
               <rs-layer
@@ -336,7 +342,7 @@ const BannerSlider = (props) => {
               </rs-layer>
 
             </rs-slide>
-            <rs-slide data-key="rs-1093" data-title="Slide" data-thumb="http://localhost:3005/images/PaintBrush_Slider/painthouse-one.jpg" data-anim="ms:600;r:0;" data-in="o:0;" data-out="a:false;" data-revaddonpaintbrush='{"size":250,"origsize":250,"strength":0,"fadetime":600,"image":"http://localhost:3005/images/PaintBrush_Slider/painthouse-three.jpg","fixedges":true,"style":"butt","responsive":true}' data-revaddonpaintbrushedges="true">
+            <rs-slide data-key="rs-1093" data-title="Slide" data-thumb="" data-anim="ms:600;r:0;" data-in="o:0;" data-out="a:false;" data-revaddonpaintbrush={JSON.stringify(slide3)} data-revaddonpaintbrushedges="true">
               <img src="//www.sliderrevolution.com/wp-content/plugins/revslider/public/assets/assets/transparent.png"
                    alt="Slide" title="Paintbrush Slider" className="rev-slidebg tp-rs-img" data-bg="c:#f6b300;"
                    data-parallax="off" data-no-retina/>
@@ -376,7 +382,7 @@ const BannerSlider = (props) => {
               <a
                 id="slider-477-slide-1093-layer-4" 
                 className="rs-layer rs-pxl-13"
-                href="https://www.sliderrevolution.com/pricing/" target="_blank" rel="noopener"
+                href="/" target="_blank" rel="noopener"
                 data-type="text"
                 data-rsp_ch="on"
                 data-xy="x:c;yo:730px,650px,650px,570px;"
@@ -388,7 +394,7 @@ const BannerSlider = (props) => {
                 data-frame_999="y:50px;o:0;rX:45deg;st:w;sp:600;sR:6300;blu:10px;"
                 data-frame_hover="sX:1.1;sY:1.1;c:#fff;boc:#fff;bos:solid;bow:3px,3px,3px,3px;oX:50;oY:50;sp:200;e:power1.inOut;"
                 style={{zIndex:"7",fontFamily:"Poppins",cursor:"pointer"}}
-              >Learn More
+              >Get a Quote
               </a>
 
               <rs-layer
