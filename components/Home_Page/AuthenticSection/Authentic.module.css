@@ -1,10 +1,22 @@
 .section_outer{
-  padding-top: 80px;
+  padding-top: 90px;
   padding-bottom: 50px;
   background-color: #fff;
 }
 .content_box{
   margin-bottom: 20px;
+  padding-left: 70px;
+}
+@media (max-width: 768px){
+  .content_box{
+    padding-left: 6px;
+  }
+}
+@media (min-width: 1700px)
+{
+  .content_box{
+    padding-left: 170px;
+  }
 }
 .content_box h1{
   font-size: 79px;

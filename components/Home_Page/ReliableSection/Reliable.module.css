@@ -1,7 +1,11 @@
 .section_outer{
-  padding-top: 80px;
-  padding-bottom: 50px;
   background-color: #fff;
+  padding: 80px 60px 50px 30px;
+}
+@media (max-width: 568px) {
+  .section_outer{
+    padding: 80px 0 50px 0;
+  }
 }
 .content_box{
   margin-bottom: 20px;
