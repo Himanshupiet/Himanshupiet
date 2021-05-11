@@ -78,7 +78,7 @@ function React360(props) {
           className='img-fluid'
           alt='Rotator Image'
           src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/${props.dir}${imageIndex}.webp`}
-          width='896'
+          width='800'
           height='1204'
         />
       </div>

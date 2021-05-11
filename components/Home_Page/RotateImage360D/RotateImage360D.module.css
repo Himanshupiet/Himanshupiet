@@ -1,6 +1,8 @@
 .section_outer{
   padding-top: 50px;
   padding-bottom: 30px;
+  padding-left: 60px;
+  padding-right: 60px;
 }
 .iconbox{
   text-align: center;
@@ -8,4 +10,20 @@
 }
 .iconbox h3{
   margin-top: 15px;
+}
+@media (min-width: 1700px)
+{
+  .section_outer{
+    /*padding-top: 50px;*/
+    /*padding-bottom: 20px;*/
+    /*padding-left: 100px;*/
+    /*padding-right: 100px;*/
+    padding: 50px 100px 20px 100px;
+  }
+}
+@media (max-width: 568px)
+{
+  .section_outer{
+    padding: 50px 0 30px 0;
+  }
 }

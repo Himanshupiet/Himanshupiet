@@ -10,7 +10,7 @@ const Authentic = (props) => {
       <Container fluid>
         <Row>
           <Col 
-            lg={6} 
+            lg={6}
             className={AuthenticStyle.content_box}
           >
             <ScrollAnimation 
@@ -34,7 +34,7 @@ const Authentic = (props) => {
             </ScrollAnimation>
           </Col>
           <Col 
-            lg={6} 
+            lg={6}
             className={AuthenticStyle.image_box}
           >
             <ScrollAnimation 

@@ -52,7 +52,7 @@ const Header = (props) => {
               </button>
             </div>
             <Link href="/">
-              <a title="MarraForni"><img alt="Marra Forni" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/LogoRed.png`} width="226" height="60" /></a>
+              <a title="MarraForni"><img alt="Marra Forni" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/LogoBlack.png`} width="226" height="60" /></a>
             </Link>
             <div className={headerStyle.mobile_slbox}>
               <div className={`${headerStyle.searchicon} ${headerStyle.mobile_show}`}>
