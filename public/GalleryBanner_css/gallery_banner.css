@@ -101,7 +101,7 @@
 .content__title {
 	font-weight: 400;
 	font-size: 4.5vw;
-	color: #fff;
+	color: #e31422;
 	margin: 0;
 	line-height: 1;
 	position: relative;
@@ -109,7 +109,7 @@
 .content__title-sub {
 	font-size: 4.5vw;
 	display: block;
-	color: #fff;
+	color: #e31422;
 	margin-left: 3vw;
 	margin-top: 10px;
 	line-height: 0.5;
@@ -120,7 +120,7 @@
 
 @media screen and (min-width: 53em) {
 	.content {
-		height: 500px;
+		height: 100vh;
 		justify-content: center;
 		max-height: none;
 	}
