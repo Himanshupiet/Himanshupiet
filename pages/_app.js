@@ -1,6 +1,7 @@
 import { Provider } from 'react-redux'
 import { store } from '../store/store'
 
+import '../public/GalleryBanner_css/gallery_banner.css'
 import '../public/PaintbrushSlider_css/paintbrushslider.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'boxicons/css/boxicons.min.css'
