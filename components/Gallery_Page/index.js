@@ -6,19 +6,21 @@ import GalleryStyle from './index.module.css'
 import Category_Gallery from './Category_Gallery/Category_Gallery';
 import Testimonials from './../ProductSingle/Testimonials/Testimonials';
 import StoryForm from './StoryForm/StoryForm';
+import TopBanner from './TopBanner/TopBanner';
 
 const GalleryMain = (props) => {
   return(
     <>
       <Header />
-      <div style={{
+      {/* <div style={{
         height:'310px',
         backgroundImage:`url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/Marra-Tools-Accessories-Banner.jpg)`,
         backgroundRepeat:'no-repeat',
         backgroundAttachment:'fixed',
         backgroundSize:'cover',
         backgroundPosition: 'center 0'
-      }}/>
+      }}/> */}
+      <TopBanner />
       <Container>
         <div className={GalleryStyle.heading_main}>
           <h1>Your Success Is Our Inspiration</h1>
