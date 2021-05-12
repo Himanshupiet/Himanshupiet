@@ -177,7 +177,7 @@ const StoryForm = (props) => {
   return(
     <section 
       className={StoryFormStyle.section_outer}>
-      <Container>
+      <Container fluid className={StoryFormStyle.section_container}>
         <ScrollAnimation
           animateIn='zoomIn'
           animateOnce={true}
