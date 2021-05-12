@@ -13,7 +13,7 @@ import ScrollAnimation from 'react-animate-on-scroll';
 
 const QodefSlider = (props) => {
   let QodefSliderSettings = {
-    infinite: true,
+    // infinite: true,
     speed: 800,
     arrows: false,
     dots: true,

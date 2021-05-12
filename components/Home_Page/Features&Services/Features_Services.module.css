@@ -9,7 +9,8 @@
   margin-bottom: 50px;
 }
 .table_outer{
-  border-radius: 20px;
+  border-radius: 9px;
+  /*border-radius: 20px;*/
   box-shadow: 0 0 20px 5px rgb(86 86 86 / 10%);
   border: 1px solid #e7e8eb;
   overflow-x: auto;

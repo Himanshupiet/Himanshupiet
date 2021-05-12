@@ -173,7 +173,7 @@ const GetAQuote = (props) => {
   return(
     <section 
       className={GetAQuoteStyle.section_outer}>
-      <Container>
+      <Container fluid className={GetAQuoteStyle.section_container}>
         <ScrollAnimation
           animateIn='zoomIn'
           animateOnce={true}
