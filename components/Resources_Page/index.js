@@ -4,6 +4,7 @@ import Footer from '../footer/footer'
 import ResourceStyle from './index.module.css'
 import { Container, Row, Col } from 'react-bootstrap';
 import Filters from './Filters/Filters';
+import FiltersResult from './FiltersResult/FiltersResult';
 
 const Resources_main = (props) => {
   return(
@@ -23,7 +24,9 @@ const Resources_main = (props) => {
             <Col md={3}>
               <Filters />
             </Col>
-            <Col md={9}></Col>
+            <Col md={9}>
+              <FiltersResult />
+            </Col>
           </Row>
         </Container>
       </section>
