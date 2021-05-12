@@ -3,10 +3,10 @@ import FilterStyle from './Filters.module.css'
 
 const Filters = (props) => {
   const [filterOpen, setFilterOpen] = useState({
-    ProductOpen: false,
-    ResourcesOpen: false,
-    OtherinfoOpen: false,
-    LanguageOpen: false
+    ProductOpen: true,
+    ResourcesOpen: true,
+    OtherinfoOpen: true,
+    LanguageOpen: true
   });
 
   const handleFilterOpen = () => {
