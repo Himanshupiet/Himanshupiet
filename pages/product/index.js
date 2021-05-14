@@ -5,6 +5,8 @@ import Footer from '../../components/footer/footer'
 import Header from '../../components/header/header'
 import Products from '../../components/Product_page/Products'
 import GetAQuote from '../../components/common/GetAQuote/GetAQuote'
+import { Col, Container, Row } from 'react-bootstrap'
+import ProductStyle from './index.module.css'
 
 const Product = (props) => {
   return(
@@ -22,7 +24,15 @@ const Product = (props) => {
         backgroundSize:'cover'
       }}/>
       <Products />
-      <GetAQuote />
+      <Container fluid className={ProductStyle.getquote_outer}>
+        <Row>
+          <Col lg={1}></Col>
+          <Col lg={10}>
+            <GetAQuote />
+          </Col>
+          <Col lg={1}></Col>
+        </Row>
+      </Container>
       <Footer />
     </>
    )

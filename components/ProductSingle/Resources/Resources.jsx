@@ -12,56 +12,62 @@ import ScrollAnimation from 'react-animate-on-scroll';
 const Resources = (props) => {
   return(
     <section className={ResourcesStyle.section_outer}>
-      <Container>
-        <ScrollAnimation animateIn="zoomIn" animateOnce={true} duration={1}>
-          <div className={ResourcesStyle.title_box}>
-            <h2>Model Resources</h2>
-            <p>The Marra Forni Rotator Oven Spec Sheets, CAD Blocks, and REVIT Files refer to the resources option within the choices below.</p>
-          </div>
-        </ScrollAnimation>
+      <Container fluid>
         <Row>
-          <Col md={4}>
-            <ScrollAnimation animateIn="fadeInUp" animateOnce={true} duration={1}>
-              <div className={ResourcesStyle.inner}>
-                <h4>Spec Sheets</h4>
-                <ul>
-                  <li><Link href="/"><a title="Rotator Gas" target="_blank">Rotator Gas</a></Link></li>
-                  <li><Link href="/"><a title="RT90G" target="_blank">RT90G</a></Link></li>
-                  <li><Link href="/"><a title="RT90G" target="_blank">RT110G</a></Link></li>
-                  <li><Link href="/"><a title="RT90G" target="_blank">RT130G</a></Link></li>
-                  <li><Link href="/"><a title="RT90G" target="_blank">RT150G</a></Link></li>
-                </ul>
+          <Col lg={1}></Col>
+          <Col lg={10}>
+            <ScrollAnimation animateIn="zoomIn" animateOnce={true} duration={1}>
+              <div className={ResourcesStyle.title_box}>
+                <h2>Model Resources</h2>
+                <p>The Marra Forni Rotator Oven Spec Sheets, CAD Blocks, and REVIT Files refer to the resources option within the choices below.</p>
               </div>
             </ScrollAnimation>
+            <Row>
+              <Col md={4}>
+                <ScrollAnimation animateIn="fadeInUp" animateOnce={true} duration={1}>
+                  <div className={ResourcesStyle.inner}>
+                    <h4>Spec Sheets</h4>
+                    <ul>
+                      <li><Link href="/"><a title="Rotator Gas" target="_blank">Rotator Gas</a></Link></li>
+                      <li><Link href="/"><a title="RT90G" target="_blank">RT90G</a></Link></li>
+                      <li><Link href="/"><a title="RT90G" target="_blank">RT110G</a></Link></li>
+                      <li><Link href="/"><a title="RT90G" target="_blank">RT130G</a></Link></li>
+                      <li><Link href="/"><a title="RT90G" target="_blank">RT150G</a></Link></li>
+                    </ul>
+                  </div>
+                </ScrollAnimation>
+              </Col>
+              <Col md={4}>
+                <ScrollAnimation animateIn="fadeInUp" animateOnce={true} duration={1}>
+                  <div className={ResourcesStyle.inner}>
+                    <h4>CAD Blocks</h4>
+                    <ul>
+                      <li><Link href="/"><a title="Rotator Gas" target="_blank">Rotator Gas</a></Link></li>
+                      <li><Link href="/"><a title="RT90G" target="_blank">RT90G</a></Link></li>
+                      <li><Link href="/"><a title="RT90G" target="_blank">RT110G</a></Link></li>
+                      <li><Link href="/"><a title="RT90G" target="_blank">RT130G</a></Link></li>
+                      <li><Link href="/"><a title="RT90G" target="_blank">RT150G</a></Link></li>
+                    </ul>
+                  </div>
+                </ScrollAnimation>
+              </Col>
+              <Col md={4}>
+                <ScrollAnimation animateIn="fadeInUp" animateOnce={true} duration={1}>
+                  <div className={ResourcesStyle.inner}>
+                    <h4>REVIT Files</h4>
+                    <ul>
+                      <li><Link href="/"><a title="Rotator Gas" target="_blank">Rotator Gas</a></Link></li>
+                      <li><Link href="/"><a title="RT90G" target="_blank">RT90G</a></Link></li>
+                      <li><Link href="/"><a title="RT90G" target="_blank">RT110G</a></Link></li>
+                      <li><Link href="/"><a title="RT90G" target="_blank">RT130G</a></Link></li>
+                      <li><Link href="/"><a title="RT90G" target="_blank">RT150G</a></Link></li>
+                    </ul>
+                  </div>
+                </ScrollAnimation>
+              </Col>
+            </Row>
           </Col>
-          <Col md={4}>
-            <ScrollAnimation animateIn="fadeInUp" animateOnce={true} duration={1}>
-              <div className={ResourcesStyle.inner}>
-                <h4>CAD Blocks</h4>
-                <ul>
-                  <li><Link href="/"><a title="Rotator Gas" target="_blank">Rotator Gas</a></Link></li>
-                  <li><Link href="/"><a title="RT90G" target="_blank">RT90G</a></Link></li>
-                  <li><Link href="/"><a title="RT90G" target="_blank">RT110G</a></Link></li>
-                  <li><Link href="/"><a title="RT90G" target="_blank">RT130G</a></Link></li>
-                  <li><Link href="/"><a title="RT90G" target="_blank">RT150G</a></Link></li>
-                </ul>
-              </div>
-            </ScrollAnimation>
-          </Col>
-          <Col md={4}>
-            <ScrollAnimation animateIn="fadeInUp" animateOnce={true} duration={1}>
-              <div className={ResourcesStyle.inner}>
-                <h4>REVIT Files</h4>
-                <ul>
-                  <li><Link href="/"><a title="Rotator Gas" target="_blank">Rotator Gas</a></Link></li>
-                  <li><Link href="/"><a title="RT90G" target="_blank">RT90G</a></Link></li>
-                  <li><Link href="/"><a title="RT90G" target="_blank">RT110G</a></Link></li>
-                  <li><Link href="/"><a title="RT90G" target="_blank">RT130G</a></Link></li>
-                  <li><Link href="/"><a title="RT90G" target="_blank">RT150G</a></Link></li>
-                </ul>
-              </div>
-            </ScrollAnimation>
-          </Col>
+          <Col lg={1}></Col>
         </Row>
       </Container>
     </section>

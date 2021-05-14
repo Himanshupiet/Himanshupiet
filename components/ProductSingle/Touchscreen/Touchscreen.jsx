@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import TouchscreenStyle from './Touchscreen.module.css';
 import ScrollAnimation from 'react-animate-on-scroll';
 
@@ -53,13 +53,21 @@ const Touchscreen = (props) => {
   })
   return(
     <section className={TouchscreenStyle.section_outer}>
+      <Container fluid>
+        <Row>
+          <Col lg={1}></Col>
+          <Col lg={10}>
+            <ScrollAnimation animateIn="zoomIn" animateOnce={true} duration={2}>
+              <div className={TouchscreenStyle.title_box}>
+                <h1>Introducing the Touchscreen</h1>
+                <h2>No technical skills, no problem.</h2>
+              </div>
+            </ScrollAnimation>
+          </Col>
+          <Col lg={1}></Col>
+        </Row>
+      </Container>
       <Container>
-        <ScrollAnimation animateIn="zoomIn" animateOnce={true} duration={2}>
-          <div className={TouchscreenStyle.title_box}>
-            <h1>Introducing the Touchscreen</h1>
-            <h2>No technical skills, no problem.</h2>
-          </div>
-        </ScrollAnimation>
         <ul>
           <li>
             <img className={TouchscreenStyle.image} alt="Touchscreen" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/touchscreen.webp`} width="350" height="350" />

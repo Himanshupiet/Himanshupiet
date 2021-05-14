@@ -84,7 +84,7 @@ const Filters = (props) => {
             <li>
               <label><input type='checkbox' value='User Manual' />User Manual</label>
             </li>
-            <li>
+            {/* <li>
               <label><input type='checkbox' value='Brochure' />Brochure</label>
             </li>
             <li>
@@ -95,7 +95,7 @@ const Filters = (props) => {
             </li>
             <li>
               <label><input type='checkbox' value='Quick Star Guide' />Quick Star Guide</label>
-            </li>
+            </li> */}
           </ul>
         </div>
         <li 

@@ -4,7 +4,8 @@ import ScrollAnimation from 'react-animate-on-scroll'
 import { Col, Container, Row } from 'react-bootstrap'
 
 const HighLight = ({highlightData}) => {
-  let background_color = highlightData.background=='grey' ? {backgroundColor:'#24262a'} : {backgroundImage:'linear-gradient(to right top, #e31422, #d71720, #cb191e, #bf1a1d, #b31b1b)'};
+  let background_color = highlightData.background=='grey' ? {backgroundColor:'#24262a'} : {backgroundColor:'#f6f7fc'};
+  let text_color = highlightData.background=='grey' ? {color:'#fff'} : {color:'#24262a'};
 
   return(
     highlightData ? <section 
@@ -24,8 +25,8 @@ const HighLight = ({highlightData}) => {
               animateIn='zoomIn' 
               animateOnce={true}
             >  
-              <h2>{highlightData.Heading}</h2>
-              <h3>{highlightData.subHeading}</h3>
+              <h2 style={text_color}>{highlightData.Heading}</h2>
+              <h3 style={text_color}>{highlightData.subHeading}</h3>
             </ScrollAnimation>
           </Col>
           <Col 
