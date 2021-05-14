@@ -1,39 +1,10 @@
 .tabs_outer{
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 50px;
   width: 100%;
   text-align: center;
 }
 .tabs_outer h2{
   margin-bottom: 25px;
-}
-.gallerytabs{
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-.gallerytabs li{
-  margin: 0 10px;
-}
-.gallerytabs button{
-  outline: none;
-  color: #565656;
-  background-color: transparent;
-  border: 0;
-  padding: 10px 20px;
-  border-radius: 50px;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
-}
-.gallerytabs button.btn_active,
-.gallerytabs button:hover{
-  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
-  background-color: #b31b1b;
-  border-color: #b31b1b;
-  color: #fff;
 }
 .gallery_outer{
   padding-top: 50px;

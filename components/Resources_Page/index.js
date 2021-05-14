@@ -19,14 +19,20 @@ const Resources_main = (props) => {
         backgroundPosition: 'center'
       }}/>
       <section className={ResourceStyle.section_outer}>
-        <Container>
+        <Container fluid>
           <Row>
-            <Col md={3}>
-              <Filters />
+            <Col lg={1}></Col>
+            <Col lg={10}>
+              <Row>
+                <Col md={3}>
+                  <Filters />
+                </Col>
+                <Col md={9}>
+                  <FiltersResult />
+                </Col>
+              </Row>
             </Col>
-            <Col md={9}>
-              <FiltersResult />
-            </Col>
+            <Col lg={1}></Col>
           </Row>
         </Container>
       </section>
