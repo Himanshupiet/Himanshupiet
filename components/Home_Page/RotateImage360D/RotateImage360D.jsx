@@ -1,11 +1,23 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import ScrollAnimation from 'react-animate-on-scroll'
 import { Col, Container, Row, Tabs, Tab } from 'react-bootstrap'
 import Rotate360DStyle from './RotateImage360D.module.css'
-
 import React360 from './React360'
 
 const RotateImage360D = (props) => {
+  const [pennyTile, setPennyTile] = useState([])
+  const [brokenTile, setBrokenTile] = useState([])
+
+  useEffect(() => {
+    let pennyTileArr=[...pennyTile];
+    let brokenTileArr=[...brokenTile];
+    for(let i=0; i<72;i++){
+      pennyTileArr.push(`${process.env.NEXT_PUBLIC_BASE_PATH}/images/penny_tile/marra-forni-penny-tile-brick-oven-lg-${i}.webp`)
+      brokenTileArr.push(`${process.env.NEXT_PUBLIC_BASE_PATH}/images/broken_tile/marra-forni-broken-tile-brick-oven-lg-${i}.webp`)
+    }
+     setPennyTile(pennyTileArr)
+     setBrokenTile(brokenTileArr)
+  },[])
   return(
     <section className={Rotate360DStyle.section_outer}>
       <Container fluid>
@@ -28,16 +40,18 @@ const RotateImage360D = (props) => {
             <ScrollAnimation duration={2} animateIn="fadeIn" animateOnce={true}>
               <Tabs defaultActiveKey="RedPennyTile" id="uncontrolled-tab-example">
                 <Tab eventKey="RedPennyTile" title="Red Penny Tile">
-                  <React360
-                    dir='penny_tile/marra-forni-penny-tile-brick-oven-lg-'
-                    numImages={72}
-                  />
+                 <React360 className='rotation'>
+                   {pennyTile.map((val, i) => (
+                       <img src={val} alt='' key={i}/>
+                   ))}
+                  </React360>
                 </Tab>
                 <Tab eventKey="RedBrokenTile" title="Red Broken Tile">
-                  <React360
-                    dir='broken_tile/marra-forni-broken-tile-brick-oven-lg-'
-                    numImages={72}
-                  />
+                  <React360 className='rotation'>
+                    {brokenTile.map((val, i) => (
+                        <img src={val} alt='' key={i}/>
+                    ))}
+                  </React360>
                 </Tab>
               </Tabs>
             </ScrollAnimation>
