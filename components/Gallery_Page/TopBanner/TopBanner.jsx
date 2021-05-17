@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 
 const TopBanner = (props) => {
+  const {heading1, heading2} = props;
   useEffect(()=>{
     var parcelRequire = (function (modules, cache, entry, globalName) {
     var previousRequire = typeof parcelRequire === 'function' && parcelRequire;
@@ -6019,8 +6020,8 @@ const TopBanner = (props) => {
             <div className="grid__item pos-10"><div className="grid__item-img" style={{backgroundImage:`url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/Gallery_Banner/banner_10.jpg)`}}></div></div>
           </div>
           <h2 className="content__title no-select">
-            <span>Clients &</span>
-            <span className="content__title-sub">Partner Gallery</span>
+            <span>{heading1}</span>
+            <span className="content__title-sub">{heading2}</span>
           </h2>
         </div>
       </div>

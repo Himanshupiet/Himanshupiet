@@ -12,7 +12,7 @@ const GalleryMain = (props) => {
   return(
     <>
       <Header />
-      <TopBanner />
+      <TopBanner heading1={'Clients &'} heading2={'Partner Gallery'} />
       <Container fluid>
         <Row>
           <Col lg={1}></Col>
