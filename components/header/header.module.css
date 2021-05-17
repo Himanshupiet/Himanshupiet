@@ -12,6 +12,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 .site_logo{
   display: inline-block;
@@ -117,6 +118,82 @@
     opacity: 0;
     transition: all 0.3s ease;
   }
+}
+.product_menu_outer{
+  position: unset !important;
+}
+.product_menu_outer:hover .product_sub_menu{
+  display: block;
+  opacity: 1;
+}
+.product_sub_menu{
+  position: absolute;
+  top: 100%;
+  display: none;
+  opacity: 0;
+  width: 100%;
+  left: 0;
+  right: 0;
+  padding: 10px 35px;
+  margin-top: -11px;
+  background: #f7f6fc;
+  box-shadow: 0 0 4px rgb(0 0 0 / 40%);
+  border-radius: 3px;
+  transition: all 0.3s ease-in;
+}
+.special_product{
+  text-align: center;
+  border-right: 1px solid #dee2e6;
+  margin-top: 15px;
+}
+.special_product a{
+  display: block;
+}
+.special_product a img{
+  max-width: 100%;
+}
+.special_product a p{
+  color: #e31422;
+  font-size: 22px;
+  font-weight: 400;
+}
+.rest_product{
+  margin-top: 15px;
+  text-align: center;
+  padding-top: 4%;
+}
+.rest_product ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  align-items: center;
+}
+.rest_product ul li{
+  min-width: 40px;
+  flex-grow: 1;
+  flex-basis: 100px;
+  max-width: 100%;
+  display: block;
+}
+.rest_product ul li a{
+  padding: 5px 10px;
+  display: block;
+}
+.rest_product ul li a:hover{
+  background-color: #fff;
+}
+.rest_product ul li a:hover p{
+  color: #e31422;
+}
+.rest_product ul li a img{
+  max-width: 100%;
+}
+.rest_product ul li a p{
+  color: #24262a;
 }
 @media only screen and (max-width:1199px){
   .site_nav > div{

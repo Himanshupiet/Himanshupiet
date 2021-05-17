@@ -614,3 +614,20 @@ select:focus,
 input:focus{
   box-shadow: 0 0 20px 0px rgb(51 51 51 / 15%) !important;
 }
+.header_product_sub_menu__3bJTm .nav-tabs {
+  justify-content: center;
+}
+.header_product_sub_menu__3bJTm .nav-tabs a{
+  border: 0;
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: 400;
+  color: #24262a;
+}
+.header_product_sub_menu__3bJTm .nav-tabs a:hover{
+  color: #e31422;
+}
+.header_product_sub_menu__3bJTm .nav-tabs a.active{
+  background-color: transparent;
+  color: #e31422;
+}

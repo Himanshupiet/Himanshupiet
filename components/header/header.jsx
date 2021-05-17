@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Tabs, Tab } from 'react-bootstrap'
 import ActiveLink from './ActiveLink';
 import headerStyle from './header.module.css';
 
@@ -73,7 +73,7 @@ const Header = (props) => {
                     <a title="About Us" data-title="About Us"><span>About Us</span></a>
                   </ActiveLink>
                 </div>
-                <div className={headerStyle.sub_menu_outer}>
+                <div className={headerStyle.product_menu_outer}>
                   <ActiveLink activeClassName="active_menu" href="/product">
                     <a title="Products" data-title="Products"><span>Products</span></a>
                   </ActiveLink>
@@ -86,74 +86,277 @@ const Header = (props) => {
                   }>
                     <i className={mobileProductOpen ? "bx bxs-chevron-down" : "bx bxs-chevron-up"}></i>
                   </button>
-                  <div className={`${headerStyle.sub_menu} ${ mobileProductOpen ? headerStyle.sub_menu_active : ""}`}>
-                    <ul>
-                      <li>
-                        <Link href="/home">
-                          <a title="Rotator Series"><span>Rotator Series</span></a>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/">
-                          <a title="Neapolitan Series"><span>Neapolitan Series</span></a>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/home">
-                          <a title="MS Series"><span>MS Series</span></a>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/">
-                          <a title="ELECTRO Series"><span>ELECTRO Series</span></a>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/">
-                          <a title="Stackable Electric Series"><span>Stackable Electric Series</span></a>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/">
-                          <a title="Enclosed Facade Series"><span>Enclosed Facade Series</span></a>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/">
-                          <a title="Mobile Solutions"><span>Mobile Solutions</span></a>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/">
-                          <a title="Due Bocche"><span>Due Bocche</span></a>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/">
-                          <a title="Direct Ventilation"><span>Direct Ventilation</span></a>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/">
-                          <a title="Refrigerated Prep Tables"><span>Refrigerated Prep Tables</span></a>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/">
-                          <a title="Dough Mixers"><span>Dough Mixers</span></a>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/">
-                          <a title="Tools & Accessories"><span>Tools & Accessories</span></a>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/">
-                          <a title="Demo Ovens"><span>Demo Ovens</span></a>
-                        </Link>
-                      </li>
-                    </ul>
+                  <div className={`${headerStyle.product_sub_menu} ${ mobileProductOpen ? headerStyle.product_sub_menu_active : ""}`}>
+                    <Tabs defaultActiveKey="Ovens" id="uncontrolled-tab-example">
+                      <Tab eventKey="Ovens" title="Ovens">
+                        <Row>
+                          <Col sm={3}>
+                            <div className={headerStyle.special_product}>
+                              <Link href="/">
+                                <a title="">
+                                  <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/stainless_facade_square_black.webp`} width="200" height="200" alt="Top Product" />
+                                  <p>Rotator Brick Oven</p>
+                                </a>
+                              </Link>
+                            </div>
+                          </Col>
+                          <Col sm={9}>
+                            <div className={headerStyle.rest_product}>
+                              <ul>
+                                <li>
+                                  <Link href="/">
+                                    <a title="">
+                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Blu-Penny-NP.webp`} width="100" height="100" alt="Top Product" />
+                                      <p>The Neapolitan</p>
+                                    </a>
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="/">
+                                    <a title="">
+                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Due_Bocche_White_Broken.webp`} width="100" height="100" alt="Top Product" />
+                                      <p>Due Bocche</p>
+                                    </a>
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="/">
+                                    <a title="">
+                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/EL_Square_Blue.webp`} width="100" height="100" alt="Top Product" />
+                                      <p>Electric Oven</p>
+                                    </a>
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="/">
+                                    <a title="">
+                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Big-Enclosed-BrIck-Oven-Rendering.webp`} width="100" height="100" alt="Top Product" />
+                                      <p>Enclosed Facade</p>
+                                    </a>
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="/">
+                                    <a title="">
+                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Webp.net-resizeimage-1.webp`} width="100" height="100" alt="Top Product" />
+                                      <p>Mobile Trailer</p>
+                                    </a>
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="/">
+                                    <a title="">
+                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MS_42-31.webp`} width="100" height="100" alt="Top Product" />
+                                      <p>Metal Square</p>
+                                    </a>
+                                  </Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </Col>
+                        </Row>
+                      </Tab>
+                      <Tab eventKey="Ventilation" title="Ventilation">
+                        <Row>
+                          <Col sm={3}>
+                            <div className={headerStyle.special_product}>
+                              <Link href="/">
+                                <a title="">
+                                  <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Marra-Forni-Full-Length-integrated-Venting-Pipes.webp`} width="200" height="200" alt="Top Product" />
+                                  <p>Venting System</p>
+                                </a>
+                              </Link>
+                            </div>
+                          </Col>
+                          <Col sm={9}>
+                            <div className={headerStyle.rest_product}>
+                              <ul>
+                                <li>
+                                  <Link href="/">
+                                    <a title="">
+                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Blu-Penny-NP.webp`} width="100" height="100" alt="Top Product" />
+                                      <p>Venting</p>
+                                    </a>
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="/">
+                                    <a title="">
+                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Due_Bocche_White_Broken.webp`} width="100" height="100" alt="Top Product" />
+                                      <p>Venting</p>
+                                    </a>
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="/">
+                                    <a title="">
+                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/EL_Square_Blue.webp`} width="100" height="100" alt="Top Product" />
+                                      <p>Venting</p>
+                                    </a>
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="/">
+                                    <a title="">
+                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Big-Enclosed-BrIck-Oven-Rendering.webp`} width="100" height="100" alt="Top Product" />
+                                      <p>Venting</p>
+                                    </a>
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="/">
+                                    <a title="">
+                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Webp.net-resizeimage-1.webp`} width="100" height="100" alt="Top Product" />
+                                      <p>Venting</p>
+                                    </a>
+                                  </Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </Col>
+                        </Row>
+                      </Tab>
+                      <Tab eventKey="PrepTables" title="Prep Tables">
+                        <Row>
+                          <Col sm={3}>
+                            <div className={headerStyle.special_product}>
+                              <Link href="/">
+                                <a title="">
+                                  <img src={`https://marraforni.com/wp/wp-content/uploads/2017/11/Marra-Forni-Three-Door-Pizza-Prep-Table-without-Rail.jpg`} width="200" height="200" alt="Top Product" />
+                                  <p>Refrigerated Prep Table</p>
+                                </a>
+                              </Link>
+                            </div>
+                          </Col>
+                          <Col sm={9}>
+                            <div className={headerStyle.rest_product}>
+                              <ul>
+                                <li>
+                                  <Link href="/">
+                                    <a title="">
+                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Blu-Penny-NP.webp`} width="100" height="100" alt="Top Product" />
+                                      <p>Prep Table</p>
+                                    </a>
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="/">
+                                    <a title="">
+                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Due_Bocche_White_Broken.webp`} width="100" height="100" alt="Top Product" />
+                                      <p>Prep Table</p>
+                                    </a>
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="/">
+                                    <a title="">
+                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/EL_Square_Blue.webp`} width="100" height="100" alt="Top Product" />
+                                      <p>Prep Table</p>
+                                    </a>
+                                  </Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </Col>
+                        </Row>
+                      </Tab>
+                      <Tab eventKey="Mixers" title="Mixers">
+                        <Row>
+                          <Col sm={3}>
+                            <div className={headerStyle.special_product}>
+                              <Link href="/">
+                                <a title="">
+                                  <img src={`https://marraforni.com/wp/wp-content/uploads/2017/11/Marra-Forni-Spiral-Dough-Mixer-IM-model.jpg`} width="200" height="200" alt="Top Product" />
+                                  <p>Spiral Dough Mixers</p>
+                                </a>
+                              </Link>
+                            </div>
+                          </Col>
+                          <Col sm={9}>
+                            <div className={headerStyle.rest_product}>
+                              <ul>
+                                <li>
+                                  <Link href="/">
+                                    <a title="">
+                                      <img src={`https://marraforni.com/wp/wp-content/uploads/2017/11/Marra-Forni-Forked-Dough-Mixer.jpg`} width="100" height="100" alt="Top Product" />
+                                      <p>Fork Dough Mixers</p>
+                                    </a>
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="/">
+                                    <a title="">
+                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Due_Bocche_White_Broken.webp`} width="100" height="100" alt="Top Product" />
+                                      <p>Mixers</p>
+                                    </a>
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="/">
+                                    <a title="">
+                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/EL_Square_Blue.webp`} width="100" height="100" alt="Top Product" />
+                                      <p>Mixers</p>
+                                    </a>
+                                  </Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </Col>
+                        </Row>
+                      </Tab>
+                      <Tab eventKey="Slicers" title="Slicers">
+                        <Row>
+                          <Col sm={3}>
+                            <div className={headerStyle.special_product}>
+                              <Link href="/">
+                                <a title="">
+                                  <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/stainless_facade_square_black.webp`} width="200" height="200" alt="Top Product" />
+                                  <p>Slicers</p>
+                                </a>
+                              </Link>
+                            </div>
+                          </Col>
+                          <Col sm={9}>
+                            <div className={headerStyle.rest_product}>
+                              <ul>
+                                <li>
+                                  <Link href="/">
+                                    <a title="">
+                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Blu-Penny-NP.webp`} width="100" height="100" alt="Top Product" />
+                                      <p>Slicers</p>
+                                    </a>
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="/">
+                                    <a title="">
+                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Due_Bocche_White_Broken.webp`} width="100" height="100" alt="Top Product" />
+                                      <p>Slicers</p>
+                                    </a>
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="/">
+                                    <a title="">
+                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/EL_Square_Blue.webp`} width="100" height="100" alt="Top Product" />
+                                      <p>Slicers</p>
+                                    </a>
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="/">
+                                    <a title="">
+                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Big-Enclosed-BrIck-Oven-Rendering.webp`} width="100" height="100" alt="Top Product" />
+                                      <p>Slicers</p>
+                                    </a>
+                                  </Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </Col>
+                        </Row>
+                      </Tab>
+                    </Tabs>
                   </div>
                 </div>
                 <div>
