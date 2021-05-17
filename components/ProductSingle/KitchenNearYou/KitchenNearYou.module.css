@@ -24,7 +24,7 @@
 .section_outer ul li button{
   outline: none;
   padding: 5px 10px;
-  border-radius: 5px;
+  /*border-radius: 5px;*/
   border: 0px;
   color: #333;
   background-color: #fff;
