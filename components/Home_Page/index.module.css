@@ -1,0 +1,8 @@
+.quoteform_outer{
+  background-image: url('../../public/images/Marra-Forni-Client.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 50px 0;
+}
