@@ -13,38 +13,44 @@ const HighLight = ({highlightData}) => {
       style={background_color}
     >
       <Container fluid>
-        <Row 
-          className='align-items-center'>
-          <Col 
-            lg={8} 
-            md={6} 
-            className={HighLightStyle.text_box}
-          >
-            <ScrollAnimation 
-              duration={2} 
-              animateIn='zoomIn' 
-              animateOnce={true}
-            >  
-              <h2 style={text_color}>{highlightData.Heading}</h2>
-              <h3 style={text_color}>{highlightData.subHeading}</h3>
-            </ScrollAnimation>
+        <Row>
+          <Col lg={1}></Col>
+          <Col lg={10}>
+            <Row 
+              className='align-items-center'>
+              <Col 
+                lg={8} 
+                md={6} 
+                className={HighLightStyle.text_box}
+              >
+                <ScrollAnimation 
+                  duration={2} 
+                  animateIn='zoomIn' 
+                  animateOnce={true}
+                >  
+                  <h2 style={text_color}>{highlightData.Heading}</h2>
+                  <h3 style={text_color}>{highlightData.subHeading}</h3>
+                </ScrollAnimation>
+              </Col>
+              <Col 
+                lg={4} 
+                md={6} 
+                className={HighLightStyle.button_box}
+              >
+                <ScrollAnimation 
+                  duration={2} 
+                  animateIn='bounceInUp' 
+                  animateOnce={true}
+                >
+                  <button 
+                    className='mf_btn mf_btn_round'>
+                      {highlightData.buttonText}
+                  </button>
+                </ScrollAnimation>
+              </Col>
+            </Row>
           </Col>
-          <Col 
-            lg={4} 
-            md={6} 
-            className={HighLightStyle.button_box}
-          >
-            <ScrollAnimation 
-              duration={2} 
-              animateIn='bounceInUp' 
-              animateOnce={true}
-            >
-              <button 
-                className='mf_btn mf_btn_round'>
-                  {highlightData.buttonText}
-              </button>
-            </ScrollAnimation>
-          </Col>
+          <Col lg={1}></Col>
         </Row>
       </Container>
     </section> : ''

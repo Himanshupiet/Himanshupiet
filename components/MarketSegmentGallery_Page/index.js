@@ -13,7 +13,7 @@ const MarketSegmentGalleryMain = (props) => {
   return(
     <>
       <Header />
-      <TopBanner />
+      <TopBanner heading1={'Market'} heading2={'Segment Gallery'} />
       <SegmentGallery />
       <Testimonials background={'red'} />
       <Container fluid className={SegmentGalleryMainStyle.storyform_outer}>

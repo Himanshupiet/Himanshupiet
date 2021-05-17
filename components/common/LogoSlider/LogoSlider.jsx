@@ -17,10 +17,16 @@ const LogoSlider = (props) => {
     infinite: true,
     speed: 800,
     arrows: false,
-    slidesToShow: 5,
-    slidesToScroll: 5,
+    slidesToShow: 6,
+    slidesToScroll: 6,
     autoplay: true,
     responsive: [
+      {
+        breakpoint: 1400,
+        settings: {
+          slidesToShow: 5
+        }
+      },
       {
         breakpoint: 991,
         settings: {

@@ -22,54 +22,60 @@ const RotateImage360D = (props) => {
     <section className={Rotate360DStyle.section_outer}>
       <Container fluid>
         <Row>
-          <Col lg={3}>
-            <ScrollAnimation duration={2} animateIn="fadeInLeft" animateOnce={true}>
-              <div className={Rotate360DStyle.iconbox}>
-                <img alt="Rotating Deck" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MarraForniRotatingDeckicon.png`} width="68" height="68" />
-                <h3>Rotating Deck</h3>
-                <p>Increased production capacity, streamline cooking operation, simple to use even with limited skill set.</p>
-              </div>
-              <div className={Rotate360DStyle.iconbox}>
-                <img alt="Plug & Play Ventilation" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Marra-Forni-Plug-and-Play-Ventilation-icon.webp`} width="68" height="68" />
-                <h3>Plug & Play Ventilation</h3>
-                <p>Compressed Wool Insulation, Double Wall Venting and 103 and 1978 UL listed integrated venting</p>
-              </div>
-            </ScrollAnimation>
+          <Col lg={1}></Col>
+          <Col lg={10}>
+            <Row>
+              <Col lg={3}>
+                <ScrollAnimation duration={2} animateIn="fadeInLeft" animateOnce={true}>
+                  <div className={Rotate360DStyle.iconbox}>
+                    <img alt="Rotating Deck" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MarraForniRotatingDeckicon.png`} width="68" height="68" />
+                    <h3>Rotating Deck</h3>
+                    <p>Increased production capacity, streamline cooking operation, simple to use even with limited skill set.</p>
+                  </div>
+                  <div className={Rotate360DStyle.iconbox}>
+                    <img alt="Plug & Play Ventilation" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Marra-Forni-Plug-and-Play-Ventilation-icon.webp`} width="68" height="68" />
+                    <h3>Plug & Play Ventilation</h3>
+                    <p>Compressed Wool Insulation, Double Wall Venting and 103 and 1978 UL listed integrated venting</p>
+                  </div>
+                </ScrollAnimation>
+              </Col>
+              <Col lg={6}>
+                <ScrollAnimation duration={2} animateIn="fadeIn" animateOnce={true}>
+                  <Tabs defaultActiveKey="RedPennyTile" id="uncontrolled-tab-example">
+                    <Tab eventKey="RedPennyTile" title="Red Penny Tile">
+                    <React360 className='rotation'>
+                      {pennyTile.map((val, i) => (
+                          <img src={val} alt='' key={i}/>
+                      ))}
+                      </React360>
+                    </Tab>
+                    <Tab eventKey="RedBrokenTile" title="Red Broken Tile">
+                      <React360 className='rotation'>
+                        {brokenTile.map((val, i) => (
+                            <img src={val} alt='' key={i}/>
+                        ))}
+                      </React360>
+                    </Tab>
+                  </Tabs>
+                </ScrollAnimation>
+              </Col>
+              <Col lg={3}>
+                <ScrollAnimation duration={2} animateIn="fadeInRight" animateOnce={true}>
+                  <div className={Rotate360DStyle.iconbox}>
+                    <img alt="TouchScreen" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Marra-Forni-Plug-and-Play-Ventilation-icon.webp`} width="68" height="68" />
+                    <h3>TouchScreen</h3>
+                    <p>Control the temperature, rotation speed, auto on/off all from the integrated touchsreen</p>
+                  </div>
+                  <div className={Rotate360DStyle.iconbox}>
+                    <img alt="84,000 BTU" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MarraForniRotatingDeckicon.png`} width="68" height="68" />
+                    <h3>84,000 BTU</h3>
+                    <p>Lower energy bills enable you to invest in the grow of you business</p>
+                  </div>
+                </ScrollAnimation>
+              </Col>
+            </Row>
           </Col>
-          <Col lg={6}>
-            <ScrollAnimation duration={2} animateIn="fadeIn" animateOnce={true}>
-              <Tabs defaultActiveKey="RedPennyTile" id="uncontrolled-tab-example">
-                <Tab eventKey="RedPennyTile" title="Red Penny Tile">
-                 <React360 className='rotation'>
-                   {pennyTile.map((val, i) => (
-                       <img src={val} alt='' key={i}/>
-                   ))}
-                  </React360>
-                </Tab>
-                <Tab eventKey="RedBrokenTile" title="Red Broken Tile">
-                  <React360 className='rotation'>
-                    {brokenTile.map((val, i) => (
-                        <img src={val} alt='' key={i}/>
-                    ))}
-                  </React360>
-                </Tab>
-              </Tabs>
-            </ScrollAnimation>
-          </Col>
-          <Col lg={3}>
-            <ScrollAnimation duration={2} animateIn="fadeInRight" animateOnce={true}>
-              <div className={Rotate360DStyle.iconbox}>
-                <img alt="TouchScreen" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Marra-Forni-Plug-and-Play-Ventilation-icon.webp`} width="68" height="68" />
-                <h3>TouchScreen</h3>
-                <p>Control the temperature, rotation speed, auto on/off all from the integrated touchsreen</p>
-              </div>
-              <div className={Rotate360DStyle.iconbox}>
-                <img alt="84,000 BTU" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MarraForniRotatingDeckicon.png`} width="68" height="68" />
-                <h3>84,000 BTU</h3>
-                <p>Lower energy bills enable you to invest in the grow of you business</p>
-              </div>
-            </ScrollAnimation>
-          </Col>
+          <Col lg={1}></Col>
         </Row>
       </Container>
     </section>
