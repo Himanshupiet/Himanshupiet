@@ -3,6 +3,7 @@ import ScrollAnimation from 'react-animate-on-scroll'
 import { Col, Container, Row, Tabs, Tab } from 'react-bootstrap'
 import Rotate360DStyle from './RotateImage360D.module.css'
 import React360 from './React360'
+import Rotation from 'react-rotation'
 
 const RotateImage360D = (props) => {
   const [pennyTile, setPennyTile] = useState([])
@@ -40,18 +41,26 @@ const RotateImage360D = (props) => {
             <ScrollAnimation duration={2} animateIn="fadeIn" animateOnce={true}>
               <Tabs defaultActiveKey="RedPennyTile" id="uncontrolled-tab-example">
                 <Tab eventKey="RedPennyTile" title="Red Penny Tile">
-                 <React360 className='rotation'>
+                 <Rotation
+                     reverse={true}
+                     cycle={true}
+                     scroll={true}
+                     className='rotation'>
                    {pennyTile.map((val, i) => (
                        <img src={val} alt='' key={i}/>
                    ))}
-                  </React360>
+                  </Rotation>
                 </Tab>
                 <Tab eventKey="RedBrokenTile" title="Red Broken Tile">
-                  <React360 className='rotation'>
+                  <Rotation
+                      reverse={true}
+                      cycle={true}
+                      scroll={true}
+                      className='rotation'>
                     {brokenTile.map((val, i) => (
                         <img src={val} alt='' key={i}/>
                     ))}
-                  </React360>
+                  </Rotation>
                 </Tab>
               </Tabs>
             </ScrollAnimation>
