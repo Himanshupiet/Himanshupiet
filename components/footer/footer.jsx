@@ -73,7 +73,7 @@ const Footer = (props) => {
                       </Link>
                     </li>
                     <li>
-                      <Link href="/">
+                      <Link href="/terms-and-conditions">
                         <a title="Terms and Conditions">Terms and Conditions</a>
                       </Link>
                     </li>

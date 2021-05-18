@@ -39,8 +39,8 @@ const Header = (props) => {
     <>
       <header className={`${headerStyle.custom_header} ${fixedHeaderClass} ${headerStyle.mobile_navbar} container-fluid`}>
         <Row>
-          <Col lg={1}></Col>
-          <Col lg={10}>
+          <Col xl={1}></Col>
+          <Col xl={10}>
             <nav className={`${headerStyle.custom_navbar}`}>
               <div className={headerStyle.site_logo}>
                 <div className={`${headerStyle.mobile_show} ${headerStyle.menu_icon}`}>
@@ -237,6 +237,11 @@ const Header = (props) => {
                   </div>
                 </div>
                 <div>
+                  <ActiveLink activeClassName="active_menu" href="/tools-and-accessories">
+                    <a title="Tools" data-title="Tools"><span>Tools</span></a>
+                  </ActiveLink>
+                </div>
+                <div>
                   <ActiveLink activeClassName="active_menu" href="/resources">
                     <a title="Resources" data-title="Resources"><span>Resources</span></a>
                   </ActiveLink>
@@ -280,12 +285,12 @@ const Header = (props) => {
                   <div className={`${headerStyle.sub_menu} ${ mobileGalleryOpen ? headerStyle.sub_menu_active : ""}`}>
                     <ul>
                       <li>
-                        <Link href="/">
+                        <Link href="/market-segment-gallery">
                           <a title="Market Segment Gallery"><span>Market Segment Gallery</span></a>
                         </Link>
                       </li>
                       <li>
-                        <Link href="/">
+                        <Link href="/gallery">
                           <a title="Product Gallery"><span>Product Gallery</span></a>
                         </Link>
                       </li>
@@ -326,7 +331,7 @@ const Header = (props) => {
                   </div>
                 </div>
                 <div>
-                  <button className="mf_btn">Build Your Brick Oven</button>
+                  <button className="mf_btn" style={{padding: "8px"}}>Build Your Brick Oven</button>
                 </div>
                 <div className={`${headerStyle.searchicon} ${headerStyle.desktop_show}`}>
                   <i className='bx bx-search-alt-2'></i>
@@ -337,7 +342,7 @@ const Header = (props) => {
               </div>
             </nav>
           </Col>
-          <Col lg={1}></Col>
+          <Col xl={1}></Col>
         </Row>
       </header>
     </>
