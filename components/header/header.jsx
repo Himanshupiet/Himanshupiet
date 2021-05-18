@@ -171,46 +171,7 @@ const Header = (props) => {
                           <Col sm={9}>
                             <div className={headerStyle.rest_product}>
                               <ul>
-                                <li>
-                                  <Link href="/">
-                                    <a title="">
-                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Blu-Penny-NP.webp`} width="100" height="100" alt="Top Product" />
-                                      <p>Venting</p>
-                                    </a>
-                                  </Link>
-                                </li>
-                                <li>
-                                  <Link href="/">
-                                    <a title="">
-                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Due_Bocche_White_Broken.webp`} width="100" height="100" alt="Top Product" />
-                                      <p>Venting</p>
-                                    </a>
-                                  </Link>
-                                </li>
-                                <li>
-                                  <Link href="/">
-                                    <a title="">
-                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/EL_Square_Blue.webp`} width="100" height="100" alt="Top Product" />
-                                      <p>Venting</p>
-                                    </a>
-                                  </Link>
-                                </li>
-                                <li>
-                                  <Link href="/">
-                                    <a title="">
-                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Big-Enclosed-BrIck-Oven-Rendering.webp`} width="100" height="100" alt="Top Product" />
-                                      <p>Venting</p>
-                                    </a>
-                                  </Link>
-                                </li>
-                                <li>
-                                  <Link href="/">
-                                    <a title="">
-                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Webp.net-resizeimage-1.webp`} width="100" height="100" alt="Top Product" />
-                                      <p>Venting</p>
-                                    </a>
-                                  </Link>
-                                </li>
+                                
                               </ul>
                             </div>
                           </Col>
@@ -234,24 +195,8 @@ const Header = (props) => {
                                 <li>
                                   <Link href="/">
                                     <a title="">
-                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Blu-Penny-NP.webp`} width="100" height="100" alt="Top Product" />
-                                      <p>Prep Table</p>
-                                    </a>
-                                  </Link>
-                                </li>
-                                <li>
-                                  <Link href="/">
-                                    <a title="">
-                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Due_Bocche_White_Broken.webp`} width="100" height="100" alt="Top Product" />
-                                      <p>Prep Table</p>
-                                    </a>
-                                  </Link>
-                                </li>
-                                <li>
-                                  <Link href="/">
-                                    <a title="">
-                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/EL_Square_Blue.webp`} width="100" height="100" alt="Top Product" />
-                                      <p>Prep Table</p>
+                                      <img src={`https://marraforni.com/wp/wp-content/uploads/2017/11/Marra-Forni-Three-Door-Pizza-Prep-Table-with-Rail.jpg`} width="100" height="100" alt="Top Product" />
+                                      <p>Refrigerated Condiment Rail</p>
                                     </a>
                                   </Link>
                                 </li>
@@ -280,74 +225,6 @@ const Header = (props) => {
                                     <a title="">
                                       <img src={`https://marraforni.com/wp/wp-content/uploads/2017/11/Marra-Forni-Forked-Dough-Mixer.jpg`} width="100" height="100" alt="Top Product" />
                                       <p>Fork Dough Mixers</p>
-                                    </a>
-                                  </Link>
-                                </li>
-                                <li>
-                                  <Link href="/">
-                                    <a title="">
-                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Due_Bocche_White_Broken.webp`} width="100" height="100" alt="Top Product" />
-                                      <p>Mixers</p>
-                                    </a>
-                                  </Link>
-                                </li>
-                                <li>
-                                  <Link href="/">
-                                    <a title="">
-                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/EL_Square_Blue.webp`} width="100" height="100" alt="Top Product" />
-                                      <p>Mixers</p>
-                                    </a>
-                                  </Link>
-                                </li>
-                              </ul>
-                            </div>
-                          </Col>
-                        </Row>
-                      </Tab>
-                      <Tab eventKey="Slicers" title="Slicers">
-                        <Row>
-                          <Col sm={3}>
-                            <div className={headerStyle.special_product}>
-                              <Link href="/">
-                                <a title="">
-                                  <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/stainless_facade_square_black.webp`} width="200" height="200" alt="Top Product" />
-                                  <p>Slicers</p>
-                                </a>
-                              </Link>
-                            </div>
-                          </Col>
-                          <Col sm={9}>
-                            <div className={headerStyle.rest_product}>
-                              <ul>
-                                <li>
-                                  <Link href="/">
-                                    <a title="">
-                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Blu-Penny-NP.webp`} width="100" height="100" alt="Top Product" />
-                                      <p>Slicers</p>
-                                    </a>
-                                  </Link>
-                                </li>
-                                <li>
-                                  <Link href="/">
-                                    <a title="">
-                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Due_Bocche_White_Broken.webp`} width="100" height="100" alt="Top Product" />
-                                      <p>Slicers</p>
-                                    </a>
-                                  </Link>
-                                </li>
-                                <li>
-                                  <Link href="/">
-                                    <a title="">
-                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/EL_Square_Blue.webp`} width="100" height="100" alt="Top Product" />
-                                      <p>Slicers</p>
-                                    </a>
-                                  </Link>
-                                </li>
-                                <li>
-                                  <Link href="/">
-                                    <a title="">
-                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Big-Enclosed-BrIck-Oven-Rendering.webp`} width="100" height="100" alt="Top Product" />
-                                      <p>Slicers</p>
                                     </a>
                                   </Link>
                                 </li>
