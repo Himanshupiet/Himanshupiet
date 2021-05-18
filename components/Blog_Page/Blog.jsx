@@ -7,11 +7,11 @@ const Blog = (props) => {
     return (
         <>
             <div style={{
-                height:'300px',
-                backgroundImage:`url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/resource_banner.png)`,
-                backgroundRepeat:'no-repeat',
-                backgroundAttachment:'fixed',
-                backgroundSize:'cover',
+                height: '300px',
+                backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/resource_banner.png)`,
+                backgroundRepeat: 'no-repeat',
+                backgroundAttachment: 'fixed',
+                backgroundSize: 'cover',
                 backgroundPosition: 'center'
             }}/>
             {/*<Container fluid className='bg-light'>*/}
@@ -36,7 +36,8 @@ const Blog = (props) => {
                                         className={BlogStyle.blog_img}
                                     />
                                     <div className={`${BlogStyle.blog_content} card-body p-4 border`}>
-                                        <h2 className={`${BlogStyle.card_title} card-title`}>What Your Browser Says About You</h2>
+                                        <h2 className={`${BlogStyle.card_title} card-title`}>What Your Browser Says
+                                            About You</h2>
                                         <span className={BlogStyle.sub_heading}>29 September 2016 | By Admin</span>
                                         <p className="card-text mt-3">
                                             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
@@ -56,7 +57,8 @@ const Blog = (props) => {
                                         className={BlogStyle.blog_img}
                                     />
                                     <div className={`${BlogStyle.blog_content} card-body p-4 border`}>
-                                        <h2 className={`${BlogStyle.card_title} card-title`}>What Your Browser Says About You</h2>
+                                        <h2 className={`${BlogStyle.card_title} card-title`}>What Your Browser Says
+                                            About You</h2>
                                         <span className={BlogStyle.sub_heading}>29 September 2016 | By Admin</span>
                                         <p className="card-text mt-3">
                                             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
@@ -76,7 +78,8 @@ const Blog = (props) => {
                                         className={BlogStyle.blog_img}
                                     />
                                     <div className={`${BlogStyle.blog_content} card-body p-4 border`}>
-                                        <h2 className={`${BlogStyle.card_title} card-title`}>What Your Browser Says About You</h2>
+                                        <h2 className={`${BlogStyle.card_title} card-title`}>What Your Browser Says
+                                            About You</h2>
                                         <span className={BlogStyle.sub_heading}>29 September 2016 | By Admin</span>
                                         <p className="card-text mt-3">
                                             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
@@ -113,19 +116,27 @@ const Blog = (props) => {
                                 </div>
                             </Col>
                             <Col lg={3}>
-                                <div className="card">
+                                {/*<div className="card">*/}
+                                {/*    <div className="card-body text-center">*/}
+                                {/*        <h4 className="card-title">Search</h4>*/}
+                                {/*        <input type='email' className='form-control' placeholder='Enter Email'/>*/}
+                                {/*        <a href='' className='btn btn-primary'>Submit</a>*/}
+                                {/*    </div>*/}
+                                {/*</div>*/}
+                                <div className="card mt-3">
                                     <div className="card-body text-center">
-                                        <h6 className="card-title">About Me</h6>
-                                        <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/blog-sidebar-img-1.png`}/>
-                                        <p className="card-text pt-3">
+                                        <h4 className="card-title">About Me</h4>
+                                        <img
+                                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/blog-sidebar-img-1.png`}/>
+                                        <h5 className="card-text pt-3">
                                             With supporting text below as a natural lead-in to additional
                                             content.
-                                        </p>
+                                        </h5>
                                     </div>
                                 </div>
                                 <div className={`${BlogStyle.card_item} card mt-3 p-3`}>
                                     <h4 className='text-center'>Categories</h4>
-                                    <ul className='text-center'>
+                                    <ul className='text-center m-0'>
                                         <li className="cat-item"><a
                                             href="#">Beauty</a>
                                         </li>
@@ -155,27 +166,53 @@ const Blog = (props) => {
                                 <div className="card mt-3">
                                     <div className="card-body text-center">
                                         <h4 className="card-title">Recent Stories</h4>
-                                        <div className={BlogStyle.stories}>
-                                            <div className='d-flex justify-content-between'>
-                                                <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/blog-img-7.jpg`}/>
-                                                <div>
-                                                    <p>10 Tips For Traveling With Friends</p>
-                                                    <span>fdfdfdfd</span>
-                                                </div>
-                                            </div>
+                                        <div className={`${BlogStyle.stories}`}>
+                                            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/blog-img-8.jpg`}/>
+                                            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/blog-img-7.jpg`}/>
+                                        </div>
+                                        <div className={`${BlogStyle.stories} mt-1`}>
+                                            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/blog-img-7.jpg`}/>
+                                            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/blog-img-8.jpg`}/>
                                         </div>
                                     </div>
                                 </div>
+                                <div className={`${BlogStyle.card_item} card mt-3 p-3`}>
+                                    <h4 className='text-center'>Recent Highlight</h4>
+                                    <ul className='text-center m-0'>
+                                        <li className="cat-item"><a
+                                            href="#">5 Ways MarraStone</a>
+                                        </li>
+                                        <li className="cat-item"><a
+                                            href="#">All You Need to Know</a>
+                                        </li>
+                                        <li className="cat-item"><a
+                                            href="#">5 Ways to Master</a>
+                                        </li>
+                                        <li className="cat-item"><a
+                                            href="#">Marraforni Brick Oven</a>
+                                        </li>
+                                        <li className="cat-item"><a
+                                            href="#">About Sous Vide to Brick Oven Cooking</a>
+                                        </li>
+                                        <li className="cat-item"><a
+                                            href="#">About Sous Vide to Brick Oven Cooking</a>
+                                        </li>
+                                        <li className="cat-item"><a
+                                            href="#">7 Ways Rep Chefs Make Purchasing The Best</a>
+                                        </li>
+                                    </ul>
+                                </div>
                                 <div className="card mt-3">
                                     <div className="card-body text-center">
-                                        <h5 className="card-title">Tags</h5>
-                                        <a href='#'>Design</a>
-                                        <a href='#'>Design</a>
-                                        <a href='#'>Design</a>
-                                        <a href='#'>Design</a>
-                                        <a href='#'>Design</a>
-                                        <a href='#'>Design</a>
-                                        <a href='#'>Design</a>
+                                        <h4 className="card-title">Tags</h4>
+                                        <div className='pl-2 pr-2'>
+                                       <a href='#'>amyriolo,</a>
+                                        <a href='#'>banquet,</a>
+                                        <a href='#'>Design,</a>
+                                        <a href='#'>Design,</a>
+                                        <a href='#'>Design,</a>
+                                        <a href='#'>Design,</a>
+                                        </div>
                                     </div>
                                 </div>
                             </Col>
