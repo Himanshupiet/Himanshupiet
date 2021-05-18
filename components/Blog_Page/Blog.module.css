@@ -25,8 +25,9 @@
     font-weight: 500;
 }
 .stories img{
-    width: 70px;
+    width: 90px;
     height: 70px;
+    margin-right: 4px;
 }
 .stories p{
     font-size: 14px;
