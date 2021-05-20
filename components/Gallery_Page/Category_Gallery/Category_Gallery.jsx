@@ -47,7 +47,7 @@ const Category_Gallery = (props) => {
                     duration={1}  
                   >
                     <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
+                      <Link href='/gallery/pico'>
                         <a title='Gallery Image'>
                           <img 
                             src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
@@ -57,8 +57,8 @@ const Category_Gallery = (props) => {
                           />
                           <div className={CategoryGalleryStyle.gallery_overlay}>
                             <div className={CategoryGalleryStyle.info_box}>
-                              <span>Mobile Brick Oven</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                              <span>Pi Co.</span>
+                              <p>Rotator</p>
                             </div>
                           </div>
                         </a>

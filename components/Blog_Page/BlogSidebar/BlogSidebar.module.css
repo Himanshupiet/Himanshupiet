@@ -1,0 +1,39 @@
+.stories img{
+  width: 90px;
+  height: 70px;
+  margin-right: 4px;
+}
+.stories p{
+  font-size: 14px;
+}
+.card_item ul{
+  list-style-type: none;
+}
+.searchbox{
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+  border-radius: 30px;
+  border: 2px solid #e6e9ee;
+  overflow: hidden;
+  align-items: center;  
+}
+.searchbox input{
+  border: 0 !important;
+  margin: 0 !important;
+  height: 48px;
+  padding-right: 0 !important;
+}
+.searchbox input:focus{
+  box-shadow: none !important;
+}
+.searchbox button{
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  padding: 0;
+  background-color: transparent;
+  color: #24262a;
+  font-size: 20px;
+  text-align: center;
+}
