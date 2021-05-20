@@ -92,7 +92,7 @@ const Header = (props) => {
                         <Row>
                           <Col sm={3}>
                             <div className={headerStyle.special_product}>
-                              <Link href="/">
+                              <Link href="/product/discover-the-rotator-brick-oven">
                                 <a title="">
                                   <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/stainless_facade_square_black.webp`} width="200" height="200" alt="Top Product" />
                                   <p>Rotator Brick Oven</p>

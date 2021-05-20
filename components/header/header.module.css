@@ -194,6 +194,8 @@
 }
 .rest_product ul li a p{
   color: #24262a;
+  font-size: 16px;
+  font-weight: 400;
 }
 @media only screen and (max-width:1199px){
   .site_nav > div{

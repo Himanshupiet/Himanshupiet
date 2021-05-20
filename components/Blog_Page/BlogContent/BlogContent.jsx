@@ -20,7 +20,7 @@ const BlogContent = (props) => {
                 nostrud exerci tation ullamcorper suscipit lobortis nisl ut
                 aliquip ex ea commodo....
             </p>
-            <a href="#" className={`${BlogContentStyle.blog_btn} btn text-white rounded-0`}>
+            <a href="/blog/5-ways-marrastone-revolutionizes-the-brick-oven" className={`${BlogContentStyle.blog_btn} btn text-white rounded-0`}>
                 Read More
             </a>
         </div>

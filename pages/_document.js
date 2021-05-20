@@ -23,6 +23,7 @@ class MyDocument extends Document {
           <script type='text/javascript' src={`${process.env.NEXT_PUBLIC_BASE_PATH}/PaintbrushSlider_js/rbtools.min1e39.js`} id='tp-tools-js'></script>
           <script type='text/javascript' src={`${process.env.NEXT_PUBLIC_BASE_PATH}/PaintbrushSlider_js/rs6.min1e39.js`} id='revmin-js'></script>
           <script type='text/javascript' src={`${process.env.NEXT_PUBLIC_BASE_PATH}/PaintbrushSlider_js/revolution.addon.paintbrush.mincc91.js`} id='rs-paintbrush-front-js'></script>
+          <script type='text/javascript' src={`${process.env.NEXT_PUBLIC_BASE_PATH}/AboutUsTimeline_js/AboutUsTimeline.js`} id='aboutus-timeline-js'></script>
         </body>
       </Html>
     )
