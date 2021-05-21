@@ -134,7 +134,7 @@
   width: 100%;
   left: 0;
   right: 0;
-  padding: 10px 35px;
+  padding: 0;
   margin-top: -11px;
   background: #f7f6fc;
   box-shadow: 0 0 4px rgb(0 0 0 / 40%);
@@ -149,8 +149,12 @@
 .special_product a{
   display: block;
 }
+.special_product a:hover p{
+  text-decoration: underline;
+}
 .special_product a img{
   max-width: 100%;
+  width: 70%;
 }
 .special_product a p{
   color: #e31422;
@@ -195,7 +199,8 @@
 .rest_product ul li a p{
   color: #24262a;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
+  text-shadow: 1px 1px 1px rgb(0 0 0 / 30%);
 }
 @media only screen and (max-width:1199px){
   .site_nav > div{

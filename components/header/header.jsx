@@ -122,7 +122,7 @@ const Header = (props) => {
                                 <li>
                                   <Link href="/">
                                     <a title="">
-                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/EL_Square_Blue.webp`} width="100" height="100" alt="Top Product" />
+                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/EL_Square_Blue.png`} width="100" height="100" alt="Top Product" />
                                       <p>Electric Oven</p>
                                     </a>
                                   </Link>
@@ -130,7 +130,7 @@ const Header = (props) => {
                                 <li>
                                   <Link href="/">
                                     <a title="">
-                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Big-Enclosed-BrIck-Oven-Rendering.webp`} width="100" height="100" alt="Top Product" />
+                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Big-Enclosed-BrIck-Oven-Rendering.png`} width="100" height="100" alt="Top Product" />
                                       <p>Enclosed Facade</p>
                                     </a>
                                   </Link>
@@ -183,7 +183,7 @@ const Header = (props) => {
                             <div className={headerStyle.special_product}>
                               <Link href="/">
                                 <a title="">
-                                  <img src={`https://marraforni.com/wp/wp-content/uploads/2017/11/Marra-Forni-Three-Door-Pizza-Prep-Table-without-Rail.jpg`} width="200" height="200" alt="Top Product" />
+                                  <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Marra-Forni-Three-Door-Pizza-Prep-Table-with-Rail.png`} width="200" height="200" alt="Top Product" />
                                   <p>Refrigerated Prep Table</p>
                                 </a>
                               </Link>
@@ -195,7 +195,7 @@ const Header = (props) => {
                                 <li>
                                   <Link href="/">
                                     <a title="">
-                                      <img src={`https://marraforni.com/wp/wp-content/uploads/2017/11/Marra-Forni-Three-Door-Pizza-Prep-Table-with-Rail.jpg`} width="100" height="100" alt="Top Product" />
+                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Marra-Forni-Three-Door-Pizza-Prep-Table-with-Rail.png`} width="100" height="100" alt="Top Product" />
                                       <p>Refrigerated Condiment Rail</p>
                                     </a>
                                   </Link>
@@ -211,7 +211,7 @@ const Header = (props) => {
                             <div className={headerStyle.special_product}>
                               <Link href="/">
                                 <a title="">
-                                  <img src={`https://marraforni.com/wp/wp-content/uploads/2017/11/Marra-Forni-Spiral-Dough-Mixer-IM-model.jpg`} width="200" height="200" alt="Top Product" />
+                                  <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Marra-Forni-Spiral-Dough-Mixer.png`} width="200" height="200" alt="Top Product" />
                                   <p>Spiral Dough Mixers</p>
                                 </a>
                               </Link>
@@ -223,7 +223,7 @@ const Header = (props) => {
                                 <li>
                                   <Link href="/">
                                     <a title="">
-                                      <img src={`https://marraforni.com/wp/wp-content/uploads/2017/11/Marra-Forni-Forked-Dough-Mixer.jpg`} width="100" height="100" alt="Top Product" />
+                                      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Marra-Forni-Forked-Dough-Mixer.png`} width="100" height="100" alt="Top Product" />
                                       <p>Fork Dough Mixers</p>
                                     </a>
                                   </Link>

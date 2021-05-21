@@ -12,7 +12,7 @@ const VideoSlider = (props) => {
     dots: false,
     slidesToShow: 7,
     slidesToScroll: 7,
-    autoplay: false,
+    autoplay: true,
     infinite: true,
     responsive: [
       {

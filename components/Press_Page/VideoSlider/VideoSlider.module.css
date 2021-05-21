@@ -1,10 +1,11 @@
 .slider_outer{
-  background-color: #f7f6fc;
+  background-color: #24262a;
   padding-top: 15px;
   padding-bottom: 20px;
 }
 .slider_outer h2{
   text-align: center;
+  color: #fff;
 }
 .slider_inner_main{
   margin: 0 3px;
@@ -16,6 +17,7 @@
 }
 .slider_inner_main:hover h6{
   color: #e31422;
+  text-decoration: underline;
 }
 .slider_inner{
   position: relative;
@@ -41,4 +43,5 @@
 .slider_inner_main h6{
   margin-top: 10px;
   text-align: center;
+  color: #fff;
 }
