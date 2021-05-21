@@ -615,18 +615,31 @@ input:focus{
 }
 .header_product_sub_menu__3bJTm .nav-tabs {
   justify-content: center;
+  background-color: #e31422;
+  border-top: 5px solid #fff;
+  padding: 0 15px;
+  box-shadow: 8px 10px 13px rgb(0 0 0 / 30%);  
 }
 .header_product_sub_menu__3bJTm .nav-tabs a{
   border: 0;
+  border-bottom: 3px solid transparent;
   background-color: transparent;
   font-size: 16px;
   font-weight: 500;
-  color: #24262a;
+  color: #fff;
 }
 .header_product_sub_menu__3bJTm .nav-tabs a:hover{
-  color: #e31422;
+  color: #fff;
+  border-bottom-color: #fff;
 }
 .header_product_sub_menu__3bJTm .nav-tabs a.active{
   background-color: transparent;
-  color: #e31422;
+  color: #fff;
+  border-bottom-color: #fff;
+}
+.header_product_sub_menu__3bJTm .tab-content{
+  background: linear-gradient(0deg,#fff,rgba(227,20,34,0) 33.33%,#24262a 66.66%,hsla(0,0%,100%,0) 99.99%);
+  background-size: 300% 300%;
+  background-position: 0 -60%;
+  padding: 0 15px;
 }
