@@ -9,3 +9,7 @@
 .iconbox h3{
   margin-top: 15px;
 }
+.rotate_outer{
+  width: 75%;
+  margin: -50px auto 0;
+}

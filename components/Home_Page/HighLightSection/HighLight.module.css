@@ -1,6 +1,20 @@
 .section_outer{
   padding-top: 50px;
   padding-bottom: 30px;
+  background-position: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+.section_outer::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(247 246 252 / 60%);
 }
 .text_box{
   margin-bottom: 20px;

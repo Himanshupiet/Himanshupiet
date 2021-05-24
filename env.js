@@ -1,3 +1,3 @@
-const API_HOST = 'http://jdev.decipherzone.com:30654/'
+const API_HOST = 'https://jdev.decipherzone.com/mfback/'
 
 exports.API_HOST = API_HOST

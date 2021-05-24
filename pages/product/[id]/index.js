@@ -19,7 +19,11 @@ const SingleProduct = (props) => {
     let highlightData = {
         Heading: '',
         subHeading: 'You are a few clicks away from owning the most durable, energy-efficient, customizable and feature pack brick oven in the world.',
-        buttonText: 'Build Your Own Oven!'
+        buttonText: 'Build Your Own Oven!',
+        backgroundImage: {
+			IsImage: false,
+			imagePath: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/painthouse-three.jpg`
+		}
     }
     return(
         <>

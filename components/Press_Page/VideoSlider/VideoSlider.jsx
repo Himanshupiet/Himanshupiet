@@ -7,7 +7,7 @@ import VideoSliderStyle from './VideoSlider.module.css'
 
 const VideoSlider = (props) => {
   let VideoSliderSettings = {
-    speed: 800,
+    speed: 1500,
     arrows: false,
     dots: false,
     slidesToShow: 7,

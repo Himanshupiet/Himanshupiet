@@ -19,7 +19,7 @@ const TopBannerSlider = (props) => {
     
       <Slider {...TopBannerSliderSettings} className={TopBannerStyle.slider_outer}>
         <div>
-          <Container fluid className={TopBannerStyle.slider_inner} style={{backgroundImage: 'url(https://marraforni.com/wp/wp-content/uploads/2020/05/Marra-Forni_Virtual-NEXT_FER_2020_Square.png)'}}>
+          <Container fluid className={TopBannerStyle.slider_inner} style={{backgroundImage: 'url(https://marraforni.com/wp/wp-content/uploads/2020/02/PIC_7194-scaled.jpg)'}}>
             <Row>
               <Col lg={1}></Col>
               <Col lg={10}>
