@@ -43,26 +43,30 @@ const RotateImage360D = (props) => {
                 <ScrollAnimation duration={2} animateIn="fadeIn" animateOnce={true}>
                   <Tabs defaultActiveKey="RedPennyTile" id="uncontrolled-tab-example">
                     <Tab eventKey="RedPennyTile" title="Red Penny Tile">
-                      <Rotation
-                        reverse={true}
-                        cycle={true}
-                        scroll={true}
-                        className='rotation'>
-                      {pennyTile.map((val, i) => (
-                          <img src={val} alt='' key={i}/>
-                      ))}
-                      </Rotation>
-                    </Tab>
-                    <Tab eventKey="RedBrokenTile" title="Red Broken Tile">
-                      <Rotation
+                      <div className={Rotate360DStyle.rotate_outer}>
+                        <Rotation
                           reverse={true}
                           cycle={true}
                           scroll={true}
                           className='rotation'>
-                        {brokenTile.map((val, i) => (
-                            <img src={val} alt='' key={i}/>
+                        {pennyTile.map((val, i) => (
+                            <img src={val} alt='Red Penny Tile' key={i}/>
                         ))}
-                      </Rotation>
+                        </Rotation>
+                      </div>  
+                    </Tab>
+                    <Tab eventKey="RedBrokenTile" title="Red Broken Tile">
+                      <div className={Rotate360DStyle.rotate_outer}>
+                        <Rotation
+                            reverse={true}
+                            cycle={true}
+                            scroll={true}
+                            className='rotation'>
+                          {brokenTile.map((val, i) => (
+                              <img src={val} alt='Red Broken Tile' key={i}/>
+                          ))}
+                        </Rotation>
+                      </div>  
                     </Tab>
                   </Tabs>
                 </ScrollAnimation>
