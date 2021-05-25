@@ -16,16 +16,6 @@
 .blog_image:hover .blogimg_hover{
   background-color: rgba(0,0,0,.2);
 }
-.blogimg_hover .blog_tag{
-  background-color: #fff;
-  padding: 2px 17px;
-  border-radius: 3px;
-  display: inline-block;
-  margin: 15px;
-  font-size: 13px;
-  color: #24262a;
-  font-weight: 500;
-}
 .blog_info{
   padding: 25px 25px 20px;
 }
@@ -82,30 +72,4 @@
 .pagination li button.activepagination{
   background-color: #e31422;
   color: #fff;
-}
-.catfilter{
-  position: relative;
-  margin: 0px 0 30px;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-}
-.catfilter li{
-  margin: 0 16px 10px 0px;
-}
-.catfilter li button{
-  background-color: transparent;
-  border: none;
-  margin: 0;
-  padding: 0;
-  font-size: 15px;
-  color: #646e7a;
-  font-weight: 500;
-  transition: color .15s ease-out;
-}
-.catfilter li button:hover,
-.catfilter li button.activecatfilter{
-  color: #e31421;
 }
