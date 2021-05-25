@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Link from 'next/link';
-import {Col, Row, Tab, Tabs,Modal,Container} from 'react-bootstrap'
+import {Col, Row, Tab, Tabs,Modal,Container, DropdownButton , Dropdown} from 'react-bootstrap'
 import ActiveLink from './ActiveLink';
 import headerStyle from './header.module.css';
 
@@ -10,28 +10,36 @@ import headerStyle from './header.module.css';
  **/
 
 const Header = (props) => {
+    const options = [
+      {
+        label: "Red",
+        value: "Red",
+      },
+      {
+        label: "Blue",
+        value: "Blue",
+      },
+      {
+        label: "White",
+        value: "White",
+      },
+      {
+        label: "Brown",
+        value: "Brown",
+      },
+      {
+        label: "Black",
+        value: "Black",
+      },
+    ];
     const [fixedHeaderClass, setFixedHeaderClass] = useState("");
     const [mobileNavOpen, setMobileNavOpen] = useState(false);
-
     const [mobileProductOpen, setMobileProductOpen] = useState(false);
     const [mobileBlogOpen, setMobileBlogOpen] = useState(false);
     const [mobileGalleryOpen, setMobileGalleryOpen] = useState(false);
     const [mobileContactOpen, setMobileContactOpen] = useState(false);
     const [show, setShow] = useState(false);
     const [color, setColors] = useState('Red')
-    console.log(color)
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
-    function checkStickyHeader() {
-        if (window.innerWidth > 991) {
-            if (window.scrollY > 150) {
-                setFixedHeaderClass(headerStyle.active_sticky_header);
-            } else {
-                setFixedHeaderClass("");
-            }
-        }
-    }
 
     useEffect(() => {
         window.addEventListener('scroll', checkStickyHeader, {passive: true});
@@ -39,33 +47,24 @@ const Header = (props) => {
 
         return () => window.removeEventListener("scroll", checkStickyHeader, {passive: true});
     }, []);
-  const options = [
-    {
-      label: "Red",
-      value: "Red",
-    },
-    {
-      label: "Blue",
-      value: "Blue",
-    },
-    {
-      label: "White",
-      value: "White",
-    },
-    {
-      label: "Brown",
-      value: "Brown",
-    },
-    {
-      label: "Black",
-      value: "Black",
-    },
-  ];
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const checkStickyHeader = () => {
+    if (window.innerWidth > 991) {
+      if (window.scrollY > 150) {
+        setFixedHeaderClass(headerStyle.active_sticky_header);
+      } else {
+        setFixedHeaderClass("");
+      }
+    }
+  }
+
   const handleChange = (e)=>{
-    console.log("Fruit Selected!!",e);
-    // this.setState({ fruit: e.target.value });
     setColors(e)
   }
+
     return (
         <>
             <header
@@ -86,19 +85,25 @@ const Header = (props) => {
                                   want to customize your oven. Once you're happy with your design, snap a
                                   screenshot and attach it to the quote form on the right. We'll talk to
                                   you soon.</p>
-                                {/*<DropdownButton id="dropdown-item-button" title="Dropdown button" onSelect={handleChange}>*/}
-                                {/*    <Dropdown.ItemText>Dropdown item text</Dropdown.ItemText>*/}
-                                {/*    {options.map((option) => (*/}
-                                {/*                <Dropdown.Item eventKey={option.value} key={option.id}>{option.event}</Dropdown.Item>*/}
-                                {/*            ))}*/}
-                                {/*</DropdownButton>*/}
-                                <div className="select-container">
-                                  <select value={color} onChange={handleChange}>
-                                    {options.map((option) => (
-                                        <option value={option.value} key={option.id}>{option.label}</option>
+                                <DropdownButton id="dropdown-item-button" title={color} onSelect={handleChange}>
+                                    <Dropdown.ItemText>select</Dropdown.ItemText>
+                                    {options &&
+                                    options.length &&
+                                    options.map((option) => (
+                                        <Dropdown.Item
+                                          eventKey={option.value}
+                                          key={option.id}>
+                                          {option.value}
+                                        </Dropdown.Item>
                                     ))}
-                                  </select>
-                                </div>
+                                </DropdownButton>
+                                {/*<div className="select-container">*/}
+                                {/*  <select value={color} onChange={handleChange}>*/}
+                                {/*    {options.map((option) => (*/}
+                                {/*        <option value={option.value} key={option.id}>{option.label}</option>*/}
+                                {/*    ))}*/}
+                                {/*  </select>*/}
+                                {/*</div>*/}
                                 <div className="position-relative"
                                      style={{width: '417px'}}>
                                   <img className='oven-image-tile position-absolute'
