@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Link from 'next/link';
-import {Col, Row, Tab, Tabs} from 'react-bootstrap'
+import {Col, Row, Tab, Tabs,Modal,Container} from 'react-bootstrap'
 import ActiveLink from './ActiveLink';
 import headerStyle from './header.module.css';
 
@@ -521,7 +521,7 @@ const Header = (props) => {
                                     </div>
                                 </div>
                                 <div>
-                                    <button className="mf_btn" style={{padding: "8px"}}>Build Your Brick Oven</button>
+                                    <button className="mf_btn" style={{padding: "8px"}} onClick={handleShow}>Build Your Brick Oven</button>
                                 </div>
                                 <div className={`${headerStyle.searchicon} ${headerStyle.desktop_show}`}>
                                     <i className='bx bx-search-alt-2'></i>
