@@ -1,19 +1,72 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Link from 'next/link'
 import { Col, Row } from 'react-bootstrap';
 import ResultStyle from './FiltersResult.module.css'
 
 const FiltersResult = (props) => {
-  const { product } = props
+  const[ productResult, setProductResult ] = useState([])
+
+  const{product} = props
+
+  useEffect(() => {
+    setProductResult(product)
+    //console.log(productResult)
+  },[productResult])
+
   return(
     <>
       <div className={ResultStyle.searchbox_outer}>
         <input type='search' name='searchtext' placeholder='Search' />
         <button><i className='bx bx-search'></i></button>
       </div>
-      <div className={ResultStyle.product_headingbox}>
+
+      {
+        productResult.map((types, index)=>{
+          return (
+            <React.Fragment key={index}>
+              <div className={ResultStyle.product_headingbox}>
+                <h2>{types.name}</h2>
+              </div>
+              <Row className={ResultStyle.innovation}>
+                {
+                  types.cat.map((cat, index)=>{
+                    return (
+                      <Col lg={4} md={6} key={index}>
+                        <div className={ResultStyle.product_inner}>
+                          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/${cat.image}`} width="400" height="500" className="img-fluid" alt={cat.name} />
+                          <div className={ResultStyle.product_info}>
+                            <h3>{cat.name}</h3>
+                            <p>{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s").substr(0,60)}{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,").length > 60 && "..."}</p>
+                            <Link href="/discover-the-rotator-brick-oven">
+                              <a className="mf_btn" title="The Rotator">Explore more</a>
+                            </Link>
+                          </div>
+                        </div>
+                      </Col>
+                    )
+                  })
+                }
+              </Row>
+              <Row>
+                <Col md={12}>
+                  <ul className={ResultStyle.pagination}>
+                    <li><button className={ResultStyle.activepagination}>1</button></li>
+                    <li><button>2</button></li>
+                    <li><button>3</button></li>
+                    <li><button>4</button></li>
+                    <li><button>5</button></li>
+                  </ul>
+                </Col>
+              </Row>
+            </React.Fragment>
+          )
+        })
+      }
+
+      {/* <div className={ResultStyle.product_headingbox}>
         <h2>Ovens</h2>
       </div>
+
       <Row className={ResultStyle.innovation}>
         <Col lg={4} md={6}>
           <div className={ResultStyle.product_inner}>
@@ -52,6 +105,7 @@ const FiltersResult = (props) => {
           </div>
         </Col>
       </Row>
+
       <Row>
         <Col md={12}>
           <ul className={ResultStyle.pagination}>
@@ -63,6 +117,9 @@ const FiltersResult = (props) => {
           </ul>
         </Col>
       </Row>
+
+
+
       <div className={ResultStyle.product_headingbox}>
         <h2>Ventilation</h2>
       </div>
@@ -170,7 +227,9 @@ const FiltersResult = (props) => {
             <li><button>5</button></li>
           </ul>
         </Col>
-      </Row>
+    </Row>*/}
+
+
       <div className={ResultStyle.product_headingbox}>
         <h2>Spec Sheets</h2>
       </div>

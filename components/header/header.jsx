@@ -270,9 +270,7 @@ const Header = (props) => {
                   </div>
                 </div>
                 <div className={headerStyle.sub_menu_outer}>
-                  <ActiveLink activeClassName="active_menu" href="/gallery">
-                    <a title="Gallery" data-title="Gallery"><span>Gallery</span></a>
-                  </ActiveLink>
+                  <a title="Gallery" data-title="Gallery" href={`${process.env.NEXT_PUBLIC_BASE_PATH}/gallery`}><span>Gallery</span></a>
                   <button className={headerStyle.mobile_show} onClick={()=>{
                     setMobileProductOpen(false);
                     setMobileBlogOpen(false);
@@ -285,14 +283,10 @@ const Header = (props) => {
                   <div className={`${headerStyle.sub_menu} ${ mobileGalleryOpen ? headerStyle.sub_menu_active : ""}`}>
                     <ul>
                       <li>
-                        <Link href="/market-segment-gallery">
-                          <a title="Market Segment Gallery"><span>Market Segment Gallery</span></a>
-                        </Link>
+                        <a title="Market Segment Gallery" href={`${process.env.NEXT_PUBLIC_BASE_PATH}/market-segment-gallery`}><span>Market Segment Gallery</span></a>
                       </li>
                       <li>
-                        <Link href="/gallery">
-                          <a title="Product Gallery"><span>Product Gallery</span></a>
-                        </Link>
+                        <a title="Product Gallery" href={`${process.env.NEXT_PUBLIC_BASE_PATH}/gallery`}><span>Product Gallery</span></a>
                       </li>
                     </ul>
                   </div>

@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react'
-import BlogContentStyle from './BlogContent.module.css' 
+import PressContentStyle from './PressContent.module.css'
 import Link from 'next/link';
 import {Container} from 'react-bootstrap'
 
-const BlogContent = (props) => {
+const PressContent = (props) => {
 
 	useEffect(()=>{
 		resizeAllGridItems();
@@ -26,37 +26,27 @@ const BlogContent = (props) => {
 
   return(
 		<Container fluid className='mb-5 mt-5'>
-      <ul className={BlogContentStyle.catfilter}>
-				<li><button className={BlogContentStyle.activecatfilter}>All</button></li>
-				<li><button>Marra Innovations</button></li>
-				<li><button>Pizza Industry News</button></li>
-				<li><button>Team Marra</button></li>
-				<li><button>Marra Friends</button></li>
-				<li><button>#CookingVersatility</button></li>
-				<li><button>Awesome Chefs</button></li>
-			</ul>
-			<div className={'blog_outer'}>
+      <div className={'blog_outer'}>
 				<div className={'blog_inner'}>
 					<div className={'blog_inner_main'}>
-						<Link href='/blog/5-ways-marrastone-revolutionizes-the-brick-oven'>
+						<Link href='/'>
 							<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-								<div className={BlogContentStyle.blog_image}>
+								<div className={PressContentStyle.blog_image}>
 									<img src={`https://blog.marraforni.com/wp/wp-content/uploads/2021/04/Marra-Stone-min.jpg`} alt={'5 Ways MarraStone Revolutionizes The Brick Oven'} width="1920" height="1080" className="img-fluid" />
-									<div className={BlogContentStyle.blogimg_hover}>
-										<div className={BlogContentStyle.blog_tag}>Marra Innovations</div>
+									<div className={PressContentStyle.blogimg_hover}>
 									</div>
 								</div>
 							</a>
 						</Link>
-						<div className={BlogContentStyle.blog_info}>
-							<Link href='/blog/5-ways-marrastone-revolutionizes-the-brick-oven'>
+						<div className={PressContentStyle.blog_info}>
+							<Link href='/'>
 								<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-									<h2>5 Ways MarraStone Revolutionizes The Brick Oven</h2>
+									<h2>New U Street Venue Wants People to Sit Down and Eat Wood-Fired Pizzas In a Nightclub</h2>
 								</a>
 							</Link>
-							<div className={BlogContentStyle.blog_date}>April 30, 2021</div>
+							<div className={PressContentStyle.blog_date}>April 30, 2021</div>
 							<p>Food enthusiasts have been fired up about brick ovens since the beginning of written history. Did you know that sundried bricks are the first known manufactured material?</p>
-							<div className={BlogContentStyle.meta_box}>
+							<div className={PressContentStyle.meta_box}>
 								<img alt='Author' width='42' height='42' src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/avatar.png`} />
 								<span>By Admin</span>
 							</div>
@@ -67,23 +57,22 @@ const BlogContent = (props) => {
 					<div className={'blog_inner_main'}>
 						<Link href='/'>
 							<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-								<div className={BlogContentStyle.blog_image}>
+								<div className={PressContentStyle.blog_image}>
 									<img src={`https://blog.marraforni.com/wp/wp-content/uploads/2021/04/Sous-Vide-Blog-2.png`} alt={'5 Ways MarraStone Revolutionizes The Brick Oven'} width="1920" height="1080" className="img-fluid" />
-									<div className={BlogContentStyle.blogimg_hover}>
-										<div className={BlogContentStyle.blog_tag}>CookingVersatility</div>
+									<div className={PressContentStyle.blogimg_hover}>
 									</div>
 								</div>
 							</a>
 						</Link>
-						<div className={BlogContentStyle.blog_info}>
+						<div className={PressContentStyle.blog_info}>
 							<Link href='/'>
 								<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-									<h2>All You Need To Know About Sous Vide To Brick Oven Cooking</h2>
+									<h2>Pittsburg brewery plans fine beer, pizza</h2>
 								</a>
 							</Link>
-							<div className={BlogContentStyle.blog_date}>April 30, 2021</div>
+							<div className={PressContentStyle.blog_date}>April 30, 2021</div>
 							<p>Food enthusiasts have been fired up about brick ovens since the beginning of written history. Did you know that sundried bricks are the first known manufactured material?</p>
-							<div className={BlogContentStyle.meta_box}>
+							<div className={PressContentStyle.meta_box}>
 								<img alt='Author' width='42' height='42' src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/avatar.png`} />
 								<span>By Admin</span>
 							</div>
@@ -94,23 +83,22 @@ const BlogContent = (props) => {
 					<div className={'blog_inner_main'}>
 						<Link href='/'>
 							<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-								<div className={BlogContentStyle.blog_image}>
+								<div className={PressContentStyle.blog_image}>
 									<img src={`https://blog.marraforni.com/wp/wp-content/uploads/2021/03/Rep-Chef-Blog.png`} alt={'5 Ways MarraStone Revolutionizes The Brick Oven'} width="1920" height="1080" className="img-fluid" />
-									<div className={BlogContentStyle.blogimg_hover}>
-										<div className={BlogContentStyle.blog_tag}>Awesome Chefs</div>
+									<div className={PressContentStyle.blogimg_hover}>
 									</div>
 								</div>
 							</a>
 						</Link>
-						<div className={BlogContentStyle.blog_info}>
+						<div className={PressContentStyle.blog_info}>
 							<Link href='/'>
 								<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-									<h2>7 Ways Rep Chefs Make Purchasing The Best Kitchen Solutions Easy</h2>
+									<h2>Giada De Laurentiis’ New Baltimore Restaurant Is Here</h2>
 								</a>
 							</Link>
-							<div className={BlogContentStyle.blog_date}>April 30, 2021</div>
+							<div className={PressContentStyle.blog_date}>April 30, 2021</div>
 							<p>Food enthusiasts have been fired up about brick ovens since the beginning of written history. Did you know that sundried bricks are the first known manufactured material?</p>
-							<div className={BlogContentStyle.meta_box}>
+							<div className={PressContentStyle.meta_box}>
 								<img alt='Author' width='42' height='42' src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/avatar.png`} />
 								<span>By Admin</span>
 							</div>
@@ -121,23 +109,22 @@ const BlogContent = (props) => {
 					<div className={'blog_inner_main'}>
 						<Link href='/'>
 							<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-								<div className={BlogContentStyle.blog_image}>
+								<div className={PressContentStyle.blog_image}>
 									<img src={`https://blog.marraforni.com/wp/wp-content/uploads/2020/12/cookie-blog-13-scaled.jpg`} alt={'5 Ways MarraStone Revolutionizes The Brick Oven'} width="1920" height="1080" className="img-fluid" />
-									<div className={BlogContentStyle.blogimg_hover}>
-										<div className={BlogContentStyle.blog_tag}>CookingVersatility</div>
+									<div className={PressContentStyle.blogimg_hover}>
 									</div>
 								</div>
 							</a>
 						</Link>
-						<div className={BlogContentStyle.blog_info}>
+						<div className={PressContentStyle.blog_info}>
 							<Link href='/'>
 								<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-									<h2>Italian Holiday Cookies Made Easy With Electric Brick Oven</h2>
+									<h2>Dwyane Wade and Udonis Haslem to Open 800° Woodfired Kitchen in Aventura</h2>
 								</a>
 							</Link>
-							<div className={BlogContentStyle.blog_date}>April 30, 2021</div>
+							<div className={PressContentStyle.blog_date}>April 30, 2021</div>
 							<p>Food enthusiasts have been fired up about brick ovens since the beginning of written history. Did you know that sundried bricks are the first known manufactured material?</p>
-							<div className={BlogContentStyle.meta_box}>
+							<div className={PressContentStyle.meta_box}>
 								<img alt='Author' width='42' height='42' src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/avatar.png`} />
 								<span>By Admin</span>
 							</div>
@@ -148,23 +135,22 @@ const BlogContent = (props) => {
 					<div className={'blog_inner_main'}>
 						<Link href='/'>
 							<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-								<div className={BlogContentStyle.blog_image}>
+								<div className={PressContentStyle.blog_image}>
 									<img src={`https://blog.marraforni.com/wp/wp-content/uploads/2021/01/It-En-US-Man-copy.png`} alt={'5 Ways MarraStone Revolutionizes The Brick Oven'} width="1920" height="1080" className="img-fluid" />
-									<div className={BlogContentStyle.blogimg_hover}>
-										<div className={BlogContentStyle.blog_tag}>Marra Innovations</div>
+									<div className={PressContentStyle.blogimg_hover}>
 									</div>
 								</div>
 							</a>
 						</Link>
-						<div className={BlogContentStyle.blog_info}>
+						<div className={PressContentStyle.blog_info}>
 							<Link href='/'>
 								<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-									<h2>History Of The Modern Brick Oven</h2>
+									<h2>Dine Review: Inferno Pizzeria</h2>
 								</a>
 							</Link>
-							<div className={BlogContentStyle.blog_date}>April 30, 2021</div>
+							<div className={PressContentStyle.blog_date}>April 30, 2021</div>
 							<p>Food enthusiasts have been fired up about brick ovens since the beginning of written history. Did you know that sundried bricks are the first known manufactured material?</p>
-							<div className={BlogContentStyle.meta_box}>
+							<div className={PressContentStyle.meta_box}>
 								<img alt='Author' width='42' height='42' src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/avatar.png`} />
 								<span>By Admin</span>
 							</div>
@@ -175,23 +161,22 @@ const BlogContent = (props) => {
 					<div className={'blog_inner_main'}>
 						<Link href='/'>
 							<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-								<div className={BlogContentStyle.blog_image}>
+								<div className={PressContentStyle.blog_image}>
 									<img src={`https://blog.marraforni.com/wp/wp-content/uploads/2020/12/Cover.png`} alt={'5 Ways MarraStone Revolutionizes The Brick Oven'} width="1920" height="1080" className="img-fluid" />
-									<div className={BlogContentStyle.blogimg_hover}>
-										<div className={BlogContentStyle.blog_tag}>CookingVersatility</div>
+									<div className={PressContentStyle.blogimg_hover}>
 									</div>
 								</div>
 							</a>
 						</Link>
-						<div className={BlogContentStyle.blog_info}>
+						<div className={PressContentStyle.blog_info}>
 							<Link href='/'>
 								<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-									<h2>5 Ways To Master Roasted Chicken With Marraforni Brick Oven</h2>
+									<h2>Union Market’s New Pizzeria Opens With Crispy Neo-Neapolitan Pies</h2>
 								</a>
 							</Link>
-							<div className={BlogContentStyle.blog_date}>April 30, 2021</div>
+							<div className={PressContentStyle.blog_date}>April 30, 2021</div>
 							<p>Food enthusiasts have been fired up about brick ovens since the beginning of written history. Did you know that sundried bricks are the first known manufactured material?</p>
-							<div className={BlogContentStyle.meta_box}>
+							<div className={PressContentStyle.meta_box}>
 								<img alt='Author' width='42' height='42' src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/avatar.png`} />
 								<span>By Admin</span>
 							</div>
@@ -202,23 +187,22 @@ const BlogContent = (props) => {
 					<div className={'blog_inner_main'}>
 						<Link href='/'>
 							<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-								<div className={BlogContentStyle.blog_image}>
+								<div className={PressContentStyle.blog_image}>
 									<img src={`https://blog.marraforni.com/wp/wp-content/uploads/2020/11/Almost-Done-Both-POST-1-e1605804671396.png`} alt={'5 Ways MarraStone Revolutionizes The Brick Oven'} width="1920" height="1080" className="img-fluid" />
-									<div className={BlogContentStyle.blogimg_hover}>
-										<div className={BlogContentStyle.blog_tag}>CookingVersatility</div>
+									<div className={PressContentStyle.blogimg_hover}>
 									</div>
 								</div>
 							</a>
 						</Link>
-						<div className={BlogContentStyle.blog_info}>
+						<div className={PressContentStyle.blog_info}>
 							<Link href='/'>
 								<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-									<h2>How To Roast The Perfect Turkey In 10 Easy Steps With Best In Class Brick Oven</h2>
+									<h2>PBR: The People’s Pizza of Richmond</h2>
 								</a>
 							</Link>
-							<div className={BlogContentStyle.blog_date}>April 30, 2021</div>
+							<div className={PressContentStyle.blog_date}>April 30, 2021</div>
 							<p>Food enthusiasts have been fired up about brick ovens since the beginning of written history. Did you know that sundried bricks are the first known manufactured material?</p>
-							<div className={BlogContentStyle.meta_box}>
+							<div className={PressContentStyle.meta_box}>
 								<img alt='Author' width='42' height='42' src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/avatar.png`} />
 								<span>By Admin</span>
 							</div>
@@ -229,23 +213,22 @@ const BlogContent = (props) => {
 					<div className={'blog_inner_main'}>
 						<Link href='/'>
 							<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-								<div className={BlogContentStyle.blog_image}>
+								<div className={PressContentStyle.blog_image}>
 									<img src={`https://blog.marraforni.com/wp/wp-content/uploads/2020/12/lamb-blog-13-scaled.jpg`} alt={'5 Ways MarraStone Revolutionizes The Brick Oven'} width="1920" height="1080" className="img-fluid" />
-									<div className={BlogContentStyle.blogimg_hover}>
-										<div className={BlogContentStyle.blog_tag}>CookingVersatility</div>
+									<div className={PressContentStyle.blogimg_hover}>
 									</div>
 								</div>
 							</a>
 						</Link>
-						<div className={BlogContentStyle.blog_info}>
+						<div className={PressContentStyle.blog_info}>
 							<Link href='/'>
 								<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-									<h2>5 Tips To Effortless & Succulent Lamb Chops In Brick Oven</h2>
+									<h2>The new Radicci Italian Bistro in Hayden serves up family-friendly, Italian-style cuisine</h2>
 								</a>
 							</Link>
-							<div className={BlogContentStyle.blog_date}>April 30, 2021</div>
+							<div className={PressContentStyle.blog_date}>April 30, 2021</div>
 							<p>Food enthusiasts have been fired up about brick ovens since the beginning of written history. Did you know that sundried bricks are the first known manufactured material?</p>
-							<div className={BlogContentStyle.meta_box}>
+							<div className={PressContentStyle.meta_box}>
 								<img alt='Author' width='42' height='42' src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/avatar.png`} />
 								<span>By Admin</span>
 							</div>
@@ -256,23 +239,22 @@ const BlogContent = (props) => {
 					<div className={'blog_inner_main'}>
 						<Link href='/'>
 							<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-								<div className={BlogContentStyle.blog_image}>
+								<div className={PressContentStyle.blog_image}>
 									<img src={`https://blog.marraforni.com/wp/wp-content/uploads/2020/11/DBNP165G2.png`} alt={'5 Ways MarraStone Revolutionizes The Brick Oven'} width="1920" height="1080" className="img-fluid" />
-									<div className={BlogContentStyle.blogimg_hover}>
-										<div className={BlogContentStyle.blog_tag}>Marra Innovations</div>
+									<div className={PressContentStyle.blogimg_hover}>
 									</div>
 								</div>
 							</a>
 						</Link>
-						<div className={BlogContentStyle.blog_info}>
+						<div className={PressContentStyle.blog_info}>
 							<Link href='/'>
 								<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-									<h2>Creative Commercial Brick Oven Cooking Solutions That Bridge BOH And FOH</h2>
+									<h2>Hunting for the perfect calzone in the Tacoma area</h2>
 								</a>
 							</Link>
-							<div className={BlogContentStyle.blog_date}>April 30, 2021</div>
+							<div className={PressContentStyle.blog_date}>April 30, 2021</div>
 							<p>Food enthusiasts have been fired up about brick ovens since the beginning of written history. Did you know that sundried bricks are the first known manufactured material?</p>
-							<div className={BlogContentStyle.meta_box}>
+							<div className={PressContentStyle.meta_box}>
 								<img alt='Author' width='42' height='42' src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/avatar.png`} />
 								<span>By Admin</span>
 							</div>
@@ -283,23 +265,22 @@ const BlogContent = (props) => {
 					<div className={'blog_inner_main'}>
 						<Link href='/'>
 							<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-								<div className={BlogContentStyle.blog_image}>
+								<div className={PressContentStyle.blog_image}>
 									<img src={`https://blog.marraforni.com/wp/wp-content/uploads/2020/09/Ali-Haider-Blog-Post.jpg`} alt={'5 Ways MarraStone Revolutionizes The Brick Oven'} width="1920" height="1080" className="img-fluid" />
-									<div className={BlogContentStyle.blogimg_hover}>
-										<div className={BlogContentStyle.blog_tag}>Awesome Chefs</div>
+									<div className={PressContentStyle.blogimg_hover}>
 									</div>
 								</div>
 							</a>
 						</Link>
-						<div className={BlogContentStyle.blog_info}>
+						<div className={PressContentStyle.blog_info}>
 							<Link href='/'>
 								<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-									<h2>Marraforni Wood Fired Brick Oven User Highlight: Pizzaiolo Ali Haider</h2>
+									<h2>Is the Federal Taphouse in Camp Hill an improvement over Appalachian Brewing Company?: review</h2>
 								</a>
 							</Link>
-							<div className={BlogContentStyle.blog_date}>April 30, 2021</div>
+							<div className={PressContentStyle.blog_date}>April 30, 2021</div>
 							<p>Food enthusiasts have been fired up about brick ovens since the beginning of written history. Did you know that sundried bricks are the first known manufactured material?</p>
-							<div className={BlogContentStyle.meta_box}>
+							<div className={PressContentStyle.meta_box}>
 								<img alt='Author' width='42' height='42' src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/avatar.png`} />
 								<span>By Admin</span>
 							</div>
@@ -310,23 +291,22 @@ const BlogContent = (props) => {
 					<div className={'blog_inner_main'}>
 						<Link href='/'>
 							<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-								<div className={BlogContentStyle.blog_image}>
+								<div className={PressContentStyle.blog_image}>
 									<img src={`https://blog.marraforni.com/wp/wp-content/uploads/2020/10/salad-1-scaled.jpg`} alt={'5 Ways MarraStone Revolutionizes The Brick Oven'} width="1920" height="1080" className="img-fluid" />
-									<div className={BlogContentStyle.blogimg_hover}>
-										<div className={BlogContentStyle.blog_tag}>CookingVersatility</div>
+									<div className={PressContentStyle.blogimg_hover}>
 									</div>
 								</div>
 							</a>
 						</Link>
-						<div className={BlogContentStyle.blog_info}>
+						<div className={PressContentStyle.blog_info}>
 							<Link href='/'>
 								<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-									<h2>Fired Up Powerful Salad With Marraforni Pizza Oven</h2>
+									<h2>Hunting for the perfect calzone in the Tacoma area</h2>
 								</a>
 							</Link>
-							<div className={BlogContentStyle.blog_date}>April 30, 2021</div>
+							<div className={PressContentStyle.blog_date}>April 30, 2021</div>
 							<p>Food enthusiasts have been fired up about brick ovens since the beginning of written history. Did you know that sundried bricks are the first known manufactured material?</p>
-							<div className={BlogContentStyle.meta_box}>
+							<div className={PressContentStyle.meta_box}>
 								<img alt='Author' width='42' height='42' src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/avatar.png`} />
 								<span>By Admin</span>
 							</div>
@@ -337,23 +317,22 @@ const BlogContent = (props) => {
 					<div className={'blog_inner_main'}>
 						<Link href='/'>
 							<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-								<div className={BlogContentStyle.blog_image}>
+								<div className={PressContentStyle.blog_image}>
 									<img src={`https://blog.marraforni.com/wp/wp-content/uploads/2020/10/Enzo-Highlight-Final-Master.png`} alt={'5 Ways MarraStone Revolutionizes The Brick Oven'} width="1920" height="1080" className="img-fluid" />
-									<div className={BlogContentStyle.blogimg_hover}>
-										<div className={BlogContentStyle.blog_tag}>Team Marra</div>
+									<div className={PressContentStyle.blogimg_hover}>
 									</div>
 								</div>
 							</a>
 						</Link>
-						<div className={BlogContentStyle.blog_info}>
+						<div className={PressContentStyle.blog_info}>
 							<Link href='/'>
 								<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-									<h2>Getting Results With Enzo Marra</h2>
+									<h2>Pieology opens secret research restaurant aimed at outcooking build-your-own pizza rivals</h2>
 								</a>
 							</Link>
-							<div className={BlogContentStyle.blog_date}>April 30, 2021</div>
+							<div className={PressContentStyle.blog_date}>April 30, 2021</div>
 							<p>Food enthusiasts have been fired up about brick ovens since the beginning of written history. Did you know that sundried bricks are the first known manufactured material?</p>
-							<div className={BlogContentStyle.meta_box}>
+							<div className={PressContentStyle.meta_box}>
 								<img alt='Author' width='42' height='42' src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/avatar.png`} />
 								<span>By Admin</span>
 							</div>
@@ -364,23 +343,22 @@ const BlogContent = (props) => {
 					<div className={'blog_inner_main'}>
 						<Link href='/'>
 							<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-								<div className={BlogContentStyle.blog_image}>
+								<div className={PressContentStyle.blog_image}>
 									<img src={`https://blog.marraforni.com/wp/wp-content/uploads/2021/04/Marra-Stone-min.jpg`} alt={'5 Ways MarraStone Revolutionizes The Brick Oven'} width="1920" height="1080" className="img-fluid" />
-									<div className={BlogContentStyle.blogimg_hover}>
-										<div className={BlogContentStyle.blog_tag}>Marra Innovations</div>
+									<div className={PressContentStyle.blogimg_hover}>
 									</div>
 								</div>
 							</a>
 						</Link>
-						<div className={BlogContentStyle.blog_info}>
+						<div className={PressContentStyle.blog_info}>
 							<Link href='/'>
 								<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-									<h2>5 Ways MarraStone Revolutionizes The Brick Oven</h2>
+									<h2>Pizzeria Paradiso Hyattsville to open July 8</h2>
 								</a>
 							</Link>
-							<div className={BlogContentStyle.blog_date}>April 30, 2021</div>
+							<div className={PressContentStyle.blog_date}>April 30, 2021</div>
 							<p>Food enthusiasts have been fired up about brick ovens since the beginning of written history. Did you know that sundried bricks are the first known manufactured material?</p>
-							<div className={BlogContentStyle.meta_box}>
+							<div className={PressContentStyle.meta_box}>
 								<img alt='Author' width='42' height='42' src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/avatar.png`} />
 								<span>By Admin</span>
 							</div>
@@ -391,23 +369,22 @@ const BlogContent = (props) => {
 					<div className={'blog_inner_main'}>
 						<Link href='/'>
 							<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-								<div className={BlogContentStyle.blog_image}>
+								<div className={PressContentStyle.blog_image}>
 									<img src={`https://blog.marraforni.com/wp/wp-content/uploads/2020/07/Screen-Shot-2020-07-21-at-8.50.56-AM.jpg`} alt={'5 Ways MarraStone Revolutionizes The Brick Oven'} width="1920" height="1080" className="img-fluid" />
-									<div className={BlogContentStyle.blogimg_hover}>
-										<div className={BlogContentStyle.blog_tag}>Team Marra</div>
+									<div className={PressContentStyle.blogimg_hover}>
 									</div>
 								</div>
 							</a>
 						</Link>
-						<div className={BlogContentStyle.blog_info}>
+						<div className={PressContentStyle.blog_info}>
 							<Link href='/'>
 								<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-									<h2>Benvenuto In Famiglia! Marra Forni</h2>
+									<h2>Local restaurateurs Rosario Spagnolo and Antonio Martino score with their latest venture Maestro Cucina </h2>
 								</a>
 							</Link>
-							<div className={BlogContentStyle.blog_date}>April 30, 2021</div>
+							<div className={PressContentStyle.blog_date}>April 30, 2021</div>
 							<p>Food enthusiasts have been fired up about brick ovens since the beginning of written history. Did you know that sundried bricks are the first known manufactured material?</p>
-							<div className={BlogContentStyle.meta_box}>
+							<div className={PressContentStyle.meta_box}>
 								<img alt='Author' width='42' height='42' src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/avatar.png`} />
 								<span>By Admin</span>
 							</div>
@@ -418,23 +395,22 @@ const BlogContent = (props) => {
 					<div className={'blog_inner_main'}>
 						<Link href='/'>
 							<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-								<div className={BlogContentStyle.blog_image}>
+								<div className={PressContentStyle.blog_image}>
 									<img src={`https://blog.marraforni.com/wp/wp-content/uploads/2020/08/37842DA3-D185-4FD0-AA9D-DB8F0F8181C7-scaled-e1598036034569.jpeg`} alt={'5 Ways MarraStone Revolutionizes The Brick Oven'} width="1920" height="1080" className="img-fluid" />
-									<div className={BlogContentStyle.blogimg_hover}>
-										<div className={BlogContentStyle.blog_tag}>Marra Innovations</div>
+									<div className={PressContentStyle.blogimg_hover}>
 									</div>
 								</div>
 							</a>
 						</Link>
-						<div className={BlogContentStyle.blog_info}>
+						<div className={PressContentStyle.blog_info}>
 							<Link href='/'>
 								<a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-									<h2>MS Series Brick Ovens – The Ultimate Solution For BOH Kitchen Spaces</h2>
+									<h2>Mia’s Italian Kitchen Opens</h2>
 								</a>
 							</Link>
-							<div className={BlogContentStyle.blog_date}>April 30, 2021</div>
+							<div className={PressContentStyle.blog_date}>April 30, 2021</div>
 							<p>Food enthusiasts have been fired up about brick ovens since the beginning of written history. Did you know that sundried bricks are the first known manufactured material?</p>
-							<div className={BlogContentStyle.meta_box}>
+							<div className={PressContentStyle.meta_box}>
 								<img alt='Author' width='42' height='42' src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/avatar.png`} />
 								<span>By Admin</span>
 							</div>
@@ -442,16 +418,16 @@ const BlogContent = (props) => {
 					</div>
 				</div>
 			</div>
-			<ul className={BlogContentStyle.pagination}>
-				<li><button className={BlogContentStyle.activepagination}>1</button></li>
-				<li><button>2</button></li>
-				<li><button>3</button></li>
-				<li><button>4</button></li>
-				<li><button>5</button></li>
-			</ul>
-		</Container>
-   )
+      <ul className={PressContentStyle.pagination}>
+        <li><button className={PressContentStyle.activepagination}>1</button></li>
+        <li><button>2</button></li>
+        <li><button>3</button></li>
+        <li><button>4</button></li>
+        <li><button>5</button></li>
+      </ul>
+    </Container>
+   )  
   }
 
 
-export default BlogContent
+export default PressContent

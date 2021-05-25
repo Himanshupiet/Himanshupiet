@@ -1,7 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import FilterStyle from './Filters.module.css'
 
 const Filters = (props) => {
+
+  const[ productFilter, setProductFilter ] = useState([])
+
   const [filterOpen, setFilterOpen] = useState({
     ProductOpen: true,
     ResourcesOpen: true,
@@ -9,9 +12,13 @@ const Filters = (props) => {
     LanguageOpen: true
   });
 
-  const handleFilterOpen = () => {
-    console.log('hello')
-  }
+  const{product} = props
+
+  useEffect(() => {
+    setProductFilter(product)
+    //console.log(productFilter)
+  },[productFilter])
+
   return(
     <div className={FilterStyle.filter_outer}>
       <h3>Filters</h3>
@@ -28,7 +35,20 @@ const Filters = (props) => {
         </li>
         <div className={`${FilterStyle.filter_option} ${filterOpen.ProductOpen ? FilterStyle.openFilterOption : ''}`}>
           <ul>
-            <li>
+            {
+              productFilter.map((types, index) => {
+                return (
+                  types.cat.map((cat, index) => {
+                    return (
+                      <li key={index}>
+                        <label><input type='checkbox' value={cat.id} />{cat.name}</label>
+                      </li>
+                    )
+                  })
+                )
+              })
+            }
+            {/* <li>
               <label><input type='checkbox' value='Rotator Series' />Rotator Series</label>
             </li>
             <li>
@@ -57,7 +77,8 @@ const Filters = (props) => {
             </li>
             <li>
               <label><input type='checkbox' value='Flylwheel Slicer' />Flylwheel Slicer</label>
-            </li>
+            </li> */}
+
           </ul>
         </div>
         <li 
