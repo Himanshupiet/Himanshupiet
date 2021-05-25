@@ -4,6 +4,7 @@ import { Col, Row } from 'react-bootstrap';
 import ResultStyle from './FiltersResult.module.css'
 
 const FiltersResult = (props) => {
+  const { product } = props
   return(
     <>
       <div className={ResultStyle.searchbox_outer}>
