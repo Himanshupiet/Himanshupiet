@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Link from 'next/link';
-import {Col, Row, Tab, Tabs,Modal,Container, DropdownButton , Dropdown} from 'react-bootstrap'
+import {Col, Container, Dropdown, DropdownButton, Modal, Row, Tab, Tabs} from 'react-bootstrap'
 import ActiveLink from './ActiveLink';
 import headerStyle from './header.module.css';
 
@@ -11,26 +11,66 @@ import headerStyle from './header.module.css';
 
 const Header = (props) => {
     const options = [
-      {
-        label: "Red",
-        value: "Red",
-      },
-      {
-        label: "Blue",
-        value: "Blue",
-      },
-      {
-        label: "White",
-        value: "White",
-      },
-      {
-        label: "Brown",
-        value: "Brown",
-      },
-      {
-        label: "Black",
-        value: "Black",
-      },
+        {
+            label: "Red",
+            value: "Red",
+        },
+        {
+            label: "Blue",
+            value: "Blue",
+        },
+        {
+            label: "White",
+            value: "White",
+        },
+        {
+            label: "Brown",
+            value: "Brown",
+        },
+        {
+            label: "Black",
+            value: "Black",
+        },
+    ];
+    const facadeOption = [
+        {
+            label: "Black - Standard for RT Models",
+            value: "Black",
+        },
+        {
+            label: "Stainless Steel",
+            value: "Stainless",
+        },
+
+    ];
+    const tilesOption = [
+        {
+            label: "Square",
+            value: "Square",
+        },
+        {
+            label: "Penny Round",
+            value: "Penny",
+        },
+        {
+            label: "Broken",
+            value: "Broken",
+        },
+        {
+            label: "Custom Tiles",
+            value: "Custom",
+        },
+    ]
+    const legsOption = [
+        {
+            label: 'Black',
+            value: 'Black'
+        },
+        {
+            label: 'Stainless Steel',
+            value: 'Stainless Steel'
+
+        },
     ];
     const [fixedHeaderClass, setFixedHeaderClass] = useState("");
     const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -39,7 +79,24 @@ const Header = (props) => {
     const [mobileGalleryOpen, setMobileGalleryOpen] = useState(false);
     const [mobileContactOpen, setMobileContactOpen] = useState(false);
     const [show, setShow] = useState(false);
+    const [facade, setFacade] = useState('Black')
     const [color, setColors] = useState('Red')
+    const [legs, setLegs] = useState('Black')
+    const [tiles, setTiles] = useState('Penny')
+    const [values, setValues] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        confirmEmail:'',
+        phone:'',
+        address:'',
+        city:'',
+        state:'',
+        country:'',
+        product:'',
+        file:'',
+        message:''
+    });
 
     useEffect(() => {
         window.addEventListener('scroll', checkStickyHeader, {passive: true});
@@ -48,23 +105,42 @@ const Header = (props) => {
         return () => window.removeEventListener("scroll", checkStickyHeader, {passive: true});
     }, []);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
-  const checkStickyHeader = () => {
-    if (window.innerWidth > 991) {
-      if (window.scrollY > 150) {
-        setFixedHeaderClass(headerStyle.active_sticky_header);
-      } else {
-        setFixedHeaderClass("");
-      }
+    const checkStickyHeader = () => {
+        if (window.innerWidth > 991) {
+            if (window.scrollY > 150) {
+                setFixedHeaderClass(headerStyle.active_sticky_header);
+            } else {
+                setFixedHeaderClass("");
+            }
+        }
     }
-  }
-
-  const handleChange = (e)=>{
-    setColors(e)
-  }
-
+    const handleColor = (e) => {
+        setColors(e)
+    }
+    const handleFacade = (e) => {
+        setFacade(e)
+    }
+    const handleLegs = (e) => {
+        setLegs(e)
+    }
+    const handleTiles = (e) => {
+        setTiles(e)
+    }
+    const handleInputChange = (e) => {
+        const {name, value} = e.target;
+        setValues({
+            ...values,
+            [name]: value
+        });
+    };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        localStorage.setItem('document',JSON.stringify(values));
+        // setValues('')
+    };
     return (
         <>
             <header
@@ -72,130 +148,180 @@ const Header = (props) => {
                 <Row>
                     <Col xl={1}></Col>
                     <Col xl={10}>
-                      {/*=================== Modal Section ==============================*/}
-                      <Modal show={show} onHide={handleClose} size='xl' className={`${headerStyle.my_model}`}>
-                        <Modal.Body className={`${headerStyle.my_model_body} show-grid`}>
-                          <Container>
-                            <Row>
-                              <Col md={6}>
-                                <h2 className={`${headerStyle.title} text-center`}>Visualize Your Oven!</h2>
-                                <p className={`${headerStyle.sub_title} text-center`}>Hey there! We're happy to see you! Let us help
-                                  you achieve your dream
-                                  kitchen. Play around with the options below to get an idea of how you
-                                  want to customize your oven. Once you're happy with your design, snap a
-                                  screenshot and attach it to the quote form on the right. We'll talk to
-                                  you soon.</p>
-                                <DropdownButton id="dropdown-item-button" title={color} onSelect={handleChange}>
-                                    <Dropdown.ItemText>select</Dropdown.ItemText>
-                                    {options &&
-                                    options.length &&
-                                    options.map((option) => (
-                                        <Dropdown.Item
-                                          eventKey={option.value}
-                                          key={option.id}>
-                                          {option.value}
-                                        </Dropdown.Item>
-                                    ))}
-                                </DropdownButton>
-                                {/*<div className="select-container">*/}
-                                {/*  <select value={color} onChange={handleChange}>*/}
-                                {/*    {options.map((option) => (*/}
-                                {/*        <option value={option.value} key={option.id}>{option.label}</option>*/}
-                                {/*    ))}*/}
-                                {/*  </select>*/}
-                                {/*</div>*/}
-                                <div className="position-relative"
-                                     style={{width: '417px'}}>
-                                  <img className='oven-image-tile position-absolute'
-                                       src={`https://marraforni.com/wp/wp-content/themes/ultima-child/assets/s3/make/Penny_${color}.png`}
-                                       alt="Penny Red" style={{zIndex: '2'}}/>
-                                  <img className="oven-image-grout position-absolute"
-                                       src="https://marraforni.com/wp/wp-content/themes/ultima-child/assets/s3/make/Grout_Red.png"
-                                       alt="Grout Red" style={{zIndex: '1'}}/>
-                                  <img className="oven-image-facade position-absolute"
-                                       src="https://marraforni.com/wp/wp-content/themes/ultima-child/assets/s3/make/Facade_Black.png"
-                                       alt="Facade Black"/>
-                                </div>
-                              </Col>
-                              <Col md={6}>
-                                <button className='float-right' onClick={handleClose}>CANCEL</button>
-                                <h2 className={`${headerStyle.title} text-center mt-5`}>Drop Us A Line!</h2>
-                                <form>
-                                  <div className="form-row">
-                                    <div className="form-group col-md-6">
-                                      <input type="text" className="form-control" id="inputFirstName"
-                                             placeholder="First Name"/>
-                                    </div>
-                                    <div className="form-group col-md-6">
-                                      <input type="text" className="form-control"
-                                             id="inputLastName" placeholder="Last Name"/>
-                                    </div>
-                                  </div>
-                                  <div className="form-row">
-                                    <div className="form-group col-md-6">
-                                      <input type="email" className="form-control" id="inputEmail"
-                                             placeholder='Enter Email'/>
-                                    </div>
-                                    <div className="form-group col-md-6">
-                                      <input type="email" className="form-control"
-                                             id="inputConfirmEmail" placeholder='Confirm Email'/>
-                                    </div>
-                                  </div>
-                                  <div className="form-group">
-                                    <input type="number" className="form-control" id="phoneNumber"
-                                           placeholder="Phone"/>
-                                  </div>
-                                  <div className="form-group">
-                                    <input type="text" className="form-control" id="inputAddress2"
-                                           placeholder="Street Address"/>
-                                  </div>
-                                  <div className="form-row">
-                                    <div className="form-group col-md-6">
-                                      <input type="text" className="form-control" id="inputCity"
-                                             placeholder='City'/>
-                                    </div>
-                                    <div className="form-group col-md-6">
-                                      <input type="text" className="form-control"
-                                             id="inputState" placeholder='State/Prov'/>
-                                    </div>
-                                  </div>
-                                  <div className="form-row">
-                                    <select className="form-control"
-                                            id="exampleFormControlSelect1">
-                                      <option selected>Select Product</option>
-                                      <option>2</option>
-                                      <option>3</option>
-                                      <option>4</option>
-                                      <option>5</option>
-                                    </select>
-                                  </div>
-                                  <div className="form-row">
-                                    <select className="form-control col-md-6"
-                                            id="exampleFormControlSelect1">
-                                      <option>Select Product</option>
-                                      <option>2</option>
-                                      <option>3</option>
-                                      <option>4</option>
-                                      <option>5</option>
-                                    </select>
-                                  </div>
-                                  <div style={{backgroundColor:'rgba( 246, 247, 252, 1.00 )'}}>
-                                    <label htmlFor="exampleFormControlFile1" className='font-weight-bold'>Attach Your Screenshots :</label>
-                                    <input type="file" className="form-control-file"
-                                           id="exampleFormControlFile1"/>
-                                  </div>
-                                  <div className="form-group">
-                                    <input type="text" className="form-control" id="inputAddress2"
-                                           placeholder="Your Message Here!"/>
-                                  </div>
-                                  <button type="submit" className={`${headerStyle.button}`}>Submit</button>
-                                </form>
-                              </Col>
-                            </Row>
-                          </Container>
-                        </Modal.Body>
-                      </Modal>
-                      {/*======================== End Modal Section ==============================*/}
+                        {/*=================== Modal Section ==============================*/}
+                        <Modal show={show} onHide={handleClose} size='xl' className={`${headerStyle.my_model}`}>
+                            <Modal.Body className={`${headerStyle.my_model_body} show-grid`}>
+                                <Container>
+                                    <Row>
+                                        <Col md={6}>
+                                            <h2 className={`${headerStyle.title} text-center`}>Visualize Your Oven!</h2>
+                                            <p className={`${headerStyle.sub_title} text-center`}>Hey there! We're happy
+                                                to see you! Let us help
+                                                you achieve your dream
+                                                kitchen. Play around with the options below to get an idea of how you
+                                                want to customize your oven. Once you're happy with your design, snap a
+                                                screenshot and attach it to the quote form on the right. We'll talk to
+                                                you soon.</p>
+                                            <div style={{display: 'flex'}}>
+                                                <DropdownButton id="dropdown-item-button" title='Tiles'
+                                                                onSelect={handleTiles} variant='light'>
+                                                    <Dropdown.ItemText>Tile Options</Dropdown.ItemText>
+                                                    {tilesOption &&
+                                                    tilesOption.length &&
+                                                    tilesOption.map((option) => (
+                                                        <Dropdown.Item
+                                                            eventKey={option.value}
+                                                            key={option.id}>
+                                                            {option.value}
+                                                        </Dropdown.Item>
+                                                    ))}
+                                                </DropdownButton>
+                                                {/*<DropdownButton id="dropdown-item-button" title={color} onSelect={handleChange}>*/}
+                                                <DropdownButton id="dropdown-item-button" title='Colors'
+                                                                onSelect={handleColor} variant='light'>
+                                                    <Dropdown.ItemText>Title Color</Dropdown.ItemText>
+                                                    {options &&
+                                                    options.length &&
+                                                    options.map((option) => (
+                                                        <Dropdown.Item
+                                                            eventKey={option.value}
+                                                            key={option.id}>
+                                                            {option.label}
+                                                        </Dropdown.Item>
+                                                    ))}
+                                                </DropdownButton>
+                                                <DropdownButton id="dropdown-item-button" title='Facade'
+                                                                onSelect={handleFacade} variant='light'>
+                                                    <Dropdown.ItemText>select</Dropdown.ItemText>
+                                                    {facadeOption &&
+                                                    facadeOption.length &&
+                                                    facadeOption.map((option) => (
+                                                        <Dropdown.Item
+                                                            eventKey={option.value}
+                                                            key={option.id}>
+                                                            {option.value}
+                                                        </Dropdown.Item>
+                                                    ))}
+                                                </DropdownButton>
+                                                <DropdownButton id="dropdown-item-button" title='Legs'
+                                                                onSelect={handleLegs} variant='light'>
+                                                    <Dropdown.ItemText>select</Dropdown.ItemText>
+                                                    {legsOption &&
+                                                    legsOption.length &&
+                                                    legsOption.map((option) => (
+                                                        <Dropdown.Item
+                                                            eventKey={option.value}
+                                                            key={option.id}>
+                                                            {option.value}
+                                                        </Dropdown.Item>
+                                                    ))}
+                                                </DropdownButton>
+                                            </div>
+                                            {/*<div className="select-container">*/}
+                                            {/*  <select value={color} onChange={handleChange}>*/}
+                                            {/*    {options.map((option) => (*/}
+                                            {/*        <option value={option.value} key={option.id}>{option.label}</option>*/}
+                                            {/*    ))}*/}
+                                            {/*  </select>*/}
+                                            {/*</div>*/}
+                                            <div className="position-relative"
+                                                 style={{width: '500px'}}>
+                                                <img className='oven-image-tile position-absolute'
+                                                              src={`https://marraforni.com/wp/wp-content/themes/ultima-child/assets/s3/make/${tiles}_${color}.png`}
+                                                              alt="Penny Red" style={{zIndex: '2'}}/>
+                                                <img className="oven-image-grout position-absolute"
+                                                     src="https://marraforni.com/wp/wp-content/themes/ultima-child/assets/s3/make/Grout_Red.png"
+                                                     alt="Grout Red" style={{zIndex: '1'}}/>
+                                                <img className="oven-image-facade position-absolute"
+                                                     src={`https://marraforni.com/wp/wp-content/themes/ultima-child/assets/s3/make/Facade_${facade}.png`}
+                                                     alt="Facade Black"/>
+                                            </div>
+                                        </Col>
+                                        <Col md={6}>
+                                            <button className='float-right' onClick={handleClose}>CANCEL</button>
+                                            <h2 className={`${headerStyle.title} text-center mt-5`}>Drop Us A Line!</h2>
+                                            <form className='mt-4' onSubmit={handleSubmit} method='POST'>
+                                                <div className="form-row">
+                                                    <div className="form-group col-md-6">
+                                                        <input type="text" className="form-control" id="inputFirstName"
+                                                               placeholder="First Name" name='firstName' onChange={handleInputChange} value={values.firstName}/>
+                                                    </div>
+                                                    <div className="form-group col-md-6">
+                                                        <input type="text" className="form-control"
+                                                               id="inputLastName" placeholder="Last Name" name='lastName' onChange={handleInputChange} value={values.lastName}/>
+                                                    </div>
+                                                </div>
+                                                <div className="form-row">
+                                                    <div className="form-group col-md-6">
+                                                        <input type="email" className="form-control" id="inputEmail"
+                                                               placeholder='Enter Email' name='email' onChange={handleInputChange} value={values.email}/>
+                                                    </div>
+                                                    <div className="form-group col-md-6">
+                                                        <input type="email" className="form-control"
+                                                               id="inputConfirmEmail" placeholder='Confirm Email' name='confirmEmail' onChange={handleInputChange} value={values.confirmEmail}/>
+                                                    </div>
+                                                </div>
+                                                <div className="form-group">
+                                                    <input type="number" className="form-control" id="phoneNumber"
+                                                           placeholder="Phone" name='phone' onChange={handleInputChange} value={values.phone}/>
+                                                </div>
+                                                <div className="form-group">
+                                                    <input type="text" className="form-control" id="inputAddress2"
+                                                           placeholder="Street Address" name='address' onChange={handleInputChange} value={values.address}/>
+                                                </div>
+                                                <div className="form-row">
+                                                    <div className="form-group col-md-6">
+                                                        <input type="text" className="form-control" id="inputCity"
+                                                               placeholder='City' name='city' onChange={handleInputChange} value={values.city}/>
+                                                    </div>
+                                                    <div className="form-group col-md-6">
+                                                        <input type="text" className="form-control"
+                                                               id="inputState" placeholder='State/Prov' name='state' onChange={handleInputChange} value={values.state}/>
+                                                    </div>
+                                                </div>
+                                                <div className='form-row'>
+                                                    <div className={`${headerStyle.select_wrapper} col-md-6`}>
+                                                        <select className={`${headerStyle.select} select`} onChange={handleInputChange} value={values.country} name='country'>
+                                                            <option value="Country">Country</option>
+                                                            <option value="Canada">Canada</option>
+                                                            <option value="Estonia">Estonia</option>
+                                                            <option value="India">India</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div className='form-row'>
+                                                    <div className={`${headerStyle.select_wrapper} col-md-6`}>
+                                                        <select className={`${headerStyle.select} select`} onChange={handleInputChange} value={values.product} name='product'>
+                                                            <option value="grapefruit">Select Product</option>
+                                                            <option value="Rotator Brick Oven">Rotator Brick Oven</option>
+                                                            <option selected value="Neapolitan Brick Oven">Neapolitan Brick Oven</option>
+                                                            <option value="Electric Brick Oven">Electric Brick Oven</option>
+                                                            <option value="Due Bocche Brick Oven">Due Bocche Brick Oven</option>
+                                                            <option value="Enclosed Facade Brick Oven">Enclosed Facade Brick Oven</option>
+                                                            <option value="Marraforni Slicers">Marraforni Slicers</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div style={{backgroundColor: 'rgba( 246, 247, 252, 1.00 )'}}>
+                                                    <label htmlFor="exampleFormControlFile1"
+                                                           className='font-weight-bold'>Attach Your Screenshots
+                                                        :</label>
+                                                    <input type="file" className="form-control-file"
+                                                           id="exampleFormControlFile1" name='file' onChange={handleInputChange} value={values.file}/>
+                                                </div>
+                                                <div className="form-group">
+                                                    <input type="text" className="form-control" id="inputAddress2"
+                                                           placeholder="Your Message Here!" name='message' onChange={handleInputChange} value={values.message}/>
+                                                </div>
+                                                <button type="submit" className={`${headerStyle.button}`}>Submit
+                                                </button>
+                                            </form>
+                                        </Col>
+                                    </Row>
+                                </Container>
+                            </Modal.Body>
+                        </Modal>
+                        {/*======================== End Modal Section ==============================*/}
                         <nav className={`${headerStyle.custom_navbar}`}>
                             <div className={headerStyle.site_logo}>
                                 <div className={`${headerStyle.mobile_show} ${headerStyle.menu_icon}`}>
@@ -526,7 +652,9 @@ const Header = (props) => {
                                     </div>
                                 </div>
                                 <div>
-                                    <button className="mf_btn" style={{padding: "8px"}} onClick={handleShow}>Build Your Brick Oven</button>
+                                    <button className="mf_btn" style={{padding: "8px"}} onClick={handleShow}>Build Your
+                                        Brick Oven
+                                    </button>
                                 </div>
                                 <div className={`${headerStyle.searchicon} ${headerStyle.desktop_show}`}>
                                     <i className='bx bx-search-alt-2'></i>

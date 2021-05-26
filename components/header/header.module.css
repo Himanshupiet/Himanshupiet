@@ -343,3 +343,37 @@
 .ui.dropdown .visible.menu {
   display: inline-block !important;
 }
+.dropdown-toggle{
+  background-color: red!important;
+}
+.select_wrapper{
+  position: relative;
+  width: 350px;
+}
+.select_wrapper::after {
+  color: black;
+  content: '▾';
+  margin-right: 10px;
+  pointer-events: none;
+  position: absolute;
+  right: 10px;
+  top: 17px;
+  font-size: 20px;
+}
+.select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: white;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  padding: 7px;
+  width: 100%;
+  font-size: 18px;
+}
+.select:focus {
+  color: black;
+}
+.select::-ms-expand {
+  display: none;
+}
