@@ -315,3 +315,70 @@
     max-height: 1000px;
   }
 }
+.my_model_body{
+  background-color: rgba( 246, 247, 252, 1.00 )!important;
+  padding-bottom: 60px!important;
+}
+.my_model_body input{
+  border: 0!important;
+  border-radius: 0!important;
+  padding: 26px 0px 26px 18px!important;
+}
+.my_model_body select{
+  border: 0!important;
+  border-radius: 0!important;
+  padding: 18px 0px 15px 18px!important;
+}
+.title{
+  color: #e31422;
+}
+.sub_title{
+  color: #565656;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;;
+}
+.button{
+  padding: 10px 40px;
+  border-radius: 3px;
+  border: 2px solid #e81e2e;
+  color: #fff;
+  background-color: #e81e2e;
+}
+.ui.dropdown .visible.menu {
+  display: inline-block !important;
+}
+.dropdown-toggle{
+  background-color: red!important;
+}
+.select_wrapper{
+  position: relative;
+  width: 350px;
+}
+.select_wrapper::after {
+  color: black;
+  content: '▾';
+  margin-right: 10px;
+  pointer-events: none;
+  position: absolute;
+  right: 10px;
+  top: 17px;
+  font-size: 20px;
+}
+.select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: white;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  padding: 7px;
+  width: 100%;
+  font-size: 18px;
+}
+.select:focus {
+  color: black;
+}
+.select::-ms-expand {
+  display: none;
+}

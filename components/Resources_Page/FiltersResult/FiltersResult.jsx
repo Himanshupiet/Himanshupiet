@@ -4,14 +4,12 @@ import { Col, Row } from 'react-bootstrap';
 import ResultStyle from './FiltersResult.module.css'
 
 const FiltersResult = (props) => {
+  const{ product } = props
   const[ productResult, setProductResult ] = useState([])
-
-  const{product} = props
 
   useEffect(() => {
     setProductResult(product)
-    //console.log(productResult)
-  },[productResult])
+  },[product])
 
   return(
     <>
@@ -21,15 +19,15 @@ const FiltersResult = (props) => {
       </div>
 
       {
-        productResult.map((types, index)=>{
+        productResult && productResult.length && productResult.map((types, index)=>{
           return (
             <React.Fragment key={index}>
               <div className={ResultStyle.product_headingbox}>
                 <h2>{types.name}</h2>
               </div>
               <Row className={ResultStyle.innovation}>
-                {
-                  types.cat.map((cat, index)=>{
+                {types && types.cat && types.cat.length ?
+                   types.cat.map((cat, index)=>{
                     return (
                       <Col lg={4} md={6} key={index}>
                         <div className={ResultStyle.product_inner}>
@@ -45,6 +43,7 @@ const FiltersResult = (props) => {
                       </Col>
                     )
                   })
+                  : 'No result found'
                 }
               </Row>
               <Row>

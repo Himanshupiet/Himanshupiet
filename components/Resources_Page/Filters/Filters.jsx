@@ -2,9 +2,8 @@ import React, {useState, useEffect} from 'react'
 import FilterStyle from './Filters.module.css'
 
 const Filters = (props) => {
-
+  const{ product, handleSelect } = props
   const[ productFilter, setProductFilter ] = useState([])
-
   const [filterOpen, setFilterOpen] = useState({
     ProductOpen: true,
     ResourcesOpen: true,
@@ -12,12 +11,9 @@ const Filters = (props) => {
     LanguageOpen: true
   });
 
-  const{product} = props
-
   useEffect(() => {
     setProductFilter(product)
-    //console.log(productFilter)
-  },[productFilter])
+  },[product])
 
   return(
     <div className={FilterStyle.filter_outer}>
@@ -36,12 +32,21 @@ const Filters = (props) => {
         <div className={`${FilterStyle.filter_option} ${filterOpen.ProductOpen ? FilterStyle.openFilterOption : ''}`}>
           <ul>
             {
-              productFilter.map((types, index) => {
+              productFilter.map((types, idx) => {
                 return (
                   types.cat.map((cat, index) => {
                     return (
                       <li key={index}>
-                        <label><input type='checkbox' value={cat.id} />{cat.name}</label>
+                        <label>
+                          <input
+                            onChange={(e) =>{
+                              types.cat[index] = {...types.cat[index],checked:!cat.checked}
+                              handleSelect(e, types.id, cat, idx, index)
+                            }}
+                            type='checkbox'
+                            value={cat.id} />
+                            {cat.name}
+                        </label>
                       </li>
                     )
                   })
