@@ -4,8 +4,11 @@ import { Col, Row } from 'react-bootstrap';
 import ResultStyle from './FiltersResult.module.css'
 
 const FiltersResult = (props) => {
-  const{ product } = props
+  const{ product, handleSearch } = props
   const[ productResult, setProductResult ] = useState([])
+  const [errorSearchText, setErrorSearchText] = useState("");
+
+  let textSearch = React.createRef();
 
   useEffect(() => {
     setProductResult(product)
@@ -14,17 +17,32 @@ const FiltersResult = (props) => {
   return(
     <>
       <div className={ResultStyle.searchbox_outer}>
-        <input type='search' name='searchtext' placeholder='Search' />
-        <button><i className='bx bx-search'></i></button>
+        <input type='search' ref={textSearch} name='searchtext' placeholder='Search' />
+        <button
+          onClick={() => {
+            if(textSearch.current.value){ 
+            setErrorSearchText("")
+            handleSearch(textSearch.current.value)
+            } else{
+             setErrorSearchText("Please enter search text")
+            }
+          }}
+        >
+          <i className='bx bx-search'></i>
+        </button>
       </div>
+      {errorSearchText != '' && <div className={ResultStyle.search_error}>{errorSearchText}</div>}
 
       {
-        productResult && productResult.length && productResult.map((types, index)=>{
+        productResult && productResult.length ? productResult.map((types, index)=>{
           return (
             <React.Fragment key={index}>
-              <div className={ResultStyle.product_headingbox}>
-                <h2>{types.name}</h2>
-              </div>
+              {
+                types && types.cat && types.cat.length ?
+                <div className={ResultStyle.product_headingbox}>
+                  <h2>{types.name}</h2>
+                </div> : null
+              }
               <Row className={ResultStyle.innovation}>
                 {types && types.cat && types.cat.length ?
                    types.cat.map((cat, index)=>{
@@ -34,7 +52,7 @@ const FiltersResult = (props) => {
                           <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/${cat.image}`} width="400" height="500" className="img-fluid" alt={cat.name} />
                           <div className={ResultStyle.product_info}>
                             <h3>{cat.name}</h3>
-                            <p>{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s").substr(0,60)}{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,").length > 60 && "..."}</p>
+                            <p>{cat.catDescription.substr(0,60)}{cat.catDescription.length > 60 && "..."}</p>
                             <Link href="/discover-the-rotator-brick-oven">
                               <a className="mf_btn" title="The Rotator">Explore more</a>
                             </Link>
@@ -42,8 +60,7 @@ const FiltersResult = (props) => {
                         </div>
                       </Col>
                     )
-                  })
-                  : 'No result found'
+                  }) : null
                 }
               </Row>
               <Row>
@@ -59,7 +76,7 @@ const FiltersResult = (props) => {
               </Row>
             </React.Fragment>
           )
-        })
+        }) : <div>No result found</div>
       }
 
       {/* <div className={ResultStyle.product_headingbox}>

@@ -94,6 +94,26 @@ const Resources_main = (props) => {
     }
   }
 
+  const handleSearch = (value) => {
+    let filterSearch = [...filterProduct]
+    
+    let SearchProductArr = filterSearch.map(val => {
+      let catArr = []
+      if(val && val.cat && val.cat.length){
+        val.cat.forEach((item, index)=>{
+          if(item.name.includes(value) || item.catDescription.includes(value)){
+            catArr.push(item)
+          }
+        })
+      }
+      return {
+        ...val,
+        cat: catArr
+      }
+    })
+    setFilterProduct(SearchProductArr)
+  }
+
   return(
     <>
       <Header />
@@ -120,6 +140,7 @@ const Resources_main = (props) => {
                 <Col md={9}>
                   <FiltersResult
                     product={ filterProduct }
+                    handleSearch = { handleSearch }
                   />
                 </Col>
               </Row>
