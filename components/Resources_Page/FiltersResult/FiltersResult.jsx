@@ -26,8 +26,8 @@ const FiltersResult = (props) => {
                 <h2>{types.name}</h2>
               </div>
               <Row className={ResultStyle.innovation}>
-                {
-                  types && types.cat && types.cat.length && types.cat.map((cat, index)=>{
+                {types && types.cat && types.cat.length ?
+                   types.cat.map((cat, index)=>{
                     return (
                       <Col lg={4} md={6} key={index}>
                         <div className={ResultStyle.product_inner}>
@@ -43,6 +43,7 @@ const FiltersResult = (props) => {
                       </Col>
                     )
                   })
+                  : 'No result found'
                 }
               </Row>
               <Row>
