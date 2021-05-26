@@ -39,7 +39,9 @@ const Filters = (props) => {
                       <li key={index}>
                         <label>
                           <input
-                            onChange={(e) => handleSelect(e, types.id, cat, idx, index)}
+                            onChange={(e) =>{
+                              handleSelect(e, types.id, cat, idx, index)
+                            }}
                             type='checkbox'
                             value={cat.id} />
                             {cat.name}

@@ -16,8 +16,16 @@ const Resources_main = (props) => {
   const[ newArr, setNewArr ] = useState([])
 
   useEffect(() => {
-    setAllProduct(PRODUCT_DATA)
     setFilterProduct(PRODUCT_DATA)
+    setAllProduct(PRODUCT_DATA.map(val => {
+        return {
+          ...val,
+          cat: val.cat.map(item => {
+            return {...item, checked: false}
+          })
+        }
+      })
+    )
   },[])
 
   const handleSelect = (e, typeId, cat, idx, index) => {
@@ -27,41 +35,48 @@ const Resources_main = (props) => {
       allProduct &&
       allProduct.length &&
       allProduct.find(val => val.id == typeId )
-    if(newArr.length){
-      let notRepeatProductArr =
-        newArr &&
-        newArr.length &&
-        newArr.find(item => item.id == typeId)
-      if(!notRepeatProductArr){
+      if (newArr.length) {
+        let notRepeatProductArr =
+          newArr &&
+          newArr.length &&
+          newArr.find(item => item.id == typeId)
+        if (!notRepeatProductArr) {
+          let notRepeatCatArr =
+            filterType &&
+            filterType.cat &&
+            filterType.cat.length &&
+            filterType.cat.filter(val => val.id == value)
+          filterType = {
+            ...filterType,
+            cat: notRepeatCatArr
+          }
+          productData.push(filterType)
+          setNewArr(productData)
+          setFilterProduct(productData)
+
+        } else {
+
+          productData.map(val => {
+            if (val.id == typeId) {
+              val.cat.push(cat)
+            }
+          })
+          setNewArr(productData)
+          setFilterProduct(productData)
+        }
+
+      } else {
         let notRepeatCatArr =
           filterType &&
           filterType.cat &&
           filterType.cat.length &&
           filterType.cat.filter(val => val.id == value)
-        filterType = {
-          ...filterType,
-          cat:notRepeatCatArr
-        }
+        filterType = {...filterType, cat: notRepeatCatArr}
         productData.push(filterType)
         setNewArr(productData)
         setFilterProduct(productData)
-
-      }else{
-        productData[idx].cat.push(cat)
-        setFilterProduct(productData)
       }
 
-    }else {
-      let notRepeatCatArr =
-        filterType &&
-        filterType.cat &&
-        filterType.cat.length &&
-        filterType.cat.filter(val => val.id == value)
-      filterType = {...filterType,cat:notRepeatCatArr}
-      productData.push(filterType)
-      setNewArr(productData)
-      setFilterProduct(productData)
-    }
   }
 
   return(
