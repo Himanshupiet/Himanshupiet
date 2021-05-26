@@ -11,11 +11,58 @@ import { Container, Row, Col } from 'react-bootstrap'
 import { PRODUCT_DATA } from './product'
 
 const Resources_main = (props) => {
-  const[ product, setProduct ] = useState([])
+  const[ allProduct, setAllProduct ] = useState([])
+  const[ filterProduct, setFilterProduct ] = useState([])
+  const[ newArr, setNewArr ] = useState([])
 
   useEffect(() => {
-    setProduct(PRODUCT_DATA)
+    setAllProduct(PRODUCT_DATA)
+    setFilterProduct(PRODUCT_DATA)
   },[])
+
+  const handleSelect = (e, typeId, cat, idx, index) => {
+    const { value } = e.target
+    let productData = [...newArr]
+    let filterType =
+      allProduct &&
+      allProduct.length &&
+      allProduct.find(val => val.id == typeId )
+    if(newArr.length){
+      let notRepeatProductArr =
+        newArr &&
+        newArr.length &&
+        newArr.find(item => item.id == typeId)
+      if(!notRepeatProductArr){
+        let notRepeatCatArr =
+          filterType &&
+          filterType.cat &&
+          filterType.cat.length &&
+          filterType.cat.filter(val => val.id == value)
+        filterType = {
+          ...filterType,
+          cat:notRepeatCatArr
+        }
+        productData.push(filterType)
+        setNewArr(productData)
+        setFilterProduct(productData)
+
+      }else{
+        productData[idx].cat.push(cat)
+        setFilterProduct(productData)
+      }
+
+    }else {
+      let notRepeatCatArr =
+        filterType &&
+        filterType.cat &&
+        filterType.cat.length &&
+        filterType.cat.filter(val => val.id == value)
+      filterType = {...filterType,cat:notRepeatCatArr}
+      productData.push(filterType)
+      setNewArr(productData)
+      setFilterProduct(productData)
+    }
+  }
 
   return(
     <>
@@ -36,12 +83,13 @@ const Resources_main = (props) => {
               <Row>
                 <Col md={3}>
                   <Filters
-                    product={ product }
+                    product={ allProduct }
+                    handleSelect = { handleSelect }
                   />
                 </Col>
                 <Col md={9}>
                   <FiltersResult
-                    product={ product }
+                    product={ filterProduct }
                   />
                 </Col>
               </Row>
