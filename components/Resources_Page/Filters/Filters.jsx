@@ -40,6 +40,7 @@ const Filters = (props) => {
                         <label>
                           <input
                             onChange={(e) =>{
+                              types.cat[index] = {...types.cat[index],checked:!cat.checked}
                               handleSelect(e, types.id, cat, idx, index)
                             }}
                             type='checkbox'

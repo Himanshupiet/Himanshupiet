@@ -35,6 +35,7 @@ const Resources_main = (props) => {
       allProduct &&
       allProduct.length &&
       allProduct.find(val => val.id == typeId )
+    if(allProduct[idx].cat[index].checked) {
       if (newArr.length) {
         let notRepeatProductArr =
           newArr &&
@@ -53,9 +54,7 @@ const Resources_main = (props) => {
           productData.push(filterType)
           setNewArr(productData)
           setFilterProduct(productData)
-
         } else {
-
           productData.map(val => {
             if (val.id == typeId) {
               val.cat.push(cat)
@@ -76,7 +75,23 @@ const Resources_main = (props) => {
         setNewArr(productData)
         setFilterProduct(productData)
       }
-
+    }else{
+      let productArr = productData.map(val => {
+        if(val.id == typeId){
+          return {
+            ...val,
+            cat:val &&
+              val.cat &&
+              val.cat.length &&
+              val.cat.filter(item => item.id != cat.id)
+          }
+        }else{
+          return val
+        }
+      })
+      setFilterProduct(productArr)
+      setNewArr(productArr)
+    }
   }
 
   return(
