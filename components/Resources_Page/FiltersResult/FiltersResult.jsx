@@ -13,9 +13,9 @@ const FiltersResult = (props) => {
   let textSearch = React.createRef();
 
   useEffect(() => {
-    const indexOfLastTodo = currentPage * productPerPage;
-    const indexOfFirstTodo = indexOfLastTodo - productPerPage;
-    const currentProduct = product.map(val => {
+    let indexOfLastTodo = currentPage * productPerPage
+    let indexOfFirstTodo = indexOfLastTodo - productPerPage
+    let currentProduct = product.map(val => {
        let pagination = Math.ceil((val && val.cat && val.cat.length)/ productPerPage)
        return {
          ...val,
@@ -26,6 +26,22 @@ const FiltersResult = (props) => {
     })
     setProductResult(currentProduct)
   },[product])
+
+  const handlePagination = (val) => {
+    let indexOfLastTodo = val * productPerPage
+    let indexOfFirstTodo = indexOfLastTodo - productPerPage
+    let currentProduct = product.map(val => {
+      let pagination = Math.ceil((val && val.cat && val.cat.length)/ productPerPage)
+      return {
+        ...val,
+        paginationArr: pagination ?
+          Array(pagination - 1 + 1).fill().map((_, idx) => 1 + idx) :
+          [],
+        newCat:val && val.cat && val.cat.length && val.cat.slice(indexOfFirstTodo, indexOfLastTodo)}
+    })
+    setProductResult(currentProduct)
+    setCurrentPage(val)
+  }
 
   console.log(productResult)
   return(
@@ -90,7 +106,10 @@ const FiltersResult = (props) => {
                       types.paginationArr.map((val, i) => {
                         return (
                           <li>
-                            <button className={ResultStyle.activepagination} key={i}>{val}</button>
+                            <button
+                              onClick = {() => handlePagination(val)}
+                              className={ResultStyle.activepagination}
+                              key={i}>{val}</button>
                           </li>
                         )
                       })
