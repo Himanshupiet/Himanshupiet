@@ -43,7 +43,6 @@ const FiltersResult = (props) => {
     setCurrentPage(val)
   }
 
-  console.log(productResult)
   return(
     <>
       <div className={ResultStyle.searchbox_outer}>
