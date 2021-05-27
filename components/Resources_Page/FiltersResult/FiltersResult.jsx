@@ -6,7 +6,6 @@ import ResultStyle from './FiltersResult.module.css'
 const FiltersResult = (props) => {
   const{ product, handleSearch } = props
   const[ productResult, setProductResult ] = useState([])
-  const[ noOfPage, setNoOfPage ] = useState(0)
   const[ productPerPage, setProductPerPage ] = useState(3)
   const[ currentPage, setCurrentPage ] = useState(1)
 
@@ -22,25 +21,42 @@ const FiltersResult = (props) => {
          paginationArr: pagination ?
            Array(pagination - 1 + 1).fill().map((_, idx) => 1 + idx) :
            [],
+         catCurrentPage:1,
          newCat:val && val.cat && val.cat.length && val.cat.slice(indexOfFirstTodo, indexOfLastTodo)}
     })
     setProductResult(currentProduct)
   },[product])
 
-  const handlePagination = (val) => {
-    let indexOfLastTodo = val * productPerPage
+  const handlePagination = (value, typeId) => {
+    let indexOfLastTodo = value * productPerPage
     let indexOfFirstTodo = indexOfLastTodo - productPerPage
-    let currentProduct = product.map(val => {
-      let pagination = Math.ceil((val && val.cat && val.cat.length)/ productPerPage)
-      return {
-        ...val,
-        paginationArr: pagination ?
-          Array(pagination - 1 + 1).fill().map((_, idx) => 1 + idx) :
-          [],
-        newCat:val && val.cat && val.cat.length && val.cat.slice(indexOfFirstTodo, indexOfLastTodo)}
+
+    let currentProduct = productResult.map(val => {
+      let indexOfLast = val.catCurrentPage * productPerPage
+      let indexOfFirst = indexOfLast - productPerPage
+      let pagination = Math.ceil((val && val.cat && val.cat.length) / productPerPage)
+      if(val.id == typeId) {
+        return {
+          ...val,
+          paginationArr: pagination ?
+            Array(pagination - 1 + 1).fill().map((_, idx) => 1 + idx) :
+            [],
+          catCurrentPage:value,
+          newCat: val && val.cat && val.cat.length && val.cat.slice(indexOfFirstTodo, indexOfLastTodo)
+        }
+      }else{
+        return {
+          ...val,
+          paginationArr: pagination ?
+            Array(pagination - 1 + 1).fill().map((_, idx) => 1 + idx) :
+            [],
+          catCurrentPage:val.catCurrentPage,
+         newCat: val && val.cat && val.cat.length && val.cat.slice(indexOfFirst, indexOfLast)
+        }
+      }
+
     })
     setProductResult(currentProduct)
-    setCurrentPage(val)
   }
 
   return(
@@ -106,7 +122,7 @@ const FiltersResult = (props) => {
                         return (
                           <li>
                             <button
-                              onClick = {() => handlePagination(val)}
+                              onClick = {() => handlePagination(val, types.id)}
                               className={ResultStyle.activepagination}
                               key={i}>{val}</button>
                           </li>

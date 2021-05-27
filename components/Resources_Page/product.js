@@ -180,6 +180,32 @@ export const PRODUCT_DATA = [
             modalNo:[]
           }
         ]
+      },
+      {
+        id:43,
+        name: 'Fork Dough Mixers1',
+        image: 'Marra-Forni-Forked-Dough-Mixer.png',
+        catDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+        subcat:[
+          {
+            id:1,
+            name:'',
+            modalNo:[]
+          }
+        ]
+      },
+      {
+        id:44,
+        name: 'Fork Dough Mixer1s1',
+        image: 'Marra-Forni-Forked-Dough-Mixer.png',
+        catDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+        subcat:[
+          {
+            id:1,
+            name:'',
+            modalNo:[]
+          }
+        ]
       }
     ],
   }
