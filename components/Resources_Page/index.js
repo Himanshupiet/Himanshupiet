@@ -94,16 +94,17 @@ const Resources_main = (props) => {
           return val
         }
       })
+      productArr = productArr.filter(val => val.cat.length)
       if(productArr.length > 1){
         setFilterProduct(productArr)
         setSearchProduct(productArr)
         setNewArr(productArr)
-      }else if(productArr[0].cat.length > 1) {
+      }else if( productArr && productArr.length && productArr[0].cat && productArr[0].cat.length > 1) {
         setFilterProduct(productArr)
         setSearchProduct(productArr)
         setNewArr(productArr)
       }else{
-        if(productArr[0].cat.length){
+        if(productArr && productArr.length &&  productArr[0].cat && productArr[0].cat.length){
           setFilterProduct(productArr)
           setSearchProduct(productArr)
           setNewArr(productArr)

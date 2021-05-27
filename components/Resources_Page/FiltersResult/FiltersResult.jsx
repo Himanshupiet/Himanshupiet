@@ -8,16 +8,25 @@ const FiltersResult = (props) => {
   const[ productResult, setProductResult ] = useState([])
   const[ noOfPage, setNoOfPage ] = useState(0)
   const[ productPerPage, setProductPerPage ] = useState(3)
+  const[ currentPage, setCurrentPage ] = useState(1)
 
   let textSearch = React.createRef();
 
   useEffect(() => {
-    let a = product.map(val => {
-      let pagination = Math.ceil(val.cat.length/ productPerPage)
-      return { ...val,paginationArr: Array(pagination - 1 + 1).fill().map((_, idx) => 1 + idx)}
+    const indexOfLastTodo = currentPage * productPerPage;
+    const indexOfFirstTodo = indexOfLastTodo - productPerPage;
+    const currentProduct = product.map(val => {
+       let pagination = Math.ceil((val && val.cat && val.cat.length)/ productPerPage)
+       return {
+         ...val,
+         paginationArr: pagination ?
+           Array(pagination - 1 + 1).fill().map((_, idx) => 1 + idx) :
+           [],
+         newCat:val && val.cat && val.cat.length && val.cat.slice(indexOfFirstTodo, indexOfLastTodo)}
     })
-    setProductResult(a)
+    setProductResult(currentProduct)
   },[product])
+
   console.log(productResult)
   return(
     <>
@@ -51,8 +60,8 @@ const FiltersResult = (props) => {
                 </div> : null
               }
               <Row className={ResultStyle.innovation}>
-                {types && types.cat && types.cat.length ?
-                   types.cat.map((cat, index)=>{
+                {types && types.newCat && types.newCat.length ?
+                   types.newCat.map((cat, index)=>{
                     return (
                       <Col lg={4} md={6} key={index}>
                         <div className={ResultStyle.product_inner}>
@@ -71,15 +80,22 @@ const FiltersResult = (props) => {
                 }
               </Row>
               {
-                types && types.cat && types.cat.length ?
+                types && types.newCat && types.newCat.length ?
                 <Row>
                   <Col md={12}>
                     <ul className={ResultStyle.pagination}>
-                      <li><button className={ResultStyle.activepagination}>1</button></li>
-                      <li><button>2</button></li>
-                      <li><button>3</button></li>
-                      <li><button>4</button></li>
-                      <li><button>5</button></li>
+                      {types &&
+                      types.paginationArr &&
+                      types.paginationArr.length &&
+                      types.paginationArr.map((val, i) => {
+                        return (
+                          <li>
+                            <button className={ResultStyle.activepagination} key={i}>{val}</button>
+                          </li>
+                        )
+                      })
+                      }
+
                     </ul>
                   </Col>
                 </Row> : null
