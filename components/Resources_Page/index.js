@@ -94,9 +94,25 @@ const Resources_main = (props) => {
           return val
         }
       })
-      setFilterProduct(productArr)
-      setSearchProduct(productArr)
-      setNewArr(productArr)
+      if(productArr.length > 1){
+        setFilterProduct(productArr)
+        setSearchProduct(productArr)
+        setNewArr(productArr)
+      }else if(productArr[0].cat.length > 1) {
+        setFilterProduct(productArr)
+        setSearchProduct(productArr)
+        setNewArr(productArr)
+      }else{
+        if(productArr[0].cat.length){
+          setFilterProduct(productArr)
+          setSearchProduct(productArr)
+          setNewArr(productArr)
+        }else{
+          setFilterProduct(allProduct)
+          setSearchProduct(allProduct)
+          setNewArr([])
+        }
+      }
     }
   }
 
