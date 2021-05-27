@@ -322,7 +322,7 @@
 .my_model_body input{
   border: 0!important;
   border-radius: 0!important;
-  padding: 26px 0px 26px 18px!important;
+  padding: 16px 0px 17px 18px!important;
 }
 .my_model_body select{
   border: 0!important;
@@ -381,4 +381,21 @@
 }
 .select::-ms-expand {
   display: none;
+}
+.input_error{
+  border: 1px solid red;
+}
+.section_inner span{
+  margin-top: -15px;
+  display: block;
+  margin-bottom: 10px;
+  color: red;
+  font-weight: 500;
+}
+.main_title{
+  padding: 1px;
+  font-weight: 500;
+  font-size: 15px;
+  text-align: center;
+  color: #6c757d;
 }

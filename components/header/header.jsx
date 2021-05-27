@@ -3,6 +3,8 @@ import Link from 'next/link';
 import {Col, Container, Dropdown, DropdownButton, Modal, Row, Tab, Tabs} from 'react-bootstrap'
 import ActiveLink from './ActiveLink';
 import headerStyle from './header.module.css';
+import CountryList from "../common/GetAQuote/CountryList";
+
 
 /**
  * @author
@@ -10,6 +12,34 @@ import headerStyle from './header.module.css';
  **/
 
 const Header = (props) => {
+    const initialValues = {
+        firstName: '',
+        lastName: '',
+        email: '',
+        cemail: '',
+        phone: '',
+        streetAddress: '',
+        City: '',
+        StateProvince: '',
+        Country: '',
+        product: '',
+        file: '',
+        message: '',
+        errors: {
+            firstName: '',
+            lastName: '',
+            email: '',
+            cemail: '',
+            phone: '',
+            streetAddress: '',
+            City: '',
+            StateProvince: '',
+            Country: '',
+            product: '',
+            file: '',
+            message: '',
+        }
+    };
     const options = [
         {
             label: "Red",
@@ -83,20 +113,8 @@ const Header = (props) => {
     const [color, setColors] = useState('Red')
     const [legs, setLegs] = useState('Black')
     const [tiles, setTiles] = useState('Penny')
-    const [values, setValues] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        confirmEmail:'',
-        phone:'',
-        address:'',
-        city:'',
-        state:'',
-        country:'',
-        product:'',
-        file:'',
-        message:''
-    });
+    const [gformData, setGformData] = useState(initialValues);
+    const [buttonIsDisable, setButtonIsDisable] = useState(false);
 
     useEffect(() => {
         window.addEventListener('scroll', checkStickyHeader, {passive: true});
@@ -119,28 +137,136 @@ const Header = (props) => {
     }
     const handleColor = (e) => {
         setColors(e)
+
     }
     const handleFacade = (e) => {
         setFacade(e)
     }
     const handleLegs = (e) => {
         setLegs(e)
+
     }
     const handleTiles = (e) => {
         setTiles(e)
+
     }
-    const handleInputChange = (e) => {
-        const {name, value} = e.target;
-        setValues({
-            ...values,
-            [name]: value
+    const handleChange = (event) => {
+        const {name, value} = event.target;
+        setGformData((preValues) => {
+            return {...preValues, [name]: value}
         });
-    };
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        localStorage.setItem('document',JSON.stringify(values));
-        // setValues('')
-    };
+    }
+    const chackFormValidate = () => {
+        let formIsValid = true;
+        let validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
+        let validPhoneRegex = RegExp(/^[(]{1}[0-9]{3}[)]{1}[ ]{1}[0-9]{3}[-]{1}[0-9]{4}$/);
+
+        const {
+            firstName,
+            lastName,
+            email,
+            cemail,
+            phone,
+            streetAddress,
+            City,
+            StateProvince,
+            Country,
+            product,
+            file,
+            message,
+            errors
+        } = gformData;
+
+        if (firstName == '') {
+            formIsValid = false;
+            errors.firstName = 'Please enter your first name';
+        } else {
+            errors.firstName = '';
+        }
+        if (lastName == '') {
+            formIsValid = false;
+            errors.lastName = 'Please enter your last name';
+        } else {
+            errors.lastName = '';
+        }
+        if (email == '' || !validEmailRegex.test(email)) {
+            formIsValid = false;
+            errors.email = 'Please enter your valid email';
+        } else {
+            errors.email = '';
+        }
+        if (cemail == '' || !validEmailRegex.test(cemail)) {
+            formIsValid = false;
+            errors.cemail = 'Please enter your confirm email';
+        } else {
+            if (email != cemail) {
+                formIsValid = false;
+                errors.cemail = 'Confirm email is not same with email';
+            } else {
+                errors.cemail = '';
+            }
+        }
+        if (phone == '' || !validPhoneRegex.test(phone)) {
+            formIsValid = false;
+            errors.phone = 'Enter valid phone format: (###) ###-####';
+        } else {
+            errors.phone = '';
+        }
+        if (streetAddress == '') {
+            formIsValid = false;
+            errors.streetAddress = 'Please enter your Street Address';
+        } else {
+            errors.streetAddress = '';
+        }
+        if (City == '') {
+            formIsValid = false;
+            errors.City = 'Please enter your City';
+        } else {
+            errors.City = '';
+        }
+        if (StateProvince == '') {
+            formIsValid = false;
+            errors.StateProvince = 'Please enter your State / Province';
+        } else {
+            errors.StateProvince = '';
+        }
+        if (Country == '') {
+            formIsValid = false;
+            errors.Country = 'Please select a Country';
+        } else {
+            errors.Country = '';
+        }
+        if (product == '') {
+            formIsValid = false;
+            errors.product = 'Please select a product';
+        } else {
+            errors.product = '';
+        }
+        if (file == '') {
+            formIsValid = false;
+            errors.file = 'Please select an option';
+        } else {
+            errors.hearAbout = '';
+        }
+        if (message == '') {
+            formIsValid = false;
+            errors.message = 'Please enter your message';
+        } else {
+            errors.message = '';
+        }
+        setGformData({...gformData, errors});
+        return formIsValid;
+    }
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        localStorage.setItem('document',JSON.stringify(gformData));
+        setButtonIsDisable(true);
+        if(chackFormValidate()){
+            setGformData(initialValues);
+            setButtonIsDisable(false);
+        }
+        setButtonIsDisable(false);
+    }
     return (
         <>
             <header
@@ -165,7 +291,8 @@ const Header = (props) => {
                                             <div style={{display: 'flex'}}>
                                                 <DropdownButton id="dropdown-item-button" title='Tiles'
                                                                 onSelect={handleTiles} variant='light'>
-                                                    <Dropdown.ItemText>Tile Options</Dropdown.ItemText>
+                                                    <Dropdown.ItemText className={headerStyle.main_title}>
+                                                        Standard Tile Options</Dropdown.ItemText>
                                                     {tilesOption &&
                                                     tilesOption.length &&
                                                     tilesOption.map((option) => (
@@ -179,7 +306,7 @@ const Header = (props) => {
                                                 {/*<DropdownButton id="dropdown-item-button" title={color} onSelect={handleChange}>*/}
                                                 <DropdownButton id="dropdown-item-button" title='Colors'
                                                                 onSelect={handleColor} variant='light'>
-                                                    <Dropdown.ItemText>Title Color</Dropdown.ItemText>
+                                                    <Dropdown.ItemText className={headerStyle.main_title}>Standard Title Color</Dropdown.ItemText>
                                                     {options &&
                                                     options.length &&
                                                     options.map((option) => (
@@ -192,7 +319,7 @@ const Header = (props) => {
                                                 </DropdownButton>
                                                 <DropdownButton id="dropdown-item-button" title='Facade'
                                                                 onSelect={handleFacade} variant='light'>
-                                                    <Dropdown.ItemText>select</Dropdown.ItemText>
+                                                    <Dropdown.ItemText></Dropdown.ItemText>
                                                     {facadeOption &&
                                                     facadeOption.length &&
                                                     facadeOption.map((option) => (
@@ -205,7 +332,7 @@ const Header = (props) => {
                                                 </DropdownButton>
                                                 <DropdownButton id="dropdown-item-button" title='Legs'
                                                                 onSelect={handleLegs} variant='light'>
-                                                    <Dropdown.ItemText>select</Dropdown.ItemText>
+                                                    <Dropdown.ItemText></Dropdown.ItemText>
                                                     {legsOption &&
                                                     legsOption.length &&
                                                     legsOption.map((option) => (
@@ -227,8 +354,8 @@ const Header = (props) => {
                                             <div className="position-relative"
                                                  style={{width: '500px'}}>
                                                 <img className='oven-image-tile position-absolute'
-                                                              src={`https://marraforni.com/wp/wp-content/themes/ultima-child/assets/s3/make/${tiles}_${color}.png`}
-                                                              alt="Penny Red" style={{zIndex: '2'}}/>
+                                                     src={`https://marraforni.com/wp/wp-content/themes/ultima-child/assets/s3/make/${tiles}_${color}.png`}
+                                                     alt="Penny Red" style={{zIndex: '2'}}/>
                                                 <img className="oven-image-grout position-absolute"
                                                      src="https://marraforni.com/wp/wp-content/themes/ultima-child/assets/s3/make/Grout_Red.png"
                                                      alt="Grout Red" style={{zIndex: '1'}}/>
@@ -240,80 +367,207 @@ const Header = (props) => {
                                         <Col md={6}>
                                             <button className='float-right' onClick={handleClose}>CANCEL</button>
                                             <h2 className={`${headerStyle.title} text-center mt-5`}>Drop Us A Line!</h2>
-                                            <form className='mt-4' onSubmit={handleSubmit} method='POST'>
+                                            <form className='mt-4'>
                                                 <div className="form-row">
-                                                    <div className="form-group col-md-6">
-                                                        <input type="text" className="form-control" id="inputFirstName"
-                                                               placeholder="First Name" name='firstName' onChange={handleInputChange} value={values.firstName}/>
+                                                    <div className={`${headerStyle.section_inner} form-group col-md-6`}>
+                                                        <input
+                                                            type='text'
+                                                            name='firstName'
+                                                            id='g_fname'
+                                                            value={gformData.firstName}
+                                                            placeholder='First Name'
+                                                            onChange={handleChange}
+                                                            className={gformData.errors.firstName.length > 0 ? headerStyle.input_error : ''}
+                                                        />
+                                                        {gformData.errors.firstName.length > 0 &&
+                                                        <span>{gformData.errors.firstName}</span>}
                                                     </div>
-                                                    <div className="form-group col-md-6">
-                                                        <input type="text" className="form-control"
-                                                               id="inputLastName" placeholder="Last Name" name='lastName' onChange={handleInputChange} value={values.lastName}/>
+                                                    <div className={`${headerStyle.section_inner} form-group col-md-6`}>
+                                                        <input
+                                                            type='text'
+                                                            name='lastName'
+                                                            id='g_lname'
+                                                            value={gformData.lastName}
+                                                            placeholder='Last Name'
+                                                            onChange={handleChange}
+                                                            className={gformData.errors.lastName.length > 0 ? headerStyle.input_error : ''}
+                                                        />
+                                                        {gformData.errors.lastName.length > 0 &&
+                                                        <span>{gformData.errors.lastName}</span>}
                                                     </div>
                                                 </div>
                                                 <div className="form-row">
-                                                    <div className="form-group col-md-6">
-                                                        <input type="email" className="form-control" id="inputEmail"
-                                                               placeholder='Enter Email' name='email' onChange={handleInputChange} value={values.email}/>
+                                                    <div className={`${headerStyle.section_inner} form-group col-md-6`}>
+                                                        <input
+                                                            type='text'
+                                                            name='email'
+                                                            id='g_email'
+                                                            value={gformData.email}
+                                                            placeholder='Email'
+                                                            onChange={handleChange}
+                                                            className={gformData.errors.email.length > 0 ? headerStyle.input_error : ''}
+                                                        />
+                                                        {gformData.errors.email.length > 0 &&
+                                                        <span>{gformData.errors.email}</span>}
                                                     </div>
-                                                    <div className="form-group col-md-6">
-                                                        <input type="email" className="form-control"
-                                                               id="inputConfirmEmail" placeholder='Confirm Email' name='confirmEmail' onChange={handleInputChange} value={values.confirmEmail}/>
+                                                    <div className={`${headerStyle.section_inner} form-group col-md-6`}>
+                                                        <input
+                                                            type='text'
+                                                            name='cemail'
+                                                            id='g_cemail'
+                                                            value={gformData.cemail}
+                                                            placeholder='Confirm Email'
+                                                            onChange={handleChange}
+                                                            className={gformData.errors.cemail.length > 0 ? headerStyle.input_error : ''}
+                                                        />
+                                                        {gformData.errors.cemail.length > 0 &&
+                                                        <span>{gformData.errors.cemail}</span>}
                                                     </div>
                                                 </div>
-                                                <div className="form-group">
-                                                    <input type="number" className="form-control" id="phoneNumber"
-                                                           placeholder="Phone" name='phone' onChange={handleInputChange} value={values.phone}/>
+                                                <div className={`${headerStyle.section_inner} form-group`}>
+                                                    <input
+                                                        type='text'
+                                                        name='phone'
+                                                        id='g_phone'
+                                                        value={gformData.phone}
+                                                        placeholder='Phone Number'
+                                                        onChange={handleChange}
+                                                        className={gformData.errors.phone.length > 0 ? headerStyle.input_error : ''}
+                                                    />
+                                                    {gformData.errors.phone.length > 0 &&
+                                                    <span>{gformData.errors.phone}</span>}
                                                 </div>
-                                                <div className="form-group">
-                                                    <input type="text" className="form-control" id="inputAddress2"
-                                                           placeholder="Street Address" name='address' onChange={handleInputChange} value={values.address}/>
+                                                <div className={`${headerStyle.section_inner} form-group`}>
+                                                    <input
+                                                        type='text'
+                                                        name='streetAddress'
+                                                        id='g_sAddress'
+                                                        value={gformData.streetAddress}
+                                                        placeholder='Street Address'
+                                                        onChange={handleChange}
+                                                        className={gformData.errors.streetAddress.length > 0 ? headerStyle.input_error : ''}
+                                                    />
+                                                    {gformData.errors.streetAddress.length > 0 &&
+                                                    <span>{gformData.errors.streetAddress}</span>}
                                                 </div>
                                                 <div className="form-row">
-                                                    <div className="form-group col-md-6">
-                                                        <input type="text" className="form-control" id="inputCity"
-                                                               placeholder='City' name='city' onChange={handleInputChange} value={values.city}/>
+                                                    <div className={`${headerStyle.section_inner} form-group col-md-6`}>
+                                                        <input
+                                                            type='text'
+                                                            name='City'
+                                                            id='g_City'
+                                                            value={gformData.City}
+                                                            placeholder='City'
+                                                            onChange={handleChange}
+                                                            className={gformData.errors.City.length > 0 ? headerStyle.input_error : ''}
+                                                        />
+                                                        {gformData.errors.City.length > 0 &&
+                                                        <span>{gformData.errors.City}</span>}
                                                     </div>
-                                                    <div className="form-group col-md-6">
-                                                        <input type="text" className="form-control"
-                                                               id="inputState" placeholder='State/Prov' name='state' onChange={handleInputChange} value={values.state}/>
+                                                    <div className={`${headerStyle.section_inner} form-group col-md-6`}>
+                                                        <input
+                                                            type='text'
+                                                            name='StateProvince'
+                                                            id='g_StateProvince'
+                                                            value={gformData.StateProvince}
+                                                            placeholder='State / Province'
+                                                            onChange={handleChange}
+                                                            className={gformData.errors.StateProvince.length > 0 ? headerStyle.input_error : ''}
+                                                        />
+                                                        {gformData.errors.StateProvince.length > 0 &&
+                                                        <span>{gformData.errors.StateProvince}</span>}
                                                     </div>
                                                 </div>
-                                                <div className='form-row'>
+                                                <div className={`${headerStyle.section_inner} form-row`}>
                                                     <div className={`${headerStyle.select_wrapper} col-md-6`}>
-                                                        <select className={`${headerStyle.select} select`} onChange={handleInputChange} value={values.country} name='country'>
-                                                            <option value="Country">Country</option>
-                                                            <option value="Canada">Canada</option>
-                                                            <option value="Estonia">Estonia</option>
-                                                            <option value="India">India</option>
+                                                        <select
+                                                            name='Country'
+                                                            id='g_Country'
+                                                            value={gformData.Country}
+                                                            onChange={handleChange}
+                                                            className={gformData.errors.Country.length > 0 ? headerStyle.input_error : ''}
+                                                        >
+                                                            <option value=''>Select Country</option>
+                                                            {CountryList.map((country, index) => {
+                                                                return <option value={country}
+                                                                               key={index}>{country}</option>
+                                                            })}
                                                         </select>
+                                                        {gformData.errors.Country.length > 0 &&
+                                                        <span>{gformData.errors.Country}</span>}
                                                     </div>
                                                 </div>
-                                                <div className='form-row'>
+                                                <div className={`${headerStyle.section_inner} form-row`}>
                                                     <div className={`${headerStyle.select_wrapper} col-md-6`}>
-                                                        <select className={`${headerStyle.select} select`} onChange={handleInputChange} value={values.product} name='product'>
-                                                            <option value="grapefruit">Select Product</option>
-                                                            <option value="Rotator Brick Oven">Rotator Brick Oven</option>
-                                                            <option selected value="Neapolitan Brick Oven">Neapolitan Brick Oven</option>
-                                                            <option value="Electric Brick Oven">Electric Brick Oven</option>
-                                                            <option value="Due Bocche Brick Oven">Due Bocche Brick Oven</option>
-                                                            <option value="Enclosed Facade Brick Oven">Enclosed Facade Brick Oven</option>
-                                                            <option value="Marraforni Slicers">Marraforni Slicers</option>
+                                                        <select
+                                                            name='product'
+                                                            id='g_product'
+                                                            value={gformData.product}
+                                                            onChange={handleChange}
+                                                            className={gformData.errors.product.length > 0 ? headerStyle.input_error : ''}
+                                                        >
+                                                            <option value=''>Select Product</option>
+                                                            <option value='Rotator Brick Oven'>Rotator Brick Oven
+                                                            </option>
+                                                            <option value='Neapolitan Brick Oven'>Neapolitan Brick Oven
+                                                            </option>
+                                                            <option value='Electric Brick Oven'>Electric Brick Oven
+                                                            </option>
+                                                            <option value='Due Bocche Brick Oven'>Due Bocche Brick Oven
+                                                            </option>
+                                                            <option value='Enclosed Facade Brick Oven'>Enclosed Facade
+                                                                Brick
+                                                                Oven
+                                                            </option>
+                                                            <option value='MS Series Brick Oven'>MS Series Brick Oven
+                                                            </option>
+                                                            <option value='MarraForni Mixers'>MarraForni Mixers</option>
+                                                            <option value='Marraforni Prep Table'>Marraforni Prep Table
+                                                            </option>
+                                                            <option value='Marraforni Slicers'>Marraforni Slicers
+                                                            </option>
+                                                            <option value='Plug & Play Ventilation'>Plug & Play
+                                                                Ventilation
+                                                            </option>
                                                         </select>
+                                                        {gformData.errors.product.length > 0 &&
+                                                        <span>{gformData.errors.product}</span>}
                                                     </div>
+
                                                 </div>
-                                                <div style={{backgroundColor: 'rgba( 246, 247, 252, 1.00 )'}}>
+                                                <div className={`${headerStyle.section_inner}`} style={{backgroundColor: 'rgba( 246, 247, 252, 1.00 )'}}>
                                                     <label htmlFor="exampleFormControlFile1"
                                                            className='font-weight-bold'>Attach Your Screenshots
                                                         :</label>
-                                                    <input type="file" className="form-control-file"
-                                                           id="exampleFormControlFile1" name='file' onChange={handleInputChange} value={values.file}/>
+                                                    <input
+                                                        name='file'
+                                                        type="file"
+                                                        id='g_file'
+                                                        value={gformData.file}
+                                                        // className="form-control-file"
+                                                        onChange={handleChange}
+                                                        className={gformData.errors.message.length > 0 ? headerStyle.input_error : ''}
+                                                        />
+                                                    {gformData.errors.file.length > 0 &&
+                                                    <span>{gformData.errors.file}</span>}
                                                 </div>
-                                                <div className="form-group">
-                                                    <input type="text" className="form-control" id="inputAddress2"
-                                                           placeholder="Your Message Here!" name='message' onChange={handleInputChange} value={values.message}/>
+                                                <div className={`${headerStyle.section_inner} form-group`}>
+                                                    <input
+                                                        name='message'
+                                                        type='text'
+                                                        id='g_message'
+                                                        value={gformData.message}
+                                                        placeholder='Your Message'
+                                                        onChange={handleChange}
+                                                        className={gformData.errors.message.length > 0 ? headerStyle.input_error : ''}
+                                                    />
+                                                    {gformData.errors.message.length > 0 &&
+                                                    <span>{gformData.errors.message}</span>}
                                                 </div>
-                                                <button type="submit" className={`${headerStyle.button}`}>Submit
+                                                <button title='Submit'
+                                                        className={'mf_btn'}
+                                                        disabled={buttonIsDisable}
+                                                        onClick={handleSubmit}>Submit
                                                 </button>
                                             </form>
                                         </Col>
