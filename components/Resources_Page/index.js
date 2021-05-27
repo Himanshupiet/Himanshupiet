@@ -96,7 +96,6 @@ const Resources_main = (props) => {
 
   const handleSearch = (value) => {
     let filterSearch = [...filterProduct]
-    
     let SearchProductArr = filterSearch.map(val => {
       let catArr = []
       if(val && val.cat && val.cat.length){
