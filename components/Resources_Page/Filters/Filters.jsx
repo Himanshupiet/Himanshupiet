@@ -10,11 +10,17 @@ const Filters = (props) => {
     OtherinfoOpen: true,
     LanguageOpen: true
   });
+  const[ noOfPage, setNoOfPage ] = useState(0)
+  const[ productPerPage, setProductPerPage ] = useState(3)
 
   useEffect(() => {
-    setProductFilter(product)
+    let a = product.map(val => {
+       let pagination = Math.ceil(val.cat.length/ productPerPage)
+      return { ...val,paginationArr: Array(pagination - 1 + 1).fill().map((_, idx) => 1 + idx)}
+    })
+    setProductFilter(a)
   },[product])
-
+console.log(productFilter)
   return(
     <div className={FilterStyle.filter_outer}>
       <h3>Filters</h3>
