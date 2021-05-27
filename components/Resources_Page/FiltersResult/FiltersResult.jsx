@@ -6,13 +6,19 @@ import ResultStyle from './FiltersResult.module.css'
 const FiltersResult = (props) => {
   const{ product, handleSearch } = props
   const[ productResult, setProductResult ] = useState([])
+  const[ noOfPage, setNoOfPage ] = useState(0)
+  const[ productPerPage, setProductPerPage ] = useState(3)
 
   let textSearch = React.createRef();
 
   useEffect(() => {
-    setProductResult(product)
+    let a = product.map(val => {
+      let pagination = Math.ceil(val.cat.length/ productPerPage)
+      return { ...val,paginationArr: Array(pagination - 1 + 1).fill().map((_, idx) => 1 + idx)}
+    })
+    setProductResult(a)
   },[product])
-
+  console.log(productResult)
   return(
     <>
       <div className={ResultStyle.searchbox_outer}>
