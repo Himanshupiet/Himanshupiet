@@ -8,6 +8,7 @@ export const PRODUCT_DATA = [
         id:11,
         name: 'The Rotator',
         image: 'stainless_facade_square_black.webp',
+        catDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
         subcat:[
           {
             id:1,
@@ -20,6 +21,7 @@ export const PRODUCT_DATA = [
         id:12,
         name: 'The Neapolitan',
         image: 'Blu-Penny-NP.webp',
+        catDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
         subcat:[
           {
             id:1,
@@ -32,6 +34,7 @@ export const PRODUCT_DATA = [
         id:13,
         name: 'Due Bocche',
         image: 'Due_Bocche_White_Broken.webp',
+        catDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
         subcat:[
           {
             id:1,
@@ -44,6 +47,7 @@ export const PRODUCT_DATA = [
         id:14,
         name: 'Electric Oven',
         image: 'EL_Square_Blue.webp',
+        catDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
         subcat:[
           {
             id:1,
@@ -56,6 +60,7 @@ export const PRODUCT_DATA = [
         id:15,
         name: 'Enclosed Facade',
         image: 'Big-Enclosed-BrIck-Oven-Rendering.webp',
+        catDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
         subcat:[
           {
             id:1,
@@ -68,6 +73,7 @@ export const PRODUCT_DATA = [
         id:16,
         name: 'Mobile Trailer',
         image: 'Webp.net-resizeimage-1.webp',
+        catDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
         subcat:[
           {
             id:1,
@@ -80,6 +86,7 @@ export const PRODUCT_DATA = [
         id:17,
         name: 'Metal Square',
         image: 'MS_42-31.webp',
+        catDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
         subcat:[
           {
             id:1,
@@ -99,6 +106,7 @@ export const PRODUCT_DATA = [
         id:21,
         name: 'Venting System',
         image: 'Marra-Forni-Full-Length-integrated-Venting-Pipes.webp',
+        catDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
         subcat:[
           {
             id:1,
@@ -118,6 +126,7 @@ export const PRODUCT_DATA = [
         id:31,
         name: 'Refrigerated Prep Table',
         image: 'Marra-Forni-Three-Door-Pizza-Prep-Table-with-Rail.png',
+        catDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
         subcat:[
           {
             id:1,
@@ -130,6 +139,7 @@ export const PRODUCT_DATA = [
         id:32,
         name: 'Refrigerated Condiment Rail',
         image: 'Marra-Forni-Three-Door-Pizza-Prep-Table-with-Rail.png',
+        catDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
         subcat:[
           {
             id:1,
@@ -149,6 +159,7 @@ export const PRODUCT_DATA = [
         id:41,
         name: 'Spiral Dough Mixers',
         image: 'Marra-Forni-Spiral-Dough-Mixer.png',
+        catDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
         subcat:[
           {
             id:1,
@@ -161,6 +172,7 @@ export const PRODUCT_DATA = [
         id:42,
         name: 'Fork Dough Mixers',
         image: 'Marra-Forni-Forked-Dough-Mixer.png',
+        catDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
         subcat:[
           {
             id:1,
