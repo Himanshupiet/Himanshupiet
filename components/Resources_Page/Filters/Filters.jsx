@@ -53,37 +53,6 @@ const Filters = (props) => {
                 )
               })
             }
-            {/* <li>
-              <label><input type='checkbox' value='Rotator Series' />Rotator Series</label>
-            </li>
-            <li>
-              <label><input type='checkbox' value='Neapolitan Series' />Neapolitan Series</label>
-            </li>
-            <li>
-              <label><input type='checkbox' value='ELECTRO Series' />ELECTRO Series</label>
-            </li>
-            <li>
-              <label><input type='checkbox' value='MS Series' />MS Series</label>
-            </li>
-            <li>
-              <label><input type='checkbox' value='Mobile Series' />Mobile Series</label>
-            </li>
-            <li>
-              <label><input type='checkbox' value='Direct Ventilation System' />Direct Ventilation System</label>
-            </li>
-            <li>
-              <label><input type='checkbox' value='Refrigerated Prep Table' />Refrigerated Prep Table</label>
-            </li>
-            <li>
-              <label><input type='checkbox' value='Refrigerated Condiment Rail' />Refrigerated Condiment Rail</label>
-            </li>
-            <li>
-              <label><input type='checkbox' value='Dough Mixers' />Dough Mixers</label>
-            </li>
-            <li>
-              <label><input type='checkbox' value='Flylwheel Slicer' />Flylwheel Slicer</label>
-            </li> */}
-
           </ul>
         </div>
         <li 
@@ -110,18 +79,6 @@ const Filters = (props) => {
             <li>
               <label><input type='checkbox' value='User Manual' />User Manual</label>
             </li>
-            {/* <li>
-              <label><input type='checkbox' value='Brochure' />Brochure</label>
-            </li>
-            <li>
-              <label><input type='checkbox' value='Service Manual' />Service Manual</label>
-            </li>
-            <li>
-              <label><input type='checkbox' value='Installation Manual' />Installation Manual</label>
-            </li>
-            <li>
-              <label><input type='checkbox' value='Quick Star Guide' />Quick Star Guide</label>
-            </li> */}
           </ul>
         </div>
         <li 

@@ -4,37 +4,102 @@ import { Col, Row } from 'react-bootstrap';
 import ResultStyle from './FiltersResult.module.css'
 
 const FiltersResult = (props) => {
-  const{ product } = props
+  const{ product, handleSearch } = props
   const[ productResult, setProductResult ] = useState([])
+  const[ productPerPage, setProductPerPage ] = useState(3)
+  const[ currentPage, setCurrentPage ] = useState(1)
+
+  let textSearch = React.createRef();
 
   useEffect(() => {
-    setProductResult(product)
+    let indexOfLastTodo = currentPage * productPerPage
+    let indexOfFirstTodo = indexOfLastTodo - productPerPage
+    let currentProduct = product.map(val => {
+       let pagination = Math.ceil((val && val.cat && val.cat.length)/ productPerPage)
+       return {
+         ...val,
+         paginationArr: pagination ?
+           Array(pagination - 1 + 1).fill().map((_, idx) => 1 + idx) :
+           [],
+         catCurrentPage:1,
+         newCat:val && val.cat && val.cat.length && val.cat.slice(indexOfFirstTodo, indexOfLastTodo)}
+    })
+    setProductResult(currentProduct)
   },[product])
+
+  const handlePagination = (value, typeId) => {
+    let indexOfLastTodo = value * productPerPage
+    let indexOfFirstTodo = indexOfLastTodo - productPerPage
+
+    let currentProduct = productResult.map(val => {
+      let indexOfLast = val.catCurrentPage * productPerPage
+      let indexOfFirst = indexOfLast - productPerPage
+      let pagination = Math.ceil((val && val.cat && val.cat.length) / productPerPage)
+      if(val.id == typeId) {
+        return {
+          ...val,
+          paginationArr: pagination ?
+            Array(pagination - 1 + 1).fill().map((_, idx) => 1 + idx) :
+            [],
+          catCurrentPage:value,
+          newCat: val && val.cat && val.cat.length && val.cat.slice(indexOfFirstTodo, indexOfLastTodo)
+        }
+      }else{
+        return {
+          ...val,
+          paginationArr: pagination ?
+            Array(pagination - 1 + 1).fill().map((_, idx) => 1 + idx) :
+            [],
+          catCurrentPage:val.catCurrentPage,
+         newCat: val && val.cat && val.cat.length && val.cat.slice(indexOfFirst, indexOfLast)
+        }
+      }
+
+    })
+    setProductResult(currentProduct)
+  }
 
   return(
     <>
       <div className={ResultStyle.searchbox_outer}>
-        <input type='search' name='searchtext' placeholder='Search' />
-        <button><i className='bx bx-search'></i></button>
+        <input 
+          type='search' 
+          ref={textSearch} 
+          name='searchtext' 
+          placeholder='Search'
+          onChange={(e) => {
+            handleSearch(e.target.value)
+          }}
+        />
+        <button
+          onClick={() => {
+            handleSearch(textSearch.current.value)
+          }}
+        >
+          <i className='bx bx-search'></i>
+        </button>
       </div>
-
       {
-        productResult && productResult.length && productResult.map((types, index)=>{
+        productResult && productResult.length ?
+          productResult.map((types, index)=>{
           return (
             <React.Fragment key={index}>
-              <div className={ResultStyle.product_headingbox}>
-                <h2>{types.name}</h2>
-              </div>
+              {
+                types && types.cat && types.cat.length ?
+                <div className={ResultStyle.product_headingbox}>
+                  <h2>{types.name}</h2>
+                </div> : null
+              }
               <Row className={ResultStyle.innovation}>
-                {types && types.cat && types.cat.length ?
-                   types.cat.map((cat, index)=>{
+                {types && types.newCat && types.newCat.length ?
+                   types.newCat.map((cat, index)=>{
                     return (
                       <Col lg={4} md={6} key={index}>
                         <div className={ResultStyle.product_inner}>
                           <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/${cat.image}`} width="400" height="500" className="img-fluid" alt={cat.name} />
                           <div className={ResultStyle.product_info}>
                             <h3>{cat.name}</h3>
-                            <p>{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s").substr(0,60)}{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,").length > 60 && "..."}</p>
+                            <p>{cat.catDescription.substr(0,60)}{cat.catDescription.length > 60 && "..."}</p>
                             <Link href="/discover-the-rotator-brick-oven">
                               <a className="mf_btn" title="The Rotator">Explore more</a>
                             </Link>
@@ -42,192 +107,38 @@ const FiltersResult = (props) => {
                         </div>
                       </Col>
                     )
-                  })
-                  : 'No result found'
+                  }) : null
                 }
               </Row>
-              <Row>
-                <Col md={12}>
-                  <ul className={ResultStyle.pagination}>
-                    <li><button className={ResultStyle.activepagination}>1</button></li>
-                    <li><button>2</button></li>
-                    <li><button>3</button></li>
-                    <li><button>4</button></li>
-                    <li><button>5</button></li>
-                  </ul>
-                </Col>
-              </Row>
+              {
+                types && types.newCat && types.newCat.length ?
+                <Row>
+                  <Col md={12}>
+                    <ul className={ResultStyle.pagination}>
+                      {types &&
+                      types.paginationArr &&
+                      types.paginationArr.length &&
+                      types.paginationArr.map((val, i) => {
+                        return (
+                          <li>
+                            <button
+                              onClick = {() => handlePagination(val, types.id)}
+                              className={ResultStyle.activepagination}
+                              key={i}>{val}</button>
+                          </li>
+                        )
+                      })
+                      }
+
+                    </ul>
+                  </Col>
+                </Row> : null
+              }
             </React.Fragment>
           )
-        })
+        }) :
+          <div>No result found</div>
       }
-
-      {/* <div className={ResultStyle.product_headingbox}>
-        <h2>Ovens</h2>
-      </div>
-
-      <Row className={ResultStyle.innovation}>
-        <Col lg={4} md={6}>
-          <div className={ResultStyle.product_inner}>
-            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/stainless_facade_square_black.webp`} width="400" height="500" className="img-fluid" alt="The Rotator" />
-            <div className={ResultStyle.product_info}>
-              <h3>The Rotator</h3>
-              <p>{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s").substr(0,60)}{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,").length > 60 && "..."}</p>
-              <Link href="/discover-the-rotator-brick-oven">
-                <a className="mf_btn" title="The Rotator">Explore more</a>
-              </Link>
-            </div>
-          </div>
-        </Col>
-        <Col lg={4} md={6}>
-          <div className={ResultStyle.product_inner}>
-            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Blu-Penny-NP.webp`} width="400" height="500" className="img-fluid" alt="The Neapolitan" />
-            <div className={ResultStyle.product_info}>
-              <h3>The Neapolitan</h3>
-              <p>{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s").substr(0,60)}{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,").length > 60 && "..."}</p>
-              <Link href="/neapolitan">
-                <a className="mf_btn" title="The Neapolitan">Explore more</a>
-              </Link>
-            </div>
-          </div>
-        </Col>
-        <Col lg={4} md={6}>
-          <div className={ResultStyle.product_inner}>
-            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Due_Bocche_White_Broken.webp`} width="400" height="500" className="img-fluid" alt="Due Bocche" />
-            <div className={ResultStyle.product_info}>
-              <h3>Due Bocche</h3>
-              <p>{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s").substr(0,60)}{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,").length > 60 && "..."}</p>
-              <Link href="/due-bocche">
-                <a className="mf_btn" title="Due Bocche">Explore more</a>
-              </Link>
-            </div>
-          </div>
-        </Col>
-      </Row>
-
-      <Row>
-        <Col md={12}>
-          <ul className={ResultStyle.pagination}>
-            <li><button className={ResultStyle.activepagination}>1</button></li>
-            <li><button>2</button></li>
-            <li><button>3</button></li>
-            <li><button>4</button></li>
-            <li><button>5</button></li>
-          </ul>
-        </Col>
-      </Row>
-
-
-
-      <div className={ResultStyle.product_headingbox}>
-        <h2>Ventilation</h2>
-      </div>
-      <Row className={ResultStyle.innovation}>
-          <Col lg={4} md={6}>
-            <div className={ResultStyle.product_inner}>
-              <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Marra-Forni-Full-Length-integrated-Venting-Pipes.webp`} width="400" height="500" className="img-fluid" alt="The Rotator" />
-              <div className={ResultStyle.product_info}>
-                <h3>Venting System</h3>
-                <p>{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s").substr(0,60)}{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,").length > 60 && "..."}</p>
-                <Link href="/discover-the-rotator-brick-oven">
-                  <a className="mf_btn" title="The Rotator">Explore more</a>
-                </Link>
-              </div>
-            </div>
-          </Col>
-        </Row>
-      <Row>
-        <Col md={12}>
-          <ul className={ResultStyle.pagination}>
-            <li><button className={ResultStyle.activepagination}>1</button></li>
-            <li><button>2</button></li>
-            <li><button>3</button></li>
-            <li><button>4</button></li>
-            <li><button>5</button></li>
-          </ul>
-        </Col>
-      </Row>
-      <div className={ResultStyle.product_headingbox}>
-        <h2>Prep Tables</h2>
-      </div>
-      <Row className={ResultStyle.innovation}>
-        <Col lg={4} md={6}>
-          <div className={ResultStyle.product_inner}>
-            <img src={`https://marraforni.com/wp/wp-content/uploads/2017/11/Marra-Forni-Three-Door-Pizza-Prep-Table-without-Rail.jpg`} width="400" height="500" className="img-fluid" alt="The Rotator" />
-            <div className={ResultStyle.product_info}>
-              <h3>Refrigerated Prep Table</h3>
-              <p>{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s").substr(0,60)}{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,").length > 60 && "..."}</p>
-              <Link href="/discover-the-rotator-brick-oven">
-                <a className="mf_btn" title="The Rotator">Explore more</a>
-              </Link>
-            </div>
-          </div>
-        </Col>
-        <Col lg={4} md={6}>
-          <div className={ResultStyle.product_inner}>
-            <img src={`https://marraforni.com/wp/wp-content/uploads/2017/11/Marra-Forni-Three-Door-Pizza-Prep-Table-with-Rail.jpg`} width="400" height="500" className="img-fluid" alt="The Rotator" />
-            <div className={ResultStyle.product_info}>
-              <h3>Refrigerated Condiment Rail</h3>
-              <p>{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s").substr(0,60)}{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,").length > 60 && "..."}</p>
-              <Link href="/discover-the-rotator-brick-oven">
-                <a className="mf_btn" title="The Rotator">Explore more</a>
-              </Link>
-            </div>
-          </div>
-        </Col>
-      </Row>
-      <Row>
-        <Col md={12}>
-          <ul className={ResultStyle.pagination}>
-            <li><button className={ResultStyle.activepagination}>1</button></li>
-            <li><button>2</button></li>
-            <li><button>3</button></li>
-            <li><button>4</button></li>
-            <li><button>5</button></li>
-          </ul>
-        </Col>
-      </Row>
-      <div className={ResultStyle.product_headingbox}>
-        <h2>Mixers</h2>
-      </div>
-      <Row className={ResultStyle.innovation}>
-        <Col lg={4} md={6}>
-          <div className={ResultStyle.product_inner}>
-            <img src={`https://marraforni.com/wp/wp-content/uploads/2017/11/Marra-Forni-Spiral-Dough-Mixer-IM-model.jpg`} width="400" height="500" className="img-fluid" alt="The Rotator" />
-            <div className={ResultStyle.product_info}>
-              <h3>Spiral Dough Mixers</h3>
-              <p>{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s").substr(0,60)}{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,").length > 60 && "..."}</p>
-              <Link href="/discover-the-rotator-brick-oven">
-                <a className="mf_btn" title="The Rotator">Explore more</a>
-              </Link>
-            </div>
-          </div>
-        </Col>
-        <Col lg={4} md={6}>
-          <div className={ResultStyle.product_inner}>
-            <img src={`https://marraforni.com/wp/wp-content/uploads/2017/11/Marra-Forni-Forked-Dough-Mixer.jpg`} width="400" height="500" className="img-fluid" alt="The Rotator" />
-            <div className={ResultStyle.product_info}>
-              <h3>Fork Dough Mixers</h3>
-              <p>{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s").substr(0,60)}{("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,").length > 60 && "..."}</p>
-              <Link href="/discover-the-rotator-brick-oven">
-                <a className="mf_btn" title="The Rotator">Explore more</a>
-              </Link>
-            </div>
-          </div>
-        </Col>
-      </Row>
-      <Row>
-        <Col md={12}>
-          <ul className={ResultStyle.pagination}>
-            <li><button className={ResultStyle.activepagination}>1</button></li>
-            <li><button>2</button></li>
-            <li><button>3</button></li>
-            <li><button>4</button></li>
-            <li><button>5</button></li>
-          </ul>
-        </Col>
-    </Row>*/}
-
 
       <div className={ResultStyle.product_headingbox}>
         <h2>Spec Sheets</h2>
