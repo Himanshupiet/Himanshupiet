@@ -6,7 +6,6 @@ import ResultStyle from './FiltersResult.module.css'
 const FiltersResult = (props) => {
   const{ product, handleSearch } = props
   const[ productResult, setProductResult ] = useState([])
-  const [errorSearchText, setErrorSearchText] = useState("");
 
   let textSearch = React.createRef();
 
@@ -17,21 +16,23 @@ const FiltersResult = (props) => {
   return(
     <>
       <div className={ResultStyle.searchbox_outer}>
-        <input type='search' ref={textSearch} name='searchtext' placeholder='Search' />
+        <input 
+          type='search' 
+          ref={textSearch} 
+          name='searchtext' 
+          placeholder='Search'
+          onChange={(e) => {
+            handleSearch(e.target.value)
+          }}
+        />
         <button
           onClick={() => {
-            if(textSearch.current.value){ 
-            setErrorSearchText("")
             handleSearch(textSearch.current.value)
-            } else{
-             setErrorSearchText("Please enter search text")
-            }
           }}
         >
           <i className='bx bx-search'></i>
         </button>
       </div>
-
       {
         productResult && productResult.length ?
           productResult.map((types, index)=>{
@@ -63,17 +64,20 @@ const FiltersResult = (props) => {
                   }) : null
                 }
               </Row>
-              <Row>
-                <Col md={12}>
-                  <ul className={ResultStyle.pagination}>
-                    <li><button className={ResultStyle.activepagination}>1</button></li>
-                    <li><button>2</button></li>
-                    <li><button>3</button></li>
-                    <li><button>4</button></li>
-                    <li><button>5</button></li>
-                  </ul>
-                </Col>
-              </Row>
+              {
+                types && types.cat && types.cat.length ?
+                <Row>
+                  <Col md={12}>
+                    <ul className={ResultStyle.pagination}>
+                      <li><button className={ResultStyle.activepagination}>1</button></li>
+                      <li><button>2</button></li>
+                      <li><button>3</button></li>
+                      <li><button>4</button></li>
+                      <li><button>5</button></li>
+                    </ul>
+                  </Col>
+                </Row> : null
+              }
             </React.Fragment>
           )
         }) :

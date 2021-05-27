@@ -13,10 +13,12 @@ import { PRODUCT_DATA } from './product'
 const Resources_main = (props) => {
   const[ allProduct, setAllProduct ] = useState([])
   const[ filterProduct, setFilterProduct ] = useState([])
+  const[ searchProduct, setSearchProduct ] = useState([])
   const[ newArr, setNewArr ] = useState([])
 
   useEffect(() => {
     setFilterProduct(PRODUCT_DATA)
+    setSearchProduct(PRODUCT_DATA)
     setAllProduct(PRODUCT_DATA.map(val => {
         return {
           ...val,
@@ -54,6 +56,7 @@ const Resources_main = (props) => {
           productData.push(filterType)
           setNewArr(productData)
           setFilterProduct(productData)
+          setSearchProduct(productData)
         } else {
           productData.map(val => {
             if (val.id == typeId) {
@@ -62,6 +65,7 @@ const Resources_main = (props) => {
           })
           setNewArr(productData)
           setFilterProduct(productData)
+          setSearchProduct(productData)
         }
 
       } else {
@@ -74,6 +78,7 @@ const Resources_main = (props) => {
         productData.push(filterType)
         setNewArr(productData)
         setFilterProduct(productData)
+        setSearchProduct(productData)
       }
     }else{
       let productArr = productData.map(val => {
@@ -90,27 +95,53 @@ const Resources_main = (props) => {
         }
       })
       setFilterProduct(productArr)
+      setSearchProduct(productArr)
       setNewArr(productArr)
     }
   }
 
   const handleSearch = (value) => {
-    let filterSearch = [...filterProduct]
-    let SearchProductArr = filterSearch.map(val => {
-      let catArr = []
-      if(val && val.cat && val.cat.length){
-        val.cat.forEach((item, index)=>{
-          if(item.name.includes(value) || item.catDescription.includes(value)){
-            catArr.push(item)
+    let filterProductArr = searchProduct
+    if(value){
+      let filterSearch = [...filterProductArr]
+      let SearchProductArr = filterSearch.map(val => {
+        let catArr = []
+        if(val && val.cat && val.cat.length){
+          val.cat.forEach((item, index)=>{
+            if(item.name.toLowerCase().includes(value.toLowerCase()) || item.catDescription.toLowerCase().includes(value.toLowerCase())){
+              catArr.push(item)
+            }
+          })
+        }
+        return {
+          ...val,
+          cat: catArr
+        }
+      })
+      setFilterProduct(SearchProductArr)
+    }
+    else{
+      let isCatChecked = false
+      allProduct &&
+      allProduct.length &&
+      allProduct.map((value,index)=>{
+        value &&
+        value.cat &&
+        value.cat.length &&
+        value.cat.map((value,index)=>{
+          if(value.checked){
+            isCatChecked = true
           }
         })
+      })
+
+      if(isCatChecked){
+        setFilterProduct(filterProductArr)
       }
-      return {
-        ...val,
-        cat: catArr
+      else{
+        setFilterProduct(allProduct)
       }
-    })
-    setFilterProduct(SearchProductArr)
+    }
   }
 
   return(
