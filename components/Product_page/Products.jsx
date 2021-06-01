@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Link from 'next/link';
 import {withRouter} from 'next/router'
-import { useRouter } from "next/router"
 
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
@@ -15,7 +14,6 @@ import ScrollAnimation from "react-animate-on-scroll";
 
 const Products = (props) => {
     const [product, setProduct] = useState([])
-    const history = useRouter()
 
     useEffect(() => {
         props.productActions.getAllProduct()
