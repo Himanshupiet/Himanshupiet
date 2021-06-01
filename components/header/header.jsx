@@ -42,32 +42,39 @@ const Header = (props) => {
     };
     const options = [
         {
+            id: 1,
             label: "Red",
             value: "Red",
         },
         {
+            id: 2,
             label: "Blue",
             value: "Blue",
         },
         {
+            id: 3,
             label: "White",
             value: "White",
         },
         {
+            id: 4,
             label: "Brown",
             value: "Brown",
         },
         {
+            id: 5,
             label: "Black",
             value: "Black",
         },
     ];
     const facadeOption = [
         {
+            id: 1,
             label: "Black - Standard for RT Models",
             value: "Black",
         },
         {
+            id: 2,
             label: "Stainless Steel",
             value: "Stainless",
         },
@@ -75,28 +82,34 @@ const Header = (props) => {
     ];
     const tilesOption = [
         {
+            id: 1,
             label: "Square",
             value: "Square",
         },
         {
+            id: 2,
             label: "Penny Round",
             value: "Penny",
         },
         {
+            id: 3,
             label: "Broken",
             value: "Broken",
         },
         {
+            id: 4,
             label: "Custom Tiles",
             value: "Custom",
         },
     ]
     const legsOption = [
         {
+            id: 1,
             label: 'Black',
             value: 'Black'
         },
         {
+            id: 2,
             label: 'Stainless Steel',
             value: 'Stainless Steel'
 
