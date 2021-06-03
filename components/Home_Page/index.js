@@ -25,7 +25,7 @@ const highlightData1 = {
 			IsImage: true,
 			imagePath: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/painthouse-one.jpg`
 		}
-}
+};
 let highlightData2 = {
     Heading: 'Customize Your Commercial Brick Oven, Add Logo!!',
     subHeading: 'Premium and Beautiful Tile Options.',
@@ -34,7 +34,7 @@ let highlightData2 = {
 			IsImage: true,
 			imagePath: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/painthouse-three.jpg`
 		}
-}
+};
 let highlightData3 = {
     Heading: 'Customized Handcrafted Brick Oven, Add Your Logo',
     subHeading: 'Premium and Beautiful Tile Options.',
@@ -43,7 +43,7 @@ let highlightData3 = {
 			IsImage: true,
 			imagePath: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/Marra-Forni-Client.jpg`
 		}
-}
+};
 let highlightData4 = {
     Heading: '',
     subHeading: 'You are a few clicks away from owning the most durable, energy efficient, customizable and feature-packed brick oven in the world.',
@@ -52,7 +52,7 @@ let highlightData4 = {
 			IsImage: true,
 			imagePath: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/painthouse-one.jpg`
 		}
-}
+};
 let highlightData5 = {
     Heading: 'Explore Our Industrial Kitchen Appliances',
     subHeading: 'Slicers, Mixers & Prep Tables',
@@ -61,7 +61,7 @@ let highlightData5 = {
 			IsImage: true,
 			imagePath: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/painthouse-two.jpg`
 		}
-}
+};
 
 const MainHomePage = props => {
     return (
@@ -104,6 +104,6 @@ const MainHomePage = props => {
             <Footer />
         </>
     )
-}
+};
 
 export default MainHomePage

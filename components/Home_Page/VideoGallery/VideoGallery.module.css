@@ -25,8 +25,10 @@
 }
 .gallery_inner img{
   border-radius: 0px;
-  height: 350px;
+  height: 400px;
   width: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 .gallery_overlay{
   transition: .2s;
