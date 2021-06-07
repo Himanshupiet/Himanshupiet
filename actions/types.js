@@ -1,1 +1,2 @@
 export const GET_ALL_PRODUCT = 'GET_ALL_PRODUCT'
+export const GET_ALL_BLOG_POST = 'GET_ALL_BLOG_POST'

@@ -4,6 +4,10 @@ import {Col, Container, Dropdown, DropdownButton, Modal, Row, Tab, Tabs} from 'r
 import ActiveLink from './ActiveLink';
 import headerStyle from './header.module.css';
 import CountryList from "../common/GetAQuote/CountryList";
+import {withRouter} from 'next/router'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import * as productActions from '../../actions/product'
 
 
 /**
@@ -128,6 +132,7 @@ const Header = (props) => {
     const [tiles, setTiles] = useState('Penny')
     const [gformData, setGformData] = useState(initialValues);
     const [buttonIsDisable, setButtonIsDisable] = useState(false);
+    const [product, setProduct] = useState([])
 
     useEffect(() => {
         window.addEventListener('scroll', checkStickyHeader, {passive: true});
@@ -135,6 +140,14 @@ const Header = (props) => {
 
         return () => window.removeEventListener("scroll", checkStickyHeader, {passive: true});
     }, []);
+    useEffect(() => {
+        props.productActions.getAllProduct()
+    }, [])
+
+    useEffect(() => {
+        setProduct(props.product.product)
+    }, [props.product])
+    // console.log(product)
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -272,9 +285,9 @@ const Header = (props) => {
     }
     const handleSubmit = (event) => {
         event.preventDefault();
-        localStorage.setItem('document',JSON.stringify(gformData));
+        localStorage.setItem('document', JSON.stringify(gformData));
         setButtonIsDisable(true);
-        if(chackFormValidate()){
+        if (chackFormValidate()) {
             setGformData(initialValues);
             setButtonIsDisable(false);
         }
@@ -319,7 +332,8 @@ const Header = (props) => {
                                                 {/*<DropdownButton id="dropdown-item-button" title={color} onSelect={handleChange}>*/}
                                                 <DropdownButton id="dropdown-item-button" title='Colors'
                                                                 onSelect={handleColor} variant='light'>
-                                                    <Dropdown.ItemText className={headerStyle.main_title}>Standard Title Color</Dropdown.ItemText>
+                                                    <Dropdown.ItemText className={headerStyle.main_title}>Standard Title
+                                                        Color</Dropdown.ItemText>
                                                     {options &&
                                                     options.length &&
                                                     options.map((option) => (
@@ -548,7 +562,8 @@ const Header = (props) => {
                                                     </div>
 
                                                 </div>
-                                                <div className={`${headerStyle.section_inner}`} style={{backgroundColor: 'rgba( 246, 247, 252, 1.00 )'}}>
+                                                <div className={`${headerStyle.section_inner}`}
+                                                     style={{backgroundColor: 'rgba( 246, 247, 252, 1.00 )'}}>
                                                     <label htmlFor="exampleFormControlFile1"
                                                            className='font-weight-bold'>Attach Your Screenshots
                                                         :</label>
@@ -560,7 +575,7 @@ const Header = (props) => {
                                                         // className="form-control-file"
                                                         onChange={handleChange}
                                                         className={gformData.errors.message.length > 0 ? headerStyle.input_error : ''}
-                                                        />
+                                                    />
                                                     {gformData.errors.file.length > 0 &&
                                                     <span>{gformData.errors.file}</span>}
                                                 </div>
@@ -640,184 +655,51 @@ const Header = (props) => {
                                     </button>
                                     <div
                                         className={`${headerStyle.product_sub_menu} ${mobileProductOpen ? headerStyle.product_sub_menu_active : ""}`}>
-                                        <Tabs defaultActiveKey="Ovens" id="uncontrolled-tab-example">
-                                            <Tab eventKey="Ovens" title="Ovens">
-                                                <Row>
-                                                    <Col sm={3}>
-                                                        <div className={headerStyle.special_product}>
-                                                            <Link href="/product/discover-the-rotator-brick-oven">
-                                                                <a title="">
-                                                                    <img
-                                                                        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/stainless_facade_square_black.webp`}
-                                                                        width="200" height="200" alt="Top Product"/>
-                                                                    <p>Rotator Brick Oven</p>
-                                                                </a>
-                                                            </Link>
-                                                        </div>
-                                                    </Col>
-                                                    <Col sm={9}>
-                                                        <div className={headerStyle.rest_product}>
-                                                            <ul>
-                                                                <li>
-                                                                    <Link href="/">
-                                                                        <a title="">
-                                                                            <img
-                                                                                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Blu-Penny-NP.webp`}
-                                                                                width="100" height="100"
-                                                                                alt="Top Product"/>
-                                                                            <p>The Neapolitan</p>
-                                                                        </a>
-                                                                    </Link>
-                                                                </li>
-                                                                <li>
-                                                                    <Link href="/">
-                                                                        <a title="">
-                                                                            <img
-                                                                                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Due_Bocche_White_Broken.webp`}
-                                                                                width="100" height="100"
-                                                                                alt="Top Product"/>
-                                                                            <p>Due Bocche</p>
-                                                                        </a>
-                                                                    </Link>
-                                                                </li>
-                                                                <li>
-                                                                    <Link href="/">
-                                                                        <a title="">
-                                                                            <img
-                                                                                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/EL_Square_Blue.webp`}
-                                                                                width="100" height="100"
-                                                                                alt="Top Product"/>
-                                                                            <p>Electric Oven</p>
-                                                                        </a>
-                                                                    </Link>
-                                                                </li>
-                                                                <li>
-                                                                    <Link href="/">
-                                                                        <a title="">
-                                                                            <img
-                                                                                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Big-Enclosed-BrIck-Oven-Rendering.webp`}
-                                                                                width="100" height="100"
-                                                                                alt="Top Product"/>
-                                                                            <p>Enclosed Facade</p>
-                                                                        </a>
-                                                                    </Link>
-                                                                </li>
-                                                                <li>
-                                                                    <Link href="/">
-                                                                        <a title="">
-                                                                            <img
-                                                                                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Webp.net-resizeimage-1.webp`}
-                                                                                width="100" height="100"
-                                                                                alt="Top Product"/>
-                                                                            <p>Mobile Trailer</p>
-                                                                        </a>
-                                                                    </Link>
-                                                                </li>
-                                                                <li>
-                                                                    <Link href="/">
-                                                                        <a title="">
-                                                                            <img
-                                                                                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MS_42-31.webp`}
-                                                                                width="100" height="100"
-                                                                                alt="Top Product"/>
-                                                                            <p>Metal Square</p>
-                                                                        </a>
-                                                                    </Link>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </Col>
-                                                </Row>
-                                            </Tab>
-                                            <Tab eventKey="Ventilation" title="Ventilation">
-                                                <Row>
-                                                    <Col sm={3}>
-                                                        <div className={headerStyle.special_product}>
-                                                            <Link href="/">
-                                                                <a title="">
-                                                                    <img
-                                                                        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Marra-Forni-Full-Length-integrated-Venting-Pipes.webp`}
-                                                                        width="200" height="200" alt="Top Product"/>
-                                                                    <p>Venting System</p>
-                                                                </a>
-                                                            </Link>
-                                                        </div>
-                                                    </Col>
-                                                    <Col sm={9}>
-                                                        <div className={headerStyle.rest_product}>
-                                                            <ul>
-
-                                                            </ul>
-                                                        </div>
-                                                    </Col>
-                                                </Row>
-                                            </Tab>
-                                            <Tab eventKey="PrepTables" title="Prep Tables">
-                                                <Row>
-                                                    <Col sm={3}>
-                                                        <div className={headerStyle.special_product}>
-                                                            <Link href="/">
-                                                                <a title="">
-                                                                    <img
-                                                                        src={`https://marraforni.com/wp/wp-content/uploads/2017/11/Marra-Forni-Three-Door-Pizza-Prep-Table-without-Rail.jpg`}
-                                                                        width="200" height="200" alt="Top Product"/>
-                                                                    <p>Refrigerated Prep Table</p>
-                                                                </a>
-                                                            </Link>
-                                                        </div>
-                                                    </Col>
-                                                    <Col sm={9}>
-                                                        <div className={headerStyle.rest_product}>
-                                                            <ul>
-                                                                <li>
-                                                                    <Link href="/">
-                                                                        <a title="">
-                                                                            <img
-                                                                                src={`https://marraforni.com/wp/wp-content/uploads/2017/11/Marra-Forni-Three-Door-Pizza-Prep-Table-with-Rail.jpg`}
-                                                                                width="100" height="100"
-                                                                                alt="Top Product"/>
-                                                                            <p>Refrigerated Condiment Rail</p>
-                                                                        </a>
-                                                                    </Link>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </Col>
-                                                </Row>
-                                            </Tab>
-                                            <Tab eventKey="Mixers" title="Mixers">
-                                                <Row>
-                                                    <Col sm={3}>
-                                                        <div className={headerStyle.special_product}>
-                                                            <Link href="/">
-                                                                <a title="">
-                                                                    <img
-                                                                        src={`https://marraforni.com/wp/wp-content/uploads/2017/11/Marra-Forni-Spiral-Dough-Mixer-IM-model.jpg`}
-                                                                        width="200" height="200" alt="Top Product"/>
-                                                                    <p>Spiral Dough Mixers</p>
-                                                                </a>
-                                                            </Link>
-                                                        </div>
-                                                    </Col>
-                                                    <Col sm={9}>
-                                                        <div className={headerStyle.rest_product}>
-                                                            <ul>
-                                                                <li>
-                                                                    <Link href="/">
-                                                                        <a title="">
-                                                                            <img
-                                                                                src={`https://marraforni.com/wp/wp-content/uploads/2017/11/Marra-Forni-Forked-Dough-Mixer.jpg`}
-                                                                                width="100" height="100"
-                                                                                alt="Top Product"/>
-                                                                            <p>Fork Dough Mixers</p>
-                                                                        </a>
-                                                                    </Link>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </Col>
-                                                </Row>
-                                            </Tab>
+                                        <Tabs defaultActiveKey={product[0]} id="uncontrolled-tab-example">
+                                            {(product && product.length) ? product.map((item, id) => (
+                                                <Tab eventKey={item.name} title={item.name}
+                                                     key={id}>
+                                                    <Row>
+                                                        {item.categoryList.map((res, id) => (
+                                                            <>
+                                                                {res.id == 1 ?
+                                                                    <Col sm={3}>
+                                                                        <div className={headerStyle.special_product}>
+                                                                            <Link
+                                                                                href="/product/discover-the-rotator-brick-oven">
+                                                                                <a title="">
+                                                                                    <img
+                                                                                        src={res.imageUrl}
+                                                                                        width="200" height="200"
+                                                                                        alt="Top Product"/>
+                                                                                    <p>Rotator Brick Oven</p>
+                                                                                </a>
+                                                                            </Link>
+                                                                        </div>
+                                                                    </Col> :
+                                                                    <Col sm={9}>
+                                                                        <div className={headerStyle.rest_product}>
+                                                                            <ul>
+                                                                                <li>
+                                                                                    <Link href="/">
+                                                                                        <a title="">
+                                                                                            <img
+                                                                                                src={res.imageUrl}
+                                                                                                width="100" height="100"
+                                                                                                alt="Top Product"/>
+                                                                                            <p>The Neapolitan</p>
+                                                                                        </a>
+                                                                                    </Link>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </Col>
+                                                                }
+                                                            </>
+                                                        ))}
+                                                    </Row>
+                                                </Tab>
+                                            )) : null}
                                         </Tabs>
                                     </div>
                                 </div>
@@ -885,7 +767,7 @@ const Header = (props) => {
                                     </div>
                                 </div>
                                 <div className={headerStyle.sub_menu_outer}>
-                                    <ActiveLink activeClassName="active_menu" href="/connect">
+                                    <ActiveLink activeClassName="active_menu" href="/contact">
                                         <a title="Contact Us" data-title="Contact Us"><span>Contact Us</span></a>
                                     </ActiveLink>
                                     <button className={headerStyle.mobile_show} onClick={() => {
@@ -915,6 +797,11 @@ const Header = (props) => {
                                                     <a title="Find a Sales Rep"><span>Find a Sales Rep</span></a>
                                                 </Link>
                                             </li>
+                                            <li>
+                                                <Link href="/culinary-support">
+                                                    <a title="Culinary Support"><span>Culinary Support</span></a>
+                                                </Link>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -939,6 +826,16 @@ const Header = (props) => {
         </>
     )
 }
+const mapStateToProps = ({product}) => {
+    return {product}
+}
 
+const mapDispatchToProps = dispatch => {
+    return {
+        productActions: bindActionCreators(productActions, dispatch)
+    }
+}
 
-export default Header;
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Header))
+
+// export default Header;

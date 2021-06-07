@@ -34,22 +34,22 @@ const Products = (props) => {
                             <div key={id}>
                                 <ScrollAnimation duration={2} animateIn="zoomIn" animateOnce={true}>
                                     <div className={ProductStyle.product_headingbox}>
-                                        <h2>{item.productTypeName}</h2>
-                                        <p>{item.productTypeDescription}</p>
+                                        <h2>{item.name}</h2>
+                                        <p>{item.description}</p>
                                     </div>
                                 </ScrollAnimation>
                                 <Row className={ProductStyle.innovation}>
-                                    {item.productCategory.map(res => (
+                                    {item.categoryList.map(res => (
                                         <Col lg={4} md={6} key={res.id}>
                                             <ScrollAnimation duration={2} animateIn="fadeInUp" animateOnce={true}>
                                                 <div className={ProductStyle.product_inner}>
                                                     <img
-                                                        src={res.productCategoryImagePath}
+                                                        src={res.imageUrl}
                                                         width="400" height="500" className="img-fluid"
                                                         alt="The Rotator"/>
                                                     <div className={ProductStyle.product_info}>
-                                                        <h3>{res.productCategoryName}</h3>
-                                                        <p>{res.productCategoryDescription.substr(0, 115)}</p>
+                                                        <h3>{res.categoryName}</h3>
+                                                        <p>{res.categoryDescription.substr(0, 115)}</p>
                                                         {/*<Link href={`http://localhost:3005/product/${res.id}`}>*/}
                                                         <Link href={`http://localhost:3005/product/${res.id}`}>
                                                             <a className="mf_btn" title="The Rotator">Explore more</a>

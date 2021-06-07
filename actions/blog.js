@@ -1,25 +1,25 @@
 import {
-    GET_ALL_PRODUCT
+    GET_ALL_BLOG_POST
 } from './types'
 import { API_HOST } from '../env'
 import axios from 'axios'
 
 
-export const getAllProduct = (id, authToken) => {
+export const getAllPost = (id, authToken) => {
     return dispatch => {
-        const API_URL = `${API_HOST}item/getAll`
+        const API_URL = `${API_HOST}blog/getAllBlogs`
 
         return axios({
             url: API_URL,
             headers: {
                 'Content-Type': 'application/json',
-               // Authorization: authToken
+                // Authorization: authToken
             },
             data: {},
             method: 'get'
         })
             .then(response =>
-                dispatch({ type: GET_ALL_PRODUCT, payload: response.data })
+                dispatch({ type: GET_ALL_BLOG_POST, payload: response.data })
             )
             .catch(error => {
                 return error
