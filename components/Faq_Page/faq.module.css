@@ -1,0 +1,58 @@
+.title{
+    cursor: pointer;
+    background-color: white;
+    padding-left: 0px!important;
+    border-top: 1px solid gray;
+    border-bottom: none!important;
+    width: 95%;
+    padding-top: 25px;
+}
+.main{
+    margin-top: 50px;
+}
+.title p{
+    font-size: 15px;
+    margin-bottom: 0rem;
+    font-weight: 600;
+}
+.border{
+    border-radius: 0!important;
+    border: none!important;
+}
+.title span{
+    font-size: 18px;
+    font-weight: 400;
+    background-color: #e31422;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-bottom: -0.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.answer{
+    font-size: 19px;
+}
+.icon_list{
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+}
+.icon_list i{
+    margin: 0px 7px 0px 7px;
+}
+.phone_number{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.phone_number i{
+    font-size: 34px;
+    color: #e31422;
+}
+.phone_number span{
+    margin-left: 15px;
+    font-weight: 600;
+}

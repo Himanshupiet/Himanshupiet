@@ -1,0 +1,38 @@
+.section_outer{
+    background-color: #f8f4fc;
+    min-height: 100vh;
+    padding-top: 50px!important;
+    margin-top: 85px!important;
+}
+.main {
+    background: #04858b;
+}
+.input_error{
+    border: 1px solid red;
+}
+@media only screen and (min-width: 1700px) {
+    .main_form {
+        margin-top: 5% !important;
+    }
+}
+.main i {
+    background-color: #c2a5eb;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-bottom: -0.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.side_img{
+    padding-top: 10px;
+}
+.btn{
+    background: #e31422;
+    color: white;
+}
+.form_style label{
+    font-weight: 500!important;
+}
