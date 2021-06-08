@@ -4,6 +4,9 @@
 .blog_image img{
   width: 100%;
 }
+.main_style{
+  grid-row-end: span 13;
+}
 .blogimg_hover{
   position: absolute;
   top: 0;
