@@ -139,19 +139,30 @@ const Register = (props) => {
                         <Col md={2}></Col>
                         <Col md={8} className={`${RegistrationStyle.main_form} bg-white p-4`}>
                             <Row>
-                                <Col md={6} className={`${RegistrationStyle.main} main p-3`}>
-                                    <img
-                                        className={`${RegistrationStyle.side_img} img-fluid`}
-                                        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/firedupbrewing-banner.webp`}
-                                        alt='Commercial Brick Oven'
-                                        width='480'
-                                        height='540'
-                                    />
+                                <Col md={6} className={`${RegistrationStyle.main} main`}>
+                                    <div className='pt-3'>
+                                        <i className="fa fa-check"></i>
+                                        <h4>Quick and free sign-up</h4>
+                                        <h5>Enter your email address to create an account</h5>
+                                    </div>
+                                    <div className='pt-2'>
+                                        <i className="fa fa-check"></i>
+                                        <h4>Cross-platform solution</h4>
+                                        <h5>
+                                            Preview your newsletters on any device before sending them out
+                                        </h5>
+                                    </div>
+                                    <div className='pt-2'>
+                                        <i className="fa fa-check"></i>
+                                        <h4>Start sending emails</h4>
+                                        <h5>Use our API or pick our pre-built templates</h5>
+                                    </div>
                                 </Col>
                                 <Col md={6} className="p-4">
                                     <h2 className="text-center">Register Form</h2>
                                     <form className={`${RegistrationStyle.form_style} mt-3`}>
-                                        <div>
+                                        <div class={`${RegistrationStyle.form_label} form-group mb-0`}>
+                                            <label htmlFor="exampleFormControlInput1">Email address</label>
                                             <input
                                                 type='email'
                                                 name='email'
@@ -163,7 +174,8 @@ const Register = (props) => {
                                             />
                                             {gformData.errors.email.length > 0 && <span>{gformData.errors.email}</span>}
                                         </div>
-                                        <div>
+                                        <div class="form-group mb-0">
+                                            <label htmlFor="fName">First Name</label>
                                             <input
                                                 type='text'
                                                 name='firstName'
@@ -176,7 +188,8 @@ const Register = (props) => {
                                             {gformData.errors.firstName.length > 0 &&
                                             <span>{gformData.errors.firstName}</span>}
                                         </div>
-                                        <div>
+                                        <div class="form-group mb-0">
+                                            <label htmlFor="lName">Last Name</label>
                                             <input
                                                 type='text'
                                                 name='lastName'
@@ -189,7 +202,8 @@ const Register = (props) => {
                                             {gformData.errors.lastName.length > 0 &&
                                             <span>{gformData.errors.lastName}</span>}
                                         </div>
-                                        <div>
+                                        <div class="form-group mb-0">
+                                            <label htmlFor="password">Password</label>
                                             <input
                                                 type='password'
                                                 name='password'
@@ -202,7 +216,8 @@ const Register = (props) => {
                                             {gformData.errors.password.length > 0 &&
                                             <span>{gformData.errors.password}</span>}
                                         </div>
-                                        <div className="form-group">
+                                        <div className="form-group mb-0">
+                                            <label htmlFor="Select Role">Select Role</label>
                                             <select
                                                 name='role'
                                                 id='g_product'

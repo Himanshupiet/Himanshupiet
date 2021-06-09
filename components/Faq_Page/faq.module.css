@@ -10,6 +10,19 @@
 .main{
     margin-top: 50px;
 }
+.faq_banner {
+    background-image: url('../../public/images/Napo-Pizzeria-Abu-Dhabi.jpg');
+    background-position: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 150px 0;
+    position: relative;
+    width: 100%;
+}
+.faq_banner h1 {
+    text-align: center;
+    color: #fff;
+}
 .title p{
     font-size: 15px;
     margin-bottom: 0rem;

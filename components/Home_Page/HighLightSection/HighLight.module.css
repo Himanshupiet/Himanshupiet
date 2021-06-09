@@ -1,6 +1,6 @@
 .section_outer{
-  padding-top: 180px;
-  padding-bottom: 140px;
+  padding-top: 80px;
+  padding-bottom: 80px;
   background-position: 100%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -25,8 +25,11 @@
   font-weight: 300;
   color: #fff;
 }
+
 .text_box h2{
-  font-size: 52px;
+  /*font-size: 48px;*/
+  font-size: 38px;
+  /*line-height: 55px;*/
   line-height: 42px;
   font-weight: 300;
   color: #fff;

@@ -41,7 +41,7 @@ let highlightData3 = {
     buttonText: 'Build Your Own Oven!',
 		backgroundImage: {
 			IsImage: true,
-			imagePath: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/Marra-Forni-Client.jpg`
+			// imagePath: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/Marra-Forni-Client.jpg`
 		}
 };
 let highlightData4 = {
@@ -58,7 +58,7 @@ let highlightData5 = {
     subHeading: 'Slicers, Mixers & Prep Tables',
     buttonText: 'GET A QUOTE',
 		backgroundImage: {
-			IsImage: true,
+			IsImage: false,
 			imagePath: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/painthouse-two.jpg`
 		}
 };
