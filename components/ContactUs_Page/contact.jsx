@@ -6,48 +6,50 @@ import ContactStyle from './contact.module.css'
 import GetAQuote from "../common/GetAQuote/GetAQuote";
 import MainHomePageStyle from "../Home_Page/index.module.css";
 
-
-
 const Contact = () => {
     return (
         <>
             <Header/>
             <Container fluid className={ContactStyle.contact_banner}>
-                <h1>FAQs</h1>
+                <h1>Contact Us</h1>
             </Container>
             <Container fluid className={ContactStyle.card_section}>
                 <Row className={ContactStyle.row_style}>
                     <Col lg={4} md={12}>
                         <div className={`${ContactStyle.card} ${ContactStyle.card_one}`}>
-                            <div className={`${ContactStyle.imgBx} d-flex pl-3`}>
+                            <div className={`${ContactStyle.imgBx} d-flex pl-5`}>
                                 <i className="fa fa-desktop fa-4x align-self-center"></i>
                                 <div className='align-self-center p-3'>
                                     <h3>Curlinary Support</h3>
+                                    <p>Lorem ipsum dolor sit at consectetur</p>
                                 </div>
                             </div>
                             <div className={ContactStyle.details}>
                                 <div className='d-flex pl-3'>
                                     <i className="fa fa-desktop fa-4x align-self-center"></i>
-                                    <div className='align-self-center p-3'>
+                                    <div className='align-self-center'>
                                         <h3>Curlinary Support</h3>
+                                        <p>Lorem ipsum dolor sit at consectetur</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </Col>
                     <Col lg={4} md={12}>
-                        <div className={`${ContactStyle.card}`} style={{backgroundColor:'white'}}>
-                            <div className={`${ContactStyle.imgBx} d-flex pl-3`}>
+                        <div className={`${ContactStyle.card} ${ContactStyle.card_two}`}>
+                            <div className={`${ContactStyle.imgBx} d-flex pl-5`}>
                                 <i className="fa fa-user fa-4x align-self-center"></i>
                                 <div className='align-self-center p-3'>
                                     <h3>Tech Support</h3>
+                                    <p>Lorem ipsum dolor sit amet consectetur </p>
                                 </div>
                             </div>
                             <div className={ContactStyle.details}>
                                 <div className='d-flex pl-3'>
                                     <i className="fa fa-user fa-4x align-self-center"></i>
-                                    <div className='align-self-center p-3'>
+                                    <div className='align-self-center'>
                                         <h3>Tech Support</h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur </p>
                                     </div>
                                 </div>
                             </div>
@@ -55,17 +57,19 @@ const Contact = () => {
                     </Col>
                     <Col lg={4} md={12}>
                         <div className={`${ContactStyle.card} ${ContactStyle.card_one}`}>
-                            <div className={`${ContactStyle.imgBx} d-flex pl-3`}>
+                            <div className={`${ContactStyle.imgBx} d-flex pl-5`}>
                                 <i className="fa fa-magic fa-4x align-self-center"></i>
-                                <div className='align-self-center p-3'>
+                                <div className='align-self-center p-2'>
                                     <h3>Sales of Support</h3>
+                                    <p>Lorem ipsum dolor sit amet consectetur </p>
                                 </div>
                             </div>
                             <div className={ContactStyle.details}>
                                 <div className='d-flex pl-3'>
                                     <i className="fa fa-magic fa-4x align-self-center"></i>
-                                    <div className='align-self-center p-3'>
+                                    <div className='align-self-center'>
                                         <h3>Sales of Support</h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur</p>
                                     </div>
                                 </div>
                             </div>

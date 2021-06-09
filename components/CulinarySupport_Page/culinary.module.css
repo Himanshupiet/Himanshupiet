@@ -8,3 +8,29 @@
 .heading{
     color: #e31422;
 }
+.culinary_banner {
+    background-image: url('../../public/images/Napo-Pizzeria-Abu-Dhabi.jpg');
+    background-position: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 150px 0;
+    position: relative;
+    width: 100%;
+}
+.culinary_banner h1 {
+    text-align: center;
+    color: #fff;
+}
+.main_banner{
+    padding-top: 100px;
+    padding-bottom: 110px;
+}
+.banner_content{
+    padding-top: 90px;
+    padding-bottom: 80px;
+}
+@media only screen and (min-width: 1700px) {
+    .culinary_img{
+        padding-left: 160px;
+    }
+}

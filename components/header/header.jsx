@@ -8,6 +8,7 @@ import {withRouter} from 'next/router'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import * as productActions from '../../actions/product'
+import * as blogActions from "../../actions/blog";
 
 
 /**
@@ -147,7 +148,7 @@ const Header = (props) => {
     useEffect(() => {
         setProduct(props.product.product)
     }, [props.product])
-    // console.log(product)
+    console.log(product)
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -800,6 +801,11 @@ const Header = (props) => {
                                             <li>
                                                 <Link href="/culinary-support">
                                                     <a title="Culinary Support"><span>Culinary Support</span></a>
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link href="/login">
+                                                    <a title="Login Page"><span>Login</span></a>
                                                 </Link>
                                             </li>
                                         </ul>

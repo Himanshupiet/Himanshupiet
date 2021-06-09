@@ -6,10 +6,11 @@
 .product_inner{
   margin-bottom: 30px;
   transition: .2s cubic-bezier(.02,.22,.7,1.98);
-  border-radius: 0px;
+  border-radius: 4px;
   text-align: center;
-  border: 1px solid #e4e4e4;
+  /*border: 1px solid #e4e4e4;*/
   background-color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,.1);
 }
 .product_inner:hover{
   transform: translateY(-7px);
@@ -20,7 +21,7 @@
 }
 .product_info{
   text-align: center;
-  padding: 0px 10px 25px;
+  padding: 0 10px 25px;
 }
 .product_inner .product_info h3{
   color: #04858b;

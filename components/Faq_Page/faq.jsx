@@ -7,6 +7,7 @@ import GetAQuote from "../common/GetAQuote/GetAQuote";
 import FaqStyle from './faq.module.css'
 import BlogSidebarStyle from "../Blog_Page/BlogSidebar/BlogSidebar.module.css";
 import MainHomePageStyle from "../Home_Page/index.module.css";
+import ContactStyle from "../ContactUs_Page/contact.module.css";
 
 
 const Faq = () => {
@@ -88,14 +89,8 @@ const Faq = () => {
     return (
         <>
             <Header/>
-            <Container fluid className={TermsConditionsStyle.top_banner}>
-                <Row>
-                    <Col lg={1}></Col>
-                    <Col lg={10}>
-                        <h1>FAQs</h1>
-                    </Col>
-                    <Col lg={1}></Col>
-                </Row>
+            <Container fluid className={FaqStyle.faq_banner}>
+                <h1>FAQs</h1>
             </Container>
             <Container fluid className={FaqStyle.main}>
                 <Row>

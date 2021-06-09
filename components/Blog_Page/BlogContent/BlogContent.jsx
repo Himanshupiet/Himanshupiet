@@ -13,7 +13,6 @@ const BlogContent = (props) => {
 
     useEffect(() => {
         props.productActions.getAllPost()
-        console.log(props.productActions.getAllPost())
     }, [])
 
     useEffect(() => {
