@@ -149,7 +149,6 @@ const Header = (props) => {
         setProduct(props.product.product)
     }, [props.product])
     console.log(product)
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
@@ -654,16 +653,67 @@ const Header = (props) => {
                                     }>
                                         <i className={mobileProductOpen ? "bx bxs-chevron-down" : "bx bxs-chevron-up"}></i>
                                     </button>
+                                    {/*    <div*/}
+                                    {/*        className={`${headerStyle.product_sub_menu} ${mobileProductOpen ? headerStyle.product_sub_menu_active : ""}`}>*/}
+                                    {/*        <Tabs defaultActiveKey={product[0]} id="uncontrolled-tab-example">*/}
+                                    {/*            {(product && product.length) ? product.map((item, id) => (*/}
+                                    {/*                <Tab eventKey={item.name} title={item.name}*/}
+                                    {/*                     key={id}>*/}
+                                    {/*                    <Row>*/}
+                                    {/*                        {item.categoryList.map((res, id) => (*/}
+                                    {/*                            <>*/}
+                                    {/*                                {res.id === 1 ?*/}
+                                    {/*                                    <Col sm={3} key={res.id}>*/}
+                                    {/*                                        <div className={headerStyle.special_product}>*/}
+                                    {/*                                            <Link*/}
+                                    {/*                                                href="/product/discover-the-rotator-brick-oven">*/}
+                                    {/*                                                <a title="">*/}
+                                    {/*                                                    <img*/}
+                                    {/*                                                        src={res.imageUrl}*/}
+                                    {/*                                                        width="200" height="200"*/}
+                                    {/*                                                        alt="Top Product"/>*/}
+                                    {/*                                                    <p>Rotator Brick Oven</p>*/}
+                                    {/*                                                </a>*/}
+                                    {/*                                            </Link>*/}
+                                    {/*                                        </div>*/}
+                                    {/*                                    </Col> :*/}
+                                    {/*                                    <Col sm={9}>*/}
+                                    {/*                                        <div className={headerStyle.rest_product}>*/}
+                                    {/*                                            <ul>*/}
+                                    {/*                                                <li>*/}
+                                    {/*                                                    <Link href="/">*/}
+                                    {/*                                                        <a title="">*/}
+                                    {/*                                                            <img*/}
+                                    {/*                                                                src={res.imageUrl}*/}
+                                    {/*                                                                width="100" height="100"*/}
+                                    {/*                                                                alt="Top Product"/>*/}
+                                    {/*                                                            <p>The Neapolitan</p>*/}
+                                    {/*                                                        </a>*/}
+                                    {/*                                                    </Link>*/}
+                                    {/*                                                </li>*/}
+                                    {/*                                            </ul>*/}
+                                    {/*                                        </div>*/}
+                                    {/*                                    </Col>*/}
+                                    {/*                                }*/}
+                                    {/*                            </>*/}
+                                    {/*                        ))}*/}
+                                    {/*                    </Row>*/}
+                                    {/*                </Tab>*/}
+                                    {/*            )) : null}*/}
+                                    {/*        </Tabs>*/}
+                                    {/*    </div>*/}
+                                    {/*</div>*/}
                                     <div
                                         className={`${headerStyle.product_sub_menu} ${mobileProductOpen ? headerStyle.product_sub_menu_active : ""}`}>
-                                        <Tabs defaultActiveKey={product[0]} id="uncontrolled-tab-example">
+                                        <Tabs defaultActiveKey={product.id} id="uncontrolled-tab-example">
                                             {(product && product.length) ? product.map((item, id) => (
                                                 <Tab eventKey={item.name} title={item.name}
                                                      key={id}>
                                                     <Row>
                                                         {item.categoryList.map((res, id) => (
                                                             <>
-                                                                {res.id == 1 ?
+                                                                {
+                                                                    id === 0 &&
                                                                     <Col sm={3}>
                                                                         <div className={headerStyle.special_product}>
                                                                             <Link
@@ -673,14 +723,20 @@ const Header = (props) => {
                                                                                         src={res.imageUrl}
                                                                                         width="200" height="200"
                                                                                         alt="Top Product"/>
-                                                                                    <p>Rotator Brick Oven</p>
+                                                                                    <p>{res.categoryName}</p>
                                                                                 </a>
                                                                             </Link>
                                                                         </div>
-                                                                    </Col> :
-                                                                    <Col sm={9}>
-                                                                        <div className={headerStyle.rest_product}>
-                                                                            <ul>
+                                                                    </Col>
+                                                                }
+                                                            </>
+                                                        ))}
+                                                        <Col sm={9}>
+                                                            <div className={headerStyle.rest_product}>
+                                                                <ul>
+                                                                    {item.categoryList.map((res, id) => (
+                                                                        <>
+                                                                            { id !== 0 &&
                                                                                 <li>
                                                                                     <Link href="/">
                                                                                         <a title="">
@@ -688,16 +744,16 @@ const Header = (props) => {
                                                                                                 src={res.imageUrl}
                                                                                                 width="100" height="100"
                                                                                                 alt="Top Product"/>
-                                                                                            <p>The Neapolitan</p>
+                                                                                            <p>{res.categoryName}</p>
                                                                                         </a>
                                                                                     </Link>
                                                                                 </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </Col>
-                                                                }
-                                                            </>
-                                                        ))}
+                                                                            }
+                                                                        </>
+                                                                    ))}
+                                                                </ul>
+                                                            </div>
+                                                        </Col>
                                                     </Row>
                                                 </Tab>
                                             )) : null}
@@ -790,17 +846,7 @@ const Header = (props) => {
                                             </li>
                                             <li>
                                                 <Link href="/">
-                                                    <a title="Tech Support"><span>Tech Support</span></a>
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link href="/">
                                                     <a title="Find a Sales Rep"><span>Find a Sales Rep</span></a>
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link href="/culinary-support">
-                                                    <a title="Culinary Support"><span>Culinary Support</span></a>
                                                 </Link>
                                             </li>
                                             <li>

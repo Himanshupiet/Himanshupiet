@@ -1,0 +1,41 @@
+.tech_banner {
+    background-image: url('../../public/images/Napo-Pizzeria-Abu-Dhabi.jpg');
+    background-position: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 150px 0;
+    position: relative;
+    width: 100%;
+}
+.tech_banner h1 {
+    text-align: center;
+    color: #fff;
+}
+.contact_info{
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+.item{
+    margin-bottom: 24px;
+    font-size: 17px;
+    color: #322;
+    font-weight: 500;
+}
+.item i{
+    margin-bottom: 2px;
+    font-size: 20px;
+    color: #fff;
+}
+.icon{
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #e31422;
+    text-align: center;
+    color: #fff;
+    border-radius: 50%;
+    margin-right: 16px;
+}
+.border{
+    border-right: 1px solid gray;
+}

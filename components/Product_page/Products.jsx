@@ -22,7 +22,6 @@ const Products = (props) => {
     useEffect(() => {
         setProduct(props.product.product)
     }, [props.product])
-    console.log(product)
 
     return (
         <section className={ProductStyle.section_outer}>
@@ -51,7 +50,7 @@ const Products = (props) => {
                                                         <h3>{res.categoryName}</h3>
                                                         <p>{res.categoryDescription.substr(0, 115)}</p>
                                                         {/*<Link href={`http://localhost:3005/product/${res.id}`}>*/}
-                                                        <Link href={`http://localhost:3005/product/${res.id}`}>
+                                                        <Link href={`${process.env.NEXT_PUBLIC_BASE_PATH}/product/${item.id}`}>
                                                             <a className="mf_btn" title="The Rotator">Explore more</a>
                                                         </Link>
                                                     </div>

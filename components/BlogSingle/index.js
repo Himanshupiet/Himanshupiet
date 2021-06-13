@@ -11,21 +11,21 @@ import {API_HOST} from '../../env'
 
 const BlogSingleMain = (props) => {
     const router = useRouter()
-    const id = router.query
-    console.log(parseInt(id.id))
-
+    const {id} = router.query
+    const [data, setData] = useState(false)
+    console.log(id)
     useEffect(() => {
-          axios.get(`https://jdev.decipherzone.com/mfback/item/getItemById?id=${id.id}`, {headers:{
+          axios.get(`${API_HOST}blog/getBlogById?id=`+id, {headers:{
                   'Content-Type': 'application/json',
               }
           }).then((res)=>{
-               if(res.status.data){
-                   alert('dfdfjd')
+               if(res.status){
+                   setData(res.data)
                }
           }).catch((error) => {
             console.error(error)
         })
-    }, [])
+    }, [id])
 
     return (
         <>
@@ -45,7 +45,7 @@ const BlogSingleMain = (props) => {
                     <Col lg={10}>
                         <Row>
                             <Col lg={9}>
-                                <BlogSingleContent/>
+                                <BlogSingleContent data={data}/>
                             </Col>
                             <Col lg={3}>
                                 <BlogSidebar/>
