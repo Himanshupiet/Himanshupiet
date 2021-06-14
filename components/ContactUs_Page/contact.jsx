@@ -5,6 +5,7 @@ import Footer from "../footer/footer";
 import ContactStyle from './contact.module.css'
 import GetAQuote from "../common/GetAQuote/GetAQuote";
 import MainHomePageStyle from "../Home_Page/index.module.css";
+import Link from "next/link";
 
 const Contact = () => {
     return (
@@ -28,7 +29,11 @@ const Contact = () => {
                                 <div className='d-flex pl-3'>
                                     <i className="fa fa-desktop fa-4x align-self-center"></i>
                                     <div className='align-self-center'>
-                                        <h3>Curlinary Support</h3>
+                                        <Link href={`${process.env.NEXT_PUBLIC_BASE_PATH}/culinary-support`}>
+                                            <a title='Culinary Support'>
+                                                <h3>Curlinary Support</h3>
+                                            </a>
+                                        </Link>
                                         <p>Lorem ipsum dolor sit at consectetur</p>
                                     </div>
                                 </div>
@@ -48,7 +53,11 @@ const Contact = () => {
                                 <div className='d-flex pl-3'>
                                     <i className="fa fa-user fa-4x align-self-center"></i>
                                     <div className='align-self-center'>
-                                        <h3>Tech Support</h3>
+                                        <Link href={`${process.env.NEXT_PUBLIC_BASE_PATH}/tech-support`}>
+                                            <a title='Culinary Support'>
+                                                <h3>Tech Support</h3>
+                                            </a>
+                                        </Link>
                                         <p>Lorem ipsum dolor sit amet consectetur </p>
                                     </div>
                                 </div>
@@ -68,7 +77,11 @@ const Contact = () => {
                                 <div className='d-flex pl-3'>
                                     <i className="fa fa-magic fa-4x align-self-center"></i>
                                     <div className='align-self-center'>
-                                        <h3>Sales of Support</h3>
+                                        <Link href={`${process.env.NEXT_PUBLIC_BASE_PATH}/sales-support`}>
+                                            <a title='Culinary Support'>
+                                                <h3>Sales of Support</h3>
+                                            </a>
+                                        </Link>
                                         <p>Lorem ipsum dolor sit amet consectetur</p>
                                     </div>
                                 </div>

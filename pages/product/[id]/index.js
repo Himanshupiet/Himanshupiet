@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
 
 import Head from '../../../components/common/Head'
 import Footer from '../../../components/footer/footer'
@@ -14,8 +14,17 @@ import Resources from '../../../components/ProductSingle/Resources/Resources'
 import VideoPart from '../../../components/ProductSingle/VideoPart/VideoPart'
 import KitchenNearYou from '../../../components/ProductSingle/KitchenNearYou/KitchenNearYou'
 import Testimonials from '../../../components/ProductSingle/Testimonials/Testimonials'
+import {useRouter} from "next/router";
+import axios from "axios";
+import {API_HOST} from "../../../env";
+
+
 
 const SingleProduct = (props) => {
+    const router = useRouter()
+    const {id} = router.query
+    const [data, setData] = useState(false)
+    console.log(data)
     let highlightData = {
         Heading: '',
         subHeading: 'You are a few clicks away from owning the most durable, energy-efficient, customizable and feature pack brick oven in the world.',
@@ -25,6 +34,18 @@ const SingleProduct = (props) => {
 			imagePath: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/painthouse-three.jpg`
 		}
     }
+    useEffect(() => {
+        axios.get(`${API_HOST}item/getItemById?id=`+id, {headers:{
+                'Content-Type': 'application/json',
+            }
+        }).then((res)=>{
+            if(res.status){
+                setData(res.data)
+            }
+        }).catch((error) => {
+            console.error(error)
+        })
+    }, [id])
     return(
         <>
             <Head

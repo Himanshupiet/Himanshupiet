@@ -84,7 +84,7 @@ const BlogContent = (props) => {
                                 </a>
                             </Link>
                             <div className={BlogContentStyle.blog_info}>
-                                <Link href='/'>
+                                <Link href={`${process.env.NEXT_PUBLIC_BASE_PATH}/blog/${item.id}`}>
                                     <a title={item.aliasUrl}>
                                         <h2>{item.metaKeyword}</h2>
                                     </a>
@@ -101,23 +101,6 @@ const BlogContent = (props) => {
                     </div>
                 )) : null}
             </div>
-            <ul className={BlogContentStyle.pagination}>
-                <li>
-                    <button className={BlogContentStyle.activepagination}>1</button>
-                </li>
-                <li>
-                    <button>2</button>
-                </li>
-                <li>
-                    <button>3</button>
-                </li>
-                <li>
-                    <button>4</button>
-                </li>
-                <li>
-                    <button>5</button>
-                </li>
-            </ul>
         </Container>
     )
 }
