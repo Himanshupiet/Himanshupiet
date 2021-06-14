@@ -13,7 +13,6 @@ const BlogSingleMain = (props) => {
     const router = useRouter()
     const {id} = router.query
     const [data, setData] = useState(false)
-    console.log(id)
     useEffect(() => {
           axios.get(`${API_HOST}blog/getBlogById?id=`+id, {headers:{
                   'Content-Type': 'application/json',
@@ -23,7 +22,7 @@ const BlogSingleMain = (props) => {
                    setData(res.data)
                }
           }).catch((error) => {
-            console.error(error)
+
         })
     }, [id])
 

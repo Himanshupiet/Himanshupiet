@@ -24,7 +24,6 @@ const SingleProduct = (props) => {
     const router = useRouter()
     const {id} = router.query
     const [data, setData] = useState(false)
-    console.log(data)
     let highlightData = {
         Heading: '',
         subHeading: 'You are a few clicks away from owning the most durable, energy-efficient, customizable and feature pack brick oven in the world.',
@@ -35,7 +34,7 @@ const SingleProduct = (props) => {
 		}
     }
     useEffect(() => {
-        axios.get(`${API_HOST}item/getItemById?id=`+id, {headers:{
+        axios.get(`${API_HOST}category/getCategoryById?id=`+id, {headers:{
                 'Content-Type': 'application/json',
             }
         }).then((res)=>{
@@ -43,7 +42,7 @@ const SingleProduct = (props) => {
                 setData(res.data)
             }
         }).catch((error) => {
-            console.error(error)
+
         })
     }, [id])
     return(
