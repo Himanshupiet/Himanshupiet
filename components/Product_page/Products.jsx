@@ -22,7 +22,6 @@ const Products = (props) => {
     useEffect(() => {
         setProduct(props.product.product)
     }, [props.product])
-    console.log(product)
 
     return (
         <section className={ProductStyle.section_outer}>
