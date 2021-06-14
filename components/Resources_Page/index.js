@@ -5,10 +5,14 @@ import Footer from '../footer/footer'
 import Filters from './Filters/Filters'
 import FiltersResult from './FiltersResult/FiltersResult'
 
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import * as productActions from '../../actions/product'
+import {withRouter} from "next/router";
+
 import ResourceStyle from './index.module.css'
 import { Container, Row, Col } from 'react-bootstrap'
 
-import { PRODUCT_DATA } from './product'
 
 const Resources_main = (props) => {
   const[ allProduct, setAllProduct ] = useState([])
@@ -17,18 +21,43 @@ const Resources_main = (props) => {
   const[ newArr, setNewArr ] = useState([])
 
   useEffect(() => {
-    setFilterProduct(PRODUCT_DATA)
-    setSearchProduct(PRODUCT_DATA)
-    setAllProduct(PRODUCT_DATA.map(val => {
+    props.productActions.getAllProduct()
+  },[])
+
+  useEffect(() => {
+    if(props &&
+      props.product &&
+      props.product.product &&
+      props.product.product.length){
+      let newProduct = props.product.product.map(item => {
         return {
-          ...val,
-          cat: val.cat.map(item => {
-            return {...item, checked: false}
+          ...item,
+          cat:item && item.categoryList && item.categoryList.length && item.categoryList.map(cat => {
+             return{
+               ...cat,
+               name: cat.categoryName,
+               image: cat.imageUrl,
+               catDescription: cat.categoryDescription,
+               subcat: cat.subCategoryList
+               
+             }
           })
         }
       })
-    )
-  },[])
+      setFilterProduct(newProduct)
+      setSearchProduct(newProduct)
+      setAllProduct(newProduct.map(val => {
+          return {
+            ...val,
+            cat: val.cat.map(item => {
+              return {...item, checked: false}
+            })
+          }
+        })
+      )
+    }
+  }, [props.product])
+
 
   const handleSelect = (e, typeId, cat, idx, index) => {
     const { value } = e.target
@@ -202,4 +231,14 @@ const Resources_main = (props) => {
 
  }
 
-export default Resources_main
+const mapStateToProps = ({product}) => {
+  return {product}
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    productActions: bindActionCreators(productActions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Resources_main))
