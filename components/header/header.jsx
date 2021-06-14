@@ -148,7 +148,7 @@ const Header = (props) => {
     useEffect(() => {
         setProduct(props.product.product)
     }, [props.product])
-    console.log(product)
+
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 

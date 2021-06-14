@@ -96,7 +96,7 @@ const FiltersResult = (props) => {
                     return (
                       <Col lg={4} md={6} key={index}>
                         <div className={ResultStyle.product_inner}>
-                          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/${cat.image}`} width="400" height="500" className="img-fluid" alt={cat.name} />
+                          <img src={cat.image} width="400" height="500" className="img-fluid" alt={cat.name} />
                           <div className={ResultStyle.product_info}>
                             <h3>{cat.name}</h3>
                             <p>{cat.catDescription.substr(0,60)}{cat.catDescription.length > 60 && "..."}</p>
