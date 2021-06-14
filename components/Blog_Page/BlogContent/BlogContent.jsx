@@ -10,21 +10,22 @@ import * as blogActions from '../../../actions/blog'
 
 const BlogContent = (props) => {
     const [blog, setBlog] = useState([])
+    const [filter, setFilter] = useState([])
 
     useEffect(() => {
         props.productActions.getAllPost()
     }, [])
-
     useEffect(() => {
         if (props && props.blog && props.blog.blog && props.blog.blog.result && props.blog.blog.result.content) {
             setBlog(props.blog.blog.result.content)
+            setFilter(props.blog.blog.result.content)
         }
     }, [props.blog])
-    console.log(blog)
 
     useEffect(() => {
         resizeAllGridItems();
         window.addEventListener("resize", resizeAllGridItems);
+        filterItem()
     }, [])
 
     const resizeGridItem = (item) => {
@@ -40,34 +41,38 @@ const BlogContent = (props) => {
             resizeGridItem(allItems[x]);
         }
     }
+    const filterItem = (cat)=>{
+        const updateData = blog.filter((catItem)=>{
+            return catItem.category === cat;
+        })
+        setFilter(updateData)
+    }
 
     return (
         <Container fluid className='mb-5 mt-5'>
             <ul className={BlogContentStyle.catfilter}>
+                    <li>
+                        {/*<button className={BlogContentStyle.activecatfilter}>{item.category}</button>*/}
+                        <button className={BlogContentStyle.activecatfilter} onClick={()=> filterItem('All')}>All</button>
+                    </li>
                 <li>
-                    <button className={BlogContentStyle.activecatfilter}>All</button>
+                    <button onClick={()=> filterItem('Press')}>Press</button>
                 </li>
                 <li>
-                    <button>Marra Innovations</button>
+                    <button onClick={()=> filterItem('Marketing')}>Marketing</button>
                 </li>
                 <li>
-                    <button>Pizza Industry News</button>
+                    <button onClick={()=> filterItem('Entertainment')}>Entertainment</button>
                 </li>
                 <li>
-                    <button>Team Marra</button>
+                    <button onClick={()=> filterItem('Team Marra')}>Team Marra</button>
                 </li>
                 <li>
-                    <button>Marra Friends</button>
-                </li>
-                <li>
-                    <button>#CookingVersatility</button>
-                </li>
-                <li>
-                    <button>Awesome Chefs</button>
+                    <button onClick={()=> filterItem('Holidays')}>Holidays</button>
                 </li>
             </ul>
             <div className={'blog_outer'}>
-                {(blog && blog.length) ? blog.map((item, i) => (
+                {(filter && filter.length) ? filter.map((item, i) => (
                     <div className={`${BlogContentStyle.main_style} blog_inner`} key={item.id}>
                         <div className={'blog_inner_main'}>
                             <Link href='/'>
