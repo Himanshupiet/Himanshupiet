@@ -25,7 +25,8 @@
 }
 .product_info{
   text-align: center;
-  padding: 0px 10px 25px;
+  /*padding: 0px 10px 25px;*/
+  padding: 25px 10px 25px;
 }
 .product_info h3{
   color: #04858b;

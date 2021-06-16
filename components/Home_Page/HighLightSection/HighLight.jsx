@@ -4,12 +4,13 @@ import ScrollAnimation from 'react-animate-on-scroll'
 import { Col, Container, Row } from 'react-bootstrap'
 
 const HighLight = ({highlightData}) => {
-  let background_color = highlightData.backgroundImage.IsImage ? {backgroundImage: `url(${highlightData.backgroundImage.imagePath})`} : {backgroundColor:'rgba(0,0,0,0.3)',padding:'55px'};
+  let background_color = highlightData.backgroundImage.IsImage ? {backgroundImage: `url(${highlightData.backgroundImage.imagePath})`} : {backgroundColor:'#f6f7fb!important',padding:'55px'};
 
   return(
     highlightData ? <section
       className={HighLightStyle.section_outer}
-      style={background_color}
+      // style={background_color}
+        style={{backgroundColor: '#f6f7fb'}}
     >
       <Container fluid className={HighLightStyle.highlight_section}>
         <Row>

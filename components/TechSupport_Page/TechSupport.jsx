@@ -40,7 +40,7 @@ const TechSupportPage = (props) => {
                                     </div>
                                 </div>
                             </Col>
-                            <Col lg={6} className='pt-4'>
+                            <Col lg={6} className='pt-5'>
                                 <h2>Let’s Get In Touch</h2>
                                 <p>When outfitting your home or restaurant with the finest Neapolitan, Marra Forni is
                                     the clear choice. Whether you need a custom built and artisan tiled oven to match
@@ -49,6 +49,7 @@ const TechSupportPage = (props) => {
 
                                     We look forward to hearing from you and figuring out a solution for your pizzeria,
                                     restaurant, or residential application.</p>
+                                <button className='mf_btn'>Click here</button>
                             </Col>
                         </Row>
                     </Col>

@@ -43,15 +43,22 @@ const Products = (props) => {
                                         <Col lg={4} md={6} key={res.id}>
                                             <ScrollAnimation duration={2} animateIn="fadeInUp" animateOnce={true}>
                                                 <div className={ProductStyle.product_inner}>
+                                                    {/*<div style={{overflow:'hidden',height:'500px',width:'600px'}}>*/}
                                                     <img
                                                         src={res.imageUrl}
-                                                        width="400" height="500" className="img-fluid"
+                                                        width="400" height="500" className="img-fluid" style={{objectFit:'cover'}}
                                                         alt="The Rotator"/>
+                                                        {/*<img*/}
+                                                    {/*        src={res.imageUrl}*/}
+                                                    {/*        className="img-fluid"*/}
+                                                    {/*        style={{objectFit:'contain',textAlign:'center'}}*/}
+                                                    {/*        alt="The Rotator"/>*/}
+                                                    {/*</div>*/}
                                                     <div className={ProductStyle.product_info}>
                                                         <h3>{res.categoryName}</h3>
                                                         <p>{res.categoryDescription.substr(0, 115)}</p>
                                                         {/*<Link href={`http://localhost:3005/product/${res.id}`}>*/}
-                                                        <Link href={`${process.env.NEXT_PUBLIC_BASE_PATH}/product/${res.id}`}>
+                                                        <Link href={`/product/${res.id}`}>
                                                             <a className="mf_btn" title="The Rotator">Explore more</a>
                                                         </Link>
                                                     </div>

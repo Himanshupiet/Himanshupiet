@@ -8,20 +8,23 @@ import BlogSingleContent from './BlogSingleContent/BlogSingleContent'
 import {useRouter} from "next/router";
 import axios from "axios";
 import {API_HOST} from '../../env'
+import ContactStyle from "../ContactUs_Page/contact.module.css";
+
 
 const BlogSingleMain = (props) => {
     const router = useRouter()
     const {id} = router.query
     const [data, setData] = useState(false)
     useEffect(() => {
-          axios.get(`${API_HOST}blog/getBlogById?id=`+id, {headers:{
-                  'Content-Type': 'application/json',
-              }
-          }).then((res)=>{
-               if(res.status){
-                   setData(res.data)
-               }
-          }).catch((error) => {
+        axios.get(`${API_HOST}blog/getBlogById?id=` + id, {
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }).then((res) => {
+            if (res.status) {
+                setData(res.data)
+            }
+        }).catch((error) => {
 
         })
     }, [id])
@@ -29,14 +32,8 @@ const BlogSingleMain = (props) => {
     return (
         <>
             <Header/>
-            <Container fluid className={BlogSingleMainStyle.top_banner}>
-                <Row>
-                    <Col lg={1}></Col>
-                    <Col lg={10}>
-                        <h1>Blog</h1>
-                    </Col>
-                    <Col lg={1}></Col>
-                </Row>
+            <Container fluid className={ContactStyle.contact_banner}>
+                <h1>Blog</h1>
             </Container>
             <Container fluid className={BlogSingleMainStyle.blog_outer}>
                 <Row>
