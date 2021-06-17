@@ -17,19 +17,20 @@ const BlogContent = (props) => {
 
     useEffect(() => {
         props.productActions.getAllPost()
-        console.log('useEffect 1 ')
     }, [])
-
     useEffect(() => {
         if (props && props.blog && props.blog.blog && props.blog.blog.result && props.blog.blog.result.content) {
             setBlog(props.blog.blog.result.content)
-            setFilter(props.blog.blog.result.content)
-            console.log('useEffect 2 ')
-
+            if (!name) {
+                setFilter(props.blog.blog.result.content)
+            } else {
+                const updateData = props.blog.blog.result.content.filter((catItem) => {
+                    return catItem.category === name;
+                })
+                setFilter(updateData)
+            }
         }
-    }, [props.blog,name])
-
-
+    }, [props.blog])
 
     useEffect(() => {
         resizeAllGridItems();
@@ -50,13 +51,9 @@ const BlogContent = (props) => {
         }
     }
     const filterItem = (cat) => {
-        // console.log('Category ', cat)
-        console.log(blog)
         const updateData = blog.filter((catItem) => {
-            console.log('Item ', catItem)
             return catItem.category === cat;
         })
-        // console.log('updated data ',updateData)
         setFilter(updateData)
     }
 
@@ -64,7 +61,7 @@ const BlogContent = (props) => {
         <Container fluid className='mb-5 mt-5'>
             <ul className={BlogContentStyle.catfilter}>
                 <li>
-                    <button className={BlogContentStyle.activecatfilter} onClick={() => setFilter(blog)}>All</button>
+                    <button className={BlogContentStyle.activecatfilter} onClick={()=>setFilter(blog)}>All</button>
                 </li>
                 <li>
                     <button onClick={() => filterItem('Press')}>CookingVersatility</button>
