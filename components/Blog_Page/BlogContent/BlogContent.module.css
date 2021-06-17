@@ -5,7 +5,7 @@
   width: 100%;
 }
 .main_style{
-  grid-row-end: span 15;
+  grid-row-end: span 14;
 }
 .blogimg_hover{
   position: absolute;

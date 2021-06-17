@@ -1,6 +1,8 @@
 .section_outer{
-  padding-top: 80px;
-  padding-bottom: 80px;
+  /*padding-top: 80px;*/
+  /*padding-bottom: 80px;*/
+  padding-top: 50px;
+  padding-bottom: 40px;
   background-position: 100%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -21,8 +23,8 @@
   margin-bottom: 20px;
 }
 .text_box h3{
-  /*font-size: 30px;*/
-  font-size: 34px;
+  font-size: 30px;
+  /*font-size: 34px;*/
   line-height: 42px;
   font-weight: 300;
   /*color: #fff;*/
@@ -30,8 +32,8 @@
 }
 
 .text_box h2{
-  font-size: 46px;
-  /*font-size: 38px;*/
+  /*font-size: 46px;*/
+  font-size: 38px;
   /*line-height: 55px;*/
   line-height: 42px;
   font-weight: 300;
@@ -53,5 +55,14 @@
 @media only screen and (max-width:767px){
   .text_box{
     text-align: center;
+  }
+}
+@media only screen and (min-width: 1700px) {
+  .text_box h2{
+    line-height: 42px;
+    font-size: 46px;
+  }
+  .text_box h3{
+    font-size: 32px;
   }
 }
