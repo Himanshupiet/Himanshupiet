@@ -20,6 +20,7 @@ const BlogSingleContent = (props) => {
             </div>
             <div className={BlogSingleContentStyle.content_box}>
                 <p>{blogData}</p>
+                {/*<div dangerouslySetInnerHTML={{__html: item.renderedHtmlPreview}}></div>*/}
             </div>
             <div className={BlogSingleContentStyle.social_box}>
                 <Row>

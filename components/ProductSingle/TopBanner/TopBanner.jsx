@@ -9,11 +9,12 @@ import TopBannerStyle from './TopBanner.module.css';
 **/
 
 const TopBanner = (props) => {
+    const { categoryName, imageUrl } = props.data;
   return(
     <section className={TopBannerStyle.section_outer} style={{backgroundImage:`url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/Rotator-Banner-scaled.webp)`}}>
       <ScrollAnimation animateIn="zoomIn" animateOnce={true} duration={1}>  
         <div className={TopBannerStyle.title_box}>
-          Rotator Brick Oven<br />
+            {categoryName}<br />
           <Link href="/connect">
             <a className="mf_btn" title="Request a Demo">Request a Demo</a>
           </Link>

@@ -48,15 +48,9 @@ const Products = (props) => {
                                                         src={res.imageUrl}
                                                         width="400" height="500" className="img-fluid" style={{objectFit:'cover'}}
                                                         alt="The Rotator"/>
-                                                        {/*<img*/}
-                                                    {/*        src={res.imageUrl}*/}
-                                                    {/*        className="img-fluid"*/}
-                                                    {/*        style={{objectFit:'contain',textAlign:'center'}}*/}
-                                                    {/*        alt="The Rotator"/>*/}
-                                                    {/*</div>*/}
                                                     <div className={ProductStyle.product_info}>
                                                         <h3>{res.categoryName}</h3>
-                                                        <p>{res.categoryDescription.substr(0, 115)}</p>
+                                                        <p>{res.categoryDescription.substr(0, 90) + "..."}</p>
                                                         {/*<Link href={`http://localhost:3005/product/${res.id}`}>*/}
                                                         <Link href={`/product/${res.id}`}>
                                                             <a className="mf_btn" title="The Rotator">Explore more</a>

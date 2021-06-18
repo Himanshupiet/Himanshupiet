@@ -314,7 +314,7 @@ const Header = (props) => {
                                                 want to customize your oven. Once you're happy with your design, snap a
                                                 screenshot and attach it to the quote form on the right. We'll talk to
                                                 you soon.</p>
-                                            <div style={{display: 'flex'}}>
+                                            <div style={{display: 'flex',margin:'auto'}}>
                                                 <DropdownButton id="dropdown-item-button" title='Tiles'
                                                                 onSelect={handleTiles} variant='light'>
                                                     <Dropdown.ItemText className={headerStyle.main_title}>

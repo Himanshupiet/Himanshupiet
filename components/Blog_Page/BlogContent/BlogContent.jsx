@@ -17,6 +17,7 @@ const BlogContent = (props) => {
     useEffect(() => {
         props.productActions.getAllPost()
     }, [])
+
     useEffect(() => {
         if (props && props.blog && props.blog.blog && props.blog.blog.result && props.blog.blog.result.content) {
             const allBlogs = props.blog.blog.result.content;
@@ -27,7 +28,6 @@ const BlogContent = (props) => {
                 let renderedHtmlPreview = convertDataToHtml([previewData])
                 return {...data, renderedHtml, previewData, renderedHtmlPreview}
             })
-            debugger;
 
             setBlog(renderedBlogs)
 

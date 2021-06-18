@@ -1,92 +1,31 @@
-/*.section_outer{*/
-/*    background-color: #f8f4fc;*/
-/*    min-height: 100vh;*/
-/*    padding-top: 50px!important;*/
-/*    margin-top: 85px!important;*/
+/*.main_section{*/
+/*    background-color: #f6f7fb!important;*/
 /*}*/
-/*.main {*/
-/*    !*background: #b31b1b;*!*/
-/*    background: #310404 url(https://i.ytimg.com/vi/wOvQAhzWCrM/maxresdefault.jpg) no-repeat center center fixed;*/
-/*    -webkit-background-size: cover;*/
-/*    -moz-background-size: cover;*/
-/*    -o-background-size: cover;*/
-/*    background-size: cover;*/
-/*    font-family: 'Barlow', sans-serif;*/
-/*}*/
-/*.input_error{*/
-/*    border: 1px solid red;*/
-/*}*/
-/*@media only screen and (min-width: 576px){*/
-/*    .form_style label{*/
-/*        display: none;*/
-/*    }*/
-/*}*/
-/*@media only screen and (min-width: 1700px) {*/
-/*    .main_form {*/
-/*        margin-top: 5% !important;*/
-/*    }*/
-/*    .form_style label{*/
-/*        display: block;*/
-/*    }*/
-/*    .main{*/
-/*        padding: 40px 20px 0px 60px;*/
-/*    }*/
-/*}*/
-/*.main i {*/
-/*    background-color: #8c296d;*/
-/*    width: 30px;*/
-/*    height: 30px;*/
-/*    border-radius: 50%;*/
-/*    margin-bottom: -0.1rem;*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    justify-content: center;*/
-/*    color: white;*/
-/*}*/
-/*.side_img{*/
-/*    padding-top: 10px;*/
-/*}*/
-/*.btn{*/
-/*    background: #e31422;*/
-/*    color: white;*/
-/*}*/
-/*.form_style label{*/
-/*    font-weight: 500!important;*/
-/*}*/
-/*.main_form{*/
-/*    box-shadow: 0 2px 20px #d4cae2;*/
-/*}*/
-/*.main h4{*/
-/*    color: white;*/
-/*    padding-top: 20px;*/
-/*}*/
-/*.main h5{*/
-/*    color: white;*/
-/*    font-size: 16px;*/
-/*    line-height: 22px;*/
-/*}*/
-
-/*Registration Form*/
 .register {
-    background: linear-gradient(to right, #3931af 0, #00c6ff 100%);
+    background: linear-gradient(#f2a126, #e45d6a, #e31422);
     margin-top: 3%;
     padding: 3%;
     overflow: hidden;
 }
+
 .register .register_form {
     padding: 10%;
     margin-top: 10%;
+    margin-bottom: -48px;
 }
+
 @media (max-width: 991px) {
     .register .register_form {
         margin-top: 16%;
     }
 }
+
 @media (max-width: 667px) {
     .register .register_form {
         margin-top: 20%;
     }
 }
+
 .register .nav_tabs {
     margin-top: 3%;
     border: none;
@@ -95,12 +34,14 @@
     width: 28%;
     float: right;
 }
+
 @media (max-width: 991px) {
     .register .nav_tabs {
         width: 33%;
         margin-top: 8%;
     }
 }
+
 .register .nav_tabs .nav_link {
     padding: 2%;
     height: 34px;
@@ -109,9 +50,11 @@
     border-top-right-radius: 1.5rem;
     border-bottom-right-radius: 1.5rem;
 }
+
 .register .nav_tabs .nav_link:hover {
     border: none;
 }
+
 .register .nav_tabs .nav_link.active {
     width: 100px;
     color: #0062cc;
@@ -125,6 +68,7 @@
     color: #fff;
     margin-top: 4%;
 }
+
 .register_left input {
     border: none;
     border-radius: 1.5rem;
@@ -137,6 +81,7 @@
     margin-bottom: 3%;
     cursor: pointer;
 }
+
 .register_left img {
     margin-top: 15%;
     margin-bottom: 5%;
@@ -144,6 +89,7 @@
     -webkit-animation: mover 1s infinite alternate;
     animation: mover 1s infinite alternate;
 }
+
 .register_left p {
     font-weight: lighter;
     padding: 12%;
@@ -164,6 +110,7 @@
         transform: translateY(-20px);
     }
 }
+
 @keyframes mover {
     0% {
         transform: translateY(0);
@@ -172,14 +119,17 @@
         transform: translateY(-20px);
     }
 }
+
 .btnRegister {
     float: right;
     margin-top: 2%;
     border: none;
     border-radius: 1.5rem;
     padding: 2%;
-    background-color: #e31422!important;
-    color: #fff!important;
+    /*background-color: #e31422 !important;*/
+    /*background-color: #e31422!important;*/
+    background: linear-gradient(#e45d6a, #e31422);
+    color: #fff !important;
     font-weight: 600;
     width: 50%;
     cursor: pointer;
@@ -187,16 +137,20 @@
 
 .register_heading {
     text-align: center;
-    margin-top: 8%;
+    margin-top: 5%;
     margin-bottom: -15%;
     color: #495057;
 }
+
 @media (max-width: 991px) {
     .register_heading {
         font-size: 1.5rem;
     }
 }
-.main_registration{
-    margin-top: 140px;
-    margin-bottom: 30px;
+
+.main_registration {
+    padding-top: 110px;
+    padding-bottom: 80px;
+    background-color: #f6f7fb!important;
+
 }

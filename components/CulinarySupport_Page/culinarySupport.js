@@ -58,8 +58,8 @@ const CulinarySupport = (props) => {
                             <Col lg={4}>
                                 <div className={`${CulinaryStyle.card_style} card border-0`}>
                                     <img
-                                        src="https://blog.marraforni.com/wp/wp-content/uploads/2021/03/Rep-Chef-Blog.png"
-                                        className="card-img-top" alt="..."/>
+                                        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
+                                        className="card-img-top" alt="..." style={{height:'250px'}}/>
                                     <div className="card-body">
                                         <h4 className="card-title">Did you know that sundried bricks are the first</h4>
                                         <p className="card-text">Some quick example text to build on the card title and
@@ -73,8 +73,8 @@ const CulinarySupport = (props) => {
                             <Col lg={4}>
                                 <div className={`${CulinaryStyle.card_style} card border-0`}>
                                     <img
-                                        src="https://blog.marraforni.com/wp/wp-content/uploads/2021/03/Rep-Chef-Blog.png"
-                                        className="card-img-top" alt="..."/>
+                                        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
+                                        className="card-img-top" alt="..." style={{height:'250px'}}/>
                                     <div className="card-body">
                                         <h4 className="card-title">Did you know that sundried bricks are the first</h4>
                                         <p className="card-text">Some quick example text to build on the card title and
@@ -87,8 +87,8 @@ const CulinarySupport = (props) => {
                             <Col lg={4}>
                                 <div className={`${CulinaryStyle.card_style} card border-0`}>
                                     <img
-                                        src="https://blog.marraforni.com/wp/wp-content/uploads/2021/03/Rep-Chef-Blog.png"
-                                        className="card-img-top" alt="..."/>
+                                        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
+                                        className="card-img-top" alt="..." style={{height:'250px'}}/>
                                     <div className="card-body">
                                         <h4 className="card-title">Did you know that sundried bricks are the first</h4>
                                         <p className="card-text">Some quick example text to build on the card title and

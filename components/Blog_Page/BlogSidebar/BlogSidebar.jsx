@@ -47,19 +47,28 @@ const BlogSidebar = (props) => {
                         }}><a title='CookingVersatility'>CookingVersatility</a></Link>
                     </li>
                     <li className="cat-item">
-                        <Link href="/"><a title='Awesome Chefs'>Awesome Chefs</a></Link>
+                        <Link href={{
+                            pathname: "/blog",
+                            query: { name: "Marketing" },
+                        }}><a title='Awesome Chefs'>Awesome Chefs</a></Link>
                     </li>
                     <li className="cat-item">
-                        <Link href="/"><a title='Marra Friends'>Marra Friends</a></Link>
+                        <Link href={{
+                            pathname: "/blog",
+                            query: { name: "Entertainment" },
+                        }}><a title='Marra Friends'>Marra Friends</a></Link>
                     </li>
                     <li className="cat-item">
-                        <Link href="/"><a title='Marra Innovations'>Marra Innovations</a></Link>
+                        <Link href={{
+                            pathname: "/blog",
+                            query: { name: "Team Marra" },
+                        }}><a title='Marra Innovations'>Marra Innovations</a></Link>
                     </li>
                     <li className="cat-item">
-                        <Link href="/"><a title='Pizza Industry News'>Pizza Industry News</a></Link>
-                    </li>
-                    <li className="cat-item">
-                        <Link href="/"><a title='Team Marra'>Team Marra</a></Link>
+                        <Link href={{
+                            pathname: "/blog",
+                            query: { name: "Press" },
+                        }}><a title='Holidays'>Pizza Industry News</a></Link>
                     </li>
                 </ul>
             </div>
@@ -67,7 +76,7 @@ const BlogSidebar = (props) => {
                 <h4 className='text-center'>Recent Highlight</h4>
                 <ul className='text-center m-0'>
                     {blog && blog.length ? blog.map((item, i) => (
-                        <li className='cat-item mb-2'>
+                        <li className='cat-item mb-2' key={item.id}>
                             <Link href={`${process.env.NEXT_PUBLIC_BASE_PATH}/blog/${item.id}`}>
                                 <a title='5 Ways MarraStone Revolutionizes the Brick Oven'>{item.title}</a>
                             </Link>
@@ -80,7 +89,10 @@ const BlogSidebar = (props) => {
                     <h4 className="card-title">Tags</h4>
                     <div className='pl-2 pr-1'>
                         {blog && blog.length ? blog.map((item, i) => (
-                            <Link href='/'>
+                            <Link href={{
+                                pathname: "/blog",
+                                query: { tag: "TEST" },
+                            }} key={item.id}>
                                 <a title='amy riolo' className='pl-1'>
                                     <u>{item.tags}</u>
                                 </a>
