@@ -15,9 +15,6 @@ const BlogSingleMain = (props) => {
     const router = useRouter()
     const {id} = router.query
     const [data, setData] = useState(false)
-    const [paragraph, setParagraph] = useState(false)
-    console.log('data ',data)
-    console.log('paragraph', paragraph)
 
     const convertDataToHtml = (blocks) =>{
         var convertedHtml = "";
@@ -61,17 +58,15 @@ const BlogSingleMain = (props) => {
         }).then((res) => {
             if (res.status) {
                 const singleBlog = res.data;
-                // const renderedBlogs = ()=>{
-                //     const value = singleBlog;
-                //     let jsonFormat = JSON.parse(value.blogData)
-                //     let previewData = jsonFormat[0]
-                //     let renderedHtml = convertDataToHtml(jsonFormat)
-                //     let renderedHtmlPreview = convertDataToHtml([previewData])
-                //     return {...value, renderedHtml, previewData, renderedHtmlPreview}
-                // }
-                // setData(renderedBlogs)
-                // setParagraph(renderedBlogs)
-                setData(singleBlog)
+                const renderedBlogs = ()=>{
+                    const value = singleBlog;
+                    let jsonFormat = JSON.parse(value.blogData)
+                    let previewData = jsonFormat[0]
+                    let renderedHtml = convertDataToHtml(jsonFormat)
+                    let renderedHtmlPreview = convertDataToHtml([previewData])
+                    return {...value, renderedHtml, previewData, renderedHtmlPreview}
+                }
+                setData(renderedBlogs)
             }
         }).catch((error) => {
 

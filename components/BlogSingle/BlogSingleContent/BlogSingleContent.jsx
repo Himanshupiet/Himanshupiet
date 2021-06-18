@@ -6,7 +6,7 @@ import BlogSingleContentStyle from './BlogSingleContent.module.css'
 import Link from 'next/link';
 
 const BlogSingleContent = (props) => {
-    const {title, bannerImageUrl, blogData, metaKeyword, altTag, createdBy} = props.data;
+    const {title, bannerImageUrl, blogData, metaKeyword, altTag, createdBy, renderedHtmlPreview} = props.data;
     return (
         <>
             <div className={BlogSingleContentStyle.feature_image}>
@@ -19,8 +19,7 @@ const BlogSingleContent = (props) => {
                 </div>
             </div>
             <div className={BlogSingleContentStyle.content_box}>
-                <p>{blogData}</p>
-                {/*<div dangerouslySetInnerHTML={{__html: item.renderedHtmlPreview}}></div>*/}
+                <div dangerouslySetInnerHTML={{__html: renderedHtmlPreview}}></div>
             </div>
             <div className={BlogSingleContentStyle.social_box}>
                 <Row>
