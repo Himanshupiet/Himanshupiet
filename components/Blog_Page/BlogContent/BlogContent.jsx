@@ -3,29 +3,51 @@ import BlogContentStyle from './BlogContent.module.css'
 import Link from 'next/link';
 import {Container} from 'react-bootstrap'
 import {withRouter} from 'next/router'
+import {useRouter} from "next/router";
 
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import * as blogActions from '../../../actions/blog'
 
 const BlogContent = (props) => {
+    const router = useRouter()
+    const name = router.query.name
     const [blog, setBlog] = useState([])
     const [filter, setFilter] = useState([])
+    console.log(blog)
 
     useEffect(() => {
         props.productActions.getAllPost()
     }, [])
+
     useEffect(() => {
         if (props && props.blog && props.blog.blog && props.blog.blog.result && props.blog.blog.result.content) {
-            setBlog(props.blog.blog.result.content)
-            setFilter(props.blog.blog.result.content)
+            const allBlogs = props.blog.blog.result.content;
+            console.log('allBlogs', allBlogs)
+            const renderedBlogs = allBlogs.map((data) => {
+                let jsonFormat = JSON.parse(data.blogData)
+                let previewData = jsonFormat[0]
+                let renderedHtml = convertDataToHtml(jsonFormat)
+                let renderedHtmlPreview = convertDataToHtml([previewData])
+                return {...data, renderedHtml, previewData, renderedHtmlPreview}
+            })
+
+            setBlog(renderedBlogs)
+
+            if (!name) {
+                setFilter(renderedBlogs)
+            } else {
+                const updateData = props.blog.blog.result.content.filter((catItem) => {
+                    return catItem.category === name;
+                })
+                setFilter(updateData)
+            }
         }
     }, [props.blog])
 
     useEffect(() => {
         resizeAllGridItems();
         window.addEventListener("resize", resizeAllGridItems);
-        filterItem()
     }, [])
 
     const resizeGridItem = (item) => {
@@ -41,34 +63,67 @@ const BlogContent = (props) => {
             resizeGridItem(allItems[x]);
         }
     }
-    const filterItem = (cat)=>{
-        const updateData = blog.filter((catItem)=>{
+    const filterItem = (cat) => {
+        const updateData = blog.filter((catItem) => {
             return catItem.category === cat;
         })
         setFilter(updateData)
     }
 
+    const convertDataToHtml = (blocks) => {
+        var convertedHtml = "";
+        blocks.map(block => {
+            switch (block.type) {
+                case "header":
+                    convertedHtml += `<h${block.data.level}>${block.data.text}</h${block.data.level}>`;
+                    break;
+                case "embded":
+                    convertedHtml += `<div><iframe width="560" height="315" src="${block.data.embed}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>`;
+                    break;
+                case "paragraph":
+                    convertedHtml += `<p>${block.data.text}</p>`;
+                    break;
+                case "delimiter":
+                    convertedHtml += "<hr />";
+                    break;
+                case "image":
+                    convertedHtml += `<img class="img-fluid" src="${block.data.file.url}" title="${block.data.caption}" /><br /><em>${block.data.caption}</em>`;
+                    break;
+                case "list":
+                    convertedHtml += "<ul>";
+                    block.data.items.forEach(function (li) {
+                        convertedHtml += `<li>${li}</li>`;
+                    });
+                    convertedHtml += "</ul>";
+                    break;
+                default:
+                    console.log("Unknown block type", block.type);
+                    break;
+            }
+        });
+        return convertedHtml;
+    }
+
     return (
         <Container fluid className='mb-5 mt-5'>
             <ul className={BlogContentStyle.catfilter}>
-                    <li>
-                        {/*<button className={BlogContentStyle.activecatfilter}>{item.category}</button>*/}
-                        <button className={BlogContentStyle.activecatfilter} onClick={()=> filterItem('All')}>All</button>
-                    </li>
                 <li>
-                    <button onClick={()=> filterItem('Press')}>Press</button>
+                    <button className={BlogContentStyle.activecatfilter} onClick={() => setFilter(blog)}>All</button>
                 </li>
                 <li>
-                    <button onClick={()=> filterItem('Marketing')}>Marketing</button>
+                    <button onClick={() => filterItem('Press')}>CookingVersatility</button>
                 </li>
                 <li>
-                    <button onClick={()=> filterItem('Entertainment')}>Entertainment</button>
+                    <button onClick={() => filterItem('Marketing')}>Awesome Chefs</button>
                 </li>
                 <li>
-                    <button onClick={()=> filterItem('Team Marra')}>Team Marra</button>
+                    <button onClick={() => filterItem('Entertainment')}>Marra Friends</button>
                 </li>
                 <li>
-                    <button onClick={()=> filterItem('Holidays')}>Holidays</button>
+                    <button onClick={() => filterItem('Team Marra')}>Marra Innovations</button>
+                </li>
+                <li>
+                    <button onClick={() => filterItem('Holidays')}>Pizza Industry News</button>
                 </li>
             </ul>
             <div className={'blog_outer'}>
@@ -89,13 +144,14 @@ const BlogContent = (props) => {
                                 </a>
                             </Link>
                             <div className={BlogContentStyle.blog_info}>
-                                <Link href={`${process.env.NEXT_PUBLIC_BASE_PATH}/blog/${item.id}`}>
+                                <Link href={`/blog/${item.id}`}>
                                     <a title={item.aliasUrl}>
                                         <h2>{item.metaKeyword}</h2>
                                     </a>
                                 </Link>
                                 <div className={BlogContentStyle.blog_date}>April 30, 2021</div>
-                                <p>{item.blogData}</p>
+                                {/* <p>{item.renderedHtml}</p> */}
+                                <div dangerouslySetInnerHTML={{__html: item.renderedHtmlPreview}}></div>
                                 <div className={BlogContentStyle.meta_box}>
                                     <img alt='Author' width='42' height='42'
                                          src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/avatar.png`}/>

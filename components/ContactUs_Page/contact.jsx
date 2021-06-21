@@ -78,7 +78,7 @@ const Contact = () => {
                                     <i className="fa fa-magic fa-4x align-self-center"></i>
                                     <div className='align-self-center'>
                                         <Link href={`${process.env.NEXT_PUBLIC_BASE_PATH}/sales-support`}>
-                                            <a title='Culinary Support'>
+                                            <a title='Sales Support'>
                                                 <h3>Sales of Support</h3>
                                             </a>
                                         </Link>

@@ -22,27 +22,27 @@ const Product = (props) => {
                   animateIn='fadeInLeft' 
                   animateOnce={true}
                 >
-                  <div 
-                    className={ProductStyle.product_inner}>
-                    <img 
-                      className='img-fluid' 
-                      alt='Card image cap' 
-                      src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/WholeFoods.webp`} 
-                      width='376' 
-                      height='498' 
+                  <div
+                      className={ProductStyle.product_inner}>
+                    <img
+                        className='img-fluid'
+                        alt='Card image cap'
+                        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/WholeFoods.webp`}
+                        width='376'
+                        height='498'
                     />
-                    <div 
-                      className={ProductStyle.product_info}>
+                    <div
+                        className={ProductStyle.product_info}>
                       <h3>Rotator</h3>
-                      <p>{('High-performance, high-efficiency, user-friendly for unskilled labor').substr(0,80)}
-                      {('High-performance, high-efficiency, user-friendly for unskilled labor').length > 80 && '...'}</p>
-                      <Link 
-                        href='/discover-the-rotator-brick-oven'>
-                        <a 
-                          className='mf_btn' 
-                          title='Discover The Rotator'
+                          <p>{('High-performance, high-efficiency, user-friendly for unskilled labor').substr(0,80)}
+                          {('High-performance, high-efficiency, user-friendly for unskilled labor').length > 80 && '...'}</p>
+                      <Link
+                          href='/neapolitan'>
+                        <a
+                            className='mf_btn'
+                            title='Discover the Neapolitan'
                         >
-                          Discover The Rotator
+                          Discover the Neapolitan
                         </a>
                       </Link>
                     </div>

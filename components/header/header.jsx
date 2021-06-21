@@ -314,7 +314,7 @@ const Header = (props) => {
                                                 want to customize your oven. Once you're happy with your design, snap a
                                                 screenshot and attach it to the quote form on the right. We'll talk to
                                                 you soon.</p>
-                                            <div style={{display: 'flex'}}>
+                                            <div style={{display: 'flex',margin:'auto'}}>
                                                 <DropdownButton id="dropdown-item-button" title='Tiles'
                                                                 onSelect={handleTiles} variant='light'>
                                                     <Dropdown.ItemText className={headerStyle.main_title}>
@@ -371,13 +371,6 @@ const Header = (props) => {
                                                     ))}
                                                 </DropdownButton>
                                             </div>
-                                            {/*<div className="select-container">*/}
-                                            {/*  <select value={color} onChange={handleChange}>*/}
-                                            {/*    {options.map((option) => (*/}
-                                            {/*        <option value={option.value} key={option.id}>{option.label}</option>*/}
-                                            {/*    ))}*/}
-                                            {/*  </select>*/}
-                                            {/*</div>*/}
                                             <div className="position-relative"
                                                  style={{width: '500px'}}>
                                                 <img className='oven-image-tile position-absolute'
@@ -653,56 +646,6 @@ const Header = (props) => {
                                     }>
                                         <i className={mobileProductOpen ? "bx bxs-chevron-down" : "bx bxs-chevron-up"}></i>
                                     </button>
-                                    {/*    <div*/}
-                                    {/*        className={`${headerStyle.product_sub_menu} ${mobileProductOpen ? headerStyle.product_sub_menu_active : ""}`}>*/}
-                                    {/*        <Tabs defaultActiveKey={product[0]} id="uncontrolled-tab-example">*/}
-                                    {/*            {(product && product.length) ? product.map((item, id) => (*/}
-                                    {/*                <Tab eventKey={item.name} title={item.name}*/}
-                                    {/*                     key={id}>*/}
-                                    {/*                    <Row>*/}
-                                    {/*                        {item.categoryList.map((res, id) => (*/}
-                                    {/*                            <>*/}
-                                    {/*                                {res.id === 1 ?*/}
-                                    {/*                                    <Col sm={3} key={res.id}>*/}
-                                    {/*                                        <div className={headerStyle.special_product}>*/}
-                                    {/*                                            <Link*/}
-                                    {/*                                                href="/product/discover-the-rotator-brick-oven">*/}
-                                    {/*                                                <a title="">*/}
-                                    {/*                                                    <img*/}
-                                    {/*                                                        src={res.imageUrl}*/}
-                                    {/*                                                        width="200" height="200"*/}
-                                    {/*                                                        alt="Top Product"/>*/}
-                                    {/*                                                    <p>Rotator Brick Oven</p>*/}
-                                    {/*                                                </a>*/}
-                                    {/*                                            </Link>*/}
-                                    {/*                                        </div>*/}
-                                    {/*                                    </Col> :*/}
-                                    {/*                                    <Col sm={9}>*/}
-                                    {/*                                        <div className={headerStyle.rest_product}>*/}
-                                    {/*                                            <ul>*/}
-                                    {/*                                                <li>*/}
-                                    {/*                                                    <Link href="/">*/}
-                                    {/*                                                        <a title="">*/}
-                                    {/*                                                            <img*/}
-                                    {/*                                                                src={res.imageUrl}*/}
-                                    {/*                                                                width="100" height="100"*/}
-                                    {/*                                                                alt="Top Product"/>*/}
-                                    {/*                                                            <p>The Neapolitan</p>*/}
-                                    {/*                                                        </a>*/}
-                                    {/*                                                    </Link>*/}
-                                    {/*                                                </li>*/}
-                                    {/*                                            </ul>*/}
-                                    {/*                                        </div>*/}
-                                    {/*                                    </Col>*/}
-                                    {/*                                }*/}
-                                    {/*                            </>*/}
-                                    {/*                        ))}*/}
-                                    {/*                    </Row>*/}
-                                    {/*                </Tab>*/}
-                                    {/*            )) : null}*/}
-                                    {/*        </Tabs>*/}
-                                    {/*    </div>*/}
-                                    {/*</div>*/}
                                     <div
                                         className={`${headerStyle.product_sub_menu} ${mobileProductOpen ? headerStyle.product_sub_menu_active : ""}`}>
                                         <Tabs defaultActiveKey={product.id} id="uncontrolled-tab-example">
@@ -737,7 +680,7 @@ const Header = (props) => {
                                                                     {item.categoryList.map((res, id) => (
                                                                         <>
                                                                             { id !== 0 &&
-                                                                                <li>
+                                                                                <li key={id}>
                                                                                     <Link href="/">
                                                                                         <a title="">
                                                                                             <img
@@ -824,9 +767,9 @@ const Header = (props) => {
                                     </div>
                                 </div>
                                 <div className={headerStyle.sub_menu_outer}>
-                                    <ActiveLink activeClassName="active_menu" href="/contact">
+                                    {/*<ActiveLink activeClassName="active_menu" href="">*/}
                                         <a title="Contact Us" data-title="Contact Us"><span>Contact Us</span></a>
-                                    </ActiveLink>
+                                    {/*</ActiveLink>*/}
                                     <button className={headerStyle.mobile_show} onClick={() => {
                                         setMobileProductOpen(false);
                                         setMobileBlogOpen(false);
@@ -840,6 +783,11 @@ const Header = (props) => {
                                         className={`${headerStyle.sub_menu} ${mobileContactOpen ? headerStyle.sub_menu_active : ""}`}>
                                         <ul>
                                             <li>
+                                                <Link href="/contact">
+                                                    <a title="ContactUs"><span>Contact Us</span></a>
+                                                </Link>
+                                            </li>
+                                            <li>
                                                 <Link href="/">
                                                     <a title="HQ"><span>HQ</span></a>
                                                 </Link>
@@ -847,11 +795,6 @@ const Header = (props) => {
                                             <li>
                                                 <Link href="/">
                                                     <a title="Find a Sales Rep"><span>Find a Sales Rep</span></a>
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link href="/login">
-                                                    <a title="Login Page"><span>Login</span></a>
                                                 </Link>
                                             </li>
                                         </ul>

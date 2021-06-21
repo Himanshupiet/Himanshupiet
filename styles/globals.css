@@ -654,6 +654,12 @@ input:focus{
   grid-template-columns: repeat(auto-fill, minmax(290px,1fr));
   grid-auto-rows: 20px;
 }
+@media only screen and (min-width: 1700px) {
+  .blog_outer{
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
 .blog_inner_main{
   box-shadow: 0 0 10px 5px rgb(86 86 86 / 4%);
   border: 1px solid #f6f7fb;

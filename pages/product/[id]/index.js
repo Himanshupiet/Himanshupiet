@@ -24,6 +24,7 @@ const SingleProduct = (props) => {
     const router = useRouter()
     const {id} = router.query
     const [data, setData] = useState(false)
+    console.log(data)
     let highlightData = {
         Heading: '',
         subHeading: 'You are a few clicks away from owning the most durable, energy-efficient, customizable and feature pack brick oven in the world.',
@@ -52,7 +53,7 @@ const SingleProduct = (props) => {
                 description='Marra Forni offers a one-stop-shop for restaurant oven and oven equipment and appliances and other foodservice businesses. Our innovative solutions range from'
             />
             <Header />
-            <TopBanner />
+            <TopBanner data={data} />
             <Overview />
             <Modals />
             <Touchscreen />

@@ -98,6 +98,8 @@ const Faq = () => {
                     <Col lg={7}>
                         <div className='mt-5 mb-5'>
                             <h2>Frequently Asked Questions (FAQs)</h2>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's standard dummy.</p>
                             <Accordion className='mt-4'>
                                 {faqData.map((item, i) => {
                                     return (
@@ -145,7 +147,8 @@ const Faq = () => {
                         <div className={`${BlogSidebarStyle.card_item} card mb-3 p-3`}>
                             <div>
                                 <img
-                                    src="https://ultima.qodeinteractive.com/wp-content/uploads/2016/10/faq-sidebar.jpg"/>
+                                    src="https://ultima.qodeinteractive.com/wp-content/uploads/2016/10/faq-sidebar.jpg"
+                                    width='600'/>
                             </div>
                         </div>
                     </Col>

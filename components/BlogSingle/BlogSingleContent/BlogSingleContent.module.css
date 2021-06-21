@@ -3,7 +3,8 @@
 }
 .feature_image img{
   width: 100%;
-  height: auto;
+  height: 800px;
+  object-fit: cover;
   border-radius: 3px;
 }
 .meta_info{
