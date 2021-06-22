@@ -27,9 +27,9 @@ const BlogContent = (props) => {
     useEffect(() => {
         if (props && props.blog && props.blog.blog && props.blog.blog.result && props.blog.blog.result.content) {
             const allBlogs = props.blog.blog.result.content;
+            console.log('allBlogs', allBlogs)
             const renderedBlogs = allBlogs.map((data) => {
                 let jsonFormat = JSON.parse(data.blogData)
-                console.log('jsonFormat ', jsonFormat)
                 let previewData = jsonFormat[0]
                 let renderedHtml = convertDataToHtml(jsonFormat)
                 let renderedHtmlPreview = convertDataToHtml([previewData])
@@ -115,12 +115,12 @@ const BlogContent = (props) => {
                     convertedHtml += "</ul>";
                     break;
                 default:
-                    console.log("Unknown block type", block.type);
                     break;
             }
         });
         return convertedHtml;
     }
+
 
     return (
         <Container fluid className='mb-5 mt-5'>
