@@ -1,8 +1,13 @@
 .section_outer{
-  padding: 30px 0;
+  padding: 70px 0;
   background-color: #f6f7fc;
-  text-align: center;
+  /*text-align: center;*/
 }
 .section_outer h2{
   padding-top: 30px;
+}
+@media only screen and (min-width: 1700px) {
+  .culinary_img{
+    padding-left: 160px;
+  }
 }

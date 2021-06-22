@@ -6,11 +6,12 @@ import BlogSingleContentStyle from './BlogSingleContent.module.css'
 import Link from 'next/link';
 
 const BlogSingleContent = (props) => {
-    const {title, bannerImageUrl, blogData, metaKeyword, altTag, createdBy, renderedHtmlPreview} = props.data;
+    const {title, bannerImageUrl, blogData, metaKeyword, altTag, createdBy, renderedHtmlPreview,tags} = props.data;
+    console.log(renderedHtmlPreview)
     return (
         <>
             <div className={BlogSingleContentStyle.feature_image}>
-                <img alt={altTag} src={bannerImageUrl} width='1000' height='400' className='img-fluid'/>
+                <img alt={altTag} src={bannerImageUrl} className='img-fluid' style={{objectFit:'cover',height:'500px'}}/>
             </div>
             <div className={BlogSingleContentStyle.title_box}>
                 <h2>{metaKeyword}</h2>
@@ -27,8 +28,7 @@ const BlogSingleContent = (props) => {
                         <div className={BlogSingleContentStyle.tags_outer}>
                             <h6>Tags: </h6>
                             <div className={BlogSingleContentStyle.alltags}>
-                                <Link href="/"><a title='Brick Oven'><u>Brick Oven</u>, </a></Link>
-                                <Link href="/"><a title='Brick Oven'><u>Brick Oven</u></a></Link>
+                                <Link href="/"><a title='Brick Oven'><u>{tags}</u>, </a></Link>
                             </div>
                         </div>
                     </Col>

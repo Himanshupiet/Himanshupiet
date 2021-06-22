@@ -5,10 +5,15 @@ import {bindActionCreators} from "redux";
 import * as blogActions from "../../../actions/blog";
 import {connect} from "react-redux";
 import {withRouter} from "next/router";
+import axios from "axios";
+import {API_HOST} from "../../../env";
 
 
 const BlogSidebar = (props) => {
     const [blog, setBlog] = useState([])
+    const [tags, setTags] = useState([])
+    const [category, setCategory] = useState([])
+
 
     useEffect(() => {
         props.productActions.getAllPost()
@@ -19,7 +24,34 @@ const BlogSidebar = (props) => {
             setBlog(props.blog.blog.result.content)
         }
     }, [props.blog])
-    console.log(blog)
+
+    useEffect(() => {
+        axios.get(`${API_HOST}blog/getTagsList`, {
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }).then((res) => {
+            if (res.status) {
+                setTags(res.data)
+            }
+        }).catch((error) => {
+
+        })
+    }, [])
+
+    useEffect(() => {
+        axios.get(`${API_HOST}blog/getCategoryList`, {
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }).then((res) => {
+            if (res.status) {
+                setCategory(res.data)
+            }
+        }).catch((error) => {
+
+        })
+    }, [])
     return (
         <>
             <div className={BlogSidebarStyle.searchbox}>
@@ -40,36 +72,22 @@ const BlogSidebar = (props) => {
             <div className={`${BlogSidebarStyle.card_item} card mb-3 p-3`}>
                 <h4 className='text-center'>Categories</h4>
                 <ul className='text-center m-0'>
-                    <li className="cat-item">
-                        <Link href={{
-                            pathname: "/blog",
-                            query: { name: "Press" },
-                        }}><a title='CookingVersatility'>CookingVersatility</a></Link>
-                    </li>
-                    <li className="cat-item">
-                        <Link href={{
-                            pathname: "/blog",
-                            query: { name: "Marketing" },
-                        }}><a title='Awesome Chefs'>Awesome Chefs</a></Link>
-                    </li>
-                    <li className="cat-item">
-                        <Link href={{
-                            pathname: "/blog",
-                            query: { name: "Entertainment" },
-                        }}><a title='Marra Friends'>Marra Friends</a></Link>
-                    </li>
-                    <li className="cat-item">
-                        <Link href={{
-                            pathname: "/blog",
-                            query: { name: "Team Marra" },
-                        }}><a title='Marra Innovations'>Marra Innovations</a></Link>
-                    </li>
-                    <li className="cat-item">
-                        <Link href={{
-                            pathname: "/blog",
-                            query: { name: "Press" },
-                        }}><a title='Holidays'>Pizza Industry News</a></Link>
-                    </li>
+                    {(category && category.length) ? category.map((item, i) => (
+                        <li className="cat-item">
+                            <Link href={{
+                                pathname: "/blog",
+                                query: {name: `${item}`},
+                            }} key={i}>
+                                <a title={item}>{item}</a>
+                            </Link>
+                        </li>
+                    )) : null}
+                    {/*<li className="cat-item">*/}
+                    {/*    <Link href={{*/}
+                    {/*        pathname: "/blog",*/}
+                    {/*        query: {name: "Marketing"},*/}
+                    {/*    }}><a title='Awesome Chefs'>Awesome Chefs</a></Link>*/}
+                    {/*</li>*/}
                 </ul>
             </div>
             <div className={`${BlogSidebarStyle.card_item} card mb-3 p-3`}>
@@ -88,13 +106,13 @@ const BlogSidebar = (props) => {
                 <div className="card-body text-center">
                     <h4 className="card-title">Tags</h4>
                     <div className='pl-2 pr-1'>
-                        {blog && blog.length ? blog.map((item, i) => (
+                        {tags && tags.length ? tags.map((item, i) => (
                             <Link href={{
                                 pathname: "/blog",
-                                query: { tag: "TEST" },
-                            }} key={item.id}>
+                                query: {tag: `${item}`},
+                            }} key={item}>
                                 <a title='amy riolo' className='pl-1'>
-                                    <u>{item.tags}</u>
+                                    <u>{`${item},`}</u>
                                 </a>
                             </Link>
                         )) : null}

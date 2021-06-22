@@ -16,7 +16,7 @@ const BlogSingleMain = (props) => {
     const {id} = router.query
     const [data, setData] = useState(false)
 
-    const convertDataToHtml = (blocks) =>{
+    const convertDataToHtml = (blocks) => {
         var convertedHtml = "";
         blocks.map(block => {
             switch (block.type) {
@@ -37,7 +37,7 @@ const BlogSingleMain = (props) => {
                     break;
                 case "list":
                     convertedHtml += "<ul>";
-                    block.data.items.forEach(function(li) {
+                    block.data.items.forEach(function (li) {
                         convertedHtml += `<li>${li}</li>`;
                     });
                     convertedHtml += "</ul>";
@@ -58,7 +58,7 @@ const BlogSingleMain = (props) => {
         }).then((res) => {
             if (res.status) {
                 const singleBlog = res.data;
-                const renderedBlogs = ()=>{
+                const renderedBlogs = () => {
                     const value = singleBlog;
                     let jsonFormat = JSON.parse(value.blogData)
                     let previewData = jsonFormat[0]
@@ -72,6 +72,7 @@ const BlogSingleMain = (props) => {
 
         })
     }, [id])
+
 
     return (
         <>

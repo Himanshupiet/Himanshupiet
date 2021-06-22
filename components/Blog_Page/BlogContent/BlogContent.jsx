@@ -8,13 +8,17 @@ import {useRouter} from "next/router";
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import * as blogActions from '../../../actions/blog'
+import axios from "axios";
+import {API_HOST} from "../../../env";
 
 const BlogContent = (props) => {
     const router = useRouter()
+    const tag = router.query.tag
     const name = router.query.name
     const [blog, setBlog] = useState([])
     const [filter, setFilter] = useState([])
-    console.log(blog)
+    const [category, setCategory] = useState([])
+    console.log('Category data ', category)
 
     useEffect(() => {
         props.productActions.getAllPost()
@@ -23,27 +27,41 @@ const BlogContent = (props) => {
     useEffect(() => {
         if (props && props.blog && props.blog.blog && props.blog.blog.result && props.blog.blog.result.content) {
             const allBlogs = props.blog.blog.result.content;
-            console.log('allBlogs', allBlogs)
             const renderedBlogs = allBlogs.map((data) => {
                 let jsonFormat = JSON.parse(data.blogData)
+                console.log('jsonFormat ', jsonFormat)
                 let previewData = jsonFormat[0]
                 let renderedHtml = convertDataToHtml(jsonFormat)
                 let renderedHtmlPreview = convertDataToHtml([previewData])
                 return {...data, renderedHtml, previewData, renderedHtmlPreview}
             })
-
             setBlog(renderedBlogs)
 
-            if (!name) {
+            if (!name && !tag) {
                 setFilter(renderedBlogs)
             } else {
                 const updateData = props.blog.blog.result.content.filter((catItem) => {
-                    return catItem.category === name;
+                    return catItem.category === name || catItem.tags === tag;
                 })
                 setFilter(updateData)
             }
         }
     }, [props.blog])
+
+    useEffect(() => {
+        axios.get(`${API_HOST}blog/getCategoryList`, {
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }).then((res) => {
+            if (res.status) {
+                setCategory(res.data)
+            }
+        }).catch((error) => {
+
+        })
+    }, [])
+
 
     useEffect(() => {
         resizeAllGridItems();
@@ -106,26 +124,20 @@ const BlogContent = (props) => {
 
     return (
         <Container fluid className='mb-5 mt-5'>
-            <ul className={BlogContentStyle.catfilter}>
-                <li>
-                    <button className={BlogContentStyle.activecatfilter} onClick={() => setFilter(blog)}>All</button>
-                </li>
-                <li>
-                    <button onClick={() => filterItem('Press')}>CookingVersatility</button>
-                </li>
-                <li>
-                    <button onClick={() => filterItem('Marketing')}>Awesome Chefs</button>
-                </li>
-                <li>
-                    <button onClick={() => filterItem('Entertainment')}>Marra Friends</button>
-                </li>
-                <li>
-                    <button onClick={() => filterItem('Team Marra')}>Marra Innovations</button>
-                </li>
-                <li>
-                    <button onClick={() => filterItem('Holidays')}>Pizza Industry News</button>
-                </li>
-            </ul>
+            {(category && category.length) ?
+                <ul className={BlogContentStyle.catfilter}>
+                    <li>
+                        <button className={BlogContentStyle.activecatfilter} onClick={() => setFilter(blog)}>All
+                        </button>
+                    </li>
+                    {category.map((item, i) => (
+                        <li key={item}>
+                            <button onClick={() => filterItem(`${item}`)}>{item}</button>
+                        </li>
+                    ))}
+                </ul> : null
+            }
+
             <div className={'blog_outer'}>
                 {(filter && filter.length) ? filter.map((item, i) => (
                     <div className={`${BlogContentStyle.main_style} blog_inner`} key={item.id}>
@@ -138,7 +150,7 @@ const BlogContent = (props) => {
                                             alt={'5 Ways MarraStone Revolutionizes The Brick Oven'} width="1920"
                                             width='300' className="img-fluid"/>
                                         <div className={BlogContentStyle.blogimg_hover}>
-                                            <div className={BlogContentStyle.blog_tag}>{item.title}</div>
+                                            <div className={BlogContentStyle.blog_tag}>{item.category}</div>
                                         </div>
                                     </div>
                                 </a>
@@ -146,12 +158,12 @@ const BlogContent = (props) => {
                             <div className={BlogContentStyle.blog_info}>
                                 <Link href={`/blog/${item.id}`}>
                                     <a title={item.aliasUrl}>
-                                        <h2>{item.metaKeyword}</h2>
+                                        <h2>{item.title}</h2>
                                     </a>
                                 </Link>
                                 <div className={BlogContentStyle.blog_date}>April 30, 2021</div>
                                 {/* <p>{item.renderedHtml}</p> */}
-                                <div dangerouslySetInnerHTML={{__html: item.renderedHtmlPreview}}></div>
+                                <div dangerouslySetInnerHTML={{__html: item.renderedHtmlPreview.substr(0,150)}}></div>
                                 <div className={BlogContentStyle.meta_box}>
                                     <img alt='Author' width='42' height='42'
                                          src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/avatar.png`}/>

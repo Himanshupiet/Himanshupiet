@@ -54,12 +54,12 @@ const SingleProduct = (props) => {
             />
             <Header />
             <TopBanner data={data} />
-            <Overview />
+            <Overview data={data}/>
             <Modals />
             <Touchscreen />
             <ProductInfo />
             <Features />
-            <Resources />
+            <Resources data={data} />
             <HighLight highlightData={highlightData} />
             <VideoPart />
             <KitchenNearYou />
