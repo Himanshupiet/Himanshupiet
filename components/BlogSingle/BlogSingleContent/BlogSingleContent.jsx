@@ -7,14 +7,14 @@ import Link from 'next/link';
 
 const BlogSingleContent = (props) => {
     const {title, bannerImageUrl, blogData, metaKeyword, altTag, createdBy, renderedHtmlPreview,tags} = props.data;
-    console.log(renderedHtmlPreview)
+    console.log(title)
     return (
         <>
             <div className={BlogSingleContentStyle.feature_image}>
                 <img alt={altTag} src={bannerImageUrl} className='img-fluid' style={{objectFit:'cover',height:'500px'}}/>
             </div>
             <div className={BlogSingleContentStyle.title_box}>
-                <h2>{metaKeyword}</h2>
+                <h2>{title}</h2>
                 <div className={BlogSingleContentStyle.meta_info}>
                     <span>April 30, 2021</span> <span>|</span> <span>{createdBy}</span>
                 </div>

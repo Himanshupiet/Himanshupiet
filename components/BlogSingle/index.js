@@ -51,7 +51,7 @@ const BlogSingleMain = (props) => {
     }
 
     useEffect(() => {
-        axios.get(`${API_HOST}blog/getBlogById?id=` + id, {
+        axios.get(`${API_HOST}blog/getBlogDetailsByUniqueURL?alias=false&blogUrl=` + id, {
             headers: {
                 'Content-Type': 'application/json',
             }

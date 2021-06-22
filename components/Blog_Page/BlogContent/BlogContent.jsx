@@ -156,14 +156,14 @@ const BlogContent = (props) => {
                                 </a>
                             </Link>
                             <div className={BlogContentStyle.blog_info}>
-                                <Link href={`/blog/${item.id}`}>
+                                <Link href={`/blog/${item.uniqueUrl}`}>
                                     <a title={item.aliasUrl}>
                                         <h2>{item.title}</h2>
                                     </a>
                                 </Link>
                                 <div className={BlogContentStyle.blog_date}>April 30, 2021</div>
-                                {/* <p>{item.renderedHtml}</p> */}
-                                <div dangerouslySetInnerHTML={{__html: item.renderedHtmlPreview.substr(0,150)}}></div>
+                                 <p>{item.blogDescription.substr(0,150)}</p>
+                                {/*<div dangerouslySetInnerHTML={{__html: item.renderedHtmlPreview}}></div>*/}
                                 <div className={BlogContentStyle.meta_box}>
                                     <img alt='Author' width='42' height='42'
                                          src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/avatar.png`}/>
