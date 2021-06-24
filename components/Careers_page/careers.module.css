@@ -1,4 +1,4 @@
-.faq_banner {
+.career_banner {
     background-image: url('../../public/images/banneronet.jpg');
     background-position: 100%;
     background-repeat: no-repeat;
@@ -7,11 +7,20 @@
     position: relative;
     width: 100%;
 }
-.faq_banner h2 {
+.career_banner h2 {
     text-align: center;
     color: #fff;
 }
-.faq_banner h3 {
+.career_banner h3 {
     text-align: center;
     color: #fff;
 }
+.main h2{
+    font-size: 35px;
+    font-weight: 600;
+}
+/*.career_card:hover{*/
+/*    background: #04858b;*/
+/*    color: white!important;*/
+/*}*/
+
