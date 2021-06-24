@@ -138,7 +138,7 @@ const Register = (props) => {
                                     <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
                                     <h3 className='text-white'>Welcome</h3>
                                     <p className='text-white'>You are 30 seconds away from earning your own money!</p>
-                                    {/*<input type="submit" name="" value="Login"/><br/>*/}
+                                    <input type="submit" name="" value="Login"/><br/>
                                 </div>
                                 <div className={`${RegistrationStyle.register_right} col-md-9`}>
                                     <div className="tab-content" id="myTabContent">

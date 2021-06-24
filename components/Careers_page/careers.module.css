@@ -1,0 +1,17 @@
+.faq_banner {
+    background-image: url('../../public/images/banneronet.jpg');
+    background-position: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 170px 0;
+    position: relative;
+    width: 100%;
+}
+.faq_banner h2 {
+    text-align: center;
+    color: #fff;
+}
+.faq_banner h3 {
+    text-align: center;
+    color: #fff;
+}
