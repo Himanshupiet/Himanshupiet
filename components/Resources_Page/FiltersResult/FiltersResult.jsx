@@ -120,7 +120,7 @@ const FiltersResult = (props) => {
                       types.paginationArr.length &&
                       types.paginationArr.map((val, i) => {
                         return (
-                          <li>
+                          <li key={i}>
                             <button
                               onClick = {() => handlePagination(val, types.id)}
                               className={ResultStyle.activepagination}

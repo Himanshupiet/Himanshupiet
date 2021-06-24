@@ -15,10 +15,11 @@ const BlogContent = (props) => {
     const router = useRouter()
     const tag = router.query.tag
     const name = router.query.name
+    const queryIndex = router.query.queryIndex
     const [blog, setBlog] = useState([])
     const [filter, setFilter] = useState([])
     const [category, setCategory] = useState([])
-    console.log('Category data ', category)
+    const [activeValue, setActiveValue] = useState(0)
 
     useEffect(() => {
         props.productActions.getAllPost()
@@ -27,7 +28,6 @@ const BlogContent = (props) => {
     useEffect(() => {
         if (props && props.blog && props.blog.blog && props.blog.blog.result && props.blog.blog.result.content) {
             const allBlogs = props.blog.blog.result.content;
-            console.log('allBlogs', allBlogs)
             const renderedBlogs = allBlogs.map((data) => {
                 let jsonFormat = JSON.parse(data.blogData)
                 let previewData = jsonFormat[0]
@@ -44,6 +44,7 @@ const BlogContent = (props) => {
                     return catItem.category === name || catItem.tags === tag;
                 })
                 setFilter(updateData)
+                setActiveValue(queryIndex)
             }
         }
     }, [props.blog])
@@ -127,12 +128,22 @@ const BlogContent = (props) => {
             {(category && category.length) ?
                 <ul className={BlogContentStyle.catfilter}>
                     <li>
-                        <button className={BlogContentStyle.activecatfilter} onClick={() => setFilter(blog)}>All
+                        <button
+                          className={ activeValue == 0 ? BlogContentStyle.activecatfilter : null}
+                          onClick={() => {
+                              setFilter(blog)
+                              setActiveValue(0)
+                          }}>All
                         </button>
                     </li>
                     {category.map((item, i) => (
                         <li key={item}>
-                            <button onClick={() => filterItem(`${item}`)}>{item}</button>
+                            <button
+                              className= {`${i+1 == activeValue ? BlogContentStyle.activecatfilter : ''}`}
+                              onClick={() => {
+                                  filterItem(`${item}`)
+                                  setActiveValue(i+1)
+                              }}>{item}</button>
                         </li>
                     ))}
                 </ul> : null

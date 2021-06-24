@@ -20,12 +20,6 @@ const BlogSidebar = (props) => {
     }, [])
 
     useEffect(() => {
-        if (props && props.blog && props.blog.blog && props.blog.blog.result && props.blog.blog.result.content) {
-            setBlog(props.blog.blog.result.content)
-        }
-    }, [props.blog])
-
-    useEffect(() => {
         axios.get(`${API_HOST}blog/getTagsList`, {
             headers: {
                 'Content-Type': 'application/json',
@@ -38,6 +32,12 @@ const BlogSidebar = (props) => {
 
         })
     }, [])
+
+    useEffect(() => {
+        if (props && props.blog && props.blog.blog && props.blog.blog.result && props.blog.blog.result.content) {
+            setBlog(props.blog.blog.result.content)
+        }
+    }, [props.blog])
 
     useEffect(() => {
         axios.get(`${API_HOST}blog/getCategoryList`, {
@@ -56,7 +56,7 @@ const BlogSidebar = (props) => {
         <>
             <div className={BlogSidebarStyle.searchbox}>
                 <input type="search" name="blogsearch" placeholder="Search"/>
-                <button><i className="bx bx-search"></i></button>
+                <button><i className="bx bx-search"/></button>
             </div>
             <div className="card mb-3">
                 <div className="card-body text-center">
@@ -76,7 +76,7 @@ const BlogSidebar = (props) => {
                         <li className="cat-item">
                             <Link href={{
                                 pathname: "/blog",
-                                query: {name: `${item}`},
+                                query: {name: `${item}`, queryIndex: i+1},
                             }} key={i}>
                                 <a title={item}>{item}</a>
                             </Link>
