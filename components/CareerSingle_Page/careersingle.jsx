@@ -17,7 +17,7 @@ const CareerSingle = () => {
             <Container>
                 <Row>
                     {/*<Col lg={1}></Col>*/}
-                    <Col lg={12}>
+                    <Col lg={12} className='mb-5'>
                         <div className={CarrerSingle.main}>
                             <h5 className='mt-3 mb-3'>Job openings > <span>Senior Content Strategist</span></h5>
                         </div>
@@ -27,7 +27,8 @@ const CareerSingle = () => {
                                 <div className={CarrerSingle.job_desc}>
                                     <h3>Senior Content Strategist</h3>
                                     <h4>Job description</h4>
-                                    <p className='pt-2'>In case we've never met before, we're WebMechanix - an award-winning digital
+                                    <p className='pt-2'>In case we've never met before, we're WebMechanix - an
+                                        award-winning digital
                                         marketing agency based in Columbia, MD. We run high-impact performance marketing
                                         programs for over 60+ clients, which means we manage a lot of PPC campaigns, SEO
                                         initiatives, and more.</p>
@@ -113,7 +114,7 @@ const CareerSingle = () => {
                                         <li>...and more! Ask us about our favorite benefits!</li>
                                     </ul>
                                 </div>
-                                <div>
+                                <div className={CarrerSingle.info}>
                                     <p>WebMechanix is committed to the principles of Equal Employment Opportunity for
                                         all employees and applicants for employment without regard to race, color,
                                         religion, age, sex, national origin, disability, genetic information, sexual
@@ -122,16 +123,31 @@ const CareerSingle = () => {
                                         full-time employees (W2). The type of relationship may change the details of the
                                         position, as well as the benefits and compensation package.</p>
                                     <h5>U.S. Citizens Only</h5>
-                                    <button>Apply for this job</button>
+                                    <div className='text-center'>
+                                        <button className='mf_btn'>Apply for this job</button>
+                                    </div>
                                 </div>
                             </Col>
                             <Col lg={3} className={`${CarrerSingle.sidebar}`}>
                                 <button className={CarrerSingle.apply_btn}>Apply for this job</button>
                                 <button className={CarrerSingle.btn_indeed}>
-                                    <img src='https://d7cxvscusq782.cloudfront.net/assets/careers/indeed-d7605c81b26861a6697ff4f1a1138498b26d6dc93675c4b8307f1ce9f998a819.png' width='25'/>
-                                    Apply with Indeed</button>
+                                    <img
+                                        src='https://d7cxvscusq782.cloudfront.net/assets/careers/indeed-d7605c81b26861a6697ff4f1a1138498b26d6dc93675c4b8307f1ce9f998a819.png'
+                                        width='25'/>
+                                    Apply with Indeed
+                                </button>
                                 <div className="card">
                                     <h6 className='text-center pt-2'>SHARE THIS JOB OPENING</h6>
+                                    <div className={`${CarrerSingle.social_icons} display-flex`}>
+                                        <button type="button"
+                                                className={`${CarrerSingle.facebook} btn btn-facebook btn-icon ml-2 mb-3`}>
+                                            <span className="btn-inner--icon"><i className="fa fa-facebook"></i></span>
+                                            <span className="btn-inner--text">Facebook</span>
+                                        </button>
+                                        <button type="button" className="btn btn-facebook btn-icon ml-2 mb-3">
+                                            <span className="btn-inner--icon"><i className="fa fa-facebook"></i></span>
+                                        </button>
+                                    </div>
                                 </div>
                             </Col>
                         </Row>
