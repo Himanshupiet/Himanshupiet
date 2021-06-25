@@ -23,4 +23,8 @@
 /*    background: #04858b;*/
 /*    color: white!important;*/
 /*}*/
+.image img{
+    height: 340px;
+    width: 300px;
+}
 

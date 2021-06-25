@@ -67,9 +67,10 @@
     border: 1px solid #ccd1d9;
     margin-bottom: 20px;
 }
-.social_icons button{
-    background: #e31422;
-    width: 130px;
+.social_icons a{
+    padding: 7px 25px;
     border-radius: 0!important;
-    color: #ffffff;
+}
+.twitter{
+    background-color: rgb(29, 161, 242);
 }

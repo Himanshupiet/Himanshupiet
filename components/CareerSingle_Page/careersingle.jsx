@@ -14,10 +14,10 @@ const CareerSingle = () => {
                 <h2>Careers at Marraforni</h2>
                 <h3>We always have room for great talent.</h3>
             </Container>
-            <Container>
+            <Container fluid>
                 <Row>
-                    {/*<Col lg={1}></Col>*/}
-                    <Col lg={12} className='mb-5'>
+                    <Col lg={1}></Col>
+                    <Col lg={10} className='mb-5'>
                         <div className={CarrerSingle.main}>
                             <h5 className='mt-3 mb-3'>Job openings > <span>Senior Content Strategist</span></h5>
                         </div>
@@ -138,21 +138,22 @@ const CareerSingle = () => {
                                 </button>
                                 <div className="card">
                                     <h6 className='text-center pt-2'>SHARE THIS JOB OPENING</h6>
-                                    <div className={`${CarrerSingle.social_icons} display-flex`}>
-                                        <button type="button"
-                                                className={`${CarrerSingle.facebook} btn btn-facebook btn-icon ml-2 mb-3`}>
-                                            <span className="btn-inner--icon"><i className="fa fa-facebook"></i></span>
-                                            <span className="btn-inner--text">Facebook</span>
-                                        </button>
-                                        <button type="button" className="btn btn-facebook btn-icon ml-2 mb-3">
-                                            <span className="btn-inner--icon"><i className="fa fa-facebook"></i></span>
-                                        </button>
+                                    <div className={`${CarrerSingle.social_icons} p-2 m-auto`}>
+                                        <a href='#' className='btn btn-danger'>
+                                            <i className="fa fa-facebook-f"></i>
+                                        </a>
+                                        <a href='#' className='btn text-white ml-2' style={{background:'#2977c9'}}>
+                                            <i className="fa fa-linkedin"></i>
+                                        </a>
+                                        <a href='#' className={`${CareerSingle.twitter} ml-2 btn btn-info`}>
+                                            <i className="fa fa-twitter"></i>
+                                        </a>
                                     </div>
                                 </div>
                             </Col>
                         </Row>
                     </Col>
-                    {/*<Col lg={1}></Col>*/}
+                    <Col lg={1}></Col>
                 </Row>
             </Container>
             <Footer/>
