@@ -14,64 +14,31 @@ import ContactStyle from "../ContactUs_Page/contact.module.css";
 const BlogSingleMain = (props) => {
     const router = useRouter()
     const {id} = router.query
-    const [data, setData] = useState(false)
+    const [data, setData] = useState({})
 
-    const convertDataToHtml = (blocks) =>{
-        var convertedHtml = "";
-        blocks.map(block => {
-            switch (block.type) {
-                case "header":
-                    convertedHtml += `<h${block.data.level}>${block.data.text}</h${block.data.level}>`;
-                    break;
-                case "embded":
-                    convertedHtml += `<div><iframe width="560" height="315" src="${block.data.embed}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>`;
-                    break;
-                case "paragraph":
-                    convertedHtml += `<p>${block.data.text}</p>`;
-                    break;
-                case "delimiter":
-                    convertedHtml += "<hr />";
-                    break;
-                case "image":
-                    convertedHtml += `<img class="img-fluid" src="${block.data.file.url}" title="${block.data.caption}" /><br /><em>${block.data.caption}</em>`;
-                    break;
-                case "list":
-                    convertedHtml += "<ul>";
-                    block.data.items.forEach(function(li) {
-                        convertedHtml += `<li>${li}</li>`;
-                    });
-                    convertedHtml += "</ul>";
-                    break;
-                default:
-                    console.log("Unknown block type", block.type);
-                    break;
-            }
-        });
-        return convertedHtml;
-    }
 
     useEffect(() => {
-        axios.get(`${API_HOST}blog/getBlogById?id=` + id, {
+        axios.get(`${API_HOST}blog/getBlogDetailsByUniqueURL?alias=false&blogUrl=` + id, {
             headers: {
                 'Content-Type': 'application/json',
             }
         }).then((res) => {
             if (res.status) {
-                const singleBlog = res.data;
-                const renderedBlogs = ()=>{
-                    const value = singleBlog;
-                    let jsonFormat = JSON.parse(value.blogData)
-                    let previewData = jsonFormat[0]
-                    let renderedHtml = convertDataToHtml(jsonFormat)
-                    let renderedHtmlPreview = convertDataToHtml([previewData])
-                    return {...value, renderedHtml, previewData, renderedHtmlPreview}
-                }
-                setData(renderedBlogs)
+                const singleBlog = res.data.blogData;
+                let renderedHtml = convertDataToHtml(singleBlog)
+                let blog = {...singleBlog, blogData:renderedHtml}
+                setData(blog)
             }
         }).catch((error) => {
 
         })
-    }, [id])
+    }, [])
+
+    const convertDataToHtml = (blocks) => {
+        if(blocks.includes('<p>&lt;iframe')){
+            return blocks.replace('&lt;','<')
+        }
+    }
 
     return (
         <>

@@ -69,20 +69,20 @@ const MainHomePage = props => {
             <Header />
             <BannerSlider />
             <Authentic />
-            <HighLight
-                highlightData={ highlightData1 } 
-            />
-            <Product />
-            <HighLight
-                highlightData={ highlightData5 } 
-            />
-            <Reliable />
-            <HighLight
-                highlightData={ highlightData2 } 
-            />
+            {/*<HighLight*/}
+            {/*    highlightData={ highlightData1 } */}
+            {/*/>*/}
+            {/*<Product />*/}
+            {/*<HighLight*/}
+            {/*    highlightData={ highlightData5 } */}
+            {/*/>*/}
+            {/*<Reliable />*/}
+            {/*<HighLight*/}
+            {/*    highlightData={ highlightData2 } */}
+            {/*/>*/}
             <QodefSlider />
             <HighLight
-                highlightData={ highlightData3 } 
+                highlightData={ highlightData3 }
             />
             <RotateImage360D />
             <HighLight

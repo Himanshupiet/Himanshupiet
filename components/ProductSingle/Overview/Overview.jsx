@@ -1,32 +1,45 @@
 import React from 'react';
 import ScrollAnimation from 'react-animate-on-scroll';
-import { Container, Row, Col } from 'react-bootstrap';
+import {Container, Row, Col} from 'react-bootstrap';
 import OverviewStyle from './Overview.module.css';
+import CulinaryStyle from "../../CulinarySupport_Page/culinary.module.css";
 
 /**
-* @author
-* @function Overview
-**/
+ * @author
+ * @function Overview
+ **/
 
 const Overview = (props) => {
-  return(
-    <section className={OverviewStyle.section_outer}>
-      <Container fluid>
-        <Row>
-          <Col lg={1}></Col>
-          <Col lg={10}>
-            <ScrollAnimation animateOnce={true} animateIn="fadeIn" duration={2}>
-              <h2>Easy and Efficient</h2>
-              <h3>Like a Professional.</h3>
-              <p>Engineered specifically to accommodate high-volume pizza-making of a true pizzaiolo. The Marra Forni Rotator is the most versatile, durable, and easy-to-use brick oven on the market. Marra Forni Rotator brick oven comes with the most high-tech standard features currently available in the market. In addition to the rotating deck, the Rotator brick oven is highly customizable with additional Turbo Burner, Integral Exhaust System, Custom Tile Design, and many more. Wood-fired burning and Gas fired burning options are available to meet the specific needs of your commercial restaurant oven.</p>
-            </ScrollAnimation>
-          </Col>
-          <Col lg={1}></Col>
-        </Row>
-      </Container>
-    </section>
-   )
-  }
+    const {categoryName,imageUrl,categoryDescription} = props.data
+    return (
+        <section className={OverviewStyle.section_outer}>
+            <Container fluid>
+                <Row>
+                    <Col lg={1}></Col>
+                    <Col lg={10}>
+                        <Row>
+                            <Col lg={6} className='pt-5'>
+                                <h2>{categoryName}</h2>
+                                <p>{categoryDescription}</p>
+                                <button className='mf_btn'>Check it Out</button>
+                            </Col>
+                            <Col lg={6} className={OverviewStyle.culinary_img}>
+                                <img
+                                    className='img-fluid'
+                                    src={imageUrl}
+                                    alt='Commercial Brick Oven'
+                                    width='440'
+                                    height='500'
+                                />
+                            </Col>
+                        </Row>
+                    </Col>
+                    <Col lg={1}></Col>
+                </Row>
+            </Container>
+        </section>
+    )
+}
 
 
 export default Overview;

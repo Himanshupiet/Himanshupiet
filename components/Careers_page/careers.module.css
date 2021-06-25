@@ -1,0 +1,26 @@
+.career_banner {
+    background-image: url('../../public/images/banneronet.jpg');
+    background-position: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 170px 0;
+    position: relative;
+    width: 100%;
+}
+.career_banner h2 {
+    text-align: center;
+    color: #fff;
+}
+.career_banner h3 {
+    text-align: center;
+    color: #fff;
+}
+.main h2{
+    font-size: 35px;
+    font-weight: 600;
+}
+/*.career_card:hover{*/
+/*    background: #04858b;*/
+/*    color: white!important;*/
+/*}*/
+

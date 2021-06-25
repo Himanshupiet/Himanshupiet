@@ -1,0 +1,75 @@
+.main h5{
+  font-size: 15px;
+    font-weight: 600;
+}
+.main h5 span{
+    color: #e31422;
+}
+.job_desc h3{
+    font-weight: 600;
+    padding-bottom: 18px;
+    font-size: 23px;
+}
+.job_desc h4{
+    color: #e31422;
+    font-weight: 600;
+}
+.job h3{
+    font-size: 20px;
+    font-weight: 600;
+}
+.job ul{
+    list-style-type: disc;
+    font-size: 17px;
+    font-weight: 400;
+}
+.job_req h3{
+    color: #e31422;
+    font-size: 22px;
+}
+.job_req ul{
+    list-style-type: disc;
+    font-size: 17px;
+    font-weight: 400;
+}
+.offer{
+    padding-top: 20px;
+}
+.offer ul{
+    list-style-type: disc;
+    font-size: 17px;
+    font-weight: 400;
+}
+.sidebar{
+    padding-top: 28px;
+}
+.apply_btn{
+    background: #e31422;
+    font-size: 18px;
+    text-align: center;
+    padding: 20px 0;
+    display: block;
+    width: 100%;
+    color: #fff;
+    /*border-radius: 0;*/
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+.btn_indeed{
+    background: #ffffff;
+    font-size: 18px;
+    color: #2164f3;
+    text-align: center;
+    padding: 20px 0;
+    display: block;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #ccd1d9;
+    margin-bottom: 20px;
+}
+.social_icons button{
+    background: #e31422;
+    width: 130px;
+    border-radius: 0!important;
+    color: #ffffff;
+}

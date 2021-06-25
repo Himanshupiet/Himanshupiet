@@ -8,13 +8,18 @@ import {useRouter} from "next/router";
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import * as blogActions from '../../../actions/blog'
+import axios from "axios";
+import {API_HOST} from "../../../env";
 
 const BlogContent = (props) => {
     const router = useRouter()
+    const tag = router.query.tag
     const name = router.query.name
+    const queryIndex = router.query.queryIndex
     const [blog, setBlog] = useState([])
     const [filter, setFilter] = useState([])
-    console.log(blog)
+    const [category, setCategory] = useState([])
+    const [activeValue, setActiveValue] = useState(0)
 
     useEffect(() => {
         props.productActions.getAllPost()
@@ -23,27 +28,35 @@ const BlogContent = (props) => {
     useEffect(() => {
         if (props && props.blog && props.blog.blog && props.blog.blog.result && props.blog.blog.result.content) {
             const allBlogs = props.blog.blog.result.content;
-            console.log('allBlogs', allBlogs)
-            const renderedBlogs = allBlogs.map((data) => {
-                let jsonFormat = JSON.parse(data.blogData)
-                let previewData = jsonFormat[0]
-                let renderedHtml = convertDataToHtml(jsonFormat)
-                let renderedHtmlPreview = convertDataToHtml([previewData])
-                return {...data, renderedHtml, previewData, renderedHtmlPreview}
-            })
-
-            setBlog(renderedBlogs)
-
-            if (!name) {
-                setFilter(renderedBlogs)
+            let renderedHtml = convertDataToHtml(allBlogs)
+            let blog = {...allBlogs, blogData:renderedHtml}
+            setBlog(blog)
+            if (!name && !tag) {
+                setFilter(allBlogs)
             } else {
                 const updateData = props.blog.blog.result.content.filter((catItem) => {
-                    return catItem.category === name;
+                    return catItem.category === name || catItem.tags === tag;
                 })
                 setFilter(updateData)
+                setActiveValue(queryIndex)
             }
         }
     }, [props.blog])
+
+    useEffect(() => {
+        axios.get(`${API_HOST}blog/getCategoryList`, {
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }).then((res) => {
+            if (res.status) {
+                setCategory(res.data)
+            }
+        }).catch((error) => {
+
+        })
+    }, [])
+
 
     useEffect(() => {
         resizeAllGridItems();
@@ -71,61 +84,37 @@ const BlogContent = (props) => {
     }
 
     const convertDataToHtml = (blocks) => {
-        var convertedHtml = "";
-        blocks.map(block => {
-            switch (block.type) {
-                case "header":
-                    convertedHtml += `<h${block.data.level}>${block.data.text}</h${block.data.level}>`;
-                    break;
-                case "embded":
-                    convertedHtml += `<div><iframe width="560" height="315" src="${block.data.embed}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>`;
-                    break;
-                case "paragraph":
-                    convertedHtml += `<p>${block.data.text}</p>`;
-                    break;
-                case "delimiter":
-                    convertedHtml += "<hr />";
-                    break;
-                case "image":
-                    convertedHtml += `<img class="img-fluid" src="${block.data.file.url}" title="${block.data.caption}" /><br /><em>${block.data.caption}</em>`;
-                    break;
-                case "list":
-                    convertedHtml += "<ul>";
-                    block.data.items.forEach(function (li) {
-                        convertedHtml += `<li>${li}</li>`;
-                    });
-                    convertedHtml += "</ul>";
-                    break;
-                default:
-                    console.log("Unknown block type", block.type);
-                    break;
-            }
-        });
-        return convertedHtml;
+        if(blocks.includes('<p>&lt;iframe')){
+            return blocks.replace('&lt;','<')
+        }
     }
 
     return (
         <Container fluid className='mb-5 mt-5'>
-            <ul className={BlogContentStyle.catfilter}>
-                <li>
-                    <button className={BlogContentStyle.activecatfilter} onClick={() => setFilter(blog)}>All</button>
-                </li>
-                <li>
-                    <button onClick={() => filterItem('Press')}>CookingVersatility</button>
-                </li>
-                <li>
-                    <button onClick={() => filterItem('Marketing')}>Awesome Chefs</button>
-                </li>
-                <li>
-                    <button onClick={() => filterItem('Entertainment')}>Marra Friends</button>
-                </li>
-                <li>
-                    <button onClick={() => filterItem('Team Marra')}>Marra Innovations</button>
-                </li>
-                <li>
-                    <button onClick={() => filterItem('Holidays')}>Pizza Industry News</button>
-                </li>
-            </ul>
+            {(category && category.length) ?
+                <ul className={BlogContentStyle.catfilter}>
+                    <li>
+                        <button
+                            className={ activeValue == 0 ? BlogContentStyle.activecatfilter : null}
+                            onClick={() => {
+                                setFilter(blog)
+                                setActiveValue(0)
+                            }}>All
+                        </button>
+                    </li>
+                    {category.map((item, i) => (
+                        <li key={item}>
+                            <button
+                                className= {`${i+1 == activeValue ? BlogContentStyle.activecatfilter : ''}`}
+                                onClick={() => {
+                                    filterItem(`${item}`)
+                                    setActiveValue(i+1)
+                                }}>{item}</button>
+                        </li>
+                    ))}
+                </ul> : null
+            }
+
             <div className={'blog_outer'}>
                 {(filter && filter.length) ? filter.map((item, i) => (
                     <div className={`${BlogContentStyle.main_style} blog_inner`} key={item.id}>
@@ -138,20 +127,20 @@ const BlogContent = (props) => {
                                             alt={'5 Ways MarraStone Revolutionizes The Brick Oven'} width="1920"
                                             width='300' className="img-fluid"/>
                                         <div className={BlogContentStyle.blogimg_hover}>
-                                            <div className={BlogContentStyle.blog_tag}>{item.title}</div>
+                                            <div className={BlogContentStyle.blog_tag}>{item.category}</div>
                                         </div>
                                     </div>
                                 </a>
                             </Link>
                             <div className={BlogContentStyle.blog_info}>
-                                <Link href={`/blog/${item.id}`}>
+                                <Link href={`/blog/${item.uniqueUrl}`}>
                                     <a title={item.aliasUrl}>
-                                        <h2>{item.metaKeyword}</h2>
+                                        <h2>{item.title}</h2>
                                     </a>
                                 </Link>
                                 <div className={BlogContentStyle.blog_date}>April 30, 2021</div>
-                                {/* <p>{item.renderedHtml}</p> */}
-                                <div dangerouslySetInnerHTML={{__html: item.renderedHtmlPreview}}></div>
+                                <p>{item.blogDescription.substr(0,150)}</p>
+                                {/*<div dangerouslySetInnerHTML={{__html: item.renderedHtmlPreview}}></div>*/}
                                 <div className={BlogContentStyle.meta_box}>
                                     <img alt='Author' width='42' height='42'
                                          src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/avatar.png`}/>
