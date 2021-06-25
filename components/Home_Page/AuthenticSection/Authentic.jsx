@@ -122,7 +122,7 @@ const Authentic = (props) => {
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                         Quibusdam hic sed ullam.
                                     </p>
-                                    <button className='p-3'>Discover the Oven</button>
+                                    <button className='p-3' style={{background:'#e31422'}}>Discover the Oven</button>
                                 </div>
                             </div>
                             <div className="col-lg-4 col-12">
@@ -135,7 +135,7 @@ const Authentic = (props) => {
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                         Quibusdam hic sed ullam.
                                     </p>
-                                    <button className='p-3'>Discover the Oven</button>
+                                    <button className='p-3' style={{background:'#e31422'}}>Discover the Oven</button>
                                 </div>
                             </div>
                             <div className="col-lg-4 col-12">
@@ -148,7 +148,7 @@ const Authentic = (props) => {
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                         Quibusdam hic sed ullam.
                                     </p>
-                                    <button className='p-3'>Discover the Oven</button>
+                                    <button className='p-3' style={{background:'#e31422'}}>Discover the Oven</button>
                                 </div>
                             </div>
                         </div>
