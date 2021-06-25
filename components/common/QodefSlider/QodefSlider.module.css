@@ -15,9 +15,10 @@
 .qodefslider_innermain{
   text-align: -webkit-center;
   transition: .2s cubic-bezier(.02,.22,.7,1.98);
-  background-color: #fff;
+  /*background-color: #fff;*/
   position: relative;
-  background-color: #f6f7fc;
+  /*background-color: #f6f7fc;*/
+  background-color: #f4f8fa !important;
 }
 .hover_content{
   position: absolute;

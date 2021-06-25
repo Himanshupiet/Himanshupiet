@@ -28,17 +28,9 @@ const BlogContent = (props) => {
     useEffect(() => {
         if (props && props.blog && props.blog.blog && props.blog.blog.result && props.blog.blog.result.content) {
             const allBlogs = props.blog.blog.result.content;
-            const renderedBlogs = allBlogs.map((data) => {
-                let jsonFormat = JSON.parse(data.blogData)
-                let previewData = jsonFormat[0]
-                let renderedHtml = convertDataToHtml(jsonFormat)
-                let renderedHtmlPreview = convertDataToHtml([previewData])
-                return {...data, renderedHtml, previewData, renderedHtmlPreview}
-            })
-            setBlog(renderedBlogs)
-
             if (!name && !tag) {
-                setFilter(renderedBlogs)
+                setBlog(allBlogs)
+                setFilter(allBlogs)
             } else {
                 const updateData = props.blog.blog.result.content.filter((catItem) => {
                     return catItem.category === name || catItem.tags === tag;
@@ -89,61 +81,27 @@ const BlogContent = (props) => {
         setFilter(updateData)
     }
 
-    const convertDataToHtml = (blocks) => {
-        var convertedHtml = "";
-        blocks.map(block => {
-            switch (block.type) {
-                case "header":
-                    convertedHtml += `<h${block.data.level}>${block.data.text}</h${block.data.level}>`;
-                    break;
-                case "embded":
-                    convertedHtml += `<div><iframe width="560" height="315" src="${block.data.embed}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>`;
-                    break;
-                case "paragraph":
-                    convertedHtml += `<p>${block.data.text}</p>`;
-                    break;
-                case "delimiter":
-                    convertedHtml += "<hr />";
-                    break;
-                case "image":
-                    convertedHtml += `<img class="img-fluid" src="${block.data.file.url}" title="${block.data.caption}" /><br /><em>${block.data.caption}</em>`;
-                    break;
-                case "list":
-                    convertedHtml += "<ul>";
-                    block.data.items.forEach(function (li) {
-                        convertedHtml += `<li>${li}</li>`;
-                    });
-                    convertedHtml += "</ul>";
-                    break;
-                default:
-                    break;
-            }
-        });
-        return convertedHtml;
-    }
-
-
     return (
         <Container fluid className='mb-5 mt-5'>
             {(category && category.length) ?
                 <ul className={BlogContentStyle.catfilter}>
                     <li>
                         <button
-                          className={ activeValue == 0 ? BlogContentStyle.activecatfilter : null}
-                          onClick={() => {
-                              setFilter(blog)
-                              setActiveValue(0)
-                          }}>All
+                            className={activeValue == 0 ? BlogContentStyle.activecatfilter : null}
+                            onClick={() => {
+                                setFilter(blog)
+                                setActiveValue(0)
+                            }}>All
                         </button>
                     </li>
                     {category.map((item, i) => (
                         <li key={item}>
                             <button
-                              className= {`${i+1 == activeValue ? BlogContentStyle.activecatfilter : ''}`}
-                              onClick={() => {
-                                  filterItem(`${item}`)
-                                  setActiveValue(i+1)
-                              }}>{item}</button>
+                                className={`${i + 1 == activeValue ? BlogContentStyle.activecatfilter : ''}`}
+                                onClick={() => {
+                                    filterItem(`${item}`)
+                                    setActiveValue(i + 1)
+                                }}>{item}</button>
                         </li>
                     ))}
                 </ul> : null
@@ -173,7 +131,7 @@ const BlogContent = (props) => {
                                     </a>
                                 </Link>
                                 <div className={BlogContentStyle.blog_date}>April 30, 2021</div>
-                                 <p>{item.blogDescription.substr(0,150)}</p>
+                                <p>{item.blogDescription.substr(0, 150)}</p>
                                 {/*<div dangerouslySetInnerHTML={{__html: item.renderedHtmlPreview}}></div>*/}
                                 <div className={BlogContentStyle.meta_box}>
                                     <img alt='Author' width='42' height='42'
