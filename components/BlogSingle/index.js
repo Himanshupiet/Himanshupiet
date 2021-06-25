@@ -16,7 +16,6 @@ const BlogSingleMain = (props) => {
     const {id} = router.query
     const [data, setData] = useState({})
 
-
     useEffect(() => {
         axios.get(`${API_HOST}blog/getBlogDetailsByUniqueURL?alias=false&blogUrl=` + id, {
             headers: {
@@ -26,20 +25,21 @@ const BlogSingleMain = (props) => {
             if (res.status) {
                 const singleBlog = res.data.blogData;
                 let renderedHtml = convertDataToHtml(singleBlog)
-                let blog = {...singleBlog, blogData:renderedHtml}
+                let blog = {...res.data, blogData:renderedHtml}
                 setData(blog)
             }
         }).catch((error) => {
 
         })
-    }, [])
+    }, [id])
 
     const convertDataToHtml = (blocks) => {
+        let data = '';
         if(blocks.includes('<p>&lt;iframe')){
-            return blocks.replace('&lt;','<')
+            data = blocks.replace('&lt;','<')
         }
+        return data;
     }
-
     return (
         <>
             <Header/>

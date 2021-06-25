@@ -6,7 +6,6 @@ import BlogSingleContentStyle from './BlogSingleContent.module.css'
 import Link from 'next/link';
 
 const BlogSingleContent = (props) => {
-    console.log(props)
     const {title, bannerImageUrl, blogData, metaKeyword, altTag, createdBy, renderedHtmlPreview,tags,blogDescription} = props.data;
     return (
         <>
