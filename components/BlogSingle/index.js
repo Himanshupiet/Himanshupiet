@@ -14,8 +14,8 @@ import ContactStyle from "../ContactUs_Page/contact.module.css";
 const BlogSingleMain = (props) => {
     const router = useRouter()
     const {id} = router.query
-    const [data, setData] = useState(false)
-    console.log(data)
+    const [data, setData] = useState({})
+
 
     useEffect(() => {
         axios.get(`${API_HOST}blog/getBlogDetailsByUniqueURL?alias=false&blogUrl=` + id, {
@@ -24,13 +24,21 @@ const BlogSingleMain = (props) => {
             }
         }).then((res) => {
             if (res.status) {
-                setData(res.data)
+                const singleBlog = res.data.blogData;
+                let renderedHtml = convertDataToHtml(singleBlog)
+                let blog = {...singleBlog, blogData:renderedHtml}
+                setData(blog)
             }
         }).catch((error) => {
 
         })
-    }, [id])
+    }, [])
 
+    const convertDataToHtml = (blocks) => {
+        if(blocks.includes('<p>&lt;iframe')){
+            return blocks.replace('&lt;','<')
+        }
+    }
 
     return (
         <>

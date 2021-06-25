@@ -28,8 +28,10 @@ const BlogContent = (props) => {
     useEffect(() => {
         if (props && props.blog && props.blog.blog && props.blog.blog.result && props.blog.blog.result.content) {
             const allBlogs = props.blog.blog.result.content;
+            let renderedHtml = convertDataToHtml(allBlogs)
+            let blog = {...allBlogs, blogData:renderedHtml}
+            setBlog(blog)
             if (!name && !tag) {
-                setBlog(allBlogs)
                 setFilter(allBlogs)
             } else {
                 const updateData = props.blog.blog.result.content.filter((catItem) => {
@@ -81,13 +83,19 @@ const BlogContent = (props) => {
         setFilter(updateData)
     }
 
+    const convertDataToHtml = (blocks) => {
+        if(blocks.includes('<p>&lt;iframe')){
+            return blocks.replace('&lt;','<')
+        }
+    }
+
     return (
         <Container fluid className='mb-5 mt-5'>
             {(category && category.length) ?
                 <ul className={BlogContentStyle.catfilter}>
                     <li>
                         <button
-                            className={activeValue == 0 ? BlogContentStyle.activecatfilter : null}
+                            className={ activeValue == 0 ? BlogContentStyle.activecatfilter : null}
                             onClick={() => {
                                 setFilter(blog)
                                 setActiveValue(0)
@@ -97,10 +105,10 @@ const BlogContent = (props) => {
                     {category.map((item, i) => (
                         <li key={item}>
                             <button
-                                className={`${i + 1 == activeValue ? BlogContentStyle.activecatfilter : ''}`}
+                                className= {`${i+1 == activeValue ? BlogContentStyle.activecatfilter : ''}`}
                                 onClick={() => {
                                     filterItem(`${item}`)
-                                    setActiveValue(i + 1)
+                                    setActiveValue(i+1)
                                 }}>{item}</button>
                         </li>
                     ))}
@@ -131,7 +139,7 @@ const BlogContent = (props) => {
                                     </a>
                                 </Link>
                                 <div className={BlogContentStyle.blog_date}>April 30, 2021</div>
-                                <p>{item.blogDescription.substr(0, 150)}</p>
+                                <p>{item.blogDescription.substr(0,150)}</p>
                                 {/*<div dangerouslySetInnerHTML={{__html: item.renderedHtmlPreview}}></div>*/}
                                 <div className={BlogContentStyle.meta_box}>
                                     <img alt='Author' width='42' height='42'
