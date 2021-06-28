@@ -1,0 +1,21 @@
+.section_inner span{
+    margin-top: -15px;
+    display: block;
+    margin-bottom: 10px;
+    color: red;
+    font-weight: 500;
+}
+.select_wrapper{
+    position: relative;
+    width: 350px;
+}
+.select_wrapper::after {
+    color: black;
+    content: '▾';
+    margin-right: 10px;
+    pointer-events: none;
+    position: absolute;
+    right: 10px;
+    top: 17px;
+    font-size: 20px;
+}

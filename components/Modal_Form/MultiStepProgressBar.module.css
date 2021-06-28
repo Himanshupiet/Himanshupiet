@@ -1,0 +1,17 @@
+
+.indexedStep {
+    color: white;
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
+    background: linear-gradient(#f2a126, #e45d6a, #e31422);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.indexedStep.accomplished {
+    background-color: red!important;
+}
+
