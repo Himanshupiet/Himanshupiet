@@ -6,6 +6,7 @@ import {bindActionCreators} from "redux";
 import * as blogActions from "../../../actions/blog";
 import {connect} from "react-redux";
 import {useRouter, withRouter} from "next/router";
+import BlogContentStyle from "../../Blog_Page/BlogContent/BlogContent.module.css";
 
 const PressContent = (props) => {
     const [blog, setBlog] = useState([])
@@ -56,21 +57,22 @@ const PressContent = (props) => {
                 {(blog && blog.length) ? blog.map((item, i) => (
                     <div className={'blog_inner'} key={item.id}>
                         <div className={'blog_inner_main'}>
-                            <Link href='/'>
-                                <a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-                                    <div className={PressContentStyle.blog_image}>
+                            <Link href={`/blog/${item.uniqueUrl}`}>
+                                <a title={item.title}>
+                                    <div className={BlogContentStyle.blog_image}>
                                         <img
                                             src={item.bannerImageUrl}
-                                            alt={'5 Ways MarraStone Revolutionizes The Brick Oven'} width="1920"
-                                            height="1080" className="img-fluid"/>
-                                        <div className={PressContentStyle.blogimg_hover}>
+                                            alt={'5 Ways MarraStone Revolutionizes The Brick Oven'} width="1920" height="600"
+                                            className="img-fluid"/>
+                                        <div className={BlogContentStyle.blogimg_hover}>
+                                            <div className={BlogContentStyle.blog_tag}>{item.category}</div>
                                         </div>
                                     </div>
                                 </a>
                             </Link>
                             <div className={PressContentStyle.blog_info}>
-                                <Link href='/'>
-                                    <a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
+                                <Link href={`/blog/${item.uniqueUrl}`}>
+                                    <a title={item.aliasUrl}>
                                         <h2>{item.title}</h2>
                                     </a>
                                 </Link>
