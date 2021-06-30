@@ -1,6 +1,6 @@
 .videogallery_outer{
-  /*background-color: #212121;*/
-  background-color: #f6f7fb ;
+  background-color: #212121;
+  /*background-color: #f6f7fb ;*/
 }
 .title_box{
   text-align: center;
@@ -8,8 +8,8 @@
 }
 .title_box h1,
 .title_box h4{
-  /*color: #fff;*/
-  color: black;
+  color: #fff;
+  /*color: black;*/
 }
 .gallery_outer{
   padding: 0;

@@ -10,6 +10,7 @@ import {bindActionCreators} from 'redux'
 import * as blogActions from '../../../actions/blog'
 import axios from "axios";
 import {API_HOST} from "../../../env";
+import Masonry from 'react-masonry-css'
 
 const BlogContent = (props) => {
     const router = useRouter()
@@ -28,9 +29,7 @@ const BlogContent = (props) => {
     useEffect(() => {
         if (props && props.blog && props.blog.blog && props.blog.blog.result && props.blog.blog.result.content) {
             const allBlogs = props.blog.blog.result.content;
-            let renderedHtml = convertDataToHtml(allBlogs)
-            let blog = {...allBlogs, blogData:renderedHtml}
-            setBlog(blog)
+            setBlog(props.blog.blog.result.content)
             if (!name && !tag) {
                 setFilter(allBlogs)
             } else {
@@ -58,26 +57,25 @@ const BlogContent = (props) => {
     }, [])
 
 
-    useEffect(() => {
-        resizeAllGridItems();
-        window.addEventListener("resize", resizeAllGridItems);
-    }, [])
+    // useEffect(() => {
+    //     resizeAllGridItems();
+    //     window.addEventListener("resize", resizeAllGridItems);
+    // }, [])
 
-    const resizeGridItem = (item) => {
-        let grid = document.getElementsByClassName("blog_outer")[0];
-        let rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
-        let rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
-        let rowSpan = Math.ceil((item.querySelector('.blog_inner_main').getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
-        item.style.gridRowEnd = "span " + rowSpan;
-    }
-    const resizeAllGridItems = () => {
-        let allItems = document.getElementsByClassName("blog_inner");
-        for (let x = 0; x < allItems.length; x++) {
-            resizeGridItem(allItems[x]);
-        }
-    }
+    // const resizeGridItem = (item) => {
+    //     let grid = document.getElementsByClassName("blog_outer")[0];
+    //     let rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+    //     let rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
+    //     let rowSpan = Math.ceil((item.querySelector('.blog_inner_main').getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
+    //     item.style.gridRowEnd = "span " + rowSpan;
+    // }
+    // const resizeAllGridItems = () => {
+    //     let allItems = document.getElementsByClassName("blog_inner");
+    //     for (let x = 0; x < allItems.length; x++) {
+    //         resizeGridItem(allItems[x]);
+    //     }
+    // }
     const filterItem = (cat) => {
-
         const updateData = blog && blog.length && blog.filter((catItem) => {
             return catItem.category === cat;
         })
@@ -85,10 +83,54 @@ const BlogContent = (props) => {
     }
 
     const convertDataToHtml = (blocks) => {
-        if(blocks.includes('<p>&lt;iframe')){
-            return blocks.replace('&lt;','<')
+        if (blocks.includes('<p>&lt;iframe')) {
+            return blocks.replace('&lt;', '<')
         }
     }
+
+    const breakpointColumnsObj = {
+        default: 5,
+        2000: 3,
+        1200: 4,
+        700: 2,
+        500: 1
+    };
+
+    const items = (filter && filter.length) ? filter.map((item, i) => (
+        <div key={item.id}>
+            <div className='blog_inner_main'>
+                <Link href={`/blog/${item.uniqueUrl}`}>
+                    <a title={item.title}>
+                        <div className={BlogContentStyle.blog_image}>
+                            <img
+                                src={item.bannerImageUrl}
+                                alt={'5 Ways MarraStone Revolutionizes The Brick Oven'} width="1920" height="600"
+                                className="img-fluid"/>
+                            <div className={BlogContentStyle.blogimg_hover}>
+                                <div className={BlogContentStyle.blog_tag}>{item.category}</div>
+                            </div>
+                        </div>
+                    </a>
+                </Link>
+                <div className={BlogContentStyle.blog_info}>
+                    <Link href={`/blog/${item.uniqueUrl}`}>
+                        <a title={item.aliasUrl}>
+                            <h2>{item.title}</h2>
+                        </a>
+                    </Link>
+                    <div className={BlogContentStyle.blog_date}>{item.date}</div>
+                    <p>{item.blogDescription.substr(0, 150)}</p>
+                    {/*<div dangerouslySetInnerHTML={{__html: item.renderedHtmlPreview}}></div>*/}
+                    <div className={BlogContentStyle.meta_box}>
+                        <img alt='Author' width='42' height='42'
+                             src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/avatar.png`}/>
+                        <span>{item.createdBy}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )) : null
+
 
     return (
         <Container fluid className='mb-5 mt-5'>
@@ -96,7 +138,7 @@ const BlogContent = (props) => {
                 <ul className={BlogContentStyle.catfilter}>
                     <li>
                         <button
-                            className={ activeValue == 0 ? BlogContentStyle.activecatfilter : null}
+                            className={activeValue == 0 ? BlogContentStyle.activecatfilter : null}
                             onClick={() => {
                                 setFilter(blog)
                                 setActiveValue(0)
@@ -106,52 +148,62 @@ const BlogContent = (props) => {
                     {category.map((item, i) => (
                         <li key={item}>
                             <button
-                                className= {`${i+1 == activeValue ? BlogContentStyle.activecatfilter : ''}`}
+                                className={`${i + 1 == activeValue ? BlogContentStyle.activecatfilter : ''}`}
                                 onClick={() => {
                                     filterItem(`${item}`)
-                                    setActiveValue(i+1)
+                                    setActiveValue(i + 1)
                                 }}>{item}</button>
                         </li>
                     ))}
                 </ul> : null
             }
 
-            <div className={'blog_outer'}>
-                {(filter && filter.length) ? filter.map((item, i) => (
-                    <div className={`${BlogContentStyle.main_style} blog_inner`} key={item.id}>
-                        <div className={'blog_inner_main'}>
-                            <Link href='/'>
-                                <a title='5 Ways MarraStone Revolutionizes The Brick Oven'>
-                                    <div className={BlogContentStyle.blog_image}>
-                                        <img
-                                            src={item.bannerImageUrl}
-                                            alt={'5 Ways MarraStone Revolutionizes The Brick Oven'} width="1920"
-                                            width='300' className="img-fluid"/>
-                                        <div className={BlogContentStyle.blogimg_hover}>
-                                            <div className={BlogContentStyle.blog_tag}>{item.category}</div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </Link>
-                            <div className={BlogContentStyle.blog_info}>
-                                <Link href={`/blog/${item.uniqueUrl}`}>
-                                    <a title={item.aliasUrl}>
-                                        <h2>{item.title}</h2>
-                                    </a>
-                                </Link>
-                                <div className={BlogContentStyle.blog_date}>April 30, 2021</div>
-                                <p>{item.blogDescription.substr(0,150)}</p>
-                                {/*<div dangerouslySetInnerHTML={{__html: item.renderedHtmlPreview}}></div>*/}
-                                <div className={BlogContentStyle.meta_box}>
-                                    <img alt='Author' width='42' height='42'
-                                         src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/avatar.png`}/>
-                                    <span>{item.createdBy}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                )) : null}
+            <div className={BlogContentStyle.main_section}>
+                <Masonry
+                    breakpointCols={breakpointColumnsObj}
+                    className={`${BlogContentStyle.my_masonry_grid} main_section`}
+                    columnClassName={`${BlogContentStyle.my_masonry_grid_column}`}
+                >
+                    {items}
+                </Masonry>
             </div>
+
+            {/*<div className={'blog_outer'}>*/}
+            {/*    {(filter && filter.length) ? filter.map((item, i) => (*/}
+            {/*        <div className={`${BlogContentStyle.main_style} blog_inner`} key={item.id}>*/}
+            {/*            <div className={'blog_inner_main'}>*/}
+            {/*                <Link href='/'>*/}
+            {/*                    <a title='5 Ways MarraStone Revolutionizes The Brick Oven'>*/}
+            {/*                        <div className={BlogContentStyle.blog_image}>*/}
+            {/*                            <img*/}
+            {/*                                src={item.bannerImageUrl}*/}
+            {/*                                alt={'5 Ways MarraStone Revolutionizes The Brick Oven'} width="1920"*/}
+            {/*                                width='300' className="img-fluid"/>*/}
+            {/*                            <div className={BlogContentStyle.blogimg_hover}>*/}
+            {/*                                <div className={BlogContentStyle.blog_tag}>{item.category}</div>*/}
+            {/*                            </div>*/}
+            {/*                        </div>*/}
+            {/*                    </a>*/}
+            {/*                </Link>*/}
+            {/*                <div className={BlogContentStyle.blog_info}>*/}
+            {/*                    <Link href={`/blog/${item.uniqueUrl}`}>*/}
+            {/*                        <a title={item.aliasUrl}>*/}
+            {/*                            <h2>{item.title}</h2>*/}
+            {/*                        </a>*/}
+            {/*                    </Link>*/}
+            {/*                    <div className={BlogContentStyle.blog_date}>April 30, 2021</div>*/}
+            {/*                    <p>{item.blogDescription.substr(0,150)}</p>*/}
+            {/*                    /!*<div dangerouslySetInnerHTML={{__html: item.renderedHtmlPreview}}></div>*!/*/}
+            {/*                    <div className={BlogContentStyle.meta_box}>*/}
+            {/*                        <img alt='Author' width='42' height='42'*/}
+            {/*                             src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/avatar.png`}/>*/}
+            {/*                        <span>{item.createdBy}</span>*/}
+            {/*                    </div>*/}
+            {/*                </div>*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*    )) : null}*/}
+            {/*</div>*/}
         </Container>
     )
 }

@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 import MasterFormStuyle from './MasterForm.module.css'
-import {Col, Container, Dropdown, DropdownButton, Modal, Row, Tab, Tabs} from 'react-bootstrap'
+import {Col, Container, Row} from 'react-bootstrap'
 import {
-    Form,
     Button,
-    CardTitle,
 } from 'reactstrap';
 
 import Step1 from './Step1';
@@ -20,7 +18,7 @@ class MasterForm extends Component {
         // Set the intiial input values
         this.state = {
             currentStep: 1,
-            tiles: 'Penny',
+            tiles: '',
             color: 'Blue',
             facade: 'Black',
             legs: '',
@@ -83,7 +81,7 @@ class MasterForm extends Component {
 
         // If the current step is the last step, then render the "submit" button
         if (currentStep > 2) {
-            return <Button className='mf_btn'>Submit</Button>;
+            return <Button color='primary float-right'>Submit</Button>;
         }
         // ...else render nothing
         return null;
@@ -164,7 +162,7 @@ class MasterForm extends Component {
                 <Container>
                     <Row>
                         <Col lg={12} className='m-auto'>
-                            <Form onSubmit={this.handleSubmit}>
+                            <form onSubmit={this.handleSubmit}>
                                 <div style={{backgroundColor: 'rgba( 246, 247, 252, 1.00 )'}}>
                                     <div>
                                         <header>
@@ -202,17 +200,17 @@ class MasterForm extends Component {
                                         </div>
                                     </div>
                                 </div>
-                            </Form>
+                            </form>
                         </Col>
                     </Row>
                     <Row>
-                        <Col lg={4}></Col>
-                        <Col lg={4} className='m-auto' style={{display:'flex',justifyContent: 'space-around'}}>
-                            {this.previousButton}
-                            {this.nextButton}
-                            {this.submitButton}
+                        <Col lg={6} className='m-auto'>
+                            <div>
+                                {this.previousButton}
+                                {this.nextButton}
+                                {this.submitButton}
+                            </div>
                         </Col>
-                        <Col lg={4}></Col>
                     </Row>
                 </Container>
             </>

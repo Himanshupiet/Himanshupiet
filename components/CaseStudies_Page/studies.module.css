@@ -1,0 +1,43 @@
+.case_banner {
+    background-image: url('../../public/images/Napo-Pizzeria-Abu-Dhabi.jpg');
+    background-position: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 200px 0;
+    position: relative;
+    width: 100%;
+}
+
+.case_banner h1 {
+    text-align: center;
+    color: #fff;
+}
+
+.title p {
+    font-size: 15px;
+    margin-bottom: 0rem;
+    font-weight: 600;
+}
+
+.main h2 {
+    color: #e31422;
+    padding-top: 36px;
+    font-size: 33px;
+}
+.main h3 {
+    color: #e31422;
+}
+.case_study h2{
+    color: #e31422;
+}
+.card_design h3{
+    color: #e31422;
+}
+.served h1{
+    color: #e31422;
+}
+.served h3{
+    font-weight: 600;
+    color: #e31422;
+    font-size: 22px;
+}

@@ -12,24 +12,6 @@ const Step1 = (props) => {
     if (props.currentStep !== 1) {
         return null;
     }
-    const getRoles = [
-        {
-            id: 0,
-            roleName: 'Content Manager'
-        },
-        {
-            id: 1,
-            roleName: 'Sales Manager'
-        },
-        {
-            id: 2,
-            roleName: 'Sales Representative'
-        },
-        {
-            id: 3,
-            roleName: 'Admin'
-        }
-    ];
     const colors = [
         {
             id: 1,
@@ -135,9 +117,9 @@ const Step1 = (props) => {
                                             value={props.tiles}
                                             onChange={props.handleChange}
                                         >
-                                            <option value='' selected disabled hidden>
-                                                Tiles
-                                            </option>
+                                            {/*<option value='' selected disabled hidden>*/}
+                                            {/*    Tiles*/}
+                                            {/*</option>*/}
                                             {tilesOption.map((item, id) => {
                                                 return (
                                                     <option value={item.value} key={id}>
@@ -156,9 +138,9 @@ const Step1 = (props) => {
                                             value={props.color}
                                             onChange={props.handleChange}
                                         >
-                                            <option value='' selected disabled hidden>
-                                                Colors
-                                            </option>
+                                            {/*<option value='' selected disabled hidden>*/}
+                                            {/*    Colors*/}
+                                            {/*</option>*/}
                                             {colors.map((item, id) => {
                                                 return (
                                                     <option value={item.value} key={id}>
@@ -177,9 +159,9 @@ const Step1 = (props) => {
                                             value={props.facade}
                                             onChange={props.handleChange}
                                         >
-                                            <option value='' selected disabled hidden>
-                                                Facade
-                                            </option>
+                                            {/*<option value='' selected disabled hidden>*/}
+                                            {/*    Facade*/}
+                                            {/*</option>*/}
                                             {facadeOption.map((item, id) => {
                                                 return (
                                                     <option value={item.value} key={id}>
@@ -216,7 +198,7 @@ const Step1 = (props) => {
             <Container>
                 <Row>
                     <Col lg={5} className='mx-auto'>
-                        <div style={{width: '700px',marginTop:'-61px',height:'465px'}}>
+                        <div style={{width: '700px',marginTop:'-61px'}}>
                             <img
                                 className='oven-image-tile position-absolute'
                                 src={`https://marraforni.com/wp/wp-content/themes/ultima-child/assets/s3/make/${tiles}_${color}.png`}
