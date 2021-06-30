@@ -7,10 +7,8 @@ import VideoSliderStyle from './VideoSlider.module.css'
 import Link from "next/link";
 
 const VideoSlider = (props) => {
-    console.log(props, 'videoslider')
     const pressData = props.data
     const AllPressData = pressData && pressData.content && pressData.content.length ? pressData.content : []
-    console.log('video ', AllPressData)
 
     let VideoSliderSettings = {
         speed: 1500,
