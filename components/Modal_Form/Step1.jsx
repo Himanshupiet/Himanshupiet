@@ -3,7 +3,7 @@
 import React from 'react';
 import {Col, Container, Row} from 'react-bootstrap'
 import {FormGroup, Label, Input} from 'reactstrap';
-import StepStyle from "./Step1.module.css";
+import StepStyle from "./step1.module.css";
 import CountryList from "../common/GetAQuote/CountryList";
 
 const Step1 = (props) => {

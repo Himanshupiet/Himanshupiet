@@ -34,12 +34,26 @@ const BlogSingleMain = (props) => {
     }, [id])
 
     const convertDataToHtml = (blocks) => {
-        let data = '';
-        if(blocks.includes('<p>&lt;iframe')){
-            data = blocks.replace('&lt;','<')
-        }
-        return data;
+        let result = blocks.match(/<p>(.*?)<\/p>/g).map(function(val){
+            let matchUrl = val.match(/<a[^>]*>([^<]+)<\/a>/g)
+            let hrefValue = val.match(/(["'])(.*?)\1/)
+            if(val.match(/<a[^>]*>([^<]+)<\/a>/g)){
+                return val.replace(matchUrl, `
+                 <iframe
+                    src=${hrefValue[0]}
+                    width="560" 
+                    height="315"
+                    title="YouTube video player" 
+                    frameBorder="0"
+                    allowFullScreen></iframe>
+`)
+            } else {
+                return val.replace(/<\/?p>/g, '')
+            }
+        })
+        return result
     }
+
     return (
         <>
             <Header/>
