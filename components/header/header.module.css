@@ -318,6 +318,7 @@
 .my_model_body{
   background-color: rgba( 246, 247, 252, 1.00 )!important;
   padding-bottom: 60px!important;
+  height: 740px;
 }
 .my_model_body input{
   border: 0!important;
