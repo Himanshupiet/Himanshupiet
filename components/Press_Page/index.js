@@ -18,6 +18,7 @@ const PressMain = (props) => {
             }
         }).then((res) => {
             if (res.status) {
+                console.log(res.data.result)
                 setData(res.data.result)
             }
         }).catch((error) => {
