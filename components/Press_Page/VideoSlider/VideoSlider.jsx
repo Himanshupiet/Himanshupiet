@@ -6,8 +6,9 @@ import { Container, Row, Col } from 'react-bootstrap';
 import VideoSliderStyle from './VideoSlider.module.css'
 
 const VideoSlider = (props) => {
+  console.log(props,'videoslider')
   const pressData = props.data
-  const AllPressData = pressData.content
+  const AllPressData = pressData && pressData.content && pressData.content.length ? pressData.content || []
   console.log('video ', AllPressData)
 
   let VideoSliderSettings = {
