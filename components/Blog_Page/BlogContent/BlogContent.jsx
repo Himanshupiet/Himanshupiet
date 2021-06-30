@@ -28,9 +28,7 @@ const BlogContent = (props) => {
     useEffect(() => {
         if (props && props.blog && props.blog.blog && props.blog.blog.result && props.blog.blog.result.content) {
             const allBlogs = props.blog.blog.result.content;
-            let renderedHtml = convertDataToHtml(allBlogs)
-            let blog = {...allBlogs, blogData:renderedHtml}
-            setBlog(blog)
+            setBlog(props.blog.blog.result.content)
             if (!name && !tag) {
                 setFilter(allBlogs)
             } else {
@@ -77,17 +75,10 @@ const BlogContent = (props) => {
         }
     }
     const filterItem = (cat) => {
-
         const updateData = blog && blog.length && blog.filter((catItem) => {
             return catItem.category === cat;
         })
         setFilter(updateData)
-    }
-
-    const convertDataToHtml = (blocks) => {
-        if(blocks.includes('<p>&lt;iframe')){
-            return blocks.replace('&lt;','<')
-        }
     }
 
     return (
