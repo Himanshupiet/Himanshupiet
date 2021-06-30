@@ -16,6 +16,8 @@ const BlogSingleMain = (props) => {
     const {id} = router.query
     const [data, setData] = useState({})
 
+    const [loading, setLoading] = useState(false)
+
     useEffect(() => {
         axios.get(`${API_HOST}blog/getBlogDetailsByUniqueURL?alias=false&blogUrl=` + id, {
             headers: {

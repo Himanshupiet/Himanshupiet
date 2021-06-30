@@ -1,119 +1,166 @@
-.blog_image{
-  position: relative;
+.blog_image {
+    position: relative;
 }
-.blog_image img{
-  width: 100%;
+
+.blog_image img {
+    width: 100%;
 }
-.main_style{
-  grid-row-end: span 14;
+
+.card_main {
+    box-shadow: 0 0 10px 5px rgb(86 86 86 / 4%);
+    border: 1px solid #f6f7fb;
 }
-.blogimg_hover{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-  transition: background-color .2s ease-in-out;
+
+.main_style {
+    grid-row-end: span 14;
 }
-.blog_image:hover .blogimg_hover{
-  background-color: rgba(0,0,0,.2);
+
+.blogimg_hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    transition: background-color .2s ease-in-out;
 }
-.blogimg_hover .blog_tag{
-  background-color: #fff;
-  padding: 2px 17px;
-  border-radius: 3px;
-  display: inline-block;
-  margin: 15px;
-  font-size: 13px;
-  color: #24262a;
-  font-weight: 500;
+
+.blog_image:hover .blogimg_hover {
+    background-color: rgba(0, 0, 0, .2);
 }
-.blog_info{
-  padding: 25px 25px 20px;
+
+.blogimg_hover .blog_tag {
+    background-color: #fff;
+    padding: 2px 17px;
+    border-radius: 3px;
+    display: inline-block;
+    margin: 15px;
+    font-size: 13px;
+    color: #24262a;
+    font-weight: 500;
 }
-.blog_info h2{
-  font-size: 20px;
-  line-height: 27px;
-  letter-spacing: 0;
-  margin-bottom: 8px;
+
+.blog_info {
+    padding: 25px 25px 20px;
 }
-.blog_info a:hover h2{
-  color: #e31422;
+
+.blog_info h2 {
+    font-size: 20px;
+    line-height: 27px;
+    letter-spacing: 0;
+    margin-bottom: 8px;
 }
-.blog_date{
-  margin-bottom: 13px;
-  font-size: 13px;
-  line-height: 18px;
-  font-weight: 500;
-  color: #aab3bc;
+
+.blog_info a:hover h2 {
+    color: #e31422;
 }
-.meta_box img{
-  border-radius: 50%;
-  margin-right: 13px;
+
+.blog_date {
+    margin-bottom: 13px;
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 500;
+    color: #aab3bc;
 }
-.meta_box span{
-  font-size: 13px;
-  line-height: 18px;
-  font-weight: 500;
-  color: #24262a;
+
+.meta_box img {
+    border-radius: 50%;
+    margin-right: 13px;
 }
-.pagination{
-  position: relative;
-  margin: 20px 0 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-end;
+
+.meta_box span {
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 500;
+    color: #24262a;
 }
-.pagination li{
-  margin: 0 5px;
+
+.pagination {
+    position: relative;
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
 }
-.pagination li button{
-  background-color: transparent;
-  border: 1px solid #e31422;
-  padding: 2px 10px;
-  border-radius: 3px;
-  font-size: 15px;
-  outline: none;
-  color: #565656;
-  transition: all 0.3s ease-in-out;
+
+.pagination li {
+    margin: 0 5px;
 }
+
+.pagination li button {
+    background-color: transparent;
+    border: 1px solid #e31422;
+    padding: 2px 10px;
+    border-radius: 3px;
+    font-size: 15px;
+    outline: none;
+    color: #565656;
+    transition: all 0.3s ease-in-out;
+}
+
 .pagination li button:hover,
-.pagination li button.activepagination{
-  background-color: #e31422;
-  color: #fff;
+.pagination li button.activepagination {
+    background-color: #e31422;
+    color: #fff;
 }
-.catfilter{
-  position: relative;
-  margin: 0px 0 30px;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+
+.catfilter {
+    position: relative;
+    margin: 0px 0 30px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 }
-.catfilter li{
-  margin: 0 16px 10px 0px;
+
+.catfilter li {
+    margin: 0 16px 10px 0px;
 }
-.catfilter li button{
-  background-color: transparent;
-  border: none;
-  margin: 0;
-  padding: 0;
-  font-size: 15px;
-  color: #646e7a;
-  font-weight: 500;
-  transition: color .15s ease-out;
+
+.catfilter li button {
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    color: #646e7a;
+    font-weight: 500;
+    transition: color .15s ease-out;
 }
+
 .catfilter li button:hover,
-.catfilter li button.activecatfilter{
-  color: #e31421;
+.catfilter li button.activecatfilter {
+    color: #e31421;
 }
+
 @media only screen and (min-width: 1700px) {
-  .catfilter{
-    padding-left: 64px;
-  }
+    .main_section {
+        padding: 54px !important;
+    }
+
+    .catfilter {
+        padding-left: 54px;
+    }
+}
+
+.my_masonry_grid {
+    display: -webkit-box; /* Not needed if autoprefixing */
+    display: -ms-flexbox; /* Not needed if autoprefixing */
+    display: flex;
+    margin-left: -30px; /* gutter size offset */
+    width: auto;
+}
+
+.my_masonry_grid_column {
+    padding-left: 30px; /* gutter size */
+    background-clip: padding-box;
+}
+
+/* Style your items */
+.my_masonry_grid_column > div { /* change div to reference your elements you put in <Masonry> */
+    margin-bottom: 30px;
 }

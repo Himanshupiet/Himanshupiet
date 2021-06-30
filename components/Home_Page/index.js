@@ -100,7 +100,7 @@ const MainHomePage = props => {
 							</Row>
 						</Container>
 						<VideoGallery />
-            <LogoSlider />
+            {/*<LogoSlider />*/}
             <Footer />
         </>
     )

@@ -6,6 +6,10 @@ import { Container, Row, Col } from 'react-bootstrap';
 import VideoSliderStyle from './VideoSlider.module.css'
 
 const VideoSlider = (props) => {
+  const pressData = props.data
+  const AllPressData = pressData.content
+  console.log('video ', AllPressData)
+
   let VideoSliderSettings = {
     speed: 1500,
     arrows: false,
@@ -54,94 +58,55 @@ const VideoSlider = (props) => {
         <Col lg={10}>
           <h2>Videos</h2>
           <Slider {...VideoSliderSettings}>
-            <div>
+            {(AllPressData && AllPressData.length) ? pressData.content.map((data, i) => (
+            <div key={data.id}>
               <div className={VideoSliderStyle.slider_inner_main}>
                 <div className={VideoSliderStyle.slider_inner}>
-                  <img alt='Videos' width='500' height='250' src={'https://mondrian.mashable.com/uploads%252Fcard%252Fimage%252F1624444%252Ffec3bb46-a019-4545-957e-ad25f777275f.png%252F400x225.png'} className='img-fluid' />
+                  {/*<img alt='Videos' width='500' height='250' src={'https://mondrian.mashable.com/uploads%252Fcard%252Fimage%252F1624444%252Ffec3bb46-a019-4545-957e-ad25f777275f.png%252F400x225.png'} className='img-fluid' />*/}
+                  <div className="embed-responsive embed-responsive-16by9">
+                    <iframe className="embed-responsive-item" src='https://www.youtube.com/embed/lX3vT_Gm_HE' width='500' height='250'></iframe>
+                  </div>
                   <div className={VideoSliderStyle.icon_overlay}>
                     <span><i className="bx bx-play-circle"></i></span>
                   </div>
                 </div>
-                <h6>Apex Commercial Kitchen Co.</h6>
+                <h6>{data.title}</h6>
               </div>
             </div>
-            <div>
-              <div className={VideoSliderStyle.slider_inner_main}>
-                <div className={VideoSliderStyle.slider_inner}>
-                  <img alt='Videos' width='500' height='250' src={'https://mondrian.mashable.com/uploads%252Fcard%252Fimage%252F1624444%252Ffec3bb46-a019-4545-957e-ad25f777275f.png%252F400x225.png'} className='img-fluid' />
-                  <div className={VideoSliderStyle.icon_overlay}>
-                    <span><i className="bx bx-play-circle"></i></span>
-                  </div>
-                </div>
-                <h6>The Daily Show</h6>
-              </div>
-            </div>
-            <div>
-              <div className={VideoSliderStyle.slider_inner_main}>
-                <div className={VideoSliderStyle.slider_inner}>
-                  <img alt='Videos' width='500' height='250' src={'https://mondrian.mashable.com/uploads%252Fcard%252Fimage%252F1624444%252Ffec3bb46-a019-4545-957e-ad25f777275f.png%252F400x225.png'} className='img-fluid' />
-                  <div className={VideoSliderStyle.icon_overlay}>
-                    <span><i className="bx bx-play-circle"></i></span>
-                  </div>
-                </div>
-                <h6>Brookside Market</h6>
-              </div>
-            </div>
-            <div>
-              <div className={VideoSliderStyle.slider_inner_main}>
-                <div className={VideoSliderStyle.slider_inner}>
-                  <img alt='Videos' width='500' height='250' src={'https://mondrian.mashable.com/uploads%252Fcard%252Fimage%252F1624444%252Ffec3bb46-a019-4545-957e-ad25f777275f.png%252F400x225.png'} className='img-fluid' />
-                  <div className={VideoSliderStyle.icon_overlay}>
-                    <span><i className="bx bx-play-circle"></i></span>
-                  </div>
-                </div>
-                <h6>Rai Italia</h6>
-              </div>
-            </div>
-            <div>
-              <div className={VideoSliderStyle.slider_inner_main}>
-                <div className={VideoSliderStyle.slider_inner}>
-                  <img alt='Videos' width='500' height='250' src={'https://mondrian.mashable.com/uploads%252Fcard%252Fimage%252F1624444%252Ffec3bb46-a019-4545-957e-ad25f777275f.png%252F400x225.png'} className='img-fluid' />
-                  <div className={VideoSliderStyle.icon_overlay}>
-                    <span><i className="bx bx-play-circle"></i></span>
-                  </div>
-                </div>
-                <h6>Campeonato Pizza Mexico </h6>
-              </div>
-            </div>
-            <div>
-              <div className={VideoSliderStyle.slider_inner_main}>
-                <div className={VideoSliderStyle.slider_inner}>
-                  <img alt='Videos' width='500' height='250' src={'https://mondrian.mashable.com/uploads%252Fcard%252Fimage%252F1624444%252Ffec3bb46-a019-4545-957e-ad25f777275f.png%252F400x225.png'} className='img-fluid' />
-                  <div className={VideoSliderStyle.icon_overlay}>
-                    <span><i className="bx bx-play-circle"></i></span>
-                  </div>
-                </div>
-                <h6>Boston Pizza Festival 2018</h6>
-              </div>
-            </div>
-            <div>
-              <div className={VideoSliderStyle.slider_inner_main}>
-                <div className={VideoSliderStyle.slider_inner}>
-                  <img alt='Videos' width='500' height='250' src={'https://mondrian.mashable.com/uploads%252Fcard%252Fimage%252F1624444%252Ffec3bb46-a019-4545-957e-ad25f777275f.png%252F400x225.png'} className='img-fluid' />
-                  <div className={VideoSliderStyle.icon_overlay}>
-                    <span><i className="bx bx-play-circle"></i></span>
-                  </div>
-                </div>
-                <h6>Hanover College</h6>
-              </div>
-            </div>
-            <div>
-              <div className={VideoSliderStyle.slider_inner_main}>
-                <div className={VideoSliderStyle.slider_inner}>
-                  <img alt='Videos' width='500' height='250' src={'https://mondrian.mashable.com/uploads%252Fcard%252Fimage%252F1624444%252Ffec3bb46-a019-4545-957e-ad25f777275f.png%252F400x225.png'} className='img-fluid' />
-                  <div className={VideoSliderStyle.icon_overlay}>
-                    <span><i className="bx bx-play-circle"></i></span>
-                  </div>
-                </div>
-                <h6>Boston Pizza Festival 2019</h6>
-              </div>
-            </div>
+            )) : null}
+            {/*<div>*/}
+            {/*  <div className={VideoSliderStyle.slider_inner_main}>*/}
+            {/*    <div className={VideoSliderStyle.slider_inner}>*/}
+            {/*      <img alt='Videos' width='500' height='250' src={'https://mondrian.mashable.com/uploads%252Fcard%252Fimage%252F1624444%252Ffec3bb46-a019-4545-957e-ad25f777275f.png%252F400x225.png'} className='img-fluid' />*/}
+            {/*      <div className={VideoSliderStyle.icon_overlay}>*/}
+            {/*        <span><i className="bx bx-play-circle"></i></span>*/}
+            {/*      </div>*/}
+            {/*    </div>*/}
+            {/*    <h6>The Daily Show</h6>*/}
+            {/*  </div>*/}
+            {/*</div>*/}
+            {/*<div>*/}
+            {/*  <div className={VideoSliderStyle.slider_inner_main}>*/}
+            {/*    <div className={VideoSliderStyle.slider_inner}>*/}
+            {/*      <img alt='Videos' width='500' height='250' src={'https://mondrian.mashable.com/uploads%252Fcard%252Fimage%252F1624444%252Ffec3bb46-a019-4545-957e-ad25f777275f.png%252F400x225.png'} className='img-fluid' />*/}
+            {/*      <div className={VideoSliderStyle.icon_overlay}>*/}
+            {/*        <span><i className="bx bx-play-circle"></i></span>*/}
+            {/*      </div>*/}
+            {/*    </div>*/}
+            {/*    <h6>Brookside Market</h6>*/}
+            {/*  </div>*/}
+            {/*</div>*/}
+            {/*<div>*/}
+            {/*  <div className={VideoSliderStyle.slider_inner_main}>*/}
+            {/*    <div className={VideoSliderStyle.slider_inner}>*/}
+            {/*      <img alt='Videos' width='500' height='250' src={'https://mondrian.mashable.com/uploads%252Fcard%252Fimage%252F1624444%252Ffec3bb46-a019-4545-957e-ad25f777275f.png%252F400x225.png'} className='img-fluid' />*/}
+            {/*      <div className={VideoSliderStyle.icon_overlay}>*/}
+            {/*        <span><i className="bx bx-play-circle"></i></span>*/}
+            {/*      </div>*/}
+            {/*    </div>*/}
+            {/*    <h6>Rai Italia</h6>*/}
+            {/*  </div>*/}
+            {/*</div>*/}
           </Slider>
         </Col>
         <Col lg={1}></Col>

@@ -95,7 +95,7 @@ const BlogSidebar = (props) => {
                 <ul className='text-center m-0'>
                     {blog && blog.length ? blog.slice(0,4).map((item, i) => (
                         <li className='cat-item mb-2' key={item.id}>
-                            <Link href={`${process.env.NEXT_PUBLIC_BASE_PATH}/blog/${item.uniqueUrl}`}>
+                            <Link href={`/blog/${item.uniqueUrl}`}>
                                 <a title='5 Ways MarraStone Revolutionizes the Brick Oven'>{item.title}</a>
                             </Link>
                         </li>
