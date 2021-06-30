@@ -77,7 +77,8 @@ const BlogContent = (props) => {
         }
     }
     const filterItem = (cat) => {
-        const updateData = blog.filter((catItem) => {
+
+        const updateData = blog && blog.length && blog.filter((catItem) => {
             return catItem.category === cat;
         })
         setFilter(updateData)
