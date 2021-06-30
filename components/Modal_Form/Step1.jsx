@@ -94,13 +94,6 @@ const Step1 = (props) => {
                         <h2 className='text-center pt-3' style={{color: '#e31422'}}>
                             Visualize Your Oven!
                         </h2>
-                        <p className='pt-1 text-center'>
-                            Hey there! We're happy to see you! Let us help you achieve your dream
-                            kitchen. Play around with the options below to get an idea of how you
-                            want to customize your oven. Once you're happy with your design, snap a
-                            screenshot and attach it to the quote form on the right. We'll talk to
-                            you soon.
-                        </p>
                         <FormGroup>
                             <div
                                 className='main'
