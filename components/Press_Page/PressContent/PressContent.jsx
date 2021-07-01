@@ -12,8 +12,6 @@ import BlogContentStyle from "../../Blog_Page/BlogContent/BlogContent.module.css
 const PressContent = (props) => {
     const [blog, setBlog] = useState([])
 
-    console.log('filter data ', blog)
-
     useEffect(() => {
         props.productActions.getAllPost()
     }, [])
