@@ -1,16 +1,19 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Row, Col} from 'react-bootstrap'
 import {faFacebookF, faLinkedinIn, faPinterestP, faTwitter} from '@fortawesome/free-brands-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import BlogSingleContentStyle from './BlogSingleContent.module.css'
 import Link from 'next/link';
+import axios from "axios";
+import {API_HOST} from "../../../env";
 
 const BlogSingleContent = (props) => {
-    const {title, bannerImageUrl, blogData, metaKeyword, altTag, createdBy, renderedHtmlPreview,tags,blogDescription} = props.data;
+    const {title, blogData, metaKeyword, altTag, createdBy, renderedHtmlPreview,tags,blogDescription,bannerWebpImageUrl} = props.data;
+
     return (
         <>
             <div className={BlogSingleContentStyle.feature_image}>
-                <img alt={altTag} src={bannerImageUrl} className='img-fluid' style={{objectFit:'cover',height:'500px'}}/>
+                <img alt={altTag} src={bannerWebpImageUrl} className='img-fluid' style={{objectFit:'cover',height:'500px'}}/>
             </div>
             <div className={BlogSingleContentStyle.title_box}>
                 <h2>{title}</h2>
@@ -28,7 +31,14 @@ const BlogSingleContent = (props) => {
                         <div className={BlogSingleContentStyle.tags_outer}>
                             <h6>Tags: </h6>
                             <div className={BlogSingleContentStyle.alltags}>
-                                <Link href="/"><a title='Brick Oven'><u>{tags}</u>, </a></Link>
+                                <Link href={{
+                                    pathname: "/blog",
+                                    query: {tag: `${tags}`},
+                                }}>
+                                    <a title='Brick Oven'>
+                                        <u>{tags}</u>,
+                                    </a>
+                                </Link>
                             </div>
                         </div>
                     </Col>

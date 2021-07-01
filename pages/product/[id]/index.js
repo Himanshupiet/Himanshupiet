@@ -35,7 +35,7 @@ const SingleProduct = (props) => {
 		}
     }
     useEffect(() => {
-        axios.get(`${API_HOST}category/getCategoryById?id=`+id, {headers:{
+        axios.get(`${API_HOST}category/getCategoryByName?name=`+ id, {headers:{
                 'Content-Type': 'application/json',
             }
         }).then((res)=>{

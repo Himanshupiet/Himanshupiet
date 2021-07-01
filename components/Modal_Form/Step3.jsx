@@ -3,7 +3,6 @@
 import React from 'react';
 import {FormGroup, Label, Input, Button} from 'reactstrap';
 import {Modal} from "react-bootstrap";
-import CountryList from "../common/GetAQuote/CountryList";
 import StepStyle from './Step3.module.css'
 import {Col, Container, Row} from 'react-bootstrap'
 
@@ -69,22 +68,6 @@ const Step3 = (props) => {
                                         <option value='Plug & Play Ventilation'>Plug & Play
                                             Ventilation
                                         </option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div className={`${StepStyle.section_inner} form-row`}>
-                                <div className={`${StepStyle.select_wrapper} col-md-12`}>
-                                    <select
-                                        name='country'
-                                        id='country'
-                                        value={props.country}
-                                        onChange={props.handleChange}
-                                    >
-                                        <option value=''>Select Country</option>
-                                        {CountryList.map((country, index) => {
-                                            return <option value={country}
-                                                           key={index}>{country}</option>
-                                        })}
                                     </select>
                                 </div>
                             </div>

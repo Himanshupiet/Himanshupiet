@@ -371,7 +371,7 @@ const Header = (props) => {
                                                                     <Col sm={3}>
                                                                         <div className={headerStyle.special_product}>
                                                                             <Link
-                                                                                href="/product/discover-the-rotator-brick-oven">
+                                                                                href={`/product/${res.categoryName}`}>
                                                                                 <a title="">
                                                                                     <img
                                                                                         src={res.imageUrl}
@@ -392,8 +392,8 @@ const Header = (props) => {
                                                                         <>
                                                                             { id !== 0 &&
                                                                                 <li key={id}>
-                                                                                    <Link href="/">
-                                                                                        <a title="">
+                                                                                    <Link href={`/product/${res.categoryName}`}>
+                                                                                        <a title={res.categoryName}>
                                                                                             <img
                                                                                                 src={res.imageUrl}
                                                                                                 width="100" height="100"

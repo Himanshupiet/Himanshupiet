@@ -30,7 +30,7 @@ const Products = (props) => {
                 <Row>
                     <Col lg={1}></Col>
                     <Col lg={10}>
-                        {(product && product.length)? product.map((item,id) => (
+                        {(product && product.length) ? product.map((item, id) => (
                             <div key={id}>
                                 <ScrollAnimation duration={2} animateIn="zoomIn" animateOnce={true}>
                                     <div className={ProductStyle.product_headingbox}>
@@ -43,16 +43,17 @@ const Products = (props) => {
                                         <Col lg={4} md={6} key={res.id}>
                                             <ScrollAnimation duration={2} animateIn="fadeInUp" animateOnce={true}>
                                                 <div className={ProductStyle.product_inner}>
-                                                    {/*<div style={{overflow:'hidden',height:'500px',width:'600px'}}>*/}
-                                                    <img
-                                                        src={res.imageUrl}
-                                                        width="400" height="500" className="img-fluid" style={{objectFit:'cover'}}
-                                                        alt="The Rotator"/>
+                                                    <div style={{overflow: 'hidden', height: '320px',verticalAlign:'middle',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                                                        <img
+                                                            src={res.imageUrl}
+                                                            className="img-fluid"
+                                                            style={{transform: 'scale(.9)'}}
+                                                            alt="The Rotator"/>
+                                                    </div>
                                                     <div className={ProductStyle.product_info}>
                                                         <h3>{res.categoryName}</h3>
-                                                        <p>{res.categoryDescription.substr(0, 90) + "..."}</p>
-                                                        {/*<Link href={`http://localhost:3005/product/${res.id}`}>*/}
-                                                        <Link href={`/product/${res.id}`}>
+                                                        <p>{res.categoryDescription.substr(0, 80) + "..."}</p>
+                                                        <Link href={`/product/${res.categoryName}`}>
                                                             <a className="mf_btn" title="The Rotator">Explore more</a>
                                                         </Link>
                                                     </div>
@@ -62,7 +63,7 @@ const Products = (props) => {
                                     ))}
                                 </Row>
                             </div>
-                        )):null}
+                        )) : null}
                     </Col>
                     <Col lg={1}></Col>
                 </Row>

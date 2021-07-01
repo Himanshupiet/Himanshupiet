@@ -18,7 +18,7 @@ class MasterForm extends Component {
         // Set the intiial input values
         this.state = {
             currentStep: 1,
-            tiles: '',
+            tiles: 'Penny',
             color: 'Blue',
             facade: 'Black',
             legs: '',
@@ -188,11 +188,11 @@ class MasterForm extends Component {
                                                 staddress={this.state.staddress}
                                                 city={this.state.city}
                                                 state={this.state.state}
+                                                country={this.state.country}
                                             />
                                             <Step3
                                                 currentStep={this.state.currentStep}
                                                 handleChange={this.handleChange}
-                                                country={this.state.country}
                                                 product={this.state.product}
                                                 choosefile={this.state.choosefile}
                                                 message={this.state.message}

@@ -58,40 +58,45 @@ const PressContent = (props) => {
         500: 1
     };
 
-    const items = (blog && blog.length) ? blog.map((item, i) => (
-        <div key={item.id}>
-            <div className='blog_inner_main'>
-                <Link href={`/blog/${item.uniqueUrl}`}>
-                    <a title={item.title}>
-                        <div className={BlogContentStyle.blog_image}>
-                            <img
-                                src={item.bannerImageUrl}
-                                alt={'5 Ways MarraStone Revolutionizes The Brick Oven'} width="1920" height="600"
-                                className="img-fluid"/>
-                            <div className={BlogContentStyle.blogimg_hover}>
-                                <div className={BlogContentStyle.blog_tag}>{item.category}</div>
+    const items = (blog && blog.length) ? blog.map((item, i) => {
+        if (item.category === 'Press') {
+            return (
+                <div key={item.id}>
+                    <div className='blog_inner_main'>
+                        <Link href={`/blog/${item.uniqueUrl}`}>
+                            <a title={item.title}>
+                                <div className={BlogContentStyle.blog_image}>
+                                    <img
+                                        src={item.bannerWebpImageUrl}
+                                        alt={'5 Ways MarraStone Revolutionizes The Brick Oven'} width="1920"
+                                        height="600"
+                                        className="img-fluid"/>
+                                    <div className={BlogContentStyle.blogimg_hover}>
+                                        <div className={BlogContentStyle.blog_tag}>{item.category}</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </Link>
+                        <div className={BlogContentStyle.blog_info}>
+                            <Link href={`/blog/${item.uniqueUrl}`}>
+                                <a title={item.aliasUrl}>
+                                    <h2>{item.title}</h2>
+                                </a>
+                            </Link>
+                            <div className={BlogContentStyle.blog_date}>{item.date}</div>
+                            <p>{item.blogDescription.substr(0, 150)}</p>
+                            {/*<div dangerouslySetInnerHTML={{__html: item.renderedHtmlPreview}}></div>*/}
+                            <div className={BlogContentStyle.meta_box}>
+                                <img alt='Author' width='42' height='42'
+                                     src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/avatar.png`}/>
+                                <span>{item.createdBy}</span>
                             </div>
                         </div>
-                    </a>
-                </Link>
-                <div className={BlogContentStyle.blog_info}>
-                    <Link href={`/blog/${item.uniqueUrl}`}>
-                        <a title={item.aliasUrl}>
-                            <h2>{item.title}</h2>
-                        </a>
-                    </Link>
-                    <div className={BlogContentStyle.blog_date}>{item.date}</div>
-                    <p>{item.blogDescription.substr(0, 150)}</p>
-                    {/*<div dangerouslySetInnerHTML={{__html: item.renderedHtmlPreview}}></div>*/}
-                    <div className={BlogContentStyle.meta_box}>
-                        <img alt='Author' width='42' height='42'
-                             src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/avatar.png`}/>
-                        <span>{item.createdBy}</span>
                     </div>
                 </div>
-            </div>
-        </div>
-    )) : null
+            )
+        }
+    }) : null
 
     return (
         <Container fluid className='mb-5 mt-5'>
@@ -589,9 +594,9 @@ const PressContent = (props) => {
             {/*        </div>*/}
             {/*    </div>*/}
             {/*</div>*/}
-        {/*</div>*/}
-</Container>
-)
+            {/*</div>*/}
+        </Container>
+    )
 }
 const mapStateToProps = ({blog}) => {
     return {blog}
