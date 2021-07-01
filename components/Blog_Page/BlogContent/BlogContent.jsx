@@ -103,7 +103,7 @@ const BlogContent = (props) => {
                     <a title={item.title}>
                         <div className={BlogContentStyle.blog_image}>
                             <img
-                                src={item.bannerImageUrl}
+                                src={item.bannerWebpImageUrl}
                                 alt={'5 Ways MarraStone Revolutionizes The Brick Oven'} width="1920" height="600"
                                 className="img-fluid"/>
                             <div className={BlogContentStyle.blogimg_hover}>

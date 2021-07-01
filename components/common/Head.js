@@ -6,7 +6,8 @@ import NextHead from 'next/head'
 const Head = props => {
     const {
         title,
-        description
+        description,
+        keywords
     } = props
 
     const {pathname} = useRouter()
@@ -34,15 +35,15 @@ const Head = props => {
             {/*<meta property="og:image:type" content="image/png" />*/}
             {/*<meta name="twitter:card" content="summary_large_image" />*/}
             {/*<meta name="twitter:image" content={`${process.env.NEXT_PUBLIC_BASE_URL}${process.env.NEXT_PUBLIC_BASE_PATH}/images/Rotator-Penny-Red.png`} />*/}
-            <meta name="title" content="The Future of Banking with the Growth of Technology"/>
-            <meta name="keywords" content="The Future of Banking,Technology, Banks vs. Fintech, Banking"/>
+            <meta name="title" content={title || ''}/>
+            <meta name="keywords" content={keywords || ''}/>
             <meta name="image"
                   content="https://ares.decipherzone.com/blog-manager/uploads/banner_80ffb230-0ac5-4a62-9b7a-633221db615f.jpg"/>
             <meta name="description"
-                  content="The Future of Banking with the Growth of Technology. Banks vs. Fintech. Banks' Responses to Fintech. Tech companies in the banking space will be the biggest threat to traditional banking."/>
+                  content={description || ''}/>
             <meta property="og:type" content="article"/>
             <meta property="og:locale" content="en_us"/>
-            <meta property="og:title" content="The Future of Banking with the Growth of Technology"/>
+            <meta property="og:title" content={title || ''}/>
             <meta property="og:url"
                   content="https://www.decipherzone.com/blog-detail/the-future-of-banking-technology"/>
             <meta property="og:image:width" content="1024" data-dynamic="true"/>
@@ -50,7 +51,7 @@ const Head = props => {
             <meta property="og:image"
                   content="https://ares.decipherzone.com/blog-manager/uploads/banner_80ffb230-0ac5-4a62-9b7a-633221db615f.jpg"/>
             <meta property="og:description"
-                  content="The Future of Banking with the Growth of Technology. Banks vs. Fintech. Banks' Responses to Fintech. Tech companies in the banking space will be the biggest threat to traditional banking."/>
+                  content={description || ''}/>
             <meta property="og:type" content="article"/>
             <meta property="og:site_name" content="decipherzone.com"/>
             <meta name="twitter:card" content="summary_large_image"/>
@@ -58,9 +59,9 @@ const Head = props => {
             <meta name="twitter:creator" content="@DecipherZone"/>
             <meta name="twitter:image"
                   content="https://ares.decipherzone.com/blog-manager/uploads/banner_80ffb230-0ac5-4a62-9b7a-633221db615f.jpg"/>
-            <meta name="twitter:title" content="The Future of Banking with the Growth of Technology"/>
+            <meta name="twitter:title" content={title || ''}/>
             <meta name="twitter:description"
-                  content="The Future of Banking with the Growth of Technology. Banks vs. Fintech. Banks' Responses to Fintech. Tech companies in the banking space will be the biggest threat to traditional banking."/>
+                  content={description || ''}/>
         </NextHead>
     )
 }

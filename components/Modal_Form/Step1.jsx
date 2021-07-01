@@ -196,19 +196,19 @@ const Step1 = (props) => {
                                 className='oven-image-tile position-absolute'
                                 src={`https://marraforni.com/wp/wp-content/themes/ultima-child/assets/s3/make/${tiles}_${color}.png`}
                                 alt='Penny Red'
-                                style={{zIndex: '2', width: '350px'}}
+                                style={{zIndex: '2', width: '550px'}}
                             />
                             <img
                                 className='oven-image-grout position-absolute'
                                 src='https://marraforni.com/wp/wp-content/themes/ultima-child/assets/s3/make/Grout_Red.png'
                                 alt='Grout Red'
-                                style={{zIndex: '1', width: '350px'}}
+                                style={{zIndex: '1', width: '550px'}}
                             />
                             <img
                                 className='oven-image-facade position-absolute'
                                 src={`https://marraforni.com/wp/wp-content/themes/ultima-child/assets/s3/make/Facade_${facade}.png`}
                                 alt='Facade Black'
-                                style={{width: '350px'}}
+                                style={{width: '550px'}}
                             />
                         </div>
                     </Col>

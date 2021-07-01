@@ -10,6 +10,9 @@
 .meta_info{
   margin-bottom: 14px;
 }
+.content_box img{
+  width: 800px!important;
+}
 .meta_info span{
   color: #aab3bc;
   font-size: 13px;

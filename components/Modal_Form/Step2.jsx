@@ -5,6 +5,8 @@ import {FormGroup, Label, Input} from 'reactstrap';
 import {Modal} from "react-bootstrap";
 import headerStyle from '../header/header.module.css'
 import {Col, Container, Row} from 'react-bootstrap'
+import StepStyle from "./Step3.module.css";
+import CountryList from "../common/GetAQuote/CountryList";
 
 const Step2 = (props) => {
     if (props.currentStep !== 2) {
@@ -72,6 +74,32 @@ const Step2 = (props) => {
                                         value={props.pnumber}
                                         onChange={props.handleChange}
                                     />
+                                </div>
+                                <div className={`form-group col-md-6`}>
+                                    <input
+                                        type='text'
+                                        name='staddress'
+                                        id='staddress'
+                                        placeholder='Street Address'
+                                        value={props.staddress}
+                                        onChange={props.handleChange}
+                                    />
+                                </div>
+                            </div>
+                            <div className="form-row">
+                                <div className={`${StepStyle.select_wrapper} col-md-6`}>
+                                    <select
+                                        name='country'
+                                        id='country'
+                                        value={props.country}
+                                        onChange={props.handleChange}
+                                    >
+                                        <option value=''>Select Country</option>
+                                        {CountryList.map((country, index) => {
+                                            return <option value={country}
+                                                           key={index}>{country}</option>
+                                        })}
+                                    </select>
                                 </div>
                                 <div className={`form-group col-md-6`}>
                                     <input
