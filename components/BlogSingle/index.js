@@ -16,8 +16,6 @@ const BlogSingleMain = (props) => {
     const {id} = router.query
     const [data, setData] = useState({})
 
-    const [loading, setLoading] = useState(false)
-
     useEffect(() => {
         axios.get(`${API_HOST}blog/getBlogDetailsByUniqueURL?alias=false&blogUrl=` + id, {
             headers: {
@@ -40,18 +38,22 @@ const BlogSingleMain = (props) => {
         snippet.innerHTML=blocks;
         let links = snippet.getElementsByTagName("a")
         if(blocks.match(links)){
-           let lastURL = links[links.length - 1].href; // or getAttribute("href")
-            blocks = blocks.replace(
-                  `${links[0].outerHTML}`,
-                  `<iframe
-                    src=${lastURL}
-                    width="560" 
-                    height="315"
-                    title="YouTube video player" 
-                    frameBorder="0"
-                    rel="0"
-                    allowFullScreen></iframe>`
-                )
+             Array.prototype.slice.call( links ).map((val,i) => {
+                if(val.href.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/g)){
+                    blocks =  blocks.replace(
+                        links[links.length - i].outerHTML,
+                          `<iframe
+                            src=${val.href}
+                            width="560"
+                            height="315"
+                            title="YouTube video player"
+                            frameBorder="0"
+                            rel="0"
+                            allowFullScreen></iframe>`
+                        )
+                }
+
+            })
         }
         return blocks
     }
