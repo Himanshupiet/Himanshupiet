@@ -1,0 +1,21 @@
+.event_banner{
+    background-image: url('https://marraforni.com/wp/wp-content/uploads/2020/02/NRA-2019-Thank-You-post-1536x1401.jpg');
+    width: 100%;
+    /*height: 2335px;*/
+    height: 1500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.event_banner h1 {
+    text-align: center;
+    color: #fff;
+}
+.content_section h1{
+    font-family: Poppins;
+    font-size: 50px;
+    line-height: 45px;
+    font-weight: 900;
+    color: #000000;
+}
+

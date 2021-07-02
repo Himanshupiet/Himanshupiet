@@ -9,7 +9,7 @@ import {API_HOST} from "../../env";
 
 const PressMain = (props) => {
     const [data, setData] = useState([])
-    console.log(data)
+    const [slider, setSlider] = useState([])
 
     useEffect(() => {
         axios.get(`${API_HOST}press/getAllPressData`, {
@@ -18,19 +18,33 @@ const PressMain = (props) => {
             }
         }).then((res) => {
             if (res.status) {
-                console.log(res.data.result)
                 setData(res.data.result)
             }
         }).catch((error) => {
 
         })
     },[])
+
+    useEffect(() => {
+        axios.get(`${API_HOST}slider/getAllSlider`, {
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }).then((res) => {
+            if (res.status) {
+                setSlider(res.data)
+            }
+        }).catch((error) => {
+
+        })
+    },[])
+
     return (
         <>
             <Header/>
-            <TopBannerSlider/>
+            <TopBannerSlider slider={slider}/>
             <VideoSlider data={data}/>
-            <PressContent data={data}/>
+            <PressContent/>
             {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/r0-q0YIHxO4?controls=0&rel=0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}
             <Footer/>
         </>

@@ -225,6 +225,11 @@ const Footer = (props) => {
                                                 <a title="Recurso español">Recurso español</a>
                                             </Link>
                                         </li>
+                                        <li>
+                                            <Link href="/case-studies">
+                                                <a title="case studies">Case Studies</a>
+                                            </Link>
+                                        </li>
                                     </ul>
                                 </Col>
                                 <Col lg={3} md={6} className={footerStyle.footer_inner}>
