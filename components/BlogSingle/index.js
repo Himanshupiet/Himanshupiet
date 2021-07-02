@@ -16,8 +16,6 @@ const BlogSingleMain = (props) => {
     const {id} = router.query
     const [data, setData] = useState({})
 
-    const [loading, setLoading] = useState(false)
-
     useEffect(() => {
         axios.get(`${API_HOST}blog/getBlogDetailsByUniqueURL?alias=false&blogUrl=` + id, {
             headers: {
@@ -36,25 +34,30 @@ const BlogSingleMain = (props) => {
     }, [id])
 
     const convertDataToHtml = (blocks) => {
-        let result = blocks.match(/<p>(.*?)<\/p>/g).map(function(val){
-            let matchUrl = val.match(/<a[^>]*>([^<]+)<\/a>/g)
-            let hrefValue = val.match(/(["'])(.*?)\1/)
-            if(val.match(/<a[^>]*>([^<]+)<\/a>/g)){
-                return val.replace(matchUrl, `
-                 <iframe
-                    src=${hrefValue[0]}
-                    width="560" 
-                    height="315"
-                    title="YouTube video player" 
-                    frameBorder="0"
-                    allowFullScreen></iframe>
-`)
-            } else {
-                return val.replace(/<\/?p>/g, '')
-            }
-        })
-        return result
+        let snippet = document.createElement("div")
+        snippet.innerHTML=blocks;
+        let links = snippet.getElementsByTagName("a")
+        if(blocks.match(links)){
+             Array.prototype.slice.call( links ).map((val,i) => {
+                if(val.href.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/g)){
+                    blocks =  blocks.replace(
+                        links[links.length - i].outerHTML,
+                          `<iframe
+                            src=${val.href}
+                            width="560"
+                            height="315"
+                            title="YouTube video player"
+                            frameBorder="0"
+                            rel="0"
+                            allowFullScreen></iframe>`
+                        )
+                }
+
+            })
+        }
+        return blocks
     }
+
 
     return (
         <>
