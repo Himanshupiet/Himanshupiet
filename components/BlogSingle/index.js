@@ -44,12 +44,11 @@ const BlogSingleMain = (props) => {
                         links[i].outerHTML,
                           `<iframe
                             key=${i}
-                            src=${val.href}
+                            src=${val.href}?rel=0
                             width="560"
                             height="315"
                             title="YouTube video player"
                             frameBorder="0"
-                            rel="0"
                             allowFullScreen></iframe>`
                         )
                 }
