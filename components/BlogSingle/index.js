@@ -41,8 +41,9 @@ const BlogSingleMain = (props) => {
              Array.prototype.slice.call( links ).map((val,i) => {
                 if(val.href.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/g)){
                     blocks =  blocks.replace(
-                        links[links.length - i].outerHTML,
+                        links[i].outerHTML,
                           `<iframe
+                            key=${i}
                             src=${val.href}
                             width="560"
                             height="315"
@@ -52,10 +53,9 @@ const BlogSingleMain = (props) => {
                             allowFullScreen></iframe>`
                         )
                 }
-
             })
+            return blocks
         }
-        return blocks
     }
 
 
