@@ -4,10 +4,17 @@ import { Col, Row } from 'react-bootstrap';
 import ResultStyle from './FiltersResult.module.css'
 
 const FiltersResult = (props) => {
-  const{ product, handleSearch } = props
+  const{
+      product,
+      resourceList,
+      blogList,
+      allCaseStudyList,
+      handleSearch } = props
   const[ productResult, setProductResult ] = useState([])
+  const[ blogResult, setBlogResult ] = useState({})
   const[ productPerPage, setProductPerPage ] = useState(3)
   const[ currentPage, setCurrentPage ] = useState(1)
+  const[ activeBlog, setActiveBlog ] = useState(1)
 
   let textSearch = React.createRef();
 
@@ -24,39 +31,64 @@ const FiltersResult = (props) => {
          catCurrentPage:1,
          newCat:val && val.cat && val.cat.length && val.cat.slice(indexOfFirstTodo, indexOfLastTodo)}
     })
+
+    let pagination = Math.ceil((blogList && blogList && blogList.length)/ productPerPage)
+    let currentBlog = {
+            blogList:blogList && blogList.length && blogList.slice(indexOfFirstTodo, indexOfLastTodo),
+            paginationArr: pagination ?
+                Array(pagination - 1 + 1).fill().map((_, idx) => 1 + idx) :
+                [],
+            catCurrentPage: 1
+        }
     setProductResult(currentProduct)
+    setBlogResult(currentBlog)
   },[product])
 
-  const handlePagination = (value, typeId) => {
-    let indexOfLastTodo = value * productPerPage
-    let indexOfFirstTodo = indexOfLastTodo - productPerPage
+  const handlePagination = (value, typeId, cat) => {
+    if(cat == 'product') {
+        let indexOfLastTodo = value * productPerPage
+        let indexOfFirstTodo = indexOfLastTodo - productPerPage
+        let currentProduct = productResult.map(val => {
+            let indexOfLast = val.catCurrentPage * productPerPage
+            let indexOfFirst = indexOfLast - productPerPage
+            let pagination = Math.ceil((val && val.cat && val.cat.length) / productPerPage)
+            if (val.id == typeId) {
+                return {
+                    ...val,
+                    paginationArr: pagination ?
+                        Array(pagination - 1 + 1).fill().map((_, idx) => 1 + idx) :
+                        [],
+                    catCurrentPage: value,
+                    newCat: val && val.cat && val.cat.length && val.cat.slice(indexOfFirstTodo, indexOfLastTodo)
+                }
+            } else {
+                return {
+                    ...val,
+                    paginationArr: pagination ?
+                        Array(pagination - 1 + 1).fill().map((_, idx) => 1 + idx) :
+                        [],
+                    catCurrentPage: val.catCurrentPage,
+                    newCat: val && val.cat && val.cat.length && val.cat.slice(indexOfFirst, indexOfLast)
+                }
+            }
 
-    let currentProduct = productResult.map(val => {
-      let indexOfLast = val.catCurrentPage * productPerPage
-      let indexOfFirst = indexOfLast - productPerPage
-      let pagination = Math.ceil((val && val.cat && val.cat.length) / productPerPage)
-      if(val.id == typeId) {
-        return {
-          ...val,
-          paginationArr: pagination ?
-            Array(pagination - 1 + 1).fill().map((_, idx) => 1 + idx) :
-            [],
-          catCurrentPage:value,
-          newCat: val && val.cat && val.cat.length && val.cat.slice(indexOfFirstTodo, indexOfLastTodo)
-        }
-      }else{
-        return {
-          ...val,
-          paginationArr: pagination ?
-            Array(pagination - 1 + 1).fill().map((_, idx) => 1 + idx) :
-            [],
-          catCurrentPage:val.catCurrentPage,
-         newCat: val && val.cat && val.cat.length && val.cat.slice(indexOfFirst, indexOfLast)
-        }
-      }
+        })
+        setProductResult(currentProduct)
+    }
 
-    })
-    setProductResult(currentProduct)
+    if(cat == 'blog') {
+        let indexOfLast = blogResult.catCurrentPage * productPerPage
+        let indexOfFirst = indexOfLast - productPerPage
+        let pagination = Math.ceil((blogList && blogList.length) / productPerPage)
+        let currentBlog = {
+                    paginationArr: pagination ?
+                        Array(pagination - 1 + 1).fill().map((_, idx) => 1 + idx) :
+                        [],
+                    catCurrentPage: value,
+                    blogList: blogList && blogList.length && blogList.slice(indexOfFirst, indexOfLast)
+            }
+        setBlogResult(currentBlog)
+    }
   }
 
   return(
@@ -129,7 +161,6 @@ const FiltersResult = (props) => {
                         )
                       })
                       }
-
                     </ul>
                   </Col>
                 </Row> : null
@@ -381,53 +412,52 @@ const FiltersResult = (props) => {
         <h2>Blogs</h2>
       </div>
       <Row className={ResultStyle.innovation}>
-        <Col lg={4} md={6}>
-          <div className={ResultStyle.blog_inner}>
-            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Marra-Stone-min.jpg`} width="400" height="500" className="img-fluid" alt="The Rotator" />
-            <div className={ResultStyle.blog_info}>
-              <h3 title='5 Ways MarraStone Revolutionizes The Brick Oven'>{("5 Ways MarraStone Revolutionizes The Brick Oven").substr(0,50)}{("5 Ways MarraStone Revolutionizes The Brick Oven,").length > 50 && "..."}</h3>
-              <p>{("Food enthusiasts have been fired up about brick ovens since the beginning of written history. Did you know that sundried bricks are the first known manufactured material?").substr(0,100)}{("Food enthusiasts have been fired up about brick ovens since the beginning of written history. Did you know that sundried bricks are the first known manufactured material?,").length > 100 && "..."}</p>
-              <Link href="/">
-                <a className="mf_btn" title="The Rotator">View more</a>
-              </Link>
-            </div>
-          </div>
-        </Col>
-        <Col lg={4} md={6}>
-          <div className={ResultStyle.blog_inner}>
-            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Sous-Vide-Blog-2.png`} width="400" height="500" className="img-fluid" alt="The Rotator" />
-            <div className={ResultStyle.blog_info}>
-              <h3 title='All You Need To Know About Sous Vide To Brick Oven Cooking'>{("All You Need To Know About Sous Vide To Brick Oven Cooking").substr(0,50)}{("All You Need To Know About Sous Vide To Brick Oven Cooking,").length > 50 && "..."}</h3>
-              <p>{("Over the years, One of our resident chefs and sales manager has developed delicious, easy, environmentally friendly ways of combining Sous Vide techniques with brick oven cooking.").substr(0,100)}{("Over the years, One of our resident chefs and sales manager has developed delicious, easy, environmentally friendly ways of combining Sous Vide techniques with brick oven cooking.,").length > 100 && "..."}</p>
-              <Link href="/">
-                <a className="mf_btn" title="The Rotator">View more</a>
-              </Link>
-            </div>
-          </div>
-        </Col>
-        <Col lg={4} md={6}>
-          <div className={ResultStyle.blog_inner}>
-            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Rep-Chef-Blog.png`} width="400" height="500" className="img-fluid" alt="The Rotator" />
-            <div className={ResultStyle.blog_info}>
-              <h3 title='7 Ways Rep Chefs Make Purchasing The Best Kitchen Solutions Easy'>{("7 Ways Rep Chefs Make Purchasing The Best Kitchen Solutions Easy").substr(0,50)}{("7 Ways Rep Chefs Make Purchasing The Best Kitchen Solutions Easy").length > 50 && "..."}</h3>
-              <p>{("We consistently hear feedback on how Chef Representatives in our test kitchens helped clients’ businesses succeed. In addition to providing valuable tips and strategies to help them choose the best ovens").substr(0,100)}{("We consistently hear feedback on how Chef Representatives in our test kitchens helped clients’ businesses succeed. In addition to providing valuable tips and strategies to help them choose the best ovens,").length > 100 && "..."}</p>
-              <Link href="/">
-                <a className="mf_btn" title="The Rotator">View more</a>
-              </Link>
-            </div>
-          </div>
-        </Col>
+       { blogResult.blogList && blogResult.blogList && blogResult.blogList.length ?
+           blogResult.blogList.map((blog,i) => {
+             return(
+               <Col lg={4} md={6} key={i}>
+                   <div className={ResultStyle.blog_inner}>
+                       <img src={`${blog.bannerWebpImageUrl}`} width="400"
+                            height="500" className="img-fluid" alt=""/>
+                       <div className={ResultStyle.blog_info}>
+                           <h3 title={blog.title}>{blog.title.substr(0, 50)}{blog.title.length > 50 && "..."}</h3>
+                           <p>{blog.blogDescription.substr(0, 100)}{blog.blogDescription.length > 100 && "..."}</p>
+                           <Link href={`/blog/${blog.uniqueUrl}`}>
+                               <a className="mf_btn" title="The Rotator">View more</a>
+                           </Link>
+                       </div>
+                   </div>
+               </Col>
+             )
+           })
+        :
+           <div>No result found</div>
+       }
       </Row>
+
       <Row>
-        <Col md={12}>
-          <ul className={ResultStyle.pagination}>
-            <li><button className={ResultStyle.activepagination}>1</button></li>
-            <li><button>2</button></li>
-            <li><button>3</button></li>
-            <li><button>4</button></li>
-            <li><button>5</button></li>
-          </ul>
-        </Col>
+          <Col md={12}>
+              <ul className={ResultStyle.pagination}>
+                  { blogResult &&
+                  blogResult.paginationArr &&
+                  blogResult.paginationArr.length ?
+                      blogResult.paginationArr.map((val, i) => {
+                          return (
+                              <li key={i}>
+                                  <button
+                                      onClick = {() => {
+                                          handlePagination(val, val.id, 'blog')
+                                          setActiveBlog(i+1)
+                                      }}
+                                      className={ activeBlog === i+1 ? ResultStyle.activepagination : ''}
+                                      key={i}>{val}</button>
+                              </li>
+                          )
+                      })
+                      : null
+                  }
+              </ul>
+          </Col>
       </Row>
     </>
    )

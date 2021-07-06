@@ -19,9 +19,15 @@ const Resources_main = (props) => {
   const[ filterProduct, setFilterProduct ] = useState([])
   const[ searchProduct, setSearchProduct ] = useState([])
   const[ newArr, setNewArr ] = useState([])
+  const[ resourceList, setResourceList ] = useState([])
+  const[ blogList, setBlogList ] = useState([])
+  const[ allCaseStudyList, setAllCaseStudyList ] = useState([])
 
   useEffect(() => {
     props.productActions.getAllProduct()
+      getAllResourceData()
+      getAllBlogForResource([])
+      getAllCaseStudy()
   },[])
 
   useEffect(() => {
@@ -58,6 +64,23 @@ const Resources_main = (props) => {
     }
   }, [props.product])
 
+    const getAllResourceData = () => {
+        props.productActions.getAllResourceData().then(res => {
+            setResourceList(res)
+        })
+    }
+
+    const getAllBlogForResource = (data) => {
+        props.productActions.getAllBlogForResource(data).then(res => {
+          setBlogList(res)
+        })
+    }
+
+   const getAllCaseStudy = () => {
+        props.productActions.getAllCaseStudy().then(res => {
+          setAllCaseStudyList(res)
+        })
+    }
 
   const handleSelect = (e, typeId, cat, idx, index) => {
     const { value } = e.target
@@ -210,13 +233,19 @@ const Resources_main = (props) => {
                 <Col md={3}>
                   <Filters
                     product={ allProduct }
-                    handleSelect = { handleSelect }
+                    filterProduct={ filterProduct }
+                    resourceList={ resourceList }
+                    handleSelect={ handleSelect }
+                    getAllBlogForResource={ getAllBlogForResource }
                   />
                 </Col>
                 <Col md={9}>
                   <FiltersResult
                     product={ filterProduct }
-                    handleSearch = { handleSearch }
+                    resourceList={ resourceList }
+                    blogList={ blogList }
+                    allCaseStudyList={ allCaseStudyList }
+                    handleSearch={ handleSearch }
                   />
                 </Col>
               </Row>
