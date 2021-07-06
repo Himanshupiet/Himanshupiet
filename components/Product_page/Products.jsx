@@ -43,13 +43,13 @@ const Products = (props) => {
                                         <Col lg={4} md={6} key={res.id}>
                                             <ScrollAnimation duration={2} animateIn="fadeInUp" animateOnce={true}>
                                                 <div className={ProductStyle.product_inner}>
-                                                    <div style={{overflow: 'hidden', height: '320px',verticalAlign:'middle',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                                                    {/*<div style={{overflow: 'hidden', height: '320px',verticalAlign:'middle',display:'flex',justifyContent:'center',alignItems:'center'}}>*/}
                                                         <img
                                                             src={res.imageUrl}
                                                             className="img-fluid"
                                                             style={{transform: 'scale(.9)'}}
                                                             alt="The Rotator"/>
-                                                    </div>
+                                                    {/*</div>*/}
                                                     <div className={ProductStyle.product_info}>
                                                         <h3>{res.categoryName}</h3>
                                                         <p>{res.categoryDescription.substr(0, 80) + "..."}</p>

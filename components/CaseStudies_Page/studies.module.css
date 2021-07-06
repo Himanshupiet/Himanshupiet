@@ -41,3 +41,10 @@
     color: #15a0ac;
     font-size: 22px;
 }
+.left_btn{
+    /*border-top-left-radius: 21px;*/
+    /*border-bottom-left-radius: 21px;*/
+    /*border-top-right-radius: 21px;*/
+    /*border-bottom-right-radius: 21px;*/
+    border-radius: 21px 21px 21px 21px;
+}

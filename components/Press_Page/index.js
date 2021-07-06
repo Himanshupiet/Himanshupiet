@@ -26,7 +26,7 @@ const PressMain = (props) => {
     },[])
 
     useEffect(() => {
-        axios.get(`${API_HOST}slider/getAllSlider`, {
+        axios.get(`${API_HOST}slider/getSliderBySliderName?sliderName=Press`, {
             headers: {
                 'Content-Type': 'application/json',
             }

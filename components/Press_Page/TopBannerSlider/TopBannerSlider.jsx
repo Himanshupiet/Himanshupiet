@@ -7,7 +7,6 @@ import {Container, Row, Col} from 'react-bootstrap';
 
 const TopBannerSlider = (props) => {
     const slider = props.slider
-    console.log(props.slider)
 
     let TopBannerSliderSettings = {
         speed: 800,

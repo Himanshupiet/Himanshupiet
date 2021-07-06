@@ -58,14 +58,15 @@ const VideoSlider = (props) => {
                 <Col lg={10}>
                     <h2>Videos</h2>
                     <Slider {...VideoSliderSettings}>
-                        {(AllPressData && AllPressData.length) ? pressData.content.map((data, i) => (
+                        {(AllPressData && AllPressData.length) ? AllPressData.map((data, i) => (
                             <div key={data.id}>
                                 <div className={VideoSliderStyle.slider_inner_main}>
                                     <Link href={data.videoUrl}>
                                         <a title={data.title}>
                                             <div className={VideoSliderStyle.slider_inner}>
                                                 <div className="embed-responsive embed-responsive-16by9">
-                                                    <iframe className="embed-responsive-item" src={data.videoUrl}
+                                                    <iframe className="embed-responsive-item"
+                                                            src={data.videoUrl}
                                                             width='500'
                                                             height='250'></iframe>
                                                 </div>
@@ -95,18 +96,6 @@ const VideoSlider = (props) => {
                         {/*    <h6>The Daily Show</h6>*/}
                         {/*  </div>*/}
                         {/*</div>*/}
-                        {/*<div>*/}
-                        {/*  <div className={VideoSliderStyle.slider_inner_main}>*/}
-                        {/*    <div className={VideoSliderStyle.slider_inner}>*/}
-                        {/*      <img alt='Videos' width='500' height='250' src={'https://mondrian.mashable.com/uploads%252Fcard%252Fimage%252F1624444%252Ffec3bb46-a019-4545-957e-ad25f777275f.png%252F400x225.png'} className='img-fluid' />*/}
-                        {/*      <div className={VideoSliderStyle.icon_overlay}>*/}
-                        {/*        <span><i className="bx bx-play-circle"></i></span>*/}
-                        {/*      </div>*/}
-                        {/*    </div>*/}
-                        {/*    <h6>Brookside Market</h6>*/}
-                        {/*  </div>*/}
-                        {/*</div>*/}
-                        {/*<div>*/}
                         {/*  <div className={VideoSliderStyle.slider_inner_main}>*/}
                         {/*    <div className={VideoSliderStyle.slider_inner}>*/}
                         {/*      <img alt='Videos' width='500' height='250' src={'https://mondrian.mashable.com/uploads%252Fcard%252Fimage%252F1624444%252Ffec3bb46-a019-4545-957e-ad25f777275f.png%252F400x225.png'} className='img-fluid' />*/}

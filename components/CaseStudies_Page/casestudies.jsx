@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Col, Container, Row, Accordion, Card} from 'react-bootstrap'
 import Header from "../header/header";
 import Footer from "../footer/footer";
@@ -6,9 +6,56 @@ import MainHomePageStyle from "../Home_Page/index.module.css";
 import GetAQuote from "../common/GetAQuote/GetAQuote";
 import CaseStudyStyle from './studies.module.css'
 import SliderPage from "./Slider/slider";
+import axios from "axios";
+import {API_HOST} from "../../env";
+import Link from "next/link";
+import BlogContentStyle from "../Blog_Page/BlogContent/BlogContent.module.css";
 
 
 const CaseStudiesPage = () => {
+    const [data, setData] = useState([])
+    const [filter, setFilter] = useState([])
+    const [activeValue, setActiveValue] = useState(0)
+    console.log('mail data ', data)
+
+    const Language = [
+        {
+            id:1,
+            language:'English'
+        },
+        {
+            id:2,
+            language:'Italian'
+        },
+        {
+            id:3,
+            language:'French'
+        },
+    ]
+
+
+    useEffect(() => {
+        axios.get(`${API_HOST}case-study/getAll`, {
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }).then((res) => {
+            if (res.status) {
+                setData(res.data.content)
+                setFilter(res.data.content)
+            }
+        }).catch((error) => {
+
+        })
+    }, [])
+
+    const filterItem = (cat) => {
+        const updateData = data && data.length && data.filter((catItem) => {
+            return catItem.language === cat;
+        })
+
+        setFilter(updateData)
+    }
     return (
         <>
             <Header/>
@@ -52,56 +99,69 @@ const CaseStudiesPage = () => {
                 <Row>
                     <Col lg={1}></Col>
                     <Col lg={10} className={CaseStudyStyle.case_study}>
-                        <h2 className='pb-4'>CASE STUDIES</h2>
+                        <h2 className='pb-2'>CASE STUDIES</h2>
+                        <div className={`${CaseStudyStyle.btn_group} btn-group mb-5`} role="group">
+                            {Language.map((data,i)=>(
+                                <button type="button"
+                                   className={`${CaseStudyStyle.left_btn} btn btn-outline-danger ${i + 1 == activeValue ? 'bg-danger text-white' : ''}`} onClick={() => {
+                                    filterItem(`${data.language}`)
+                                    setActiveValue(i + 1)
+                                }}>{data.language}
+                            </button>
+                            ))}
+                        </div>
                         <Row>
-                            <Col lg={3}>
-                                <div className={`${CaseStudyStyle.card_design} card`}>
-                                    <img src="https://marraforni.com/wp/wp-content/uploads/2021/06/UB.png"
-                                         className="card-img-top" alt="..."/>
-                                    <div className="card-body">
-                                        <h3 className="card-title">Urban Bricks</h3>
-                                        <p className="card-text">Urban Bricks builds a pizza empire around the Marra
-                                            Forni Rotator Pizza oven</p>
-                                        <a href="#" className="mf_btn">View Case Study</a>
+                            {(filter && filter.length) ? filter.map((data, i) => (
+                                <Col lg={3} key={data.id}>
+                                    <div className={`${CaseStudyStyle.card_design} card`}>
+                                        <img src="https://marraforni.com/wp/wp-content/uploads/2021/06/UB.png"
+                                             className="card-img-top" alt="..."/>
+                                        <div className="card-body">
+                                            <h3 className="card-title">{data.title}</h3>
+                                            <p className="card-text">{data.description}</p>
+                                            {/*<Link href={data.fileUrl} target="_blank">*/}
+                                                <a href={data.fileUrl} target="_blank" className="mf_btn">View Case Study</a>
+                                            {/*</Link>*/}
+                                        </div>
                                     </div>
-                                </div>
-                            </Col>
-                            <Col lg={3}>
-                                <div className={`${CaseStudyStyle.card_design} card`}>
-                                    <img src="https://marraforni.com/wp/wp-content/uploads/2021/06/UB.png"
-                                         className="card-img-top" alt="..."/>
-                                    <div className="card-body">
-                                        <h3 className="card-title">Urban Bricks</h3>
-                                        <p className="card-text">Pandemic Converts Temporary Dining Alternative to
-                                            Permanent.</p>
-                                        <a href="#" className="mf_btn">View Case Study</a>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col lg={3}>
-                                <div className={`${CaseStudyStyle.card_design} card`}>
-                                    <img src="https://marraforni.com/wp/wp-content/uploads/2021/06/UB.png"
-                                         className="card-img-top" alt="..."/>
-                                    <div className="card-body">
-                                        <h3 className="card-title">Ocean Edge</h3>
-                                        <p className="card-text">Permanent dining experience and popular guest
-                                            attraction with Marra.</p>
-                                        <a href="#" className="mf_btn">View Case Study</a>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col lg={3}>
-                                <div className={`${CaseStudyStyle.card_design} card`}>
-                                    <img src="https://marraforni.com/wp/wp-content/uploads/2021/06/UB.png"
-                                         className="card-img-top" alt="..."/>
-                                    <div className="card-body">
-                                        <h3 className="card-title">Ocean Edge</h3>
-                                        <p className="card-text">Permanent dining experience and popular guest
-                                            attraction with.</p>
-                                        <a href="#" className="mf_btn">View Case Study</a>
-                                    </div>
-                                </div>
-                            </Col>
+                                </Col>
+                            )) : null}
+                            {/*<Col lg={3}>*/}
+                            {/*    <div className={`${CaseStudyStyle.card_design} card`}>*/}
+                            {/*        <img src="https://marraforni.com/wp/wp-content/uploads/2021/06/UB.png"*/}
+                            {/*             className="card-img-top" alt="..."/>*/}
+                            {/*        <div className="card-body">*/}
+                            {/*            <h3 className="card-title">Urban Bricks</h3>*/}
+                            {/*            <p className="card-text">Pandemic Converts Temporary Dining Alternative to*/}
+                            {/*                Permanent.</p>*/}
+                            {/*            <a href="#" className="mf_btn">View Case Study</a>*/}
+                            {/*        </div>*/}
+                            {/*    </div>*/}
+                            {/*</Col>*/}
+                            {/*<Col lg={3}>*/}
+                            {/*    <div className={`${CaseStudyStyle.card_design} card`}>*/}
+                            {/*        <img src="https://marraforni.com/wp/wp-content/uploads/2021/06/UB.png"*/}
+                            {/*             className="card-img-top" alt="..."/>*/}
+                            {/*        <div className="card-body">*/}
+                            {/*            <h3 className="card-title">Ocean Edge</h3>*/}
+                            {/*            <p className="card-text">Permanent dining experience and popular guest*/}
+                            {/*                attraction with Marra.</p>*/}
+                            {/*            <a href="#" className="mf_btn">View Case Study</a>*/}
+                            {/*        </div>*/}
+                            {/*    </div>*/}
+                            {/*</Col>*/}
+                            {/*<Col lg={3}>*/}
+                            {/*    <div className={`${CaseStudyStyle.card_design} card`}>*/}
+                            {/*        <img src="https://marraforni.com/wp/wp-content/uploads/2021/06/UB.png"*/}
+                            {/*             className="card-img-top" alt="..."/>*/}
+                            {/*        <div className="card-body">*/}
+                            {/*            <h3 className="card-title">Ocean Edge</h3>*/}
+                            {/*            <p className="card-text">Permanent dining experience and popular guest*/}
+                            {/*                attraction with.</p>*/}
+                            {/*            <a href="#" className="mf_btn">View Case Study</a>*/}
+                            {/*        </div>*/}
+                            {/*    </div>*/}
+                            {/*</Col>*/}
                         </Row>
                     </Col>
                     <Col lg={1}></Col>
