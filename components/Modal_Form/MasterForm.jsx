@@ -1,13 +1,19 @@
 import React, {Component} from 'react';
-import MasterFormStuyle from './MasterForm.module.css'
 import {Col, Container, Row} from 'react-bootstrap'
 import {
+    Form,
     Button,
+    Card,
+    CardHeader,
+    CardBody,
+    CardTitle,
+    CardText,
+    CardFooter
 } from 'reactstrap';
 
 import Step1 from './Step1';
 import Step2 from './Step2';
-import Step3 from './Step3';
+// import Step3 from './Step3';
 
 import MultiStepProgressBar from './MultiStepProgressBar';
 
@@ -50,7 +56,7 @@ class MasterForm extends Component {
         // If the current step is not 1, then render the "previous" button
         if (currentStep !== 1) {
             return (
-                <Button className='mf_btn' onClick={this._prev}>
+                <Button color='secondary float-left' onClick={this._prev}>
                     Previous
                 </Button>
             );
@@ -63,9 +69,9 @@ class MasterForm extends Component {
     get nextButton() {
         let currentStep = this.state.currentStep;
         // If the current step is not 3, then render the "next" button
-        if (currentStep < 3) {
+        if (currentStep < 2) {
             return (
-                <Button className='mf_btn' onClick={this._next}>
+                <Button color='primary float-right' onClick={this._next}>
                     Next
                 </Button>
             );
@@ -80,7 +86,7 @@ class MasterForm extends Component {
         let currentStep = this.state.currentStep;
 
         // If the current step is the last step, then render the "submit" button
-        if (currentStep > 2) {
+        if (currentStep > 1) {
             return <Button color='primary float-right'>Submit</Button>;
         }
         // ...else render nothing
@@ -161,56 +167,51 @@ class MasterForm extends Component {
             <>
                 <Container>
                     <Row>
-                        <Col lg={12} className='m-auto'>
+                        <Col lg={1}></Col>
+                        <Col lg={10}>
                             <form onSubmit={this.handleSubmit}>
-                                <div style={{backgroundColor: 'rgba( 246, 247, 252, 1.00 )'}}>
-                                    <div>
-                                        <header>
-                                            <MultiStepProgressBar currentStep={this.state.currentStep}/>
-                                        </header>
-                                        <div>
-                                            <Step1
-                                                currentStep={this.state.currentStep}
-                                                handleChange={this.handleChange}
-                                                legs={this.state.legs}
-                                                color={this.state.color}
-                                                tiles={this.state.tiles}
-                                                facade={this.state.facade}
-                                            />
-                                            <Step2
-                                                currentStep={this.state.currentStep}
-                                                handleChange={this.handleChange}
-                                                fname={this.state.fname}
-                                                lname={this.state.lname}
-                                                email={this.state.email}
-                                                cemail={this.state.cemail}
-                                                pnumber={this.state.pnumber}
-                                                staddress={this.state.staddress}
-                                                city={this.state.city}
-                                                state={this.state.state}
-                                                country={this.state.country}
-                                            />
-                                            <Step3
-                                                currentStep={this.state.currentStep}
-                                                handleChange={this.handleChange}
-                                                product={this.state.product}
-                                                choosefile={this.state.choosefile}
-                                                message={this.state.message}
-                                            />
-                                        </div>
-                                    </div>
+                                <div>
+                                    <MultiStepProgressBar currentStep={this.state.currentStep}/>
+                                </div>
+                                <div>
+                                    <Step1
+                                        currentStep={this.state.currentStep}
+                                        handleChange={this.handleChange}
+                                        legs={this.state.legs}
+                                        color={this.state.color}
+                                        tiles={this.state.tiles}
+                                        facade={this.state.facade}
+                                        product={this.state.product}
+                                    />
+                                    <Step2
+                                        currentStep={this.state.currentStep}
+                                        handleChange={this.handleChange}
+                                        fname={this.state.fname}
+                                        lname={this.state.lname}
+                                        email={this.state.email}
+                                        cemail={this.state.cemail}
+                                        pnumber={this.state.pnumber}
+                                        staddress={this.state.staddress}
+                                        city={this.state.city}
+                                        state={this.state.state}
+                                        choosefile={this.state.choosefile}
+                                        message={this.state.message}
+                                        country={this.state.country}
+                                    />
+                                </div>
+                                {/*<Step3*/}
+                                {/*    currentStep={this.state.currentStep}*/}
+                                {/*    handleChange={this.handleChange}*/}
+                                {/*    */}
+                                {/*/>*/}
+                                <div>
+                                    {this.previousButton}
+                                    {this.nextButton}
+                                    {this.submitButton}
                                 </div>
                             </form>
                         </Col>
-                    </Row>
-                    <Row>
-                        <Col lg={6} className='m-auto'>
-                            <div>
-                                {this.previousButton}
-                                {this.nextButton}
-                                {this.submitButton}
-                            </div>
-                        </Col>
+                        <Col lg={1}></Col>
                     </Row>
                 </Container>
             </>
@@ -219,3 +220,4 @@ class MasterForm extends Component {
 }
 
 export default MasterForm;
+

@@ -19,10 +19,23 @@ const Resources_main = (props) => {
   const[ filterProduct, setFilterProduct ] = useState([])
   const[ searchProduct, setSearchProduct ] = useState([])
   const[ newArr, setNewArr ] = useState([])
+  const[ resourceList, setResourceList ] = useState([])
+  const[ blogList, setBlogList ] = useState([])
+  const[ allCaseStudyList, setAllCaseStudyList ] = useState([])
+  const[ blogSelect, setBlogSelect ] = useState(false)
 
   useEffect(() => {
     props.productActions.getAllProduct()
+      getAllResourceData()
+      getAllBlogForResource([])
+      getAllCaseStudy()
   },[])
+
+  useEffect(() => {
+     if(!blogSelect){
+       getAllBlogForResource([])
+     }
+  },[blogSelect])
 
   useEffect(() => {
     if(props &&
@@ -58,6 +71,23 @@ const Resources_main = (props) => {
     }
   }, [props.product])
 
+  const getAllResourceData = () => {
+      props.productActions.getAllResourceData().then(res => {
+          setResourceList(res)
+      })
+  }
+
+  const getAllBlogForResource = (data) => {
+      props.productActions.getAllBlogForResource(data).then(res => {
+        setBlogList(res)
+      })
+  }
+
+ const getAllCaseStudy = () => {
+      props.productActions.getAllCaseStudy().then(res => {
+        setAllCaseStudyList(res)
+      })
+  }
 
   const handleSelect = (e, typeId, cat, idx, index) => {
     const { value } = e.target
@@ -86,6 +116,9 @@ const Resources_main = (props) => {
           setNewArr(productData)
           setFilterProduct(productData)
           setSearchProduct(productData)
+          if(blogSelect){
+              getAllBlogForResource(productData)
+          }
         } else {
           productData.map(val => {
             if (val.id == typeId) {
@@ -95,6 +128,9 @@ const Resources_main = (props) => {
           setNewArr(productData)
           setFilterProduct(productData)
           setSearchProduct(productData)
+          if(blogSelect){
+              getAllBlogForResource(productData)
+          }
         }
 
       } else {
@@ -108,6 +144,9 @@ const Resources_main = (props) => {
         setNewArr(productData)
         setFilterProduct(productData)
         setSearchProduct(productData)
+        if(blogSelect){
+            getAllBlogForResource(productData)
+        }
       }
     }else{
       let productArr = productData.map(val => {
@@ -128,19 +167,31 @@ const Resources_main = (props) => {
         setFilterProduct(productArr)
         setSearchProduct(productArr)
         setNewArr(productArr)
+        if(blogSelect){
+            getAllBlogForResource(productArr)
+        }
       }else if( productArr && productArr.length && productArr[0].cat && productArr[0].cat.length > 1) {
         setFilterProduct(productArr)
         setSearchProduct(productArr)
         setNewArr(productArr)
+        if(blogSelect){
+            getAllBlogForResource(productArr)
+        }
       }else{
         if(productArr && productArr.length &&  productArr[0].cat && productArr[0].cat.length){
           setFilterProduct(productArr)
           setSearchProduct(productArr)
           setNewArr(productArr)
+          if(blogSelect){
+              getAllBlogForResource(productArr)
+          }
         }else{
           setFilterProduct(allProduct)
           setSearchProduct(allProduct)
           setNewArr([])
+          if(blogSelect){
+              getAllBlogForResource(allProduct)
+          }
         }
       }
     }
@@ -210,13 +261,21 @@ const Resources_main = (props) => {
                 <Col md={3}>
                   <Filters
                     product={ allProduct }
-                    handleSelect = { handleSelect }
+                    filterProduct={ filterProduct }
+                    resourceList={ resourceList }
+                    handleSelect={ handleSelect }
+                    blogSelect={blogSelect}
+                    setBlogSelect={setBlogSelect}
+                    getAllBlogForResource={ getAllBlogForResource }
                   />
                 </Col>
                 <Col md={9}>
                   <FiltersResult
                     product={ filterProduct }
-                    handleSearch = { handleSearch }
+                    resourceList={ resourceList }
+                    blogList={ blogList }
+                    allCaseStudyList={ allCaseStudyList }
+                    handleSearch={ handleSearch }
                   />
                 </Col>
               </Row>

@@ -10,11 +10,11 @@ const MultiStepProgressBar = (props) => {
 
     if (props.currentStep === 1) {
         stepPercentage = 0;
-    } else if (props.currentStep === 2) {
-        stepPercentage = 50;
-    } else if (props.currentStep === 3) {
+    }
+    else if (props.currentStep === 2) {
         stepPercentage = 100;
-    } else {
+    }
+    else {
         stepPercentage = 0;
     }
 
@@ -28,14 +28,14 @@ const MultiStepProgressBar = (props) => {
                     </div>
                 )}
             </Step>
-            <Step>
-                {({ accomplished, index }) => (
-                    <div
-                        className={`${MultiProgressBarStyle.indexedStep} ${accomplished ? 'accomplished' : null}`}>
-                        {index + 1}
-                    </div>
-                )}
-            </Step>
+            {/*<Step>*/}
+            {/*    {({ accomplished, index }) => (*/}
+            {/*        <div*/}
+            {/*            className={`${MultiProgressBarStyle.indexedStep} ${accomplished ? 'accomplished' : null}`}>*/}
+            {/*            {index + 1}*/}
+            {/*        </div>*/}
+            {/*    )}*/}
+            {/*</Step>*/}
             <Step>
                 {({ accomplished, index }) => (
                     <div

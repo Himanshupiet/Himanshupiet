@@ -2,7 +2,14 @@ import React, {useState, useEffect} from 'react'
 import FilterStyle from './Filters.module.css'
 
 const Filters = (props) => {
-  const{ product, handleSelect } = props
+  const{
+      product,
+      filterProduct,
+      resourceList,
+      handleSelect,
+      blogSelect,
+      setBlogSelect
+  } = props
   const[ productFilter, setProductFilter ] = useState([])
   const [filterOpen, setFilterOpen] = useState({
     ProductOpen: true,
@@ -14,6 +21,20 @@ const Filters = (props) => {
   useEffect(() => {
     setProductFilter(product)
   },[product])
+
+  useEffect(() => {
+    if(blogSelect){
+       props.getAllBlogForResource(filterProduct)
+    }
+  },[blogSelect])
+
+  const unique = (array, propertyName) => {
+    return array.filter((e, i) => array.findIndex(a => a[propertyName] === e[propertyName]) === i);
+  }
+
+  const selectBlogWithCat = () => {
+    setBlogSelect(!blogSelect)
+  }
 
   return(
     <div className={FilterStyle.filter_outer}>
@@ -67,18 +88,18 @@ const Filters = (props) => {
         </li>
         <div className={`${FilterStyle.filter_option} ${filterOpen.ResourcesOpen ? FilterStyle.openFilterOption : ''}`}>
           <ul>
-            <li>
-              <label><input type='checkbox' value='Spec Sheets' />Spec Sheets</label>
-            </li>
-            <li>
-              <label><input type='checkbox' value='CAD Drawings' />CAD Drawings</label>
-            </li>
-            <li>
-              <label><input type='checkbox' value='Revit Files' />Revit Files</label>
-            </li>
-            <li>
-              <label><input type='checkbox' value='User Manual' />User Manual</label>
-            </li>
+              { resourceList && resourceList.length ?
+                  unique(resourceList, 'productType').map((item, i) => {
+                    return (
+                      <li key={i}>
+                        <label>
+                            <input type='checkbox' value='Spec Sheets' />
+                            {item.productType}
+                        </label>
+                      </li>
+                    )
+                  })
+              :null}
           </ul>
         </div>
         <li 
@@ -97,7 +118,13 @@ const Filters = (props) => {
               <label><input type='checkbox' value='Video' />Video</label>
             </li>
             <li>
-              <label><input type='checkbox' value='Blog' />Blog</label>
+              <label>
+                  <input
+                      type='checkbox'
+                      value='Blog'
+                      onClick={selectBlogWithCat}
+                      checked={blogSelect}
+                  />Blog</label>
             </li>
             <li>
               <label><input type='checkbox' value='Case Study' />Case Study</label>
@@ -120,7 +147,7 @@ const Filters = (props) => {
               <label><input type='checkbox' value='English' />English</label>
             </li>
             <li>
-              <label><input type='checkbox' value='Spanish' />Spanish</label>
+              <label><input type='checkbox' value='Italian' />Italian</label>
             </li>
             <li>
               <label><input type='checkbox' value='French' />French</label>

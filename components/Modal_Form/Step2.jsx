@@ -103,36 +103,25 @@ const Step2 = (props) => {
                                 </div>
                                 <div className={`form-group col-md-6`}>
                                     <input
-                                        type='text'
-                                        name='staddress'
-                                        id='staddress'
-                                        placeholder='Street Address'
-                                        value={props.staddress}
-                                        onChange={props.handleChange}
+                                        type='textarea'
+                                        name='message'
+                                        id='message'
+                                        placeholder='Message'
+                                        value={props.message} // Prop: The username input data
+                                        onChange={props.handleChange} // Prop: Puts data into the state
                                     />
                                 </div>
                             </div>
                             <div className="form-row">
-                                <div className={`form-group col-md-6`}>
-                                    <input
-                                        type='text'
-                                        name='city'
-                                        id='city'
-                                        placeholder='City'
-                                        value={props.city}
-                                        onChange={props.handleChange}
-                                    />
-                                </div>
-                                <div className={`form-group col-md-6`}>
-                                    <input
-                                        type='text'
-                                        name='state'
-                                        id='state'
-                                        placeholder='State/Provience'
-                                        value={props.state}
-                                        onChange={props.handleChange}
-                                    />
-                                </div>
+                                <Label for='fname'>Attach Your ScreenShot</Label>
+                                <Input
+                                    type='file'
+                                    name='choosefile'
+                                    id='choosefile'
+                                    placeholder='Chose File'
+                                    value={props.choosefile}
+                                    onChange={props.handleChange}
+                                />
                             </div>
                         </FormGroup>
                     </Col>
