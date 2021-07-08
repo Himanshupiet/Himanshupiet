@@ -42,7 +42,7 @@ const FiltersResult = (props) => {
         }
     setProductResult(currentProduct)
     setBlogResult(currentBlog)
-  },[product])
+  },[product, blogList])
 
   const handlePagination = (value, typeId, cat) => {
     if(cat == 'product') {

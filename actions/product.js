@@ -71,7 +71,6 @@ export const getAllCaseStudy = () => {
 }
 
 export const getAllBlogForResource = (data) => {
-    console.log(data)
     let queryParams = [];
     data && data.length && data.map(product => {
         product.cat.map(val => {

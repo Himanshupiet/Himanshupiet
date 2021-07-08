@@ -6,7 +6,10 @@ const Filters = (props) => {
       product,
       filterProduct,
       resourceList,
-      handleSelect } = props
+      handleSelect,
+      blogSelect,
+      setBlogSelect
+  } = props
   const[ productFilter, setProductFilter ] = useState([])
   const [filterOpen, setFilterOpen] = useState({
     ProductOpen: true,
@@ -19,12 +22,18 @@ const Filters = (props) => {
     setProductFilter(product)
   },[product])
 
+  useEffect(() => {
+    if(blogSelect){
+       props.getAllBlogForResource(filterProduct)
+    }
+  },[blogSelect])
+
   const unique = (array, propertyName) => {
     return array.filter((e, i) => array.findIndex(a => a[propertyName] === e[propertyName]) === i);
   }
 
   const selectBlogWithCat = () => {
-    props.getAllBlogForResource(filterProduct)
+    setBlogSelect(!blogSelect)
   }
 
   return(
@@ -109,7 +118,13 @@ const Filters = (props) => {
               <label><input type='checkbox' value='Video' />Video</label>
             </li>
             <li>
-              <label><input type='checkbox' value='Blog' onClick={selectBlogWithCat} />Blog</label>
+              <label>
+                  <input
+                      type='checkbox'
+                      value='Blog'
+                      onClick={selectBlogWithCat}
+                      checked={blogSelect}
+                  />Blog</label>
             </li>
             <li>
               <label><input type='checkbox' value='Case Study' />Case Study</label>
