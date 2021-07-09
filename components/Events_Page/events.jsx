@@ -11,7 +11,6 @@ import Loader from "../Loading/loading";
 const EventsPage = () => {
     const [slider, setSlider] = useState([])
     const [loading, setLoader] = useState(false)
-    console.log(slider)
 
     useEffect(() => {
         setLoader(true)
@@ -32,7 +31,7 @@ const EventsPage = () => {
     return (
         <>
             <Header/>
-            {/*<Loader data={true}/>*/}
+            <Loader data={loading}/>
             <Container fluid className={EventStyle.event_banner}>
                 {/*<h1>FAQs</h1>*/}
             </Container>
