@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import { Col, Row, Container } from 'react-bootstrap'
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faLinkedinIn} from "@fortawesome/free-brands-svg-icons";
+// import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+// import {faLinkedinIn} from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
 import TimelineStyle from './Timeline.module.css'
 
