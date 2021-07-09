@@ -19,3 +19,18 @@
     top: 17px;
     font-size: 20px;
 }
+.textarea textarea{
+    border-radius: 0!important;
+    background: #fff;
+}
+
+.textarea:focus {
+    outline: none !important;
+}
+.form_style div{
+    margin-bottom: 0rem!important;
+}
+.textarea{
+    margin-left: 2px;
+    margin-right: 2px;
+}

@@ -128,13 +128,10 @@ const Header = (props) => {
     const [mobileGalleryOpen, setMobileGalleryOpen] = useState(false);
     const [mobileContactOpen, setMobileContactOpen] = useState(false);
     const [show, setShow] = useState(false);
-    const [facade, setFacade] = useState('Black')
-    const [color, setColors] = useState('Red')
-    const [legs, setLegs] = useState('Black')
-    const [tiles, setTiles] = useState('Penny')
     const [gformData, setGformData] = useState(initialValues);
     const [buttonIsDisable, setButtonIsDisable] = useState(false);
     const [product, setProduct] = useState([])
+    const [img, setImage] = useState('')
 
     useEffect(() => {
         window.addEventListener('scroll', checkStickyHeader, {passive: true});
@@ -157,8 +154,10 @@ const Header = (props) => {
         if (window.innerWidth > 991) {
             if (window.scrollY > 150) {
                 setFixedHeaderClass(headerStyle.active_sticky_header);
+                setImage(`${process.env.NEXT_PUBLIC_BASE_PATH}/images/LogoRed.png`)
             } else {
                 setFixedHeaderClass("");
+                setImage(`${process.env.NEXT_PUBLIC_BASE_PATH}/images/LogoWhite.png`)
             }
         }
     }
@@ -324,7 +323,7 @@ const Header = (props) => {
                                 </div>
                                 <Link href="/">
                                     <a title="MarraForni"><img alt="Marra Forni"
-                                                               src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/LogoRed.png`}
+                                                               src={img}
                                                                width="226" height="60"/></a>
                                 </Link>
                                 <div className={headerStyle.mobile_slbox}>

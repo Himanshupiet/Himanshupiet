@@ -5,29 +5,34 @@ import Footer from "../footer/footer";
 import EventStyle from './events.module.css'
 import axios from "axios";
 import {API_HOST} from "../../env";
+import Loader from "../Loading/loading";
 
 
 const EventsPage = () => {
     const [slider, setSlider] = useState([])
+    const [loading, setLoader] = useState(false)
     console.log(slider)
 
     useEffect(() => {
+        setLoader(true)
         axios.get(`${API_HOST}slider/getSliderBySliderName?sliderName=Press`, {
             headers: {
                 'Content-Type': 'application/json',
             }
         }).then((res) => {
+            setLoader(false)
             if (res.status) {
                 setSlider(res.data)
             }
         }).catch((error) => {
-
+            setLoader(false)
         })
     }, [])
 
     return (
         <>
             <Header/>
+            {/*<Loader data={true}/>*/}
             <Container fluid className={EventStyle.event_banner}>
                 {/*<h1>FAQs</h1>*/}
             </Container>
@@ -94,10 +99,10 @@ const EventsPage = () => {
                         return (
                             <>
                                 <Col lg={6} className={`${EventStyle.main_img} p-0`}>
-                                    {i % 2 === 0 ? <img style={{height:'773px'}}
+                                    {i % 2 === 0 ? <img style={{height:'700px'}}
                                             src={data.imagePath}/>
                                         :
-                                        <div style={{backgroundColor: '#e31422'}}>
+                                        <div style={{backgroundColor: '#e31422',height:'700px'}}>
                                             <div className={`${EventStyle.card_design}`}>
                                                 <h1>{data.title}</h1>
                                                 <h5>March 1 – 3, 2020</h5>
@@ -121,7 +126,7 @@ const EventsPage = () => {
                                 </Col>
                                 <Col lg={6} className={`${EventStyle.main_img} p-0`}>
                                     {i % 2 === 0 ?
-                                        <div style={{backgroundColor: '#e31422',height:'773px'}}>
+                                        <div style={{backgroundColor: '#e31422',height:'700px'}}>
                                             <div className={`${EventStyle.card_design}`}>
                                                 <h1>{data.title}</h1>
                                                 <h5>March 1 – 3, 2020</h5>
@@ -140,7 +145,7 @@ const EventsPage = () => {
                                             </div>
                                         </div>
                                         :
-                                        <img src={data.imagePath} style={{height:'773px'}}/>
+                                        <img src={data.imagePath} style={{height:'700px'}}/>
                                     }
 
                                 </Col>

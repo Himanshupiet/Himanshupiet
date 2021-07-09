@@ -48,3 +48,7 @@
     /*border-bottom-right-radius: 21px;*/
     border-radius: 21px 21px 21px 21px;
 }
+.btn_style{
+    color: #fff!important;
+    background-color: #e31422;
+}
