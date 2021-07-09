@@ -8,15 +8,14 @@ import CaseStudyStyle from './studies.module.css'
 import SliderPage from "./Slider/slider";
 import axios from "axios";
 import {API_HOST} from "../../env";
-import Link from "next/link";
-import BlogContentStyle from "../Blog_Page/BlogContent/BlogContent.module.css";
+// import Link from "next/link";
+// import BlogContentStyle from "../Blog_Page/BlogContent/BlogContent.module.css";
 
 
 const CaseStudiesPage = () => {
     const [data, setData] = useState([])
     const [filter, setFilter] = useState([])
     const [activeValue, setActiveValue] = useState(0)
-    console.log('mail data ', data)
 
     const Language = [
         {

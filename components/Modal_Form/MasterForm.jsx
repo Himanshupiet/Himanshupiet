@@ -1,20 +1,13 @@
 import React, {Component} from 'react';
 import {Col, Container, Row} from 'react-bootstrap'
 import {
-    Form,
     Button,
-    Card,
-    CardHeader,
-    CardBody,
-    CardTitle,
-    CardText,
-    CardFooter
 } from 'reactstrap';
 
 import Step1 from './Step1';
 import Step2 from './Step2';
 // import Step3 from './Step3';
-import MasterFormStyle from './MasterForm.module.css'
+
 
 import MultiStepProgressBar from './MultiStepProgressBar';
 
