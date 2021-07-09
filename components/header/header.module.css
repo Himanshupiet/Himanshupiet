@@ -5,7 +5,8 @@
   right: 0;
   width: 100%;
   z-index: 99;
-  background: rgb(255 255 255 / 50%);
+  /*background: rgb(255 255 255 / 50%);*/
+  background: rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
 }
 .custom_navbar{
@@ -31,7 +32,8 @@
   display: inline-flex;
 }
 .site_nav > div > a{
-  color: #333;
+  /*color: #333;*/
+  color: #ffffff!important;
   font-size: 16px;
   font-weight: 400;
   position: relative;
@@ -47,6 +49,10 @@
 }
 .searchicon{
   font-size: 20px;
+  color: #ffffff;
+}
+.active_sticky_header .searchicon{
+  color: #333;
 }
 
 .sub_menu ul{
@@ -69,6 +75,9 @@
   box-shadow: 0 0 5px rgb(0 0 0 / 50%);
   background: #fff;
   position: fixed;
+}
+.active_sticky_header div a{
+  color: #333!important;
 }
 .active_sticky_header .site_nav > div{
   padding: 7px 0;
@@ -277,6 +286,7 @@
   .mobile_navbar .sub_menu_outer > a{
     flex: 0 0 90%;
     max-width: 90%;
+    color: #fff!important;
   }
   .mobile_navbar .sub_menu_outer button{
     flex: 0 0 10%;

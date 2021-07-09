@@ -114,8 +114,9 @@ const Register = (props) => {
             }).then((res) => {
                 if (res.status) {
                     // window.location.href = '/';
+                    // alert('Registration Successfully')
                 } else {
-                    toast['error'](res.data.message)
+                    // toast['error'](res.data.message)
                 }
             }, (err) => {
 

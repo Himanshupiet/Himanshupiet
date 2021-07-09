@@ -241,7 +241,7 @@ const Footer = (props) => {
                                     <h3>Let's Connect</h3>
                                     <ul>
                                         <li>
-                                            <Link href="/connect">
+                                            <Link href="/contact">
                                                 <a title="Contact Us!">Contact Us!</a>
                                             </Link>
                                         </li>

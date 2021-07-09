@@ -1,17 +1,15 @@
-import React from 'react';
+import React from 'react'
 import LoaderStyle from './loading.module.css'
 
-const LoaderPage = (props) => {
+const Loader = ({type, color, data}) => {
     return (
-        <>
-            {props.loading ?
-                <div className={`${LoaderStyle.main_laoder} text-center`}>
-                    <div className="spinner-border text-primary" role="status">
-                        <span className="sr-only">Loading...</span>
-                    </div>
+        <div>
+            {data ?
+                <div className={LoaderStyle.main}>
+                    <div className={LoaderStyle.loading}></div>
                 </div>
                 : ''}
-        </>
-    );
+        </div>
+    )
 }
-export default LoaderPage
+export default Loader

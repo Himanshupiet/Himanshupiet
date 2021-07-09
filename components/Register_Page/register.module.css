@@ -1,6 +1,3 @@
-/*.main_section{*/
-/*    background-color: #f6f7fb!important;*/
-/*}*/
 .register {
     background: linear-gradient(#f2a126, #e45d6a, #e31422);
     margin-top: 3%;
@@ -151,6 +148,7 @@
 .main_registration {
     padding-top: 110px;
     padding-bottom: 80px;
-    background-color: #f6f7fb!important;
+    /*background-color: #f6f7fb!important;*/
+    background: linear-gradient(#f2a126, #e45d6a, #e31422)
 
 }

@@ -407,58 +407,58 @@ const Step1 = (props) => {
                     </div>
                     <div className={`${StepStyle.select_wrapper} select-dropdown`}>
                         {/*<div className={`${StepStyle.select_wrapper}`}>*/}
-                            <select
-                                name='product'
-                                id='product'
-                                value={props.product}
-                                onChange={props.handleChange}
-                            >
-                                <option value=''>Select Product</option>
-                                <option value='Rotator Brick Oven'>Rotator Brick Oven
-                                </option>
-                                <option value='Neapolitan Brick Oven'>Neapolitan Brick Oven
-                                </option>
-                                <option value='Electric Brick Oven'>Electric Brick Oven
-                                </option>
-                                <option value='Due Bocche Brick Oven'>Due Bocche Brick Oven
-                                </option>
-                                <option value='Enclosed Facade Brick Oven'>Enclosed Facade
-                                    Brick
-                                    Oven
-                                </option>
-                                <option value='MS Series Brick Oven'>MS Series Brick Oven
-                                </option>
-                                <option value='MarraForni Mixers'>MarraForni Mixers</option>
-                                <option value='Marraforni Prep Table'>Marraforni Prep Table
-                                </option>
-                                <option value='Marraforni Slicers'>Marraforni Slicers
-                                </option>
-                                <option value='Plug & Play Ventilation'>Plug & Play
-                                    Ventilation
-                                </option>
-                            </select>
+                        <select
+                            name='product'
+                            id='product'
+                            value={props.product}
+                            onChange={props.handleChange}
+                        >
+                            <option value=''>Select Product</option>
+                            <option value='Rotator Brick Oven'>Rotator Brick Oven
+                            </option>
+                            <option value='Neapolitan Brick Oven'>Neapolitan Brick Oven
+                            </option>
+                            <option value='Electric Brick Oven'>Electric Brick Oven
+                            </option>
+                            <option value='Due Bocche Brick Oven'>Due Bocche Brick Oven
+                            </option>
+                            <option value='Enclosed Facade Brick Oven'>Enclosed Facade
+                                Brick
+                                Oven
+                            </option>
+                            <option value='MS Series Brick Oven'>MS Series Brick Oven
+                            </option>
+                            <option value='MarraForni Mixers'>MarraForni Mixers</option>
+                            <option value='Marraforni Prep Table'>Marraforni Prep Table
+                            </option>
+                            <option value='Marraforni Slicers'>Marraforni Slicers
+                            </option>
+                            <option value='Plug & Play Ventilation'>Plug & Play
+                                Ventilation
+                            </option>
+                        </select>
                         {/*</div>*/}
                     </div>
-                    {/*<div className='position-relative' style={{width: '700px'}}>*/}
-                    {/*    <img*/}
-                    {/*        className='oven-image-tile position-absolute'*/}
-                    {/*        src={`https://marraforni.com/wp/wp-content/themes/ultima-child/assets/s3/make/${tiles}_${color}.png`}*/}
-                    {/*        alt='Penny Red'*/}
-                    {/*        style={{zIndex: '2', width: '350px'}}*/}
-                    {/*    />*/}
-                    {/*    <img*/}
-                    {/*        className='oven-image-grout position-absolute'*/}
-                    {/*        src='https://marraforni.com/wp/wp-content/themes/ultima-child/assets/s3/make/Grout_Red.png'*/}
-                    {/*        alt='Grout Red'*/}
-                    {/*        style={{zIndex: '1', width: '350px'}}*/}
-                    {/*    />*/}
-                    {/*    <img*/}
-                    {/*        className='oven-image-facade position-absolute'*/}
-                    {/*        src={`https://marraforni.com/wp/wp-content/themes/ultima-child/assets/s3/make/Facade_${facade}.png`}*/}
-                    {/*        alt='Facade Black'*/}
-                    {/*        style={{width: '350px'}}*/}
-                    {/*    />*/}
-                    {/*</div>*/}
+                </div>
+                <div className='position-relative' style={{height:'40%',textAlign:'center',paddingRight:'380px',marginTop:'-35px'}}>
+                    <img
+                        className='oven-image-tile position-absolute'
+                        src={`https://marraforni.com/wp/wp-content/themes/ultima-child/assets/s3/make/${tiles}_${color}.png`}
+                        alt='Penny Red'
+                        style={{zIndex: '2', width: '395px'}}
+                    />
+                    <img
+                        className='oven-image-grout position-absolute'
+                        src='https://marraforni.com/wp/wp-content/themes/ultima-child/assets/s3/make/Grout_Red.png'
+                        alt='Grout Red'
+                        style={{zIndex: '1', width: '395px'}}
+                    />
+                    <img
+                        className='oven-image-facade position-absolute'
+                        src={`https://marraforni.com/wp/wp-content/themes/ultima-child/assets/s3/make/Facade_${facade}.png`}
+                        alt='Facade Black'
+                        style={{width: '395px'}}
+                    />
                 </div>
             </FormGroup>
         </>

@@ -14,6 +14,7 @@ import {
 import Step1 from './Step1';
 import Step2 from './Step2';
 // import Step3 from './Step3';
+import MasterFormStyle from './MasterForm.module.css'
 
 import MultiStepProgressBar from './MultiStepProgressBar';
 
@@ -56,7 +57,7 @@ class MasterForm extends Component {
         // If the current step is not 1, then render the "previous" button
         if (currentStep !== 1) {
             return (
-                <Button color='secondary float-left' onClick={this._prev}>
+                <Button className='mf_btn ml-5' onClick={this._prev}>
                     Previous
                 </Button>
             );
@@ -71,7 +72,7 @@ class MasterForm extends Component {
         // If the current step is not 3, then render the "next" button
         if (currentStep < 2) {
             return (
-                <Button color='primary float-right' onClick={this._next}>
+                <Button className='mf_btn' onClick={this._next} style={{marginTop:'500px',textAlign:'center',marginLeft:'48%'}}>
                     Next
                 </Button>
             );
@@ -87,7 +88,7 @@ class MasterForm extends Component {
 
         // If the current step is the last step, then render the "submit" button
         if (currentStep > 1) {
-            return <Button color='primary float-right'>Submit</Button>;
+            return <Button className='mf_btn mr-5 float-right'>Submit</Button>;
         }
         // ...else render nothing
         return null;
@@ -199,11 +200,6 @@ class MasterForm extends Component {
                                         country={this.state.country}
                                     />
                                 </div>
-                                {/*<Step3*/}
-                                {/*    currentStep={this.state.currentStep}*/}
-                                {/*    handleChange={this.handleChange}*/}
-                                {/*    */}
-                                {/*/>*/}
                                 <div>
                                     {this.previousButton}
                                     {this.nextButton}

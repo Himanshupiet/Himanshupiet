@@ -17,11 +17,11 @@ const Step2 = (props) => {
         <>
             <Container>
                 <Row>
-                    <Col lg={10} className='m-auto'>
-                        <h4 className='pt-4 text-center'>Step 2</h4>
+                    <Col lg={11} className='m-auto'>
+                        <h4 className='pt-4 text-center mb-4'>Step 2</h4>
                         <FormGroup>
-                            <div className="form-row">
-                                <div className={`form-group col-md-6`}>
+                            <div className={`${StepStyle.form_style} form-row`}>
+                                <div className={`form-group col-md-6 mb-0`}>
                                     <input
                                         type='text'
                                         name='fname'
@@ -42,7 +42,7 @@ const Step2 = (props) => {
                                     />
                                 </div>
                             </div>
-                            <div className="form-row">
+                            <div className={`${StepStyle.form_style} form-row`}>
                                 <div className={`form-group col-md-6`}>
                                     <input
                                         type='email'
@@ -64,7 +64,7 @@ const Step2 = (props) => {
                                     />
                                 </div>
                             </div>
-                            <div className="form-row">
+                            <div className={`${StepStyle.form_style} form-row`}>
                                 <div className={`form-group col-md-6`}>
                                     <input
                                         type='input'
@@ -86,7 +86,29 @@ const Step2 = (props) => {
                                     />
                                 </div>
                             </div>
-                            <div className="form-row">
+                            <div className={`${StepStyle.form_style} form-row`}>
+                                <div className={`form-group col-md-6`}>
+                                    <input
+                                        type='text'
+                                        name='city'
+                                        id='city'
+                                        placeholder='City'
+                                        value={props.city}
+                                        onChange={props.handleChange}
+                                    />
+                                </div>
+                                <div className={`form-group col-md-6`}>
+                                    <input
+                                        type='text'
+                                        name='state'
+                                        id='state'
+                                        placeholder='State/Provience'
+                                        value={props.state}
+                                        onChange={props.handleChange}
+                                    />
+                                </div>
+                            </div>
+                            <div className={`${StepStyle.form_style} form-row`}>
                                 <div className={`${StepStyle.select_wrapper} col-md-6`}>
                                     <select
                                         name='country'
@@ -102,25 +124,26 @@ const Step2 = (props) => {
                                     </select>
                                 </div>
                                 <div className={`form-group col-md-6`}>
-                                    <input
-                                        type='textarea'
-                                        name='message'
-                                        id='message'
-                                        placeholder='Message'
-                                        value={props.message} // Prop: The username input data
-                                        onChange={props.handleChange} // Prop: Puts data into the state
+                                    <Input
+                                        type='file'
+                                        name='choosefile'
+                                        id='choosefile'
+                                        placeholder='Chose File'
+                                        value={props.choosefile}
+                                        onChange={props.handleChange}
                                     />
                                 </div>
                             </div>
-                            <div className="form-row">
-                                <Label for='fname'>Attach Your ScreenShot</Label>
-                                <Input
-                                    type='file'
-                                    name='choosefile'
-                                    id='choosefile'
-                                    placeholder='Chose File'
-                                    value={props.choosefile}
-                                    onChange={props.handleChange}
+                            <div className={`${StepStyle.textarea} form-row`}>
+                                <input
+                                    type='textarea'
+                                    rows="5"
+                                    aria-rowspan='5'
+                                    name='message'
+                                    id='message'
+                                    placeholder='Message'
+                                    value={props.message} // Prop: The username input data
+                                    onChange={props.handleChange} // Prop: Puts data into the state
                                 />
                             </div>
                         </FormGroup>

@@ -53,10 +53,10 @@ const CulinarySupport = (props) => {
                 <Row>
                     <Col lg={1}></Col>
                     <Col lg={10}>
-                        <h1 className='text-center mb-5'>Blog</h1>
+                        <h1 className='text-center mb-2'>Blog</h1>
                         <Row>
                             <Col lg={4}>
-                                <div className={`${CulinaryStyle.card_style} card border-0`}>
+                                <div className={`${CulinaryStyle.card_style} card border-0 mt-4`}>
                                     <img
                                         src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
                                         className="card-img-top" alt="..." style={{height:'250px'}}/>
@@ -71,7 +71,7 @@ const CulinarySupport = (props) => {
                                 </div>
                             </Col>
                             <Col lg={4}>
-                                <div className={`${CulinaryStyle.card_style} card border-0`}>
+                                <div className={`${CulinaryStyle.card_style} card border-0 mt-4`}>
                                     <img
                                         src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
                                         className="card-img-top" alt="..." style={{height:'250px'}}/>
@@ -85,7 +85,7 @@ const CulinarySupport = (props) => {
                                 </div>
                             </Col>
                             <Col lg={4}>
-                                <div className={`${CulinaryStyle.card_style} card border-0`}>
+                                <div className={`${CulinaryStyle.card_style} card border-0 mt-4`}>
                                     <img
                                         src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
                                         className="card-img-top" alt="..." style={{height:'250px'}}/>

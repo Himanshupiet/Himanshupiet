@@ -100,10 +100,10 @@ const CaseStudiesPage = () => {
                     <Col lg={1}></Col>
                     <Col lg={10} className={CaseStudyStyle.case_study}>
                         <h2 className='pb-2'>CASE STUDIES</h2>
-                        <div className={`${CaseStudyStyle.btn_group} btn-group mb-5`} role="group">
+                        <div className={`${CaseStudyStyle.btn_group} btn-group mb-2`} role="group">
                             {Language.map((data,i)=>(
                                 <button type="button"
-                                   className={`${CaseStudyStyle.left_btn} btn btn-outline-danger ${i + 1 == activeValue ? 'bg-danger text-white' : ''}`} onClick={() => {
+                                   className={`${CaseStudyStyle.left_btn} btn btn-outline-danger ${i + 1 == activeValue ? `${CaseStudyStyle.btn_style}` : ''}`} onClick={() => {
                                     filterItem(`${data.language}`)
                                     setActiveValue(i + 1)
                                 }}>{data.language}
@@ -112,7 +112,7 @@ const CaseStudiesPage = () => {
                         </div>
                         <Row>
                             {(filter && filter.length) ? filter.map((data, i) => (
-                                <Col lg={3} key={data.id}>
+                                <Col lg={3} key={data.id} className='mt-5'>
                                     <div className={`${CaseStudyStyle.card_design} card`}>
                                         <img src="https://marraforni.com/wp/wp-content/uploads/2021/06/UB.png"
                                              className="card-img-top" alt="..."/>
