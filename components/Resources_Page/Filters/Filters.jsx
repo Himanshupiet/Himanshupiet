@@ -8,7 +8,9 @@ const Filters = (props) => {
       resourceList,
       handleSelect,
       blogSelect,
-      setBlogSelect
+      setBlogSelect,
+      caseStudySelect,
+      setCaseStudySelect,
   } = props
   const[ productFilter, setProductFilter ] = useState([])
   const [filterOpen, setFilterOpen] = useState({
@@ -28,12 +30,22 @@ const Filters = (props) => {
     }
   },[blogSelect])
 
+  useEffect(() => {
+    if(caseStudySelect){
+       props.getAllCaseStudy(filterProduct)
+    }
+  },[caseStudySelect])
+
   const unique = (array, propertyName) => {
     return array.filter((e, i) => array.findIndex(a => a[propertyName] === e[propertyName]) === i);
   }
 
   const selectBlogWithCat = () => {
     setBlogSelect(!blogSelect)
+  }
+
+ const selectCaseStudyWithCat = () => {
+     setCaseStudySelect(!caseStudySelect)
   }
 
   return(
@@ -127,30 +139,13 @@ const Filters = (props) => {
                   />Blog</label>
             </li>
             <li>
-              <label><input type='checkbox' value='Case Study' />Case Study</label>
-            </li>
-          </ul>
-        </div>
-        <li 
-          className={FilterStyle.filters} 
-          onClick={() => {
-            setFilterOpen((preValues)=>{
-              return {...preValues, LanguageOpen: !filterOpen.LanguageOpen}
-            })
-          }}
-        >
-          Language <span><i className={filterOpen.LanguageOpen ? "bx bxs-chevron-down" : "bx bxs-chevron-up"}></i></span>
-        </li>
-        <div className={`${FilterStyle.filter_option} ${filterOpen.LanguageOpen ? FilterStyle.openFilterOption : ''}`}>
-          <ul>
-            <li>
-              <label><input type='checkbox' value='English' />English</label>
-            </li>
-            <li>
-              <label><input type='checkbox' value='Italian' />Italian</label>
-            </li>
-            <li>
-              <label><input type='checkbox' value='French' />French</label>
+              <label>
+                  <input
+                      type='checkbox'
+                      value='Case Study'
+                      onClick={selectCaseStudyWithCat}
+                      checked={caseStudySelect}
+                  />Case Study</label>
             </li>
           </ul>
         </div>
