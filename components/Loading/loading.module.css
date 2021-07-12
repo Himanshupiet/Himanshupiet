@@ -3,7 +3,7 @@
     height:160px;
     border-radius:150px;
     border:15px solid #fff;
-    border-top-color:rgba(0,0,0,0.3);
+    border-top-color:#e31422;
     box-sizing:border-box;
     position:absolute;
     top:50%;left:50%;
@@ -22,5 +22,5 @@
 }
 .main{
     height: 100vh;
-    background:#000;background:linear-gradient(#7D57C9, rgba(0, 0, 0, 0) 90%), linear-gradient(-45deg, #4DA2D6 25%, #000 75%) !important;background:-webkit-linear-gradient(#7D57C9, rgba(0, 0, 0, 0) 90%), -webkit-linear-gradient(-45deg, #4DA2D6 25%, #000 75%) !important;
+    background:#f6f7fc!important;
 }
