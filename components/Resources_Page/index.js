@@ -18,17 +18,22 @@ const Resources_main = (props) => {
   const[ allProduct, setAllProduct ] = useState([])
   const[ filterProduct, setFilterProduct ] = useState([])
   const[ searchProduct, setSearchProduct ] = useState([])
+  const[ searchBlog, setSearchBlog ] = useState([])
+  const[ searchCaseStudy, setSearchCaseStudy ] = useState([])
   const[ newArr, setNewArr ] = useState([])
+
   const[ resourceList, setResourceList ] = useState([])
   const[ blogList, setBlogList ] = useState([])
   const[ allCaseStudyList, setAllCaseStudyList ] = useState([])
+
   const[ blogSelect, setBlogSelect ] = useState(false)
+  const[ caseStudySelect, setCaseStudySelect ] = useState(false)
 
   useEffect(() => {
     props.productActions.getAllProduct()
       getAllResourceData()
       getAllBlogForResource([])
-      getAllCaseStudy()
+      getAllCaseStudy([])
   },[])
 
   useEffect(() => {
@@ -36,6 +41,12 @@ const Resources_main = (props) => {
        getAllBlogForResource([])
      }
   },[blogSelect])
+
+  useEffect(() => {
+     if(!caseStudySelect){
+       getAllCaseStudy([])
+     }
+  },[caseStudySelect])
 
   useEffect(() => {
     if(props &&
@@ -73,19 +84,21 @@ const Resources_main = (props) => {
 
   const getAllResourceData = () => {
       props.productActions.getAllResourceData().then(res => {
-          setResourceList(res)
+         setResourceList(res)
       })
   }
 
   const getAllBlogForResource = (data) => {
       props.productActions.getAllBlogForResource(data).then(res => {
         setBlogList(res)
+        setSearchBlog(res)
       })
   }
 
- const getAllCaseStudy = () => {
-      props.productActions.getAllCaseStudy().then(res => {
+ const getAllCaseStudy = (data) => {
+      props.productActions.getAllCaseStudy(data).then(res => {
         setAllCaseStudyList(res)
+        setSearchCaseStudy(res)
       })
   }
 
@@ -119,6 +132,9 @@ const Resources_main = (props) => {
           if(blogSelect){
               getAllBlogForResource(productData)
           }
+          if(caseStudySelect){
+              getAllCaseStudy(productData)
+          }
         } else {
           productData.map(val => {
             if (val.id == typeId) {
@@ -130,6 +146,9 @@ const Resources_main = (props) => {
           setSearchProduct(productData)
           if(blogSelect){
               getAllBlogForResource(productData)
+          }
+          if(caseStudySelect){
+              getAllCaseStudy(productData)
           }
         }
 
@@ -146,6 +165,9 @@ const Resources_main = (props) => {
         setSearchProduct(productData)
         if(blogSelect){
             getAllBlogForResource(productData)
+        }
+        if(caseStudySelect){
+            getAllCaseStudy(productData)
         }
       }
     }else{
@@ -170,6 +192,9 @@ const Resources_main = (props) => {
         if(blogSelect){
             getAllBlogForResource(productArr)
         }
+          if(caseStudySelect){
+              getAllCaseStudy(productArr)
+          }
       }else if( productArr && productArr.length && productArr[0].cat && productArr[0].cat.length > 1) {
         setFilterProduct(productArr)
         setSearchProduct(productArr)
@@ -177,6 +202,9 @@ const Resources_main = (props) => {
         if(blogSelect){
             getAllBlogForResource(productArr)
         }
+          if(caseStudySelect){
+              getAllCaseStudy(productArr)
+          }
       }else{
         if(productArr && productArr.length &&  productArr[0].cat && productArr[0].cat.length){
           setFilterProduct(productArr)
@@ -185,12 +213,18 @@ const Resources_main = (props) => {
           if(blogSelect){
               getAllBlogForResource(productArr)
           }
+            if(caseStudySelect){
+                getAllCaseStudy(productArr)
+            }
         }else{
           setFilterProduct(allProduct)
           setSearchProduct(allProduct)
           setNewArr([])
           if(blogSelect){
               getAllBlogForResource(allProduct)
+          }
+          if(caseStudySelect){
+              getAllCaseStudy(allProduct)
           }
         }
       }
@@ -199,8 +233,17 @@ const Resources_main = (props) => {
 
   const handleSearch = (value) => {
     let filterProductArr = searchProduct
+    let filterBlogArr = searchBlog
+    let filterCaseStudyArr = searchCaseStudy
+
     if(value){
       let filterSearch = [...filterProductArr]
+      let blogSearch = [...filterBlogArr]
+      let caseStudySearch = [...filterCaseStudyArr]
+
+      let caseStudyArr = []
+      let blogArr = []
+      //product filter
       let SearchProductArr = filterSearch.map(val => {
         let catArr = []
         if(val && val.cat && val.cat.length){
@@ -215,7 +258,21 @@ const Resources_main = (props) => {
           cat: catArr
         }
       })
+      //blog filter
+      blogSearch.forEach(blog => {
+          if(blog.title.toLowerCase().includes(value.toLowerCase()) || blog.blogDescription.toLowerCase().includes(value.toLowerCase())){
+              blogArr.push(blog)
+          }
+      })
+      //case study filter
+      caseStudySearch.forEach(caseStudy => {
+          if(caseStudy.title.toLowerCase().includes(value.toLowerCase()) || caseStudy.description.toLowerCase().includes(value.toLowerCase())){
+              caseStudyArr.push(caseStudy)
+          }
+      })
       setFilterProduct(SearchProductArr)
+      setBlogList(blogArr)
+      setAllCaseStudyList(caseStudyArr)
     }
     else{
       let isCatChecked = false
@@ -266,7 +323,10 @@ const Resources_main = (props) => {
                     handleSelect={ handleSelect }
                     blogSelect={blogSelect}
                     setBlogSelect={setBlogSelect}
+                    caseStudySelect={caseStudySelect}
+                    setCaseStudySelect={setCaseStudySelect}
                     getAllBlogForResource={ getAllBlogForResource }
+                    getAllCaseStudy={ getAllCaseStudy }
                   />
                 </Col>
                 <Col md={9}>

@@ -48,7 +48,18 @@ export const getAllResourceData = () => {
     }
 }
 
-export const getAllCaseStudy = () => {
+export const getAllCaseStudy = (data) => {
+    let queryParams = [];
+    data && data.length && data.map(product => {
+        product.cat.map(val => {
+            queryParams.push(val)
+        })
+    })
+
+    let params = new URLSearchParams();
+    queryParams && queryParams.length && queryParams.map(query => {
+        params.append('category', query.categoryName)
+    })
     return dispatch => {
         const API_URL = `${API_HOST}case-study/getAllByLanguageAndCategoryName`
 
@@ -58,7 +69,8 @@ export const getAllCaseStudy = () => {
                 'Content-Type': 'application/json',
             },
             data: {},
-            method: 'get'
+            method: 'get',
+            params: params
         })
             .then(response => {
                     return response.data
