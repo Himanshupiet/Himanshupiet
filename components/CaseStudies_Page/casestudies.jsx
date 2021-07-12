@@ -101,7 +101,7 @@ const CaseStudiesPage = () => {
                         <h2 className='pb-2'>CASE STUDIES</h2>
                         <div className={`${CaseStudyStyle.btn_group} btn-group mb-2`} role="group">
                             {Language.map((data,i)=>(
-                                <button type="button"
+                                <button type="button" key={data.id}
                                    className={`${CaseStudyStyle.left_btn} btn btn-outline-danger ${i + 1 == activeValue ? `${CaseStudyStyle.btn_style}` : ''}`} onClick={() => {
                                     filterItem(`${data.language}`)
                                     setActiveValue(i + 1)
@@ -175,7 +175,7 @@ const CaseStudiesPage = () => {
                         <Row>
                             <Col lg={3}>
                                 <div className="card border-0">
-                                    <img src="https://marraforni.com/wp/wp-content/uploads/2021/06/Roma-2-400x400.jpg"
+                                    <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Roma-2.jpg`}
                                          className="card-img-top" alt="..."/>
                                     <div className="card-body">
                                         <h3 className="card-title">STADIUM & ARENA</h3>
@@ -185,7 +185,7 @@ const CaseStudiesPage = () => {
                             <Col lg={3}>
                                 <div className="card border-0">
                                     <img
-                                        src="https://marraforni.com/wp/wp-content/uploads/2021/06/Moxy-Chelsea-Marriott-2-400x400.png"
+                                        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Moxy-Chelsea-Marriott.png`}
                                         className="card-img-top" alt="..."/>
                                     <div className="card-body">
                                         <h3 className="card-title">HOTEL AND RESORT</h3>
@@ -195,7 +195,7 @@ const CaseStudiesPage = () => {
                             <Col lg={3}>
                                 <div className="card border-0">
                                     <img
-                                        src="https://marraforni.com/wp/wp-content/uploads/2021/06/Great-Trailer-for-Campus-400x400.jpg"
+                                        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Great-Trailer-for-Campus.jpg`}
                                         className="card-img-top" alt="..."/>
                                     <div className="card-body">
                                         <h3 className="card-title">COUNTRY CLUB</h3>
@@ -205,7 +205,7 @@ const CaseStudiesPage = () => {
                             <Col lg={3}>
                                 <div className="card border-0">
                                     <img
-                                        src="https://marraforni.com/wp/wp-content/uploads/2021/06/Great-Trailer-for-Campus-400x400.jpg"
+                                        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Great-Trailer-for-Campus.jpg`}
                                         className="card-img-top" alt="..."/>
                                     <div className="card-body">
                                         <h3 className="card-title">CORPORATE DINING</h3>

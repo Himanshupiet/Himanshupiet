@@ -23,21 +23,30 @@ const PressMain = (props) => {
         }).catch((error) => {
 
         })
-    },[])
+    }, [])
 
     useEffect(() => {
-        axios.get(`${API_HOST}slider/getSliderBySliderName?sliderName=Press`, {
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        }).then((res) => {
-            if (res.status) {
-                setSlider(res.data)
-            }
-        }).catch((error) => {
+            axios.get(`${API_HOST}slider/getSliderBySliderName?sliderName=Press`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            }).then((res) => {
+                if (res.status) {
+                    let updatedSlider = res.data.map((item, i) => {
+                        let createTime = (new Date(item.createdAt)).toLocaleDateString()
+                        return (
+                            {...item, createdAt: createTime}
+                        )
+                    })
+                    setSlider(updatedSlider)
+                    // setSlider(res.data)
+                }
+            }).catch((error) => {
 
-        })
-    },[])
+            })
+        },
+        []
+    )
 
     return (
         <>
