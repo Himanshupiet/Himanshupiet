@@ -1,10 +1,24 @@
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
-import React from 'react'
+
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import * as galleryActions from '../../../actions/gallery'
+import { withRouter } from "next/router";
+
 import ScrollAnimation from 'react-animate-on-scroll'
 import {Col, Container, Row} from 'react-bootstrap'
 import CategoryGalleryStyle from './Category_Gallery.module.css'
 
 const Category_Gallery = (props) => {
+  const[ getAllGalleryList, setGetAllGalleryList ] = useState([])
+
+  useEffect(() => {
+      props.galleryActions.getAllGalleryByProductType().then(res => {
+          console.log(res)
+      })
+  },[])
+
   return(
     <>
       <section className={CategoryGalleryStyle.tabs_outer}>
@@ -1171,4 +1185,11 @@ const Category_Gallery = (props) => {
   }
 
 
-export default Category_Gallery
+
+const mapDispatchToProps = dispatch => {
+    return {
+        galleryActions: bindActionCreators(galleryActions, dispatch)
+    }
+}
+
+export default connect(null, mapDispatchToProps)(withRouter(Category_Gallery))

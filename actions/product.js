@@ -58,7 +58,7 @@ export const getAllCaseStudy = (data) => {
 
     let params = new URLSearchParams();
     queryParams && queryParams.length && queryParams.map(query => {
-        params.append('category', query.categoryName)
+        params.append('categoryName', query.categoryName)
     })
     return dispatch => {
         const API_URL = `${API_HOST}case-study/getAllByLanguageAndCategoryName`

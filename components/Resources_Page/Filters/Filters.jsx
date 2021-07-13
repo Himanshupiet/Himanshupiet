@@ -126,9 +126,9 @@ const Filters = (props) => {
         </li>
         <div className={`${FilterStyle.filter_option} ${filterOpen.OtherinfoOpen ? FilterStyle.openFilterOption : ''}`}>
           <ul>
-            <li>
-              <label><input type='checkbox' value='Video' />Video</label>
-            </li>
+            {/*<li>*/}
+              {/*<label><input type='checkbox' value='Video' />Video</label>*/}
+            {/*</li>*/}
             <li>
               <label>
                   <input
