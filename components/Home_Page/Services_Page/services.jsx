@@ -504,7 +504,7 @@
 // export default Service
 
 import React, {useState} from 'react';
-import {Col, Container, Row, Accordion, Card} from 'react-bootstrap'
+import {Col, Container, Row, Accordion, Card, Tab, Tabs} from 'react-bootstrap'
 import ServiceStyle from './service.module.css'
 import MainHomePageStyle from "../index.module.css";
 
@@ -566,12 +566,27 @@ const Service = () => {
                                         <Row>
                                             <Col lg={12} className='p-0'>
                                                 <div className={ServiceStyle.main_style}>
-                                                    <button>WEB TECHNOLOGIES</button>
-                                                    <button>JAVASCRIPT FRAMEWORK</button>
-                                                    <button>DATABASE</button>
-                                                    <button>UI/UX</button>
-                                                    <button>MOBILE TECHNOLOGIES</button>
-                                                    <button>MANAGEMENT TOOLS</button>
+                                                    <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
+                                                        <Tab eventKey="Ovens" title="Ovens">
+                                                            {/*Ovens*/}
+                                                        </Tab>
+                                                        <Tab eventKey="Pre Tables" title="Pre Tables">
+                                                            {/*Pre Tables*/}
+                                                        </Tab>
+                                                        <Tab eventKey="Rotation Timer" title="Rotation Timer">
+                                                            {/*Rotation Timer*/}
+                                                        </Tab>
+                                                        <Tab eventKey="Ventilation" title="Ventilation">
+                                                           {/*Ventilation*/}
+                                                        </Tab>
+                                                        <Tab eventKey="Mixers" title="Mixers">
+                                                        {/*Mixers*/}
+                                                        </Tab>
+                                                        <Tab eventKey="Flywhell Slicer" title="Flywhell Slicer">
+                                                            {/*Flywhell Slicer*/}
+                                                        </Tab>
+
+                                                    </Tabs>
                                                 </div>
                                             </Col>
                                         </Row>
@@ -579,31 +594,38 @@ const Service = () => {
                                             <Col lg={3}>
                                                 <div
                                                     className={`${ServiceStyle.panel}  ${ServiceStyle.panel_flat} ${ServiceStyle.border_accent} ${ServiceStyle.panel_border_bottom}`}>
-                                                    <div className={ServiceStyle.panel_heading}>Java</div>
-                                                    <div className={ServiceStyle.panel_body}><img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/></div>
-                                                </div>
-                                            </Col>
-                                            <Col lg={3}>
-                                                <div
-                                                    className={`${ServiceStyle.panel}  ${ServiceStyle.panel_flat} ${ServiceStyle.border_accent} ${ServiceStyle.panel_border_bottom}`}>
-                                                    <div className={ServiceStyle.panel_heading}>PHP</div>
-                                                    <div className={ServiceStyle.panel_body}><img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/></div>
-                                                </div>
-                                            </Col>
-                                            <Col lg={3}>
-                                                <div
-                                                    className={`${ServiceStyle.panel}  ${ServiceStyle.panel_flat} ${ServiceStyle.border_accent} ${ServiceStyle.panel_border_bottom}`}>
-                                                    <div className={ServiceStyle.panel_heading}>laravel</div>
-                                                    <div className={ServiceStyle.panel_body}>
-                                                        <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/>
+                                                    <div className={ServiceStyle.panel_heading}>Rigid Touchscreen</div>
+                                                    <div className={ServiceStyle.panel_body}><img
+                                                        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/>
                                                     </div>
                                                 </div>
                                             </Col>
                                             <Col lg={3}>
                                                 <div
                                                     className={`${ServiceStyle.panel}  ${ServiceStyle.panel_flat} ${ServiceStyle.border_accent} ${ServiceStyle.panel_border_bottom}`}>
-                                                    <div className={ServiceStyle.panel_heading}>Wordpress</div>
-                                                    <div className={ServiceStyle.panel_body}><img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/></div>
+                                                    <div className={ServiceStyle.panel_heading}>Rotation Timer</div>
+                                                    <div className={ServiceStyle.panel_body}><img
+                                                        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/>
+                                                    </div>
+                                                </div>
+                                            </Col>
+                                            <Col lg={3}>
+                                                <div
+                                                    className={`${ServiceStyle.panel}  ${ServiceStyle.panel_flat} ${ServiceStyle.border_accent} ${ServiceStyle.panel_border_bottom}`}>
+                                                    <div className={ServiceStyle.panel_heading}>Fallsafe Levers</div>
+                                                    <div className={ServiceStyle.panel_body}>
+                                                        <img
+                                                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/>
+                                                    </div>
+                                                </div>
+                                            </Col>
+                                            <Col lg={3}>
+                                                <div
+                                                    className={`${ServiceStyle.panel}  ${ServiceStyle.panel_flat} ${ServiceStyle.border_accent} ${ServiceStyle.panel_border_bottom}`}>
+                                                    <div className={ServiceStyle.panel_heading}>Rotating Dock</div>
+                                                    <div className={ServiceStyle.panel_body}><img
+                                                        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/>
+                                                    </div>
                                                 </div>
                                             </Col>
                                         </Row>
@@ -611,29 +633,37 @@ const Service = () => {
                                             <Col lg={3}>
                                                 <div
                                                     className={`${ServiceStyle.panel}  ${ServiceStyle.panel_flat} ${ServiceStyle.border_accent} ${ServiceStyle.panel_border_bottom}`}>
-                                                    <div className={ServiceStyle.panel_heading}>Magento</div>
-                                                    <div className={ServiceStyle.panel_body}><img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/></div>
+                                                    <div className={ServiceStyle.panel_heading}>Plug & Play</div>
+                                                    <div className={ServiceStyle.panel_body}><img
+                                                        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/>
+                                                    </div>
                                                 </div>
                                             </Col>
                                             <Col lg={3}>
                                                 <div
                                                     className={`${ServiceStyle.panel}  ${ServiceStyle.panel_flat} ${ServiceStyle.border_accent} ${ServiceStyle.panel_border_bottom}`}>
-                                                    <div className={ServiceStyle.panel_heading}>Groovy</div>
-                                                    <div className={ServiceStyle.panel_body}><img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/></div>
+                                                    <div className={ServiceStyle.panel_heading}>Made of Bricks</div>
+                                                    <div className={ServiceStyle.panel_body}><img
+                                                        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/>
+                                                    </div>
                                                 </div>
                                             </Col>
                                             <Col lg={3}>
                                                 <div
                                                     className={`${ServiceStyle.panel}  ${ServiceStyle.panel_flat} ${ServiceStyle.border_accent} ${ServiceStyle.panel_border_bottom}`}>
-                                                    <div className={ServiceStyle.panel_heading}>Grails</div>
-                                                    <div className={ServiceStyle.panel_body}><img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/></div>
+                                                    <div className={ServiceStyle.panel_heading}>25 years warrenty</div>
+                                                    <div className={ServiceStyle.panel_body}><img
+                                                        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/>
+                                                    </div>
                                                 </div>
                                             </Col>
                                             <Col lg={3}>
                                                 <div
                                                     className={`${ServiceStyle.panel}  ${ServiceStyle.panel_flat} ${ServiceStyle.border_accent} ${ServiceStyle.panel_border_bottom}`}>
-                                                    <div className={ServiceStyle.panel_heading}>DevOps</div>
-                                                    <div className={ServiceStyle.panel_body}><img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/></div>
+                                                    <div className={ServiceStyle.panel_heading}>Hybrid Fuel System</div>
+                                                    <div className={ServiceStyle.panel_body}><img
+                                                        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/>
+                                                    </div>
                                                 </div>
                                             </Col>
                                         </Row>

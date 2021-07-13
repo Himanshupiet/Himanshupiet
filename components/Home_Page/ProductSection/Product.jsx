@@ -166,79 +166,87 @@ const Product = (props) => {
             className={ProductStyle.section_outer}>
             <Container fluid>
                 <div className={`${ProductStyle.dg_title12} size-xl pt-5`}>
-                    <h2 className="title text-uppercase"> Benefits of <span
-                        className="animation dg-typewriter color-accent text-uppercase active animated"
-                        data-loop="true" data-delay="2000" data-speed="100">Hiring Dev</span>
-                    </h2>
+                    <h2 className="title text-uppercase">Customize Your Commercial Brick Oven</h2>
                     {/*<small>Hire developers who are seasoned to foster business growth.</small>*/}
                 </div>
                 <Row>
                     <Col lg={1}></Col>
                     <Col lg={10}>
                         <Row>
-                          <Col lg={6}>
-                              <Row>
-                                  <Col lg={6}>
-                                      <div className={ProductStyle.panel_bg_accent}>
-                                          <div className={`${ProductStyle.panel_heading} text-center pl-2 pr-2`}>Better Code Quality</div>
-                                          <div className={`${ProductStyle.panel_body} pt-0 text-center`}>
-                                              Hire developers for better code quality which is defined by a convergence
-                                              of attributes such as easy maintainability, high reusability, good
-                                              readability, better efficiency, less error proneness, and modularity.
-                                          </div>
-                                      </div>
-                                      <div className={ProductStyle.panel_bg_accent}>
-                                          <div className={`${ProductStyle.panel_heading} text-center pl-2 pr-2`}>Better Code Quality</div>
-                                          <div className={`${ProductStyle.panel_body} pt-0 text-center`}>
-                                              Hire developers for better code quality which is defined by a convergence
-                                              of attributes such as easy maintainability, high reusability, good
-                                              readability, better efficiency, less error proneness, and modularity.
-                                          </div>
-                                      </div>
-                                  </Col>
-                                  <Col lg={6}>
-                                      <div className={ProductStyle.panel_bg_accent}>
-                                          <div className={`${ProductStyle.panel_heading} text-center pl-2 pr-2`}>Low Operational Risk</div>
-                                          <div className={`${ProductStyle.panel_body} pt-0 text-center`}>
-                                              Businesses need a wide set of technical expertise but a blooming business
-                                              doesn’t have the economical capacity to hire full time developers. You can
-                                              hire developers by paying per hour for low operational risks.
-                                          </div>
-                                      </div>
-                                      <div className={ProductStyle.panel_bg_accent}>
-                                          <div className={`${ProductStyle.panel_heading} text-center`}>Low Operational Risk</div>
-                                          <div className={`${ProductStyle.panel_body} pt-0 text-center`}>
-                                              Businesses need a wide set of technical expertise but a blooming business
-                                              doesn’t have the economical capacity to hire full time developers. You can
-                                              hire developers by paying per hour for low operational risks.to hire full time developers. You can
-                                              hire developers by paying per hour for low operational risks.
-                                          </div>
-                                      </div>
-                                  </Col>
-                              </Row>
-                          </Col>
+                            <Col lg={6}>
+                                <Row>
+                                    <Col lg={6}>
+                                        <div className={ProductStyle.panel_bg_accent}>
+                                            <div
+                                                className={`${ProductStyle.panel_heading} text-center pl-2 pr-2`}>Customize
+                                                Your Commercial Brick Oven
+                                            </div>
+                                            <div className={`${ProductStyle.panel_body} pt-0 text-center`}>
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
+                                                since the 1500s.
+                                            </div>
+                                        </div>
+                                        <div className={ProductStyle.panel_bg_accent}>
+                                            <div
+                                                className={`${ProductStyle.panel_heading} text-center pl-2 pr-2`}>Your Success Is Our Inspiration
+                                            </div>
+                                            <div className={`${ProductStyle.panel_body} pt-0 text-center`}>
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
+                                                since the 1500s, when an unknown printer took a galley of type and
+                                                scrambled it to make a type specimen book.
+                                            </div>
+                                        </div>
+                                    </Col>
+                                    <Col lg={6}>
+                                        <div className={ProductStyle.panel_bg_accent}>
+                                            <div className={`${ProductStyle.panel_heading} text-center pl-2 pr-2`}>Low
+                                                Operational Risk
+                                            </div>
+                                            <div className={`${ProductStyle.panel_body} pt-0 text-center`}>
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard dummy text ever.
+                                            </div>
+                                        </div>
+                                        <div className={ProductStyle.panel_bg_accent}>
+                                            <div className={`${ProductStyle.panel_heading} text-center`}>Low Operational
+                                                Risk
+                                            </div>
+                                            <div className={`${ProductStyle.panel_body} pt-0 text-center`}>
+                                                Businesses need a wide set of technical expertise but a blooming
+                                                business
+                                                doesn’t have the economical capacity to hire full time developers. You
+                                                can
+                                                hire developers by paying per hour for low operational risks.to hire
+                                                full time developers.
+                                            </div>
+                                        </div>
+                                    </Col>
+                                </Row>
+                            </Col>
                             <Col lg={6}>
                                 <div className={ProductStyle.hire_developer_page}>
-                                    <img src="https://www.decipherzone.com/assets/mediaset/Dz_right_spratt.jpg"
+                                    <img src="https://marraforni.com/wp/wp-content/uploads/2020/02/PIC_7194-scaled.jpg"
                                          alt="Hire Developers Who Code Smartly"/>
-                                        <div className={ProductStyle.hire_developer_page_para}>
-                                            <h3 className={ProductStyle.dg_title31}>Hire Developers Who Code Smartly</h3>
-                                            <p>Our developers for hire have been trained to envision future technical
-                                                barriers that might occur due to the current approach of application
-                                                development. Once they have the idea of such scenarios then these hired
-                                                developers can code easily deal with barriers in future development
-                                                work. Hire us for</p>
+                                    <div className={ProductStyle.hire_developer_page_para}>
+                                        <h3 className={ProductStyle.dg_title31}>High-Volume Pizza Making.</h3>
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                            Lorem Ipsum has been the industry's standard dummy text ever since the
+                                            1500s, when an unknown printer took a galley of type and scrambled it to
+                                            make a type specimen book. It has survived not only five centuries, but also
+                                            the leap into electronic typesetting.</p>
 
 
-                                            <ul className={ProductStyle.list_ico}>
-                                                <li><span className="fa fa-check"></span>24*7 Support</li>
-                                                <li><span className="fa fa-check"></span>Global Quality Standards</li>
-                                                <li><span className="fa fa-check"></span>Time-Zone Compatibility</li>
-                                                <li><span className="fa fa-check"></span>Resource backup for absence and
-                                                    replacement policies
-                                                </li>
-                                            </ul>
-                                        </div>
+                                        <ul className={ProductStyle.list_ico}>
+                                            <li><span className="fa fa-check"></span>24*7 Support</li>
+                                            <li><span className="fa fa-check"></span>Global Quality Standards</li>
+                                            <li><span className="fa fa-check"></span>Time-Zone Compatibility</li>
+                                            <li><span className="fa fa-check"></span>Resource backup for absence and
+                                                replacement policies
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </Col>
                         </Row>

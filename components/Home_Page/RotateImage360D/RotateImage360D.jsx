@@ -85,7 +85,6 @@ const RotateImage360D = (props) => {
                   </div>
                 </ScrollAnimation>
               </Col>
-              <Col lg={1}></Col>
             </Row>
           </Col>
           <Col lg={1}></Col>
