@@ -7,15 +7,12 @@
   margin-bottom: 20px;
 }
 .content_box h1{
-  font-size: 79px;
-  line-height: 79px;
-  font-weight: 600;
-  letter-spacing: -2px;
+   font-size: 48px;
+  line-height: 47px;
 }
 .content_box h2{
-  font-size: 44px;
-  line-height: 1.2em;
-  letter-spacing: -1.3px;
+  font-weight: 300;
+  line-height: 40px;
 }
 .image_box{
   margin-bottom: 20px;
@@ -74,4 +71,23 @@
 .card_style img{
   width: 376px;
   height: 400px;
+}
+@media only screen and (min-width: 1700px) {
+  .content_box h1{
+    font-size: 79px;
+    padding-top: 40px;
+    font-weight: 600;
+    line-height: 75px;
+  }
+  .content_box h2{
+    font-size: 44px;
+    font-weight: 500;
+  }
+  .content_box p{
+    padding-top: 10px;
+    font-size: 20px;
+  }
+  .image_box img{
+    width: 690px;
+  }
 }

@@ -17,6 +17,7 @@ import {Container, Row, Col} from 'react-bootstrap'
 import MainHomePageStyle from './index.module.css'
 import FormPage from "./GetAQuoteForm_Page/form";
 import VideoGallery from './VideoGallery/VideoGallery'
+import Service from "./Services_Page/services";
 
 const highlightData1 = {
     Heading: 'High-Volume Cooking',
@@ -69,7 +70,13 @@ const MainHomePage = props => {
         <>
             <Header/>
             <BannerSlider/>
+            <Reliable />
+            <Service/>
             <Authentic/>
+            <KitchenNearYou/>
+            <Product />
+            <RotateImage360D/>
+            {/*<Authentic/>*/}
             {/*<HighLight*/}
             {/*    highlightData={ highlightData1 } */}
             {/*/>*/}
@@ -81,30 +88,23 @@ const MainHomePage = props => {
             {/*<HighLight*/}
             {/*    highlightData={ highlightData2 } */}
             {/*/>*/}
-            <QodefSlider/>
-            <HighLight
-                highlightData={highlightData3}
-            />
-            <RotateImage360D/>
-            <HighLight
-                highlightData={highlightData4}
-            />
-            <Features_Services/>
-            <KitchenNearYou/>
-            <Container fluid className={MainHomePageStyle.quoteform_outer}>
-                <Row>
-                    <Col lg={1}></Col>
-                    <Col lg={10}>
-                        <GetAQuote/>
-                    </Col>
-                    <Col lg={1}></Col>
-                </Row>
-            </Container>
+            {/*<QodefSlider/>*/}
+            {/*<HighLight*/}
+            {/*    highlightData={highlightData3}*/}
+            {/*/>*/}
+            {/*<RotateImage360D/>*/}
+            {/*<HighLight*/}
+            {/*    highlightData={highlightData4}*/}
+            {/*/>*/}
             <VideoGallery/>
+            <Features_Services/>
+            {/*<KitchenNearYou/>*/}
+
+            {/*<Service/>*/}
             <FormPage/>
             <LogoSlider/>
             <Footer/>
-        </>
+         </>
     )
 };
 

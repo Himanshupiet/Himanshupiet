@@ -223,6 +223,7 @@ import {FormGroup, Label, Input} from 'reactstrap';
 import StepStyle from "./Step3.module.css";
 
 const Step1 = (props) => {
+
     console.log(props);
     const {tiles, legs, color, facade} = props;
     if (props.currentStep !== 1) {
