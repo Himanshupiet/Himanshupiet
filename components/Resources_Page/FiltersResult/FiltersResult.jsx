@@ -13,6 +13,7 @@ const FiltersResult = (props) => {
   const[ productResult, setProductResult ] = useState([])
   const[ blogResult, setBlogResult ] = useState({})
   const[ caseStudyResult, setCaseStudyResult ] = useState({})
+  const[ resourceResult, setResourceResult ] = useState({})
 
   const[ productPerPage, setProductPerPage ] = useState(3)
   const[ currentPage, setCurrentPage ] = useState(1)
@@ -53,12 +54,23 @@ const FiltersResult = (props) => {
                 Array(csPagination - 1 + 1).fill().map((_, idx) => 1 + idx) :
                 [],
             catCurrentPage: 1
-        }
+    }
+
+
+    let rsPagination = Math.ceil((resourceList && resourceList && resourceList.length)/ productPerPage)
+    let currentResourceList = {
+        resourceList:resourceList && resourceList.length && resourceList.slice(indexOfFirstTodo, indexOfLastTodo),
+          paginationArr: rsPagination ?
+              Array(rsPagination - 1 + 1).fill().map((_, idx) => 1 + idx) :
+              [],
+          catCurrentPage: 1
+    }
 
 
     setProductResult(currentProduct)
     setBlogResult(currentBlog)
     setCaseStudyResult(currentCaseStudy)
+    setResourceResult(currentResourceList)
   },[product, blogList, allCaseStudyList ])
 
   const handlePagination = (value, typeId, cat) => {
@@ -124,7 +136,7 @@ const FiltersResult = (props) => {
     }
 
   }
-
+console.log(resourceResult)
   return(
     <>
       <div className={ResultStyle.searchbox_outer}>
@@ -210,243 +222,243 @@ const FiltersResult = (props) => {
           <div>No result found</div>
       }
 
-      {/*<div className={ResultStyle.product_headingbox}>*/}
-        {/*<h2>Spec Sheets</h2>*/}
-      {/*</div>*/}
-      {/*<Row>*/}
-        {/*<Col lg={4} md={6}>*/}
-          {/*<div className={ResultStyle.inner}>*/}
-            {/*<ul>*/}
-              {/*<li><Link href="/"><a title="Rotator Gas" target="_blank">Rotator</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">RT90 Brick Oven</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">RT 110 Brick Oven</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">RT130 Brick Oven</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">RT150 Brick Oven</a></Link></li>*/}
-            {/*</ul>*/}
-          {/*</div>*/}
-        {/*</Col>*/}
-        {/*<Col lg={4} md={6}>*/}
-          {/*<div className={ResultStyle.inner}>*/}
-            {/*<ul>*/}
-              {/*<li><Link href="/"><a title="Rotator Gas" target="_blank">Electric</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">ELMS 25-20 Brick Oven </a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">ELMR 39-43 Brick Oven</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">ELNP 39-43 Brick Oven</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">ELNP 56-43 Brick Oven</a></Link></li>*/}
-            {/*</ul>*/}
-          {/*</div>*/}
-        {/*</Col>*/}
-        {/*<Col lg={4} md={6}>*/}
-          {/*<div className={ResultStyle.inner}>*/}
-            {/*<ul>*/}
-              {/*<li><Link href="/"><a title="Rotator Gas" target="_blank">Enclosed Facade</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">EF70 Brick Oven</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">EF80 Brick Oven</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">EF90 Brick Oven</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">EF110 Brick Oven</a></Link></li>*/}
-            {/*</ul>*/}
-          {/*</div>*/}
-        {/*</Col>*/}
-      {/*</Row>*/}
-      {/*<Row>*/}
-        {/*<Col md={12}>*/}
-          {/*<ul className={ResultStyle.pagination}>*/}
-            {/*<li><button className={ResultStyle.activepagination}>1</button></li>*/}
-            {/*<li><button>2</button></li>*/}
-            {/*<li><button>3</button></li>*/}
-            {/*<li><button>4</button></li>*/}
-            {/*<li><button>5</button></li>*/}
-          {/*</ul>*/}
-        {/*</Col>*/}
-      {/*</Row>*/}
-      {/*<div className={ResultStyle.product_headingbox}>*/}
-        {/*<h2>CAD Drawings</h2>*/}
-      {/*</div>*/}
-      {/*<Row>*/}
-        {/*<Col lg={4} md={6}>*/}
-          {/*<div className={ResultStyle.inner}>*/}
-            {/*<ul>*/}
-              {/*<li><Link href="/"><a title="Rotator Gas" target="_blank">Rotator</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">RT90 Brick Oven</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">RT 110 Brick Oven</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">RT130 Brick Oven</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">RT150 Brick Oven</a></Link></li>*/}
-            {/*</ul>*/}
-          {/*</div>*/}
-        {/*</Col>*/}
-        {/*<Col lg={4} md={6}>*/}
-          {/*<div className={ResultStyle.inner}>*/}
-            {/*<ul>*/}
-              {/*<li><Link href="/"><a title="Rotator Gas" target="_blank">Electric</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">ELNP 56-43 Brick Oven</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">ELMS 68-32 Brick Oven</a></Link></li>*/}
-            {/*</ul>*/}
-          {/*</div>*/}
-        {/*</Col>*/}
-        {/*<Col lg={4} md={6}>*/}
-          {/*<div className={ResultStyle.inner}>*/}
-            {/*<ul>*/}
-              {/*<li><Link href="/"><a title="Rotator Gas" target="_blank">Enclosed Facade: Wood/Gas</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">EF70 Brick Oven</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">EF80 Brick Oven</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">EF90 Brick Oven</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">EF110 Brick Oven</a></Link></li>*/}
-            {/*</ul>*/}
-          {/*</div>*/}
-        {/*</Col>*/}
-      {/*</Row>*/}
-      {/*<Row>*/}
-        {/*<Col md={12}>*/}
-          {/*<ul className={ResultStyle.pagination}>*/}
-            {/*<li><button className={ResultStyle.activepagination}>1</button></li>*/}
-            {/*<li><button>2</button></li>*/}
-            {/*<li><button>3</button></li>*/}
-            {/*<li><button>4</button></li>*/}
-            {/*<li><button>5</button></li>*/}
-          {/*</ul>*/}
-        {/*</Col>*/}
-      {/*</Row>*/}
-      {/*<div className={ResultStyle.product_headingbox}>*/}
-        {/*<h2>Revit Files</h2>*/}
-      {/*</div>*/}
-      {/*<Row>*/}
-        {/*<Col lg={4} md={6}>*/}
-          {/*<div className={ResultStyle.inner}>*/}
-            {/*<ul>*/}
-              {/*<li><Link href="/"><a title="Rotator Gas" target="_blank">Rotator</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">RT90 Brick Oven</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">RT 110 Brick Oven</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">RT130 Brick Oven</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">RT150 Brick Oven</a></Link></li>*/}
-            {/*</ul>*/}
-          {/*</div>*/}
-        {/*</Col>*/}
-        {/*<Col lg={4} md={6}>*/}
-          {/*<div className={ResultStyle.inner}>*/}
-            {/*<ul>*/}
-              {/*<li><Link href="/"><a title="Rotator Gas" target="_blank">Electric</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">ELMS 25-20 Brick Oven</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">ELMR 39-43 Brick Oven</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">ELNP 39-43 Brick Oven</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">ELNP 56-43 Brick Oven</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">ELMS 68-32 Brick Oven</a></Link></li>*/}
-            {/*</ul>*/}
-          {/*</div>*/}
-        {/*</Col>*/}
-        {/*<Col lg={4} md={6}>*/}
-          {/*<div className={ResultStyle.inner}>*/}
-            {/*<ul>*/}
-              {/*<li><Link href="/"><a title="Rotator Gas" target="_blank">Enclosed Facade: Wood/Gas</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">EF70 Brick Oven</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">EF80 Brick Oven</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">EF90 Brick Oven</a></Link></li>*/}
-              {/*<li><Link href="/"><a title="RT90G" target="_blank">EF110 Brick Oven</a></Link></li>*/}
-            {/*</ul>*/}
-          {/*</div>*/}
-        {/*</Col>*/}
-      {/*</Row>*/}
-      {/*<Row>*/}
-        {/*<Col md={12}>*/}
-          {/*<ul className={ResultStyle.pagination}>*/}
-            {/*<li><button className={ResultStyle.activepagination}>1</button></li>*/}
-            {/*<li><button>2</button></li>*/}
-            {/*<li><button>3</button></li>*/}
-            {/*<li><button>4</button></li>*/}
-            {/*<li><button>5</button></li>*/}
-          {/*</ul>*/}
-        {/*</Col>*/}
-      {/*</Row>*/}
-      {/*<div className={ResultStyle.product_headingbox}>*/}
-        {/*<h2>Videos</h2>*/}
-      {/*</div>*/}
-      {/*<Row>*/}
-        {/*<Col lg={4} md={6}>*/}
-          {/*<div className={ResultStyle.gallery_inner}>*/}
-            {/*<Link href='/'>*/}
-              {/*<a title='Gallery Image'>*/}
-                {/*<img */}
-                  {/*src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}*/}
-                  {/*width='550'*/}
-                  {/*height='533'*/}
-                  {/*className='img-fluid'*/}
-                {/*/>*/}
-                {/*<div className={ResultStyle.gallery_overlay}>*/}
-                  {/*<div className={ResultStyle.info_box}>*/}
-                    {/*<span><i className='bx bx-play-circle'></i></span>*/}
-                    {/*<p>Chef Tony Gemignani Live!</p>*/}
-                  {/*</div>*/}
-                {/*</div>*/}
-                {/*<div className={ResultStyle.gallery_coloroverlay}>*/}
-                  {/*<div className={ResultStyle.info_box}>*/}
-                    {/*<span><i className='bx bx-play-circle'></i></span>*/}
-                  {/*</div>*/}
-                {/*</div>*/}
-              {/*</a>*/}
-            {/*</Link>*/}
-          {/*</div>*/}
-        {/*</Col>*/}
-        {/*<Col lg={4} md={6}>*/}
-          {/*<div className={ResultStyle.gallery_inner}>*/}
-            {/*<Link href='/'>*/}
-              {/*<a title='Gallery Image'>*/}
-                {/*<img */}
-                  {/*src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}*/}
-                  {/*width='550'*/}
-                  {/*height='533'*/}
-                  {/*className='img-fluid'*/}
-                {/*/>*/}
-                {/*<div className={ResultStyle.gallery_overlay}>*/}
-                  {/*<div className={ResultStyle.info_box}>*/}
-                    {/*<span><i className='bx bx-play-circle'></i></span>*/}
-                    {/*<p>Amazing Innovations, Services, And Passion</p>*/}
-                  {/*</div>*/}
-                {/*</div>*/}
-                {/*<div className={ResultStyle.gallery_coloroverlay}>*/}
-                  {/*<div className={ResultStyle.info_box}>*/}
-                    {/*<span><i className='bx bx-play-circle'></i></span>*/}
-                  {/*</div>*/}
-                {/*</div>*/}
-              {/*</a>*/}
-            {/*</Link>*/}
-          {/*</div>*/}
-        {/*</Col>*/}
-        {/*<Col lg={4} md={6}>*/}
-          {/*<div className={ResultStyle.gallery_inner}>*/}
-            {/*<Link href='/'>*/}
-              {/*<a title='Gallery Image'>*/}
-                {/*<img */}
-                  {/*src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}*/}
-                  {/*width='550'*/}
-                  {/*height='533'*/}
-                  {/*className='img-fluid'*/}
-                {/*/>*/}
-                {/*<div className={ResultStyle.gallery_overlay}>*/}
-                  {/*<div className={ResultStyle.info_box}>*/}
-                    {/*<span><i className='bx bx-play-circle'></i></span>*/}
-                    {/*<p>We Are Here For You!</p>*/}
-                  {/*</div>*/}
-                {/*</div>*/}
-                {/*<div className={ResultStyle.gallery_coloroverlay}>*/}
-                  {/*<div className={ResultStyle.info_box}>*/}
-                    {/*<span><i className='bx bx-play-circle'></i></span>*/}
-                  {/*</div>*/}
-                {/*</div>*/}
-              {/*</a>*/}
-            {/*</Link>*/}
-          {/*</div>*/}
-        {/*</Col>*/}
-      {/*</Row>*/}
-      {/*<Row>*/}
-        {/*<Col md={12}>*/}
-          {/*<ul className={ResultStyle.pagination}>*/}
-            {/*<li><button className={ResultStyle.activepagination}>1</button></li>*/}
-            {/*<li><button>2</button></li>*/}
-            {/*<li><button>3</button></li>*/}
-            {/*<li><button>4</button></li>*/}
-            {/*<li><button>5</button></li>*/}
-          {/*</ul>*/}
-        {/*</Col>*/}
-      {/*</Row>*/}
+      <div className={ResultStyle.product_headingbox}>
+        <h2>Spec Sheets</h2>
+      </div>
+      <Row>
+        <Col lg={4} md={6}>
+          <div className={ResultStyle.inner}>
+            <ul>
+              <li><Link href="/"><a title="Rotator Gas" target="_blank">Rotator</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">RT90 Brick Oven</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">RT 110 Brick Oven</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">RT130 Brick Oven</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">RT150 Brick Oven</a></Link></li>
+            </ul>
+          </div>
+        </Col>
+        <Col lg={4} md={6}>
+          <div className={ResultStyle.inner}>
+            <ul>
+              <li><Link href="/"><a title="Rotator Gas" target="_blank">Electric</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">ELMS 25-20 Brick Oven </a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">ELMR 39-43 Brick Oven</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">ELNP 39-43 Brick Oven</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">ELNP 56-43 Brick Oven</a></Link></li>
+            </ul>
+          </div>
+        </Col>
+        <Col lg={4} md={6}>
+          <div className={ResultStyle.inner}>
+            <ul>
+              <li><Link href="/"><a title="Rotator Gas" target="_blank">Enclosed Facade</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">EF70 Brick Oven</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">EF80 Brick Oven</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">EF90 Brick Oven</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">EF110 Brick Oven</a></Link></li>
+            </ul>
+          </div>
+        </Col>
+      </Row>
+      <Row>
+        <Col md={12}>
+          <ul className={ResultStyle.pagination}>
+            <li><button className={ResultStyle.activepagination}>1</button></li>
+            <li><button>2</button></li>
+            <li><button>3</button></li>
+            <li><button>4</button></li>
+            <li><button>5</button></li>
+          </ul>
+        </Col>
+      </Row>
+      <div className={ResultStyle.product_headingbox}>
+        <h2>CAD Drawings</h2>
+      </div>
+      <Row>
+        <Col lg={4} md={6}>
+          <div className={ResultStyle.inner}>
+            <ul>
+              <li><Link href="/"><a title="Rotator Gas" target="_blank">Rotator</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">RT90 Brick Oven</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">RT 110 Brick Oven</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">RT130 Brick Oven</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">RT150 Brick Oven</a></Link></li>
+            </ul>
+          </div>
+        </Col>
+        <Col lg={4} md={6}>
+          <div className={ResultStyle.inner}>
+            <ul>
+              <li><Link href="/"><a title="Rotator Gas" target="_blank">Electric</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">ELNP 56-43 Brick Oven</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">ELMS 68-32 Brick Oven</a></Link></li>
+            </ul>
+          </div>
+        </Col>
+        <Col lg={4} md={6}>
+          <div className={ResultStyle.inner}>
+            <ul>
+              <li><Link href="/"><a title="Rotator Gas" target="_blank">Enclosed Facade: Wood/Gas</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">EF70 Brick Oven</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">EF80 Brick Oven</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">EF90 Brick Oven</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">EF110 Brick Oven</a></Link></li>
+            </ul>
+          </div>
+        </Col>
+      </Row>
+      <Row>
+        <Col md={12}>
+          <ul className={ResultStyle.pagination}>
+            <li><button className={ResultStyle.activepagination}>1</button></li>
+            <li><button>2</button></li>
+            <li><button>3</button></li>
+            <li><button>4</button></li>
+            <li><button>5</button></li>
+          </ul>
+        </Col>
+      </Row>
+      <div className={ResultStyle.product_headingbox}>
+        <h2>Revit Files</h2>
+      </div>
+      <Row>
+        <Col lg={4} md={6}>
+          <div className={ResultStyle.inner}>
+            <ul>
+              <li><Link href="/"><a title="Rotator Gas" target="_blank">Rotator</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">RT90 Brick Oven</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">RT 110 Brick Oven</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">RT130 Brick Oven</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">RT150 Brick Oven</a></Link></li>
+            </ul>
+          </div>
+        </Col>
+        <Col lg={4} md={6}>
+          <div className={ResultStyle.inner}>
+            <ul>
+              <li><Link href="/"><a title="Rotator Gas" target="_blank">Electric</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">ELMS 25-20 Brick Oven</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">ELMR 39-43 Brick Oven</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">ELNP 39-43 Brick Oven</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">ELNP 56-43 Brick Oven</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">ELMS 68-32 Brick Oven</a></Link></li>
+            </ul>
+          </div>
+        </Col>
+        <Col lg={4} md={6}>
+          <div className={ResultStyle.inner}>
+            <ul>
+              <li><Link href="/"><a title="Rotator Gas" target="_blank">Enclosed Facade: Wood/Gas</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">EF70 Brick Oven</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">EF80 Brick Oven</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">EF90 Brick Oven</a></Link></li>
+              <li><Link href="/"><a title="RT90G" target="_blank">EF110 Brick Oven</a></Link></li>
+            </ul>
+          </div>
+        </Col>
+      </Row>
+      <Row>
+        <Col md={12}>
+          <ul className={ResultStyle.pagination}>
+            <li><button className={ResultStyle.activepagination}>1</button></li>
+            <li><button>2</button></li>
+            <li><button>3</button></li>
+            <li><button>4</button></li>
+            <li><button>5</button></li>
+          </ul>
+        </Col>
+      </Row>
+      <div className={ResultStyle.product_headingbox}>
+        <h2>Videos</h2>
+      </div>
+      <Row>
+        <Col lg={4} md={6}>
+          <div className={ResultStyle.gallery_inner}>
+            <Link href='/'>
+              <a title='Gallery Image'>
+                <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
+                  width='550'
+                  height='533'
+                  className='img-fluid'
+                />
+                <div className={ResultStyle.gallery_overlay}>
+                  <div className={ResultStyle.info_box}>
+                    <span><i className='bx bx-play-circle'></i></span>
+                    <p>Chef Tony Gemignani Live!</p>
+                  </div>
+                </div>
+                <div className={ResultStyle.gallery_coloroverlay}>
+                  <div className={ResultStyle.info_box}>
+                    <span><i className='bx bx-play-circle'></i></span>
+                  </div>
+                </div>
+              </a>
+            </Link>
+          </div>
+        </Col>
+        <Col lg={4} md={6}>
+          <div className={ResultStyle.gallery_inner}>
+            <Link href='/'>
+              <a title='Gallery Image'>
+                <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
+                  width='550'
+                  height='533'
+                  className='img-fluid'
+                />
+                <div className={ResultStyle.gallery_overlay}>
+                  <div className={ResultStyle.info_box}>
+                    <span><i className='bx bx-play-circle'></i></span>
+                    <p>Amazing Innovations, Services, And Passion</p>
+                  </div>
+                </div>
+                <div className={ResultStyle.gallery_coloroverlay}>
+                  <div className={ResultStyle.info_box}>
+                    <span><i className='bx bx-play-circle'></i></span>
+                  </div>
+                </div>
+              </a>
+            </Link>
+          </div>
+        </Col>
+        <Col lg={4} md={6}>
+          <div className={ResultStyle.gallery_inner}>
+            <Link href='/'>
+              <a title='Gallery Image'>
+                <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
+                  width='550'
+                  height='533'
+                  className='img-fluid'
+                />
+                <div className={ResultStyle.gallery_overlay}>
+                  <div className={ResultStyle.info_box}>
+                    <span><i className='bx bx-play-circle'></i></span>
+                    <p>We Are Here For You!</p>
+                  </div>
+                </div>
+                <div className={ResultStyle.gallery_coloroverlay}>
+                  <div className={ResultStyle.info_box}>
+                    <span><i className='bx bx-play-circle'></i></span>
+                  </div>
+                </div>
+              </a>
+            </Link>
+          </div>
+        </Col>
+      </Row>
+      <Row>
+        <Col md={12}>
+          <ul className={ResultStyle.pagination}>
+            <li><button className={ResultStyle.activepagination}>1</button></li>
+            <li><button>2</button></li>
+            <li><button>3</button></li>
+            <li><button>4</button></li>
+            <li><button>5</button></li>
+          </ul>
+        </Col>
+      </Row>
       <div className={ResultStyle.product_headingbox}>
           {blogResult.blogList ? <h2>Blogs</h2> : null }
       </div>

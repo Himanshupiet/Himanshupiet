@@ -9,3 +9,22 @@
   margin-bottom: 20px;
   text-align: center;
 }
+.content_box h2{
+  font-weight: 300;
+  line-height: 40px;
+}
+@media only screen and (min-width: 1700px) {
+  .content_box h1{
+    font-size: 79px;
+    font-weight: 600;
+  }
+  .content_box h2{
+    font-size: 44px;
+    line-height: 49px;
+    font-weight: 500;
+  }
+  .content_box p{
+    padding-top: 10px;
+    font-size: 20px;
+  }
+}
