@@ -16,10 +16,9 @@ const KitchenNearYou = (props) => {
                     <Col lg={2}></Col>
                     <Col lg={8}>
                         <div className='text-center'>
-                            <h1>Custom Web App Development Services</h1>
-                            <p>We offer easy to scale custom web application development for all types of businesses
-                                with<br/>
-                                which companies.</p>
+                            <h1>Oven Category</h1>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's standard dummy text ever since the 1500s</p>
                         </div>
                     </Col>
                     <Col lg={2}></Col>
@@ -30,7 +29,7 @@ const KitchenNearYou = (props) => {
                         <ScrollAnimation duration={2} animateIn="fadeInLeft" animateOnce={true}>
                             <div className={KitchenNearYouStyle.left_side}>
                                 <div className="box-left mb-30 mt-10">
-                                    <h5 className="title">Ovens</h5>
+                                    <h5 className="title">The Rotator</h5>
                                     <p>View More</p>
                                 </div>
                                 <span className={`${KitchenNearYouStyle.icon} right ml-4`}>
@@ -39,7 +38,7 @@ const KitchenNearYou = (props) => {
                             </div>
                             <div className={KitchenNearYouStyle.left_side}>
                                 <div className="box-left mb-30 mt-10">
-                                    <h5 className="title">Prep Tables</h5>
+                                    <h5 className="title">The Neopoliton</h5>
                                     <p>View More</p>
                                 </div>
                                 <span className={`${KitchenNearYouStyle.icon} right ml-3`}>
@@ -48,7 +47,7 @@ const KitchenNearYou = (props) => {
                             </div>
                             <div className={KitchenNearYouStyle.left_side}>
                                 <div className="box-left mb-30 mt-10">
-                                    <h5 className="title">Ventilation</h5>
+                                    <h5 className="title">Mobile Trailer</h5>
                                     <p>View More</p>
                                 </div>
                                 <span className={`${KitchenNearYouStyle.icon} right ml-3`}>
@@ -57,10 +56,10 @@ const KitchenNearYou = (props) => {
                             </div>
                         </ScrollAnimation>
                     </Col>
-                    <Col md={3} className={`${KitchenNearYouStyle.main_img} pt-5`}>
+                    <Col md={4} className={`${KitchenNearYouStyle.main_img} pt-5`}>
                         <img alt="TouchScreen"
                              src='https://marraforni.com/wp/wp-content/uploads/2020/09/firedupbrewing-banner.png'
-                             height='900' width='800'/>
+                             height='900'/>
                     </Col>
                     <Col md={3} className='pt-5'>
                         <ScrollAnimation duration={2} animateIn="fadeInRight" animateOnce={true}>
@@ -69,7 +68,7 @@ const KitchenNearYou = (props) => {
                            <i className="fa fa-user" title="LDAP web app development Company"></i>
                         </span>
                                 <div className="box-left mb-30 mt-10">
-                                    <h5 className="title">Mixer</h5>
+                                    <h5 className="title">Metal Square</h5>
                                     <p>View More</p>
                                 </div>
                             </div>
@@ -78,7 +77,7 @@ const KitchenNearYou = (props) => {
                            <i className="fa fa-file" title="LDAP web app development Company"></i>
                          </span>
                                 <div className="box-left mb-30 mt-10">
-                                    <h5 className="title">Flywheeel Slicer</h5>
+                                    <h5 className="title">Electric</h5>
                                     <p>View More</p>
                                 </div>
                             </div>
@@ -87,7 +86,7 @@ const KitchenNearYou = (props) => {
                             <i className="fa fa-twitch" title="LDAP web app development Company"></i>
                           </span>
                                 <div className="box-left mb-30 mt-10">
-                                    <h5 className="title">Social Networking</h5>
+                                    <h5 className="title">Pass Through</h5>
                                     <p>View More</p>
                                 </div>
                             </div>

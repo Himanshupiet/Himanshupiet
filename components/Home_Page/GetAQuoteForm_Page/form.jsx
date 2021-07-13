@@ -109,7 +109,7 @@ const FormPage = () => {
                         </div>
                     </Col>
                     <Col lg={6} className='p-0'>
-                        <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/form_banner.jpg`} style={{height:'100%',width:'100%'}}/>
+                        <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/form_banner.jpg`} style={{height:'100%',width:'100%',objectFit:'cover',objectPosition:'left'}}/>
                     </Col>
                 </Row>
             </Container>
