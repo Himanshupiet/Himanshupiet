@@ -1,3 +1,14 @@
+.youtube_section{
+  background-color: #1d1d1d;
+  padding-bottom: 26px!important;
+}
+.youtube_section button{
+  padding: 6px 15px 6px 15px;
+}
+.youtube_section p{
+  font-size: 15px;
+  color: #fff;
+}
 .videogallery_outer{
   background-color: #212121;
   /*background-color: #f6f7fb ;*/
@@ -82,5 +93,9 @@
 @media only screen and (min-width: 1700px) {
   .gallery_inner img{
     height: 520px;
+  }
+  .video_section{
+    width: 645px;
+    height: 340px;
   }
 }
