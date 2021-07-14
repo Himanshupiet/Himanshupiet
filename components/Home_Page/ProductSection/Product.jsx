@@ -183,6 +183,21 @@ const Product = (props) => {
                                                     Your Commercial Brick Oven
                                                 </div>
                                                 <div className={`${ProductStyle.panel_body} pt-0 text-center`}>
+                                                    Businesses need a wide set of technical expertise but a blooming
+                                                    business
+                                                    doesn’t have the economical capacity to hire full time developers.
+                                                    You
+                                                    can
+                                                    hire developers by paying per hour for low operational risks.to hire
+                                                    full time developers.
+                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                    industry. Lorem Ipsum has been the industry's standard dummy text
+                                                    ever
+                                                    since the 1500s.
+                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                    industry. Lorem Ipsum has been the industry's standard dummy text
+                                                    ever
+                                                    since the 1500s.
                                                     Lorem Ipsum is simply dummy text of the printing and typesetting
                                                     industry. Lorem Ipsum has been the industry's standard dummy text
                                                     ever
@@ -195,8 +210,25 @@ const Product = (props) => {
                                                     Success Is Our Inspiration
                                                 </div>
                                                 <div className={`${ProductStyle.panel_body} pt-0 text-center`}>
+                                                    Businesses need a wide set of technical expertise but a blooming
+                                                    business
+                                                    doesn’t have the economical capacity to hire full time developers.
+                                                    You
+                                                    can
+                                                    hire developers by paying per hour for low operational risks.to hire
+                                                    full time developers.
                                                     Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy text.
+                                                    industry. Lorem Ipsum has been the industry's standard dummy text
+                                                    ever
+                                                    since the 1500s.
+                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                    industry. Lorem Ipsum has been the industry's standard dummy text
+                                                    ever
+                                                    since the 1500s.
+                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                    industry. Lorem Ipsum has been the industry's standard dummy text
+                                                    ever
+                                                    since the 1500s.
                                                 </div>
                                             </div>
                                         </ScrollAnimation>
@@ -209,9 +241,25 @@ const Product = (props) => {
                                                     Operational Risk
                                                 </div>
                                                 <div className={`${ProductStyle.panel_body} pt-0 text-center`}>
+                                                    Businesses need a wide set of technical expertise but a blooming
+                                                    business
+                                                    doesn’t have the economical capacity to hire full time developers.
+                                                    You
+                                                    can
+                                                    hire developers by paying per hour for low operational risks.to hire
+                                                    full time developers.
                                                     Lorem Ipsum is simply dummy text of the printing and typesetting
                                                     industry. Lorem Ipsum has been the industry's standard dummy text
-                                                    ever.
+                                                    ever
+                                                    since the 1500s.
+                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                    industry. Lorem Ipsum has been the industry's standard dummy text
+                                                    ever
+                                                    since the 1500s.
+                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                    industry. Lorem Ipsum has been the industry's standard dummy text
+                                                    ever
+                                                    since the 1500s.
                                                 </div>
                                             </div>
                                             <div className={ProductStyle.panel_bg_accent}>
@@ -227,6 +275,18 @@ const Product = (props) => {
                                                     can
                                                     hire developers by paying per hour for low operational risks.to hire
                                                     full time developers.
+                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                    industry. Lorem Ipsum has been the industry's standard dummy text
+                                                    ever
+                                                    since the 1500s.
+                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                    industry. Lorem Ipsum has been the industry's standard dummy text
+                                                    ever
+                                                    since the 1500s.
+                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                    industry. Lorem Ipsum has been the industry's standard dummy text
+                                                    ever
+                                                    since the 1500s.
                                                 </div>
                                             </div>
                                         </ScrollAnimation>
