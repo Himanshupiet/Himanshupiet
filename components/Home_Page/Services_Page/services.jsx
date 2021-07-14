@@ -701,9 +701,9 @@ const Service = () => {
                 {/*    /!*<Col lg={1}></Col>*!/*/}
                 {/*</Row>*/}
                 <Row>
-                    <Col lg={1}></Col>
-                    <Col lg={10}>
-                        <ScrollAnimation duration={1}
+                    <Col lg={2}></Col>
+                    <Col lg={8}>
+                        <ScrollAnimation duration={2}
                                          animateIn='fadeInUp'
                                          animateOnce={true}>
                             <Row>
@@ -739,10 +739,25 @@ const Service = () => {
                                             <i className='fa fa-database'></i>
                                             <span className='pl-3'>Tools</span>
                                         </li>
+                                        <li className="list-group-item">
+                                            {/*<i className='fa fa-database'></i>*/}
+                                            {/*<span className='pl-3'>Tools</span>*/}
+                                            <p></p>
+                                        </li>
+                                        <li className="list-group-item">
+                                            {/*<i className='fa fa-database'></i>*/}
+                                            {/*<span className='pl-3'>Tools</span>*/}
+                                            <p></p>
+                                        </li>
+                                        <li className="list-group-item">
+                                            {/*<i className='fa fa-database'></i>*/}
+                                            {/*<span className='pl-3'>Tools</span>*/}
+                                            <p></p>
+                                        </li>
                                     </ul>
                                 </Col>
                                 <Col lg={9} style={{backgroundColor: 'white'}} className='pl-0'>
-                                    <Row className='pt-5 pl-4 pr-4'>
+                                    <Row className='pt-3 pl-4 pr-4'>
                                         <Col lg={3}>
                                             <div
                                                 className={`${ServiceStyle.panel}  ${ServiceStyle.panel_flat} ${ServiceStyle.border_accent} ${ServiceStyle.panel_border_bottom}`}>
@@ -817,7 +832,7 @@ const Service = () => {
                                         <Col lg={3}>
                                             <div
                                                 className={`${ServiceStyle.panel}  ${ServiceStyle.panel_flat} ${ServiceStyle.border_accent} ${ServiceStyle.panel_border_bottom}`}>
-                                                <div className={ServiceStyle.panel_heading}>Hybrid Fuel System</div>
+                                                <div className={ServiceStyle.panel_heading}>Hybrid Fuel</div>
                                                 <div className={ServiceStyle.panel_body}><img
                                                     src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/>
                                                 </div>
@@ -828,7 +843,7 @@ const Service = () => {
                             </Row>
                         </ScrollAnimation>
                     </Col>
-                    <Col lg={1}></Col>
+                    <Col lg={2}></Col>
                 </Row>
             </Container>
         </>

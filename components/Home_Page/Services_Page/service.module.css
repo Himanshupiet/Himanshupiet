@@ -78,6 +78,8 @@
     border-radius: 0;
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
+    height: 150px;
+
 }
 
 .panel_heading {
@@ -85,11 +87,12 @@
     border-radius: 0;
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     line-height: 20px;
     letter-spacing: 1px;
     text-align: center;
+    height: 60px;
 }
 
 .panel_flat > .panel_body {
@@ -146,5 +149,19 @@
 @media only screen and (min-width: 1700px) {
     .main_style button {
         padding: 15px 144px 15px 147px;
+    }
+    .panel_heading {
+        font-size: 28px;
+        padding-bottom: 20px;
+        line-height: 30px;
+        padding-top: 40px;
+        height: 130px;
+    }
+    .panel_body img{
+        height: 100px;
+        width: 100px;
+    }
+    .panel {
+        height: 250px;
     }
 }
