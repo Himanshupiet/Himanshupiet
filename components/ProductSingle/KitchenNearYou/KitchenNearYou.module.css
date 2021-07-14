@@ -32,17 +32,19 @@
 }
 
 .icon {
-    width: 110px;
-    height: 110px;
-    line-height: 110px;
-    font-size: 46px;
-    background-color: #e31422;
+    width: 109px;
+    height: 109px;
+    line-height: 109px;
+    font-size: 47px;
+    border: 3px solid #e31422;
     border-radius: 50%;
     text-align: center;
-    box-shadow: 0px -1px 6px 1px rgba(0,0,0,0.59);
-    -webkit-box-shadow: 0px -1px 6px 1px rgba(0,0,0,0.59);
-    -moz-box-shadow: 0px -1px 6px 1px rgba(0,0,0,0.59);
-    color: white;
+    color: #e31422;
+}
+.icon:hover{
+    box-shadow: 0px -1px 6px 1px #e31422;
+    -webkit-box-shadow: 0px -1px 6px 1px #e31422;
+    -moz-box-shadow: 0px -1px 6px 1px #e31422;
 }
 
 .section_outer {

@@ -3,6 +3,7 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import {Container, Row, Col} from 'react-bootstrap';
 import KitchenNearYouStyle from './KitchenNearYou.module.css';
 
+
 /**
  * @author
  * @function KitchenNearYou
@@ -23,9 +24,9 @@ const KitchenNearYou = (props) => {
                     </Col>
                     <Col lg={2}></Col>
                 </Row>
-                <Row>
-                    <Col lg={1}></Col>
-                    <Col md={3} className='pt-5 text-right'>
+                <Row className="justify-content-md-center">
+                    {/*<Col lg={1}></Col>*/}
+                    <Col lg={3}  className='pt-5 text-right'>
                         <ScrollAnimation duration={2} animateIn="fadeInLeft" animateOnce={true}>
                             <div className={KitchenNearYouStyle.left_side}>
                                 <div className="box-left mb-30 mt-10">
@@ -56,17 +57,17 @@ const KitchenNearYou = (props) => {
                             </div>
                         </ScrollAnimation>
                     </Col>
-                    <Col md={4} className={`${KitchenNearYouStyle.main_img} pt-5`}>
+                    <Col lg='auto' className={`${KitchenNearYouStyle.main_img} pt-4`}>
                         <img alt="TouchScreen"
-                             src='https://marraforni.com/wp/wp-content/uploads/2020/09/firedupbrewing-banner.png'
-                             height='900'/>
+                             src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Rotator.png`}
+                             style={{height:'500px'}}/>
                     </Col>
-                    <Col md={3} className='pt-5'>
+                    <Col lg={3} className='pt-5'>
                         <ScrollAnimation duration={2} animateIn="fadeInRight" animateOnce={true}>
                             <div className={KitchenNearYouStyle.right_side}>
                          <span className={`${KitchenNearYouStyle.icon} right mr-3`}>
                            <i className="fa fa-user" title="LDAP web app development Company"></i>
-                        </span>
+                         </span>
                                 <div className="box-left mb-30 mt-10">
                                     <h5 className="title">Metal Square</h5>
                                     <p>View More</p>
@@ -92,7 +93,7 @@ const KitchenNearYou = (props) => {
                             </div>
                         </ScrollAnimation>
                     </Col>
-                    <Col lg={1}></Col>
+                    {/*<Col lg={1}></Col>*/}
                 </Row>
             </Container>
         </section>
