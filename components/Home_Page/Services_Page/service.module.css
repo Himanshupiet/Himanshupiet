@@ -61,12 +61,14 @@
 /*.effect_1{*/
 /*    transition: background;*/
 /*}*/
-.resp_tabs_list li{
+.resp_tabs_list li {
     list-style-type: none;
 }
+
 .dg_tabs_left01 ul.resp_tabs_list li.resp_tab_active {
     border-left: 3px solid #e31422;
 }
+
 .panel {
     margin-bottom: 14px;
     background-color: #fff;
@@ -77,54 +79,72 @@
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
 }
+
 .panel_heading {
     padding: 13px 13px 13px;
     border-radius: 0;
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
+    line-height: 20px;
     letter-spacing: 1px;
     text-align: center;
 }
-.panel_flat>.panel_body {
-    padding: 1px 28px 12px 28px;
+
+.panel_flat > .panel_body {
+    padding: 1px 24px 12px 28px;
 }
+.panel_body{
+    text-align: center;
+}
+.panel_body img{
+    height: 70px;
+    width: 70px;
+}
+
 .border_accent {
-    border-color: #e31422!important;
+    border-color: #e31422 !important;
 }
+
 .panel_border_bottom, .panel_border_bottom.border_accent {
-    border-left-color: #dfdfdf!important;
-    border-right-color: #dfdfdf!important;
-    border-top-color: #dfdfdf!important;
-    border-left-width: 1px!important;
-    border-right-width: 1px!important;
-    border-top-width: 1px!important;
+    border-left-color: #dfdfdf !important;
+    border-right-color: #dfdfdf !important;
+    border-top-color: #dfdfdf !important;
+    border-left-width: 1px !important;
+    border-right-width: 1px !important;
+    border-top-width: 1px !important;
 }
-.panel_body i{
-    color: #e31422!important;
+
+.panel_body i {
+    color: #e31422 !important;
 }
-.sidebar li{
+
+.sidebar li {
     background: #f9f9f9;
 }
-.main_style button{
+
+.main_style button {
     padding: 10px 53px 10px 51px;
-    background: #e31422;
+    /*background: #e31422;*/
+    color: gray;
 }
-/*.main_style nav a{*/
-/*    color: gray!important;*/
-/*    font-size: 16px*/
-/*}*/
-/*.main_style nav a.active{*/
-/*    color: red!important;*/
-/*    background-color: red!important;*/
-/*}*/
-/*.main_style .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{*/
-/*    background-color: red!important;*/
-/*}*/
+.side_set ul li:hover{
+    border-right: 3px solid #e31422;
+}
+.side_set ul li i{
+    color: #e31422;
+}
+
+.main_style button:after {
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    border-bottom: 3px solid #e31422 !important;
+}
 
 @media only screen and (min-width: 1700px) {
-    .main_style button{
+    .main_style button {
         padding: 15px 144px 15px 147px;
     }
 }

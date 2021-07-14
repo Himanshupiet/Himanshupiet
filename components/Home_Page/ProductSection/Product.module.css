@@ -90,6 +90,9 @@
     border-bottom: 10px solid #0166ff00;
     margin-bottom: 25px;
 }
+.panel_bg_accent:hover{
+    border-bottom: 10px solid #e31422;
+}
 .panel_bg_accent .panel_heading {
     border: none!important;
     font-size: 24px;
