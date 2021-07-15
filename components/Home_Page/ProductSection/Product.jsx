@@ -3,6 +3,7 @@ import React from 'react'
 import {Col, Container, Row} from 'react-bootstrap'
 import ScrollAnimation from 'react-animate-on-scroll'
 import ProductStyle from './Product.module.css'
+import Typical from 'react-typical'
 
 const Product = (props) => {
     return (
@@ -166,7 +167,13 @@ const Product = (props) => {
             className={ProductStyle.section_outer}>
             <Container fluid>
                 <div className={`${ProductStyle.dg_title12} size-xl pt-5`}>
-                    <h2 className="title text-uppercase">Customize Your Commercial Brick Oven</h2>
+                    <h2 className="title text-center">
+                        BENEFITS OF <Typical
+                            steps={['HIRING DEVELOPERS FROM US', 3500, '', 50]}
+                            loop={Infinity}
+                            wrapper="span"
+                        />
+                    </h2>
                     {/*<small>Hire developers who are seasoned to foster business growth.</small>*/}
                 </div>
                 <Row>
