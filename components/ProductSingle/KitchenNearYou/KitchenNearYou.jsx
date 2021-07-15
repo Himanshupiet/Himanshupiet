@@ -61,6 +61,9 @@ const KitchenNearYou = (props) => {
                         <img alt="TouchScreen"
                              src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Rotator.png`}
                              style={{height:'500px'}}/>
+                        <div className={KitchenNearYouStyle.water}>
+                            <div className={KitchenNearYouStyle.dot}></div>
+                        </div>
                     </Col>
                     <Col lg={3} className='pt-5'>
                         <ScrollAnimation duration={2} animateIn="fadeInRight" animateOnce={true}>

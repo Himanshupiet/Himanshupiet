@@ -169,7 +169,7 @@ const Product = (props) => {
                 <div className={`${ProductStyle.dg_title12} size-xl pt-5`}>
                     <h2 className="title text-center">
                         BENEFITS OF <Typical
-                            steps={['HIRING DEVELOPERS FROM US', 3500, '', 50]}
+                            steps={['Buying Ovens From Us', 3500, '', 50]}
                             loop={Infinity}
                             wrapper="span"
                         />

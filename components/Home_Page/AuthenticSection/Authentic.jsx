@@ -7,10 +7,10 @@ import Link from 'next/link'
 const Authentic = (props) => {
     return (
         <section className={AuthenticStyle.section_outer}>
-            <Container fluid>
+            <Container>
                 <Row>
-                    <Col lg={1}></Col>
-                    <Col lg={10}>
+                    {/*<Col lg={1}></Col>*/}
+                    <Col lg={12}>
                         <Row>
                             <Col
                                 lg={6}
@@ -67,7 +67,7 @@ const Authentic = (props) => {
                             </Col>
                         </Row>
                     </Col>
-                    <Col lg={1}></Col>
+                    {/*<Col lg={1}></Col>*/}
                 </Row>
             </Container>
 

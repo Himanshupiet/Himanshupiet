@@ -515,7 +515,7 @@ const Service = () => {
     return (
         <>
             <section className={MainHomePageStyle.quoteform_outer}>
-                <Tab.Container>
+                <Tab.Container defaultActiveKey="first">
                     {/*<Row>*/}
                     {/*    <Col lg={1}></Col>*/}
                     {/*    <Col lg={10}>*/}
@@ -756,7 +756,7 @@ const Service = () => {
                                         {/*        <p></p>*/}
                                         {/*    </li>*/}
                                         {/*</ul>*/}
-                                        <Nav variant="pills" className="flex-column">
+                                        <Nav variant="pills" className={`${ServiceStyle.nav_style} flex-column`}>
                                             <Nav.Item className='border-bottom'>
                                                 <Nav.Link eventKey="first">
                                                     <i className='fa fa-desktop fa-1x pr-2'></i>
@@ -848,74 +848,74 @@ const Service = () => {
                                                 </div>
                                             </Tab.Pane>
                                             <Tab.Pane eventKey="second">
-                                                <div className="row">
-                                                    <div className="col-sm-3">
+                                                <Row>
+                                                    <Col lg={3}>
                                                         <div className={`${ServiceStyle.panel_body} card`}>
                                                             <div>
                                                                 <p className={`${ServiceStyle.panel_heading} card-title`}>Plug & Play</p>
                                                                 <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div className="col-sm-3">
+                                                    </Col>
+                                                    <Col lg={3}>
                                                         <div className={`${ServiceStyle.panel_body} card`}>
                                                             <div>
                                                                 <p className={`${ServiceStyle.panel_heading} card-title`}>Made of Bricks</p>
                                                                 <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div className="col-sm-3">
+                                                    </Col>
+                                                    <Col lg={3}>
                                                         <div className={`${ServiceStyle.panel_body} card`}>
                                                             <div>
                                                                 <p className={`${ServiceStyle.panel_heading} card-title`}>25 years warrenty</p>
                                                                 <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div className="col-sm-3">
+                                                    </Col>
+                                                    <Col lg={3}>
                                                         <div className={`${ServiceStyle.panel_body} card`}>
                                                             <div>
                                                                 <p className={`${ServiceStyle.panel_heading} card-title`}>Hybrid Fuel</p>
                                                                 <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div className="row mt-3">
-                                                    <div className="col-sm-3">
+                                                    </Col>
+                                                </Row>
+                                                <Row className="mt-3">
+                                                    <Col lg={3}>
                                                         <div className={`${ServiceStyle.panel_body} card`}>
                                                             <div>
                                                                 <p className={`${ServiceStyle.panel_heading} card-title`}>Plug & Play</p>
                                                                 <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div className="col-sm-3">
+                                                    </Col>
+                                                    <Col lg={3}>
                                                         <div className={`${ServiceStyle.panel_body} card`}>
                                                             <div>
                                                                 <p className={`${ServiceStyle.panel_heading} card-title`}>Made of Bricks</p>
                                                                 <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div className="col-sm-3">
+                                                    </Col>
+                                                    <Col lg={3}>
                                                         <div className={`${ServiceStyle.panel_body} card`}>
                                                             <div>
                                                                 <p className={`${ServiceStyle.panel_heading} card-title`}>25 years warrenty</p>
                                                                 <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div className="col-sm-3">
+                                                    </Col>
+                                                    <Col lg={3}>
                                                         <div className={`${ServiceStyle.panel_body} card`}>
                                                             <div>
                                                                 <p className={`${ServiceStyle.panel_heading} card-title`}>Hybrid Fuel</p>
                                                                 <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
+                                                    </Col>
+                                                </Row>
                                             </Tab.Pane>
                                         </Tab.Content>
                                     </Col>
