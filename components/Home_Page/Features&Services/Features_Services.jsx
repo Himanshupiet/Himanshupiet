@@ -13,7 +13,7 @@ import ScrollAnimation from 'react-animate-on-scroll';
 const Features_Services = (props) => {
   return(
     <section className={FSStyle.section_outer}>
-      <Container fluid>
+      <Container>
         <Row>
           <Col xl={1}></Col>
           <Col xl={10}>

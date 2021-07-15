@@ -8,10 +8,10 @@ const Reliable = (props) => {
     return (
         <section
             className={ReliableStyle.section_outer}>
-            <Container fluid>
+            <Container>
                 <Row>
-                    <Col lg={1}></Col>
-                    <Col lg={10}>
+                    {/*<Col lg={1}></Col>*/}
+                    <Col lg={12}>
                         <Row
                             className='align-items-center'>
                             <Col
@@ -67,7 +67,7 @@ const Reliable = (props) => {
                             </Col>
                         </Row>
                     </Col>
-                    <Col lg={1}></Col>
+                    {/*<Col lg={1}></Col>*/}
                 </Row>
             </Container>
         </section>

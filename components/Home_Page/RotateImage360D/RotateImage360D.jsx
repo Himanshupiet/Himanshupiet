@@ -20,10 +20,10 @@ const RotateImage360D = (props) => {
   },[])
   return(
     <section className={Rotate360DStyle.section_outer}>
-      <Container fluid>
+      <Container>
         <Row>
-          <Col lg={1}></Col>
-          <Col lg={10}>
+          {/*<Col lg={1}></Col>*/}
+          <Col lg={12}>
             <Row>
               <Col lg={3}>
                 <ScrollAnimation duration={2} animateIn="fadeInLeft" animateOnce={true}>
@@ -87,7 +87,7 @@ const RotateImage360D = (props) => {
               </Col>
             </Row>
           </Col>
-          <Col lg={1}></Col>
+          {/*<Col lg={1}></Col>*/}
         </Row>
       </Container>
     </section>
