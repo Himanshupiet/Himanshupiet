@@ -101,6 +101,7 @@ class MasterForm extends Component {
             [name] : value
         },() => {
             console.log(this.state.facade)
+            console.log(this.state.color)
         });
     }
 

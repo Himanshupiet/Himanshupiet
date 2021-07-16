@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Col, Container, Row, Accordion, Card} from 'react-bootstrap'
 import Header from "../header/header";
 import Footer from "../footer/footer";
@@ -6,8 +6,27 @@ import CareerStyle from './careers.module.css'
 import MainHomePageStyle from "../Home_Page/index.module.css";
 import GetAQuote from "../common/GetAQuote/GetAQuote";
 import Link from "next/link";
+import axios from "axios";
+import {API_HOST} from "../../env";
 
 const CareerPage = () => {
+    const [data, setData] = useState([])
+    console.log(data)
+
+    useEffect(() => {
+        axios.get(`${API_HOST}career/getAllCareer`, {
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }).then((res) => {
+            if (res.status) {
+                setData(res.data)
+            }
+        }).catch((error) => {
+
+        })
+    }, [])
+
     return (
         <>
             <Header/>
@@ -51,104 +70,108 @@ const CareerPage = () => {
                     <Col lg={1}></Col>
                     <Col lg={10} className='pt-3'>
                         <Row>
-                            <Col lg={6} className='pt-3'>
-                                <div className={`${CareerStyle.career_card} card`}>
-                                    <div className="card-body">
-                                        <h5 className="card-title">Senior Content Strategist</h5>
-                                        <div className='d-flex justify-content-between'>
-                                            <p className="card-text">Remote Job</p>
-                                            <Link href="/careers/1">
-                                                <a title="Growth">Growth</a>
-                                            </Link>
+                            {data.map((data,i)=>(
+                                data.active && (data.jobTitle !== 'string')?
+                                <Col lg={6} className='pt-3'>
+                                    <div className={`${CareerStyle.career_card} card`}>
+                                        <div className="card-body">
+                                            <h5 className="card-title">{data.jobTitle}</h5>
+                                            <div className='d-flex justify-content-between'>
+                                                <p className="card-text">{data.jobLocation}</p>
+                                                <Link href="/careers/1">
+                                                    <a title="Growth">Growth</a>
+                                                </Link>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </Col>
-                            <Col lg={6} className='pt-3'>
-                                <div className="card">
-                                    <div className="card-body">
-                                        <h5 className="card-title">Don't see the role you're looking for? Apply
-                                            here!</h5>
-                                        <div className='d-flex justify-content-between'>
-                                            <p className="card-text">Marketing</p>
-                                            <a href="#">Columbia, United States</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Col>
+                                </Col>:null
+                            ))}
+
+                            {/*<Col lg={6} className='pt-3'>*/}
+                            {/*    <div className="card">*/}
+                            {/*        <div className="card-body">*/}
+                            {/*            <h5 className="card-title">Don't see the role you're looking for? Apply*/}
+                            {/*                here!</h5>*/}
+                            {/*            <div className='d-flex justify-content-between'>*/}
+                            {/*                <p className="card-text">Marketing</p>*/}
+                            {/*                <a href="#">Columbia, United States</a>*/}
+                            {/*            </div>*/}
+                            {/*        </div>*/}
+                            {/*    </div>*/}
+                            {/*</Col>*/}
                         </Row>
-                        <Row>
-                            <Col md={6} className='pt-3'>
-                                <div className="card">
-                                    <div className="card-body">
-                                        <h5 className="card-title">Business Development Representative</h5>
-                                        <div className='d-flex justify-content-between'>
-                                            <p className="card-text">Remote Job</p>
-                                            <a href="#">Sales</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col md={6} className='pt-3'>
-                                <div className="card">
-                                    <div className="card-body">
-                                        <h5 className="card-title">Account Director</h5>
-                                        <div className='d-flex justify-content-between'>
-                                            <p className="card-text">Remote Job</p>
-                                            <a href="#">Marketing</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col md={6} className='pt-3'>
-                                <div className="card">
-                                    <div className="card-body">
-                                        <h5 className="card-title">Account Manager</h5>
-                                        <div className='d-flex justify-content-between'>
-                                            <p className="card-text">Remote Job</p>
-                                            <a href="#">Growth</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col md={6} className='pt-3'>
-                                <div className="card">
-                                    <div className="card-body">
-                                        <h5 className="card-title">Pain Social Manager</h5>
-                                        <div className='d-flex justify-content-between'>
-                                            <p className="card-text">Remote Job</p>
-                                            <a href="#">Marketing</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col md={6} className='pt-3'>
-                                <div className="card">
-                                    <div className="card-body">
-                                        <h5 className="card-title">Digital Marketing Strategist - PPC</h5>
-                                        <div className='d-flex justify-content-between'>
-                                            <p className="card-text">Remote Job</p>
-                                            <a href="#">Marketing</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col md={6} className='pt-3'>
-                                <div className="card">
-                                    <div className="card-body">
-                                        <h5 className="card-title">Digital Marketing Strategist</h5>
-                                        <div className='d-flex justify-content-between'>
-                                            <p className="card-text">Remote Job</p>
-                                            <a href="#">Marketing</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Col>
-                        </Row>
+                        {/*<Row>*/}
+                        {/*    <Col md={6} className='pt-3'>*/}
+                        {/*        <div className="card">*/}
+                        {/*            <div className="card-body">*/}
+                        {/*                <h5 className="card-title">Business Development Representative</h5>*/}
+                        {/*                <div className='d-flex justify-content-between'>*/}
+                        {/*                    <p className="card-text">Remote Job</p>*/}
+                        {/*                    <a href="#">Sales</a>*/}
+                        {/*                </div>*/}
+                        {/*            </div>*/}
+                        {/*        </div>*/}
+                        {/*    </Col>*/}
+                        {/*    <Col md={6} className='pt-3'>*/}
+                        {/*        <div className="card">*/}
+                        {/*            <div className="card-body">*/}
+                        {/*                <h5 className="card-title">Account Director</h5>*/}
+                        {/*                <div className='d-flex justify-content-between'>*/}
+                        {/*                    <p className="card-text">Remote Job</p>*/}
+                        {/*                    <a href="#">Marketing</a>*/}
+                        {/*                </div>*/}
+                        {/*            </div>*/}
+                        {/*        </div>*/}
+                        {/*    </Col>*/}
+                        {/*</Row>*/}
+                        {/*<Row>*/}
+                        {/*    <Col md={6} className='pt-3'>*/}
+                        {/*        <div className="card">*/}
+                        {/*            <div className="card-body">*/}
+                        {/*                <h5 className="card-title">Account Manager</h5>*/}
+                        {/*                <div className='d-flex justify-content-between'>*/}
+                        {/*                    <p className="card-text">Remote Job</p>*/}
+                        {/*                    <a href="#">Growth</a>*/}
+                        {/*                </div>*/}
+                        {/*            </div>*/}
+                        {/*        </div>*/}
+                        {/*    </Col>*/}
+                        {/*    <Col md={6} className='pt-3'>*/}
+                        {/*        <div className="card">*/}
+                        {/*            <div className="card-body">*/}
+                        {/*                <h5 className="card-title">Pain Social Manager</h5>*/}
+                        {/*                <div className='d-flex justify-content-between'>*/}
+                        {/*                    <p className="card-text">Remote Job</p>*/}
+                        {/*                    <a href="#">Marketing</a>*/}
+                        {/*                </div>*/}
+                        {/*            </div>*/}
+                        {/*        </div>*/}
+                        {/*    </Col>*/}
+                        {/*</Row>*/}
+                        {/*<Row>*/}
+                        {/*    <Col md={6} className='pt-3'>*/}
+                        {/*        <div className="card">*/}
+                        {/*            <div className="card-body">*/}
+                        {/*                <h5 className="card-title">Digital Marketing Strategist - PPC</h5>*/}
+                        {/*                <div className='d-flex justify-content-between'>*/}
+                        {/*                    <p className="card-text">Remote Job</p>*/}
+                        {/*                    <a href="#">Marketing</a>*/}
+                        {/*                </div>*/}
+                        {/*            </div>*/}
+                        {/*        </div>*/}
+                        {/*    </Col>*/}
+                        {/*    <Col md={6} className='pt-3'>*/}
+                        {/*        <div className="card">*/}
+                        {/*            <div className="card-body">*/}
+                        {/*                <h5 className="card-title">Digital Marketing Strategist</h5>*/}
+                        {/*                <div className='d-flex justify-content-between'>*/}
+                        {/*                    <p className="card-text">Remote Job</p>*/}
+                        {/*                    <a href="#">Marketing</a>*/}
+                        {/*                </div>*/}
+                        {/*            </div>*/}
+                        {/*        </div>*/}
+                        {/*    </Col>*/}
+                        {/*</Row>*/}
                     </Col>
                     <Col lg={1}></Col>
                 </Row>
