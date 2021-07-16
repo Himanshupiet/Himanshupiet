@@ -374,14 +374,8 @@ console.log(resourceResult)
       <Row>
         <Col lg={4} md={6}>
           <div className={ResultStyle.gallery_inner}>
-            <Link href='/'>
-              <a title='Gallery Image'>
-                <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                  width='550'
-                  height='533'
-                  className='img-fluid'
-                />
+              <a>
+                  <iframe title="Rotator Double Mouth" width="1060" height="355" src="https://www.youtube.com/embed/AbPpq3K54ww?feature=oembed" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen=""></iframe>
                 <div className={ResultStyle.gallery_overlay}>
                   <div className={ResultStyle.info_box}>
                     <span><i className='bx bx-play-circle'></i></span>
@@ -394,57 +388,6 @@ console.log(resourceResult)
                   </div>
                 </div>
               </a>
-            </Link>
-          </div>
-        </Col>
-        <Col lg={4} md={6}>
-          <div className={ResultStyle.gallery_inner}>
-            <Link href='/'>
-              <a title='Gallery Image'>
-                <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                  width='550'
-                  height='533'
-                  className='img-fluid'
-                />
-                <div className={ResultStyle.gallery_overlay}>
-                  <div className={ResultStyle.info_box}>
-                    <span><i className='bx bx-play-circle'></i></span>
-                    <p>Amazing Innovations, Services, And Passion</p>
-                  </div>
-                </div>
-                <div className={ResultStyle.gallery_coloroverlay}>
-                  <div className={ResultStyle.info_box}>
-                    <span><i className='bx bx-play-circle'></i></span>
-                  </div>
-                </div>
-              </a>
-            </Link>
-          </div>
-        </Col>
-        <Col lg={4} md={6}>
-          <div className={ResultStyle.gallery_inner}>
-            <Link href='/'>
-              <a title='Gallery Image'>
-                <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                  width='550'
-                  height='533'
-                  className='img-fluid'
-                />
-                <div className={ResultStyle.gallery_overlay}>
-                  <div className={ResultStyle.info_box}>
-                    <span><i className='bx bx-play-circle'></i></span>
-                    <p>We Are Here For You!</p>
-                  </div>
-                </div>
-                <div className={ResultStyle.gallery_coloroverlay}>
-                  <div className={ResultStyle.info_box}>
-                    <span><i className='bx bx-play-circle'></i></span>
-                  </div>
-                </div>
-              </a>
-            </Link>
           </div>
         </Col>
       </Row>
@@ -452,13 +395,10 @@ console.log(resourceResult)
         <Col md={12}>
           <ul className={ResultStyle.pagination}>
             <li><button className={ResultStyle.activepagination}>1</button></li>
-            <li><button>2</button></li>
-            <li><button>3</button></li>
-            <li><button>4</button></li>
-            <li><button>5</button></li>
           </ul>
         </Col>
       </Row>
+      {/*blog filter*/}
       <div className={ResultStyle.product_headingbox}>
           {blogResult.blogList ? <h2>Blogs</h2> : null }
       </div>

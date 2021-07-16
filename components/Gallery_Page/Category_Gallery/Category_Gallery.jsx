@@ -12,12 +12,31 @@ import CategoryGalleryStyle from './Category_Gallery.module.css'
 
 const Category_Gallery = (props) => {
   const[ getAllGalleryList, setGetAllGalleryList ] = useState([])
+  const[ activeGalleryProd, setActiveGalleryProd ] = useState([])
 
   useEffect(() => {
-      props.galleryActions.getAllGalleryByProductType().then(res => {
-          console.log(res)
+      props.galleryActions.getAllGallery().then(res => {
+          let getGData = Object.entries(res)
+          let gList = getGData.map(val => {
+              return {
+                  name:val && val[0],
+                  cat: Object.entries(val && val[1]).map(s => {
+                      return {
+                          sName: s[0],
+                          subCat: s[1]
+                      }
+                  })
+              }
+          })
+          setGetAllGalleryList(gList)
       })
   },[])
+    console.log(getAllGalleryList)
+
+
+  const handleCatFilter = (gallery) => {
+      setActiveGalleryProd(gallery)
+  }
 
   return(
     <>
@@ -31,1150 +50,117 @@ const Category_Gallery = (props) => {
                 animateOnce={true}
                 duration={1}  
               >
-                <h2>Ovens</h2>
-                <ul className={CategoryGalleryStyle.gallerytabs}>
-                  <li><button className={CategoryGalleryStyle.btn_active}>All</button></li>
-                  <li><button>Mobile Brick Oven</button></li>
-                  <li><button>Neapolitan</button></li>
-                  <li><button>Rotator</button></li>
-                  <li><button>Wood</button></li>
-                </ul>
+                  { getAllGalleryList && getAllGalleryList.length ?
+                      getAllGalleryList.map((gallery, idx) => {
+                       return(
+                            <div key={idx}>
+                               <h2>{gallery.name}</h2>
+                                <ul className={CategoryGalleryStyle.gallerytabs}>
+                                <li>
+                                    <button
+                                        className={
+                                           CategoryGalleryStyle.btn_active
+                                        }
+                                        onClick={() => handleCatFilter(gallery)}
+                                    >
+                                        All
+                                    </button>
+                                </li>
+                                  { gallery.cat && gallery.cat.length ?
+                                      gallery.cat.map((category, i) => {
+                                         return(
+                                                  <li key={i}>
+                                                      <button
+                                                          onClick={() => handleCatFilter(gallery)}
+                                                          className={
+                                                              CategoryGalleryStyle.btn_active
+                                                          }
+                                                      >
+                                                          {category.sName}
+                                                      </button>
+                                                  </li>
+                                              )
+                                      })
+                                     : null
+                                  }
+                                </ul>
+                                <section className={CategoryGalleryStyle.gallery_outer}>
+                                    <Container fluid>
+                                        <Row>
+                                            <Col xl={1}></Col>
+                                            <Col xl={10}>
+                                                <Row>
+                                                    {gallery.cat && gallery.cat.length ?
+                                                        gallery.cat.map((category, i) =>
+                                                            category.subCat.map(val => {
+                                                                return (
+                                                                    <Col
+                                                                        lg={3}
+                                                                        sm={6}
+                                                                    >
+                                                                        <ScrollAnimation
+                                                                            animateIn={'fadeInUp'}
+                                                                            animateOnce={true}
+                                                                            duration={1}
+                                                                        >
+                                                                            <div
+                                                                                className={CategoryGalleryStyle.gallery_inner}>
+                                                                                <Link href='/gallery/pico'>
+                                                                                    <a title='Gallery Image'>
+                                                                                        <img
+                                                                                            src={val.bannerImage}
+                                                                                            width='550'
+                                                                                            height='533'
+                                                                                            className='img'
+                                                                                        />
+                                                                                        <div
+                                                                                            className={CategoryGalleryStyle.gallery_overlay}>
+                                                                                            <div
+                                                                                                className={CategoryGalleryStyle.info_box}>
+                                                                                                <span>{val.organisation}</span>
+                                                                                                <p>{val.organisationLocation}</p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </a>
+                                                                                </Link>
+                                                                            </div>
+                                                                        </ScrollAnimation>
+                                                                    </Col>
+                                                                )
+                                                        }))
+                                                        :
+                                                        null
+                                                    }
+                                                </Row>
+                                                <Row>
+                                                    <Col md={12}>
+                                                        {/*<ul className={CategoryGalleryStyle.pagination}>*/}
+                                                        {/*{gallery.cat && gallery.cat.length ?*/}
+                                                        {/*gallery.cat.map((category, i) =>{*/}
+                                                        {/*return (*/}
+                                                        {/*<li>*/}
+                                                        {/*<button*/}
+                                                        {/*className={CategoryGalleryStyle.activepagination}>{i+1}*/}
+                                                        {/*</button>*/}
+                                                        {/*</li>*/}
+                                                        {/*)*/}
+                                                        {/*})*/}
+                                                        {/*: null*/}
+                                                        {/*}*/}
+                                                        {/*</ul>*/}
+                                                    </Col>
+                                                </Row>
+                                            </Col>
+                                            <Col xl={1}></Col>
+                                        </Row>
+                                    </Container>
+                                </section>
+                            </div>
+                        )
+                      })
+                      :null
+                  }
               </ScrollAnimation>
-            </Col>
-            <Col xl={1}></Col>
-          </Row>
-        </Container>
-      </section>
-      <section className={CategoryGalleryStyle.gallery_outer}>
-        <Container fluid>
-          <Row>
-            <Col xl={1}></Col>
-            <Col xl={10}>
-              <Row>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/gallery/pico'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Pi Co.</span>
-                              <p>Rotator</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Mobile Brick Oven</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>  
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Mobile Brick Oven</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>  
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Mobile Brick Oven</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Mobile Brick Oven</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Mobile Brick Oven</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>  
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Mobile Brick Oven</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Mobile Brick Oven</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Mobile Brick Oven</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Mobile Brick Oven</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Mobile Brick Oven</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Mobile Brick Oven</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Mobile Brick Oven</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Mobile Brick Oven</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Mobile Brick Oven</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Mobile Brick Oven</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img-fluid'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Mobile Brick Oven</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img-fluid'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Mobile Brick Oven</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img-fluid'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Mobile Brick Oven</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img-fluid'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Mobile Brick Oven</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>
-                </Col>
-              </Row>
-              <Row>
-                <Col md={12}>
-                  <ul className={CategoryGalleryStyle.pagination}>
-                    <li><button className={CategoryGalleryStyle.activepagination}>1</button></li>
-                    <li><button>2</button></li>
-                    <li><button>3</button></li>
-                    <li><button>4</button></li>
-                    <li><button>5</button></li>
-                  </ul>
-                </Col>
-              </Row>
-            </Col>
-            <Col xl={1}></Col>
-          </Row>
-        </Container>
-      </section>
-      <section className={CategoryGalleryStyle.tabs_outer}>
-        <Container fluid>
-          <Row>
-            <Col xl={1}></Col>
-            <Col xl={10}> 
-              <ScrollAnimation 
-                animateIn={'zoomIn'}
-                animateOnce={true}
-                duration={1}  
-              >
-                <h2>Prep Tables</h2>
-                <ul className={CategoryGalleryStyle.gallerytabs}>
-                  <li><button className={CategoryGalleryStyle.btn_active}>All</button></li>
-                  <li><button>Refrigerated Prep Table</button></li>
-                  <li><button>Refrigerated Condiment Rail</button></li>
-                </ul>
-              </ScrollAnimation>
-            </Col>
-            <Col xl={1}></Col>
-          </Row>
-        </Container>
-      </section>
-      <section className={CategoryGalleryStyle.gallery_outer}>
-        <Container fluid>
-          <Row>
-            <Col xl={1}></Col>
-            <Col xl={10}>
-              <Row>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img-fluid'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Refrigerated Condiment</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>  
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img-fluid'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Refrigerated Condiment</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img-fluid'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Refrigerated Condiment</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>  
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img-fluid'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Refrigerated Condiment</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>  
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img-fluid'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Refrigerated Condiment</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img-fluid'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Refrigerated Condiment</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img-fluid'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Refrigerated Condiment</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img-fluid'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Refrigerated Condiment</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>
-                </Col>
-              </Row>
-            </Col>
-            <Col xl={1}></Col>
-          </Row>
-        </Container>
-      </section>
-      <section className={CategoryGalleryStyle.tabs_outer}>
-        <Container fluid>
-          <Row>
-            <Col xl={1}></Col>
-            <Col xl={10}> 
-              <ScrollAnimation 
-                animateIn={'zoomIn'}
-                animateOnce={true}
-                duration={1}  
-              >
-                <h2>Mixers</h2>
-                <ul className={CategoryGalleryStyle.gallerytabs}>
-                  <li><button className={CategoryGalleryStyle.btn_active}>All</button></li>
-                  <li><button>Spiral Dough Mixers</button></li>
-                  <li><button>Fork Dough Mixers</button></li>
-                </ul>
-              </ScrollAnimation>
-            </Col>
-            <Col xl={1}></Col>
-          </Row>
-        </Container>
-      </section>
-      <section className={CategoryGalleryStyle.gallery_outer}>
-        <Container fluid>
-          <Row>
-            <Col xl={1}></Col>
-            <Col xl={10}>
-              <Row>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img-fluid'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Fork Dough Mixers</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>  
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img-fluid'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Fork Dough Mixers</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>  
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img-fluid'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Fork Dough Mixers</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>  
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img-fluid'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Fork Dough Mixers</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>  
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img-fluid'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Fork Dough Mixers</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>  
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img-fluid'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Fork Dough Mixers</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>  
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img-fluid'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Fork Dough Mixers</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>  
-                </Col>
-                <Col
-                  lg={3}
-                  sm={6}
-                >
-                  <ScrollAnimation 
-                    animateIn={'fadeInUp'}
-                    animateOnce={true}
-                    duration={1}  
-                  >
-                    <div className={CategoryGalleryStyle.gallery_inner}>
-                      <Link href='/'>
-                        <a title='Gallery Image'>
-                          <img 
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/lines-at-pico.jpg`}
-                            width='550'
-                            height='533'
-                            className='img-fluid'
-                          />
-                          <div className={CategoryGalleryStyle.gallery_overlay}>
-                            <div className={CategoryGalleryStyle.info_box}>
-                              <span>Fork Dough Mixers</span>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
-                    </div>
-                  </ScrollAnimation>  
-                </Col>
-              </Row>
             </Col>
             <Col xl={1}></Col>
           </Row>
