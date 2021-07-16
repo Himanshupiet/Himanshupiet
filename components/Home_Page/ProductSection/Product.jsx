@@ -165,17 +165,7 @@ const Product = (props) => {
         // </section>
         <section
             className={ProductStyle.section_outer}>
-            <Container fluid>
-                <div className={`${ProductStyle.dg_title12} size-xl pt-5`}>
-                    <h2 className="title text-center">
-                        BENEFITS OF <Typical
-                            steps={['Buying Ovens From Us', 3500, '', 50]}
-                            loop={Infinity}
-                            wrapper="span"
-                        />
-                    </h2>
-                    {/*<small>Hire developers who are seasoned to foster business growth.</small>*/}
-                </div>
+            <Container fluid className='pt-5'>
                 <Row>
                     <Col lg={1}></Col>
                     <Col lg={10}>
@@ -197,18 +187,6 @@ const Product = (props) => {
                                                     can
                                                     hire developers by paying per hour for low operational risks.to hire
                                                     full time developers.
-                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy text
-                                                    ever
-                                                    since the 1500s.
-                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy text
-                                                    ever
-                                                    since the 1500s.
-                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy text
-                                                    ever
-                                                    since the 1500s.
                                                 </div>
                                             </div>
                                             <div className={ProductStyle.panel_bg_accent}>
@@ -225,17 +203,7 @@ const Product = (props) => {
                                                     hire developers by paying per hour for low operational risks.to hire
                                                     full time developers.
                                                     Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy text
-                                                    ever
-                                                    since the 1500s.
-                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy text
-                                                    ever
-                                                    since the 1500s.
-                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy text
-                                                    ever
-                                                    since the 1500s.
+                                                    industry.
                                                 </div>
                                             </div>
                                         </ScrollAnimation>
@@ -259,14 +227,6 @@ const Product = (props) => {
                                                     industry. Lorem Ipsum has been the industry's standard dummy text
                                                     ever
                                                     since the 1500s.
-                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy text
-                                                    ever
-                                                    since the 1500s.
-                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy text
-                                                    ever
-                                                    since the 1500s.
                                                 </div>
                                             </div>
                                             <div className={ProductStyle.panel_bg_accent}>
@@ -282,18 +242,6 @@ const Product = (props) => {
                                                     can
                                                     hire developers by paying per hour for low operational risks.to hire
                                                     full time developers.
-                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy text
-                                                    ever
-                                                    since the 1500s.
-                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy text
-                                                    ever
-                                                    since the 1500s.
-                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy text
-                                                    ever
-                                                    since the 1500s.
                                                 </div>
                                             </div>
                                         </ScrollAnimation>

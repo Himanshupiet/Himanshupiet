@@ -123,16 +123,6 @@ const Step2 = (props) => {
                                         })}
                                     </select>
                                 </div>
-                                <div className={`form-group col-md-6`}>
-                                    <Input
-                                        type='file'
-                                        name='choosefile'
-                                        id='choosefile'
-                                        placeholder='Chose File'
-                                        value={props.choosefile}
-                                        onChange={props.handleChange}
-                                    />
-                                </div>
                             </div>
                             <div className={`${StepStyle.textarea} form-row`}>
                                 <input

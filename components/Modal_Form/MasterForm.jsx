@@ -95,6 +95,15 @@ class MasterForm extends Component {
         });
     }
 
+    fileUploaded = ev => {
+        const reader = new FileReader()
+        reader.readAsDataURL(ev.target.files[0])
+        reader.onloadend = ev => {
+            this.setState({ choosefile: reader.result })
+        }
+    }
+
+
     // Trigger an alert on form submission
     handleSubmit = (event) => {
         event.preventDefault();
@@ -161,8 +170,8 @@ class MasterForm extends Component {
             <>
                 <Container>
                     <Row>
-                        <Col lg={1}></Col>
-                        <Col lg={10}>
+                        {/*<Col lg={1}></Col>*/}
+                        <Col lg={12}>
                             <form onSubmit={this.handleSubmit}>
                                 <div>
                                     <MultiStepProgressBar currentStep={this.state.currentStep}/>
@@ -171,11 +180,13 @@ class MasterForm extends Component {
                                     <Step1
                                         currentStep={this.state.currentStep}
                                         handleChange={this.handleChange}
+                                        handleFile={this.fileUploaded}
                                         legs={this.state.legs}
                                         color={this.state.color}
                                         tiles={this.state.tiles}
                                         facade={this.state.facade}
                                         product={this.state.product}
+                                        choosefile={this.state.choosefile}
                                     />
                                     <Step2
                                         currentStep={this.state.currentStep}
@@ -188,7 +199,6 @@ class MasterForm extends Component {
                                         staddress={this.state.staddress}
                                         city={this.state.city}
                                         state={this.state.state}
-                                        choosefile={this.state.choosefile}
                                         message={this.state.message}
                                         country={this.state.country}
                                     />
@@ -200,7 +210,7 @@ class MasterForm extends Component {
                                 </div>
                             </form>
                         </Col>
-                        <Col lg={1}></Col>
+                        {/*<Col lg={1}></Col>*/}
                     </Row>
                 </Container>
             </>
