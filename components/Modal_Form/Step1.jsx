@@ -423,12 +423,23 @@ const Step1 = (props) => {
                     {/*        })}*/}
                     {/*    </select>*/}
                     {/*</div>*/}
-                    <DropdownButton id="dropdown-basic-button" title="Dropdown button" name='facade' value={props.facade} onSelect={props.handleChange}>
+                    <DropdownButton
+                        id="dropdown-basic-button"
+                        title="Dropdown button"
+                        name='facade'
+                        value={props.facade}
+                        onSelect={(e) => props.handleOnChange(e, 'facade')}>
                         {facadeOption.map((item, id) => {
                             return (
-                                    <Dropdown.Item eventKey={item.value} key={item.id}>{item.label}</Dropdown.Item>
+                                <Dropdown.Item
+                                    eventKey={item.value}
+                                    key={item.id}
+                                >
+                                    {item.label}
+                                </Dropdown.Item>
                             );
-                        })}
+                          })
+                        }
                     </DropdownButton>
                     <div className={`${StepStyle.select_wrapper} select-dropdown`}>
                         <select

@@ -89,9 +89,18 @@ class MasterForm extends Component {
 
     // Use the submitted data to set the state
     handleChange(event) {
+        console.log(event)
         const {name, value} = event.target;
         this.setState({
             [name]: value
+        });
+    }
+
+    handleOnChange = (value,name) => {
+        this.setState({
+            [name] : value
+        },() => {
+            console.log(this.state.facade)
         });
     }
 
@@ -187,6 +196,7 @@ class MasterForm extends Component {
                                         facade={this.state.facade}
                                         product={this.state.product}
                                         choosefile={this.state.choosefile}
+                                        handleOnChange={this.handleOnChange}
                                     />
                                     <Step2
                                         currentStep={this.state.currentStep}
