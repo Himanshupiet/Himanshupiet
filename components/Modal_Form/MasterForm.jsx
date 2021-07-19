@@ -21,6 +21,7 @@ class MasterForm extends Component {
             tiles: 'Penny',
             color: 'Blue',
             facade: 'Black',
+            grout:'',
             legs: '',
             fname: '',
             lname: '',
@@ -100,7 +101,7 @@ class MasterForm extends Component {
         this.setState({
             [name] : value
         },() => {
-            console.log(this.state.facade)
+
         });
     }
 
@@ -121,6 +122,7 @@ class MasterForm extends Component {
             color,
             facade,
             legs,
+            grout,
             fname,
             lname,
             email,
@@ -194,6 +196,7 @@ class MasterForm extends Component {
                                         color={this.state.color}
                                         tiles={this.state.tiles}
                                         facade={this.state.facade}
+                                        grout={this.state.grout}
                                         product={this.state.product}
                                         choosefile={this.state.choosefile}
                                         handleOnChange={this.handleOnChange}

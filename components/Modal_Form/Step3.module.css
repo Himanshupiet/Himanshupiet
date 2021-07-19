@@ -19,9 +19,11 @@
     top: 17px;
     font-size: 20px;
 }
-.textarea textarea{
-    border-radius: 0!important;
-    background: #fff;
+.select_wrapper select{
+    background: rgba( 246, 247, 252, 1.00 )!important;
+}
+.form_style input{
+    background: rgba( 246, 247, 252, 1.00 )!important;
 }
 
 .textarea:focus {
@@ -33,4 +35,17 @@
 .textarea{
     margin-left: 2px;
     margin-right: 2px;
+}
+.main_btn_section button{
+    border-radius: 0!important;
+    margin: 0 10px 0 10px;
+    background-color: white;
+    color: black;
+}
+.main_btn_section button:hover{
+    background-color: #e31422!important;
+    border: none;
+}
+.main_btn_section button:hover{
+    background-color: rgb(227, 20, 34);
 }

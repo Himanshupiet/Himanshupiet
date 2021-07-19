@@ -1,5 +1,5 @@
 .quoteform_outer{
-  background-image: url('../../public/images/main-banner.jpg');
+  background-image: linear-gradient(rgba(255,255,255,0.7), rgba(0,0,0,0.5)), url('../../public/images/pizza_m.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

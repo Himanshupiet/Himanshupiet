@@ -124,9 +124,9 @@ const Step2 = (props) => {
                                     </select>
                                 </div>
                             </div>
-                            <div className={`${StepStyle.textarea} form-row`}>
+                            <div className={`${StepStyle.form_style} form-row`}>
                                 <input
-                                    type='textarea'
+                                    type='text'
                                     rows="5"
                                     aria-rowspan='5'
                                     name='message'
