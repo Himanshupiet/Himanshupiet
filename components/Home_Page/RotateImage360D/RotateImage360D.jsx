@@ -87,6 +87,12 @@ const RotateImage360D = (props) => {
                                             </div>
                                         </Tab>
                                     </Tabs>
+                                    <div className={`${Rotate360DStyle.m360_loader}`} data-progress="100%"></div>
+                                    <div className={`${Rotate360DStyle.m360_hint}`}>
+                                        <span className={`${Rotate360DStyle.m360_hint_message}`}>
+                                            Drag to spin
+                                        </span>
+                                    </div>
                                 </ScrollAnimation>
                             </Col>
                             <Col lg={3}>
