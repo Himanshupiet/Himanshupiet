@@ -680,3 +680,9 @@ input:focus{
     grid-template-columns: repeat(auto-fill, minmax(475px,1fr));
   }
 }
+.side_set .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  color: #e31422;
+  border-left: 2px solid #e31422;
+  background-color: white;
+  border-radius: 0!important;
+}

@@ -516,246 +516,14 @@ const Service = () => {
         <>
             <section className={MainHomePageStyle.quoteform_outer}>
                 <Tab.Container defaultActiveKey="first">
-                    {/*<Row>*/}
-                    {/*    <Col lg={1}></Col>*/}
-                    {/*    <Col lg={10}>*/}
-                    {/*        <div className='text-center'>*/}
-                    {/*            <h1 className='text-white pb-5'>HIRE DEVELOPERS TECHNOLOGIES</h1>*/}
-                    {/*        </div>*/}
-                    {/*    </Col>*/}
-                    {/*    <Col lg={1}></Col>*/}
-                    {/*</Row>*/}
-                    {/*<Row>*/}
-                    {/*    <Col lg={1}></Col>*/}
-                    {/*    <Col lg={10}>*/}
-                    {/*        <Row>*/}
-                    {/*            <Col lg={12}>*/}
-                    {/*                <Row className={ServiceStyle.sidebar}>*/}
-                    {/*                    /!*<Col lg={4} className='pr-0'>*!/*/}
-                    {/*                    /!*    <ul className="list-group rounded-0">*!/*/}
-                    {/*                    /!*        <li className="list-group-item border-right-0"*!/*/}
-                    {/*                    /!*            style={{borderLeft: '3px solid #e31422',backgroundColor:'white'}}>*!/*/}
-                    {/*                    /!*            <span className='fa fa-desktop fa-1x'></span>*!/*/}
-                    {/*                    /!*            <span className='pl-3'>Web Technologies</span>*!/*/}
-                    {/*                    /!*        </li>*!/*/}
-                    {/*                    /!*        <li className="list-group-item">*!/*/}
-                    {/*                    /!*            <span className='fa fa-paper-plane'></span>*!/*/}
-                    {/*                    /!*            <span className='pl-3'>JAVASCRIPT FRAMEWORK</span>*!/*/}
-                    {/*                    /!*        </li>*!/*/}
-                    {/*                    /!*        <li className="list-group-item">*!/*/}
-                    {/*                    /!*            <i className='fa fa-database'></i>*!/*/}
-                    {/*                    /!*            <span className='pl-3'>DATABASE</span>*!/*/}
-                    {/*                    /!*        </li>*!/*/}
-                    {/*                    /!*        <li className="list-group-item">*!/*/}
-                    {/*                    /!*            <i className='fa fa-paint-brush'></i>*!/*/}
-                    {/*                    /!*            <span className='pl-3'>UI/UX</span>*!/*/}
-                    {/*                    /!*        </li>*!/*/}
-                    {/*                    /!*        <li className="list-group-item">*!/*/}
-                    {/*                    /!*            <i className='fa fa-mobile fa-1x'></i>*!/*/}
-                    {/*                    /!*            <span className='pl-3'>MOBILE TECHNOLOGIES</span>*!/*/}
-                    {/*                    /!*        </li>*!/*/}
-                    {/*                    /!*        <li className="list-group-item">*!/*/}
-                    {/*                    /!*            <i className='fa fa-wrench'></i>*!/*/}
-                    {/*                    /!*            <span className='pl-3'>MANAGEMENT TOOLS</span>*!/*/}
-                    {/*                    /!*        </li>*!/*/}
-                    {/*                    /!*        /!*<li className="list-group-item">*!/*!/*/}
-                    {/*                    /!*        /!*    <span></span>*!/*!/*/}
-                    {/*                    /!*        /!*</li>*!/*!/*/}
-                    {/*                    /!*        /!*<li className="list-group-item">*!/*!/*/}
-                    {/*                    /!*        /!*    <span></span>*!/*!/*/}
-                    {/*                    /!*        /!*</li>*!/*!/*/}
-                    {/*                    /!*    </ul>*!/*/}
-                    {/*                    /!*</Col>*!/*/}
-                    {/*                    /!*<ScrollAnimation*!/*/}
-                    {/*                    /!*    duration={1}*!/*/}
-                    {/*                    /!*    animateIn='fadeInUp'*!/*/}
-                    {/*                    /!*    animateOnce={true}*!/*/}
-                    {/*                    /!*>*!/*/}
-                    {/*                    /!*    <Col lg={12} style={{backgroundColor: 'white'}}>*!/*/}
-                    {/*                    /!*        <Row>*!/*/}
-                    {/*                    /!*            <Col lg={12} className='p-0'>*!/*/}
-                    {/*                    /!*                <div className={ServiceStyle.main_style}>*!/*/}
-                    {/*                    /!*                    <TabProvider defaultTab="one">*!/*/}
-                    {/*                    /!*                        <section className="my-tabs">*!/*/}
-                    {/*                    /!*                            <TabList className="my-tablist">*!/*/}
-                    {/*                    /!*                                /!*<Tab tabFor="Ovens">Ovens</Tab>*!/*!/*/}
-                    {/*                    /!*                                <Tab tabFor="Prep Tables">Prep Tables</Tab>*!/*/}
-                    {/*                    /!*                                <Tab tabFor="Rotation Timer">Rotation Timer</Tab>*!/*/}
-                    {/*                    /!*                                <Tab tabFor="Ventilation">Ventilation</Tab>*!/*/}
-                    {/*                    /!*                                <Tab tabFor="Mixers">Mixers</Tab>*!/*/}
-                    {/*                    /!*                                <Tab tabFor="Flywheel Slicer">Flywheel Slicer</Tab>*!/*/}
-                    {/*                    /!*                                /!*<Tab tabFor="Flywheel Slicer" className="my-tab">Flywheel Slicer</Tab>*!/*!/*/}
-                    {/*                    /!*                            </TabList>*!/*/}
-                    {/*                    /!*                            <div className="wrapper">*!/*/}
-                    {/*                    /!*                                /!*<TabPanel tabId="Ovens">*!/*!/*/}
-                    {/*                    /!*                                /!*    /!*<p>Tab 1 content</p>*!/*!/*!/*/}
-                    {/*                    /!*                                /!*</TabPanel>*!/*!/*/}
-                    {/*                    /!*                                <TabPanel tabId="Prep Tables">*!/*/}
-                    {/*                    /!*                                    /!*<p>Tab 2 content</p>*!/*!/*/}
-                    {/*                    /!*                                </TabPanel>*!/*/}
-                    {/*                    /!*                                <TabPanel tabId="Rotation Timer">*!/*/}
-                    {/*                    /!*                                    /!*<p>Tab 3 content</p>*!/*!/*/}
-                    {/*                    /!*                                </TabPanel>*!/*/}
-                    {/*                    /!*                                <TabPanel tabId="Ventilation">*!/*/}
-                    {/*                    /!*                                    /!*<p>Tab 3 content</p>*!/*!/*/}
-                    {/*                    /!*                                </TabPanel>*!/*/}
-                    {/*                    /!*                                <TabPanel tabId="Mixers">*!/*/}
-                    {/*                    /!*                                    /!*<p>Tab 3 content</p>*!/*!/*/}
-                    {/*                    /!*                                </TabPanel>*!/*/}
-                    {/*                    /!*                                <TabPanel tabId="Flywheel Slicer">*!/*/}
-                    {/*                    /!*                                    /!*<p>Tab 3 content</p>*!/*!/*/}
-                    {/*                    /!*                                </TabPanel>*!/*/}
-                    {/*                    /!*                            </div>*!/*/}
-                    {/*                    /!*                        </section>*!/*/}
-                    {/*                    /!*                    </TabProvider>*!/*/}
-                    {/*                    /!*                </div>*!/*/}
-                    {/*                    /!*            </Col>*!/*/}
-                    {/*                    /!*        </Row>*!/*/}
-                    {/*                            <Row className='pl-4 pr-4 pt-3'>*/}
-                    {/*                                <Col lg={3}>*/}
-                    {/*                                    <div*/}
-                    {/*                                        className={`${ServiceStyle.panel}  ${ServiceStyle.panel_flat} ${ServiceStyle.border_accent} ${ServiceStyle.panel_border_bottom}`}>*/}
-                    {/*                                        <div className={ServiceStyle.panel_heading}>Rigid Touchscreen*/}
-                    {/*                                        </div>*/}
-                    {/*                                        <div className={ServiceStyle.panel_body}><img*/}
-                    {/*                                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/>*/}
-                    {/*                                        </div>*/}
-                    {/*                                    </div>*/}
-                    {/*                                </Col>*/}
-                    {/*                                <Col lg={3}>*/}
-                    {/*                                    <div*/}
-                    {/*                                        className={`${ServiceStyle.panel}  ${ServiceStyle.panel_flat} ${ServiceStyle.border_accent} ${ServiceStyle.panel_border_bottom}`}>*/}
-                    {/*                                        <div className={ServiceStyle.panel_heading}>Rotation Timer</div>*/}
-                    {/*                                        <div className={ServiceStyle.panel_body}><img*/}
-                    {/*                                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/>*/}
-                    {/*                                        </div>*/}
-                    {/*                                    </div>*/}
-                    {/*                                </Col>*/}
-                    {/*                                <Col lg={3}>*/}
-                    {/*                                    <div*/}
-                    {/*                                        className={`${ServiceStyle.panel}  ${ServiceStyle.panel_flat} ${ServiceStyle.border_accent} ${ServiceStyle.panel_border_bottom}`}>*/}
-                    {/*                                        <div className={ServiceStyle.panel_heading}>Fallsafe Levers*/}
-                    {/*                                        </div>*/}
-                    {/*                                        <div className={ServiceStyle.panel_body}>*/}
-                    {/*                                            <img*/}
-                    {/*                                                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/>*/}
-                    {/*                                        </div>*/}
-                    {/*                                    </div>*/}
-                    {/*                                </Col>*/}
-                    {/*                                <Col lg={3}>*/}
-                    {/*                                    <div*/}
-                    {/*                                        className={`${ServiceStyle.panel}  ${ServiceStyle.panel_flat} ${ServiceStyle.border_accent} ${ServiceStyle.panel_border_bottom}`}>*/}
-                    {/*                                        <div className={ServiceStyle.panel_heading}>Rotating Dock</div>*/}
-                    {/*                                        <div className={ServiceStyle.panel_body}><img*/}
-                    {/*                                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/>*/}
-                    {/*                                        </div>*/}
-                    {/*                                    </div>*/}
-                    {/*                                </Col>*/}
-                    {/*                            </Row>*/}
-                    {/*                            <Row className='pt-2 pl-4 pr-4'>*/}
-                    {/*                                <Col lg={3}>*/}
-                    {/*                                    <div*/}
-                    {/*                                        className={`${ServiceStyle.panel}  ${ServiceStyle.panel_flat} ${ServiceStyle.border_accent} ${ServiceStyle.panel_border_bottom}`}>*/}
-                    {/*                                        <div className={ServiceStyle.panel_heading}>Plug & Play</div>*/}
-                    {/*                                        <div className={ServiceStyle.panel_body}><img*/}
-                    {/*                                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/>*/}
-                    {/*                                        </div>*/}
-                    {/*                                    </div>*/}
-                    {/*                                </Col>*/}
-                    {/*                                <Col lg={3}>*/}
-                    {/*                                    <div*/}
-                    {/*                                        className={`${ServiceStyle.panel}  ${ServiceStyle.panel_flat} ${ServiceStyle.border_accent} ${ServiceStyle.panel_border_bottom}`}>*/}
-                    {/*                                        <div className={ServiceStyle.panel_heading}>Made of Bricks</div>*/}
-                    {/*                                        <div className={ServiceStyle.panel_body}><img*/}
-                    {/*                                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/>*/}
-                    {/*                                        </div>*/}
-                    {/*                                    </div>*/}
-                    {/*                                </Col>*/}
-                    {/*                                <Col lg={3}>*/}
-                    {/*                                    <div*/}
-                    {/*                                        className={`${ServiceStyle.panel}  ${ServiceStyle.panel_flat} ${ServiceStyle.border_accent} ${ServiceStyle.panel_border_bottom}`}>*/}
-                    {/*                                        <div className={ServiceStyle.panel_heading}>25 years warrenty*/}
-                    {/*                                        </div>*/}
-                    {/*                                        <div className={ServiceStyle.panel_body}><img*/}
-                    {/*                                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/>*/}
-                    {/*                                        </div>*/}
-                    {/*                                    </div>*/}
-                    {/*                                </Col>*/}
-                    {/*                                <Col lg={3}>*/}
-                    {/*                                    <div*/}
-                    {/*                                        className={`${ServiceStyle.panel}  ${ServiceStyle.panel_flat} ${ServiceStyle.border_accent} ${ServiceStyle.panel_border_bottom}`}>*/}
-                    {/*                                        <div className={ServiceStyle.panel_heading}>Hybrid Fuel System*/}
-                    {/*                                        </div>*/}
-                    {/*                                        <div className={ServiceStyle.panel_body}><img*/}
-                    {/*                                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/MF-Brand-Layout-Designs.png`}/>*/}
-                    {/*                                        </div>*/}
-                    {/*                                    </div>*/}
-                    {/*                                </Col>*/}
-                    {/*                            </Row>*/}
-                    {/*                        </Col>*/}
-                    {/*                    </ScrollAnimation>*/}
-                    {/*                </Row>*/}
-                    {/*            </Col>*/}
-                    {/*            <Col lg={1}></Col>*/}
-                    {/*        </Row>*/}
-                    {/*    </Col>*/}
-                    {/*    /!*<Col lg={1}></Col>*!/*/}
-                    {/*</Row>*/}
                     <Row>
                         <Col lg={3}></Col>
-                        <Col lg={6}>
+                        <Col lg={7} className={ServiceStyle.service_outer_section}>
                             <ScrollAnimation duration={2}
                                              animateIn='fadeInUp'
                                              animateOnce={true}>
-                                <Row>
-                                    <Col lg={3} className={`${ServiceStyle.side_set} pr-0 pl-0 border-right`} style={{backgroundColor:'white'}}>
-                                        {/*<ul className="list-group rounded-0">*/}
-                                        {/*    <li className="list-group-item"*/}
-                                        {/*        // style={{borderLeft: '3px solid #e31422', backgroundColor: 'white'}}*/}
-                                        {/*    >*/}
-                                        {/*        <i className='fa fa-desktop fa-1x'></i>*/}
-                                        {/*        <span className='pl-3'>Ovens</span>*/}
-                                        {/*    </li>*/}
-                                        {/*    <li className="list-group-item">*/}
-                                        {/*        <i className='fa fa-paper-plane'></i>*/}
-                                        {/*        <span className='pl-3'>Prep Tables</span>*/}
-                                        {/*    </li>*/}
-                                        {/*    /!*<li className="list-group-item">*!/*/}
-                                        {/*    /!*    <i className='fa fa-database'></i>*!/*/}
-                                        {/*    /!*    <span className='pl-3'>Rotation Timer</span>*!/*/}
-                                        {/*    /!*</li>*!/*/}
-                                        {/*    <li className="list-group-item">*/}
-                                        {/*        <i className='fa fa-paint-brush'></i>*/}
-                                        {/*        <span className='pl-3'>Ventilation</span>*/}
-                                        {/*    </li>*/}
-                                        {/*    <li className="list-group-item">*/}
-                                        {/*        <i className='fa fa-mobile fa-1x'></i>*/}
-                                        {/*        <span className='pl-3'>Mixers</span>*/}
-                                        {/*    </li>*/}
-                                        {/*    <li className="list-group-item">*/}
-                                        {/*        <i className='fa fa-wrench'></i>*/}
-                                        {/*        <span className='pl-3'>Slicers</span>*/}
-                                        {/*    </li>*/}
-                                        {/*    <li className="list-group-item">*/}
-                                        {/*        <i className='fa fa-database'></i>*/}
-                                        {/*        <span className='pl-3'>Tools</span>*/}
-                                        {/*    </li>*/}
-                                        {/*    <li className="list-group-item">*/}
-                                        {/*        /!*<i className='fa fa-database'></i>*!/*/}
-                                        {/*        /!*<span className='pl-3'>Tools</span>*!/*/}
-                                        {/*        <p></p>*/}
-                                        {/*    </li>*/}
-                                        {/*    <li className="list-group-item">*/}
-                                        {/*        /!*<i className='fa fa-database'></i>*!/*/}
-                                        {/*        /!*<span className='pl-3'>Tools</span>*!/*/}
-                                        {/*        <p></p>*/}
-                                        {/*    </li>*/}
-                                        {/*    <li className="list-group-item">*/}
-                                        {/*        /!*<i className='fa fa-database'></i>*!/*/}
-                                        {/*        /!*<span className='pl-3'>Tools</span>*!/*/}
-                                        {/*        <p></p>*/}
-                                        {/*    </li>*/}
-                                        {/*</ul>*/}
+                                <Row className={ServiceStyle.service_section}>
+                                    <Col lg={3} className={`${ServiceStyle.side_set} pr-0 pl-0 border-right side_set`} style={{backgroundColor:'white'}}>
                                         <Nav variant="pills" className={`${ServiceStyle.nav_style} flex-column`}>
                                             <Nav.Item className='border-bottom'>
                                                 <Nav.Link eventKey="first">
@@ -794,14 +562,14 @@ const Service = () => {
                                                 </Nav.Link>
                                             </Nav.Item>
                                             <Nav.Item className='border-bottom'>
-                                                <Nav.Link eventKey="seven">
+                                                <Nav.Link eventKey="eight">
                                                     {/*<i className='fa fa-wrench pr-2'></i>*/}
                                                     {/*Tools*/}
                                                     <p></p>
                                                 </Nav.Link>
                                             </Nav.Item>
                                             <Nav.Item className='border-bottom'>
-                                                <Nav.Link eventKey="seven">
+                                                <Nav.Link eventKey="nine">
                                                     {/*<i className='fa fa-wrench pr-2'></i>*/}
                                                     {/*Tools*/}
                                                     <p></p>
@@ -809,7 +577,7 @@ const Service = () => {
                                             </Nav.Item>
                                         </Nav>
                                     </Col>
-                                    <Col lg={9} className='pl-0 border-0 pl-2 pr-2 pt-3 pb-4' style={{backgroundColor:'white'}}>
+                                    <Col lg={9} className={`${ServiceStyle.right_side} pl-0 border-0 pl-3 pr-3 pt-5 pb-4`} style={{backgroundColor:'white'}}>
                                         <Tab.Content>
                                             <Tab.Pane eventKey="first">
                                                 <div className="row">
