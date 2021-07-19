@@ -219,12 +219,17 @@
 // };
 import React from 'react';
 import './step1.module.css';
+import {Dropdown,DropdownButton} from 'react-bootstrap'
 import {FormGroup, Label, Input} from 'reactstrap';
 import StepStyle from "./Step3.module.css";
+// import {image} from "html2canvas/dist/types/css/types/image";
 
 const Step1 = (props) => {
+    const images = props.choosefile
+    const data = `${images}`
 
-    console.log(props);
+    console.log('data img ', data)
+    console.log('img ',images)
     const {tiles, legs, color, facade} = props;
     if (props.currentStep !== 1) {
         return null;
@@ -332,80 +337,8 @@ const Step1 = (props) => {
                     style={{
                         display: 'flex',
                         alignItems: 'center',
-                        justifyContent: 'center'
+                        // justifyContent: 'center'
                     }}>
-                    <div className={`${StepStyle.select_wrapper} select-dropdown`}>
-                        <select
-                            name='tiles'
-                            id='tiles'
-                            value={props.tiles}
-                            onChange={props.handleChange}>
-                            <option value='' selected disabled hidden>
-                                Tiles
-                            </option>
-                            {tilesOption.map((item, id) => {
-                                return (
-                                    <option value={item.value} key={id}>
-                                        {item.value}
-                                    </option>
-                                );
-                            })}
-                        </select>
-                    </div>
-                    <div className={`${StepStyle.select_wrapper} select-dropdown`}>
-                        <select
-                            name='color'
-                            id='color'
-                            value={props.color}
-                            onChange={props.handleChange}>
-                            <option value='' selected disabled hidden>
-                                Colors
-                            </option>
-                            {colors.map((item, id) => {
-                                return (
-                                    <option value={item.value} key={id}>
-                                        {item.value}
-                                    </option>
-                                );
-                            })}
-                        </select>
-                    </div>
-                    <div className={`${StepStyle.select_wrapper} select-dropdown`}>
-                        <select
-                            name='facade'
-                            id='facade'
-                            value={props.facade}
-                            onChange={props.handleChange}>
-                            <option value='' selected disabled hidden>
-                                Facade
-                            </option>
-                            {facadeOption.map((item, id) => {
-                                return (
-                                    <option value={item.value} key={id}>
-                                        {item.value}
-                                    </option>
-                                );
-                            })}
-                        </select>
-                    </div>
-                    <div className={`${StepStyle.select_wrapper} select-dropdown`}>
-                        <select
-                            name='legs'
-                            id='legs'
-                            value={props.legs}
-                            onChange={props.handleChange}>
-                            <option value='' selected disabled hidden>
-                                Legs
-                            </option>
-                            {legsOption.map((item, id) => {
-                                return (
-                                    <option value={item.value} key={id}>
-                                        {item.value}
-                                    </option>
-                                );
-                            })}
-                        </select>
-                    </div>
                     <div className={`${StepStyle.select_wrapper} select-dropdown`}>
                         {/*<div className={`${StepStyle.select_wrapper}`}>*/}
                         <select
@@ -440,8 +373,115 @@ const Step1 = (props) => {
                         </select>
                         {/*</div>*/}
                     </div>
+                    <div className={`${StepStyle.select_wrapper} select-dropdown`}>
+                        <select
+                            name='tiles'
+                            id='tiles'
+                            value={props.tiles}
+                            onChange={props.handleChange}>
+
+                            <option value="" disabled selected>Tiles</option>
+                            {tilesOption.map((item, id) => {
+                                return (
+                                    <option value={item.value} key={id}>
+                                        {item.value}
+                                    </option>
+                                );
+                            })}
+                        </select>
+                    </div>
+                    <div className={`${StepStyle.select_wrapper} select-dropdown`}>
+                        <select
+                            name='color'
+                            id='color'
+                            value={props.color}
+                            onChange={props.handleChange}>
+                            {/*<option default>Colors</option>*/}
+                            <option selected="selected">Colors</option>
+                            {colors.map((item, id) => {
+                                return (
+                                    <option value={item.value} key={id}>
+                                        {item.value}
+                                    </option>
+                                );
+                            })}
+                        </select>
+                    </div>
+                    {/*<div className={`${StepStyle.select_wrapper} select-dropdown`}>*/}
+                    {/*    <select*/}
+                    {/*        name='facade'*/}
+                    {/*        id='facade'*/}
+                    {/*        value={props.facade}*/}
+                    {/*        onChange={props.handleChange}>*/}
+                    {/*        <option default>Colors</option>*/}
+                    {/*        {facadeOption.map((item, id) => {*/}
+                    {/*            return (*/}
+                    {/*                <option value={item.value} key={id}>*/}
+                    {/*                    {item.value}*/}
+                    {/*                </option>*/}
+                    {/*            );*/}
+                    {/*        })}*/}
+                    {/*    </select>*/}
+                    {/*</div>*/}
+                    <DropdownButton
+                        id="dropdown-basic-button"
+                        title="Dropdown button"
+                        name='facade'
+                        value={props.facade}
+                        onSelect={(e) => props.handleOnChange(e, 'facade')}>
+                        {facadeOption.map((item, id) => {
+                            return (
+                                <Dropdown.Item
+                                    eventKey={item.value}
+                                    key={item.id}
+                                >
+                                    {item.label}
+                                </Dropdown.Item>
+                            );
+                          })
+                        }
+                    </DropdownButton>
+                    <div className={`${StepStyle.select_wrapper} select-dropdown`}>
+                        <select
+                            name='legs'
+                            id='legs'
+                            value={props.legs}
+                            onChange={props.handleChange}>
+                            <option value='' selected disabled hidden>
+                                Legs
+                            </option>
+                            {legsOption.map((item, id) => {
+                                return (
+                                    <option value={item.value} key={id}>
+                                        {item.value}
+                                    </option>
+                                );
+                            })}
+                        </select>
+                    </div>
+                </div>
+                <div className={`form-group col-md-6`}>
+                    <Input
+                        type='file'
+                        name='choosefile'
+                        id='choosefile'
+                        // placeholder='Chose File'
+                        // value={props.choosefile}
+                        onChange={props.handleFile}
+                    />
                 </div>
                 <div className='position-relative' style={{height:'40%',textAlign:'center',paddingRight:'380px',marginTop:'-35px'}}>
+                    {images &&
+                    <img
+                        className='oven-image-tile position-absolute'
+                        src={data}
+                        height='110'
+                        width='200'
+                        style={{paddingTop:'111px',zIndex:'100',marginLeft:'100px'}}
+
+                    />
+                    }
+
                     <img
                         className='oven-image-tile position-absolute'
                         src={`https://marraforni.com/wp/wp-content/themes/ultima-child/assets/s3/make/${tiles}_${color}.png`}

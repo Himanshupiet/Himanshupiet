@@ -7,7 +7,7 @@
 }
 
 .outer {
-    background-color: #f4f8fa !important;
+    /*background-color: #f4f8fa !important;*/
     padding-top: 60px;
     padding-bottom: 90px;
 }
@@ -111,37 +111,63 @@
     margin: 0 auto;
     background-color: rgba(163,195,217,.5);
 }
-.water:before {
-    -webkit-animation-delay: 660ms;
-    -moz-animation-delay: 660ms;
-    animation-delay: 660ms;
+.water{
+    /*position:relative;*/
+    margin:0 auto;
+    background-color:rgb(227 20 34);
 }
-.water .dot:before {
-    -webkit-animation-delay: 1380ms;
-    -moz-animation-delay: 1380ms;
-    animation-delay: 1380ms;
+@keyframes water {
+    0% {
+        transform: scale(0);
+        opacity: 0.0;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    65% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(3);
+        opacity: 0.0;
+    }
 }
-.water .dot:after {
-    -webkit-animation-delay: 1020ms;
-    -moz-animation-delay: 1020ms;
-    animation-delay: 1020ms;
+@-webkit-keyframes water {
+    0% {
+        -webkit-transform: scale(0);
+        opacity: 0.0;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    65% {
+        opacity: 0.5;
+    }
+    100% {
+        -webkit-transform: scale(3);
+        opacity: 0.0;
+    }
 }
-.water:after {
-    -webkit-animation-delay: 300ms;
-    -moz-animation-delay: 300ms;
-    animation-delay: 300ms;
+.water{
+    pointer-events:none
 }
-.water:after, .water:before, .water .dot:after, .water .dot:before {
-    content: "";
-    width: 100px;
-    height: 100px;
-    background-color: inherit;
-    position: absolute;
-    margin: -50px 0 0 -50px;
-    opacity: 0;
-    border-radius: 50%;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
+.water .dot{
+    background-color:inherit;
+}
+.water:after,
+.water:before,
+.water .dot:after,
+.water .dot:before{
+    content:"";
+    width:100px;
+    height:100px;
+    background-color:inherit;
+    position:absolute;
+    margin:-50px 0 0 -50px;
+    opacity:0;
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
     -webkit-animation: water 3s ease-out;
     -moz-animation: water 3s ease-out;
     animation: water 3s ease-out;
@@ -149,10 +175,23 @@
     -moz-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
 }
-.water .dot {
-    background-color: inherit;
+.water:after{
+    -webkit-animation-delay:300ms;
+    -moz-animation-delay:300ms;
+    animation-delay:300ms;
 }
-.dot {
-    color: #969696;
-    font-size: 14px;
+.water:before{
+    -webkit-animation-delay:660ms;
+    -moz-animation-delay:660ms;
+    animation-delay:660ms;
+}
+.water .dot:after{
+    -webkit-animation-delay:1020ms;
+    -moz-animation-delay:1020ms;
+    animation-delay:1020ms;
+}
+.water .dot:before{
+    -webkit-animation-delay:1380ms;
+    -moz-animation-delay:1380ms;
+    animation-delay:1380ms;
 }

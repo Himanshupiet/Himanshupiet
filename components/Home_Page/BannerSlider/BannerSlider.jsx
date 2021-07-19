@@ -111,11 +111,11 @@ const BannerSlider = (props) => {
     if (document.readyState === "loading") {document.addEventListener('readystatechange',function() { if((document.readyState === "interactive" || document.readyState === "complete") && !once_revslider4771 ) { once_revslider4771 = true; revinit_revslider4771();}});} else {once_revslider4771 = true; revinit_revslider4771();}
   },[])
 
-  const slide1 = {"size":200,"origsize":200,"strength":0,"fadetime":600,"image":`${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/painthouse-one.jpg`,"fixedges":true,"blur":true,"disappear":true}
+  const slide1 = {"size":200,"origsize":200,"strength":0,"fadetime":600,"image":`${process.env.NEXT_PUBLIC_BASE_PATH}/images/sliderone.jpeg`,"fixedges":true,"blur":true,"disappear":true}
 
-  const slide2 = {"size":100,"origsize":100,"strength":0,"blurAmount":3,"fadetime":2000,"image":`${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/painthouse-two.jpg`,"fixedges":true,"blur":true,"disappear":true}
+  const slide2 = {"size":100,"origsize":100,"strength":0,"blurAmount":3,"fadetime":2000,"image":`${process.env.NEXT_PUBLIC_BASE_PATH}/images/slidertwo.jpg`,"fixedges":true,"blur":true,"disappear":true}
 
-  const slide3 = {"size":250,"origsize":250,"strength":0,"fadetime":600,"image":`${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/painthouse-three.jpg`,"fixedges":true,"style":"butt","responsive":true}
+  const slide3 = {"size":250,"origsize":250,"strength":0,"fadetime":600,"image":`${process.env.NEXT_PUBLIC_BASE_PATH}/images/sliderthree.jpg`,"fixedges":true,"style":"butt","responsive":true}
   
   return(
     <section className={BannerSliderStyle.section_outer}>
@@ -123,7 +123,7 @@ const BannerSlider = (props) => {
         <rs-module id="rev_slider_477_1" className="rs-respect-topbar" data-version="6.4.2">
           <rs-slides>
             <rs-slide data-key="rs-1091" data-title="Slide" data-thumb="" data-anim="ms:600;r:0;" data-in="o:0;" data-out="a:false;" data-revaddonpaintbrush={JSON.stringify(slide1)} data-revaddonpaintbrushedges="true">
-              <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/painthouse-one.jpg`} title="Paintbrush Slider" data-parallax="off" className="rev-slidebg" data-no-retina />
+              <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/sliderone.jpeg`} title="Paintbrush Slider" data-parallax="off" className="rev-slidebg" data-no-retina />
 
               <rs-layer
                 id="slider-477-slide-1091-layer-1" 
@@ -237,7 +237,7 @@ const BannerSlider = (props) => {
                 data-out="a:false;"
                 data-revaddonpaintbrush={JSON.stringify(slide2)}
                 data-revaddonpaintbrushedges="true">
-              <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/painthouse-two.jpg`} title="Paintbrush Slider" data-parallax="off" className="rev-slidebg" data-no-retina />
+              <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/slidertwo.jpg`} title="Paintbrush Slider" data-parallax="off" className="rev-slidebg" data-no-retina />
 
               <rs-layer
                 id="slider-477-slide-1092-layer-1" 
@@ -343,9 +343,10 @@ const BannerSlider = (props) => {
 
             </rs-slide>
             <rs-slide data-key="rs-1093" data-title="Slide" data-thumb="" data-anim="ms:600;r:0;" data-in="o:0;" data-out="a:false;" data-revaddonpaintbrush={JSON.stringify(slide3)} data-revaddonpaintbrushedges="true">
-              <img src="//www.sliderrevolution.com/wp-content/plugins/revslider/public/assets/assets/transparent.png"
-                   alt="Slide" title="Paintbrush Slider" className="rev-slidebg tp-rs-img" data-bg="c:#f6b300;"
-                   data-parallax="off" data-no-retina/>
+              {/*<img src="//www.sliderrevolution.com/wp-content/plugins/revslider/public/assets/assets/transparent.png"*/}
+              {/*     alt="Slide" title="Paintbrush Slider" className="rev-slidebg tp-rs-img" data-bg="c:#f6b300;"*/}
+              {/*     data-parallax="off" data-no-retina/>*/}
+              <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/sliderthree.jpg`} title="Paintbrush Slider" data-parallax="off" className="rev-slidebg" data-no-retina />
 
               <rs-layer
                 id="slider-477-slide-1093-layer-1" 

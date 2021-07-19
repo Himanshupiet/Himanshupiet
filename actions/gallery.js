@@ -2,9 +2,9 @@ import { API_HOST } from '../env'
 import axios from 'axios'
 
 
-export const getAllGalleryByProductType = () => {
+export const getAllGallery = () => {
     return dispatch => {
-        const API_URL = `${API_HOST}gallery/getGalleryByProductType`
+        const API_URL = `${API_HOST}gallery/getAllGalleryData`
 
         return axios({
             url: API_URL,

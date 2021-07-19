@@ -161,7 +161,10 @@
 }
 
 .section_outer {
+    margin-top: 50px;
+    padding-top: 80px;
     padding-bottom: 60px;
+    background-color: #f4f8fa !important;
 }
 
 .list_ico, .list_ico2, .list_ico3 {

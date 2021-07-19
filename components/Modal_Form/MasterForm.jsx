@@ -89,11 +89,29 @@ class MasterForm extends Component {
 
     // Use the submitted data to set the state
     handleChange(event) {
+        console.log(event)
         const {name, value} = event.target;
         this.setState({
             [name]: value
         });
     }
+
+    handleOnChange = (value,name) => {
+        this.setState({
+            [name] : value
+        },() => {
+            console.log(this.state.facade)
+        });
+    }
+
+    fileUploaded = ev => {
+        const reader = new FileReader()
+        reader.readAsDataURL(ev.target.files[0])
+        reader.onloadend = ev => {
+            this.setState({ choosefile: reader.result })
+        }
+    }
+
 
     // Trigger an alert on form submission
     handleSubmit = (event) => {
@@ -161,8 +179,8 @@ class MasterForm extends Component {
             <>
                 <Container>
                     <Row>
-                        <Col lg={1}></Col>
-                        <Col lg={10}>
+                        {/*<Col lg={1}></Col>*/}
+                        <Col lg={12}>
                             <form onSubmit={this.handleSubmit}>
                                 <div>
                                     <MultiStepProgressBar currentStep={this.state.currentStep}/>
@@ -171,11 +189,14 @@ class MasterForm extends Component {
                                     <Step1
                                         currentStep={this.state.currentStep}
                                         handleChange={this.handleChange}
+                                        handleFile={this.fileUploaded}
                                         legs={this.state.legs}
                                         color={this.state.color}
                                         tiles={this.state.tiles}
                                         facade={this.state.facade}
                                         product={this.state.product}
+                                        choosefile={this.state.choosefile}
+                                        handleOnChange={this.handleOnChange}
                                     />
                                     <Step2
                                         currentStep={this.state.currentStep}
@@ -188,7 +209,6 @@ class MasterForm extends Component {
                                         staddress={this.state.staddress}
                                         city={this.state.city}
                                         state={this.state.state}
-                                        choosefile={this.state.choosefile}
                                         message={this.state.message}
                                         country={this.state.country}
                                     />
@@ -200,7 +220,7 @@ class MasterForm extends Component {
                                 </div>
                             </form>
                         </Col>
-                        <Col lg={1}></Col>
+                        {/*<Col lg={1}></Col>*/}
                     </Row>
                 </Container>
             </>

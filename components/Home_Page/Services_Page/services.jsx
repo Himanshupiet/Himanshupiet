@@ -702,8 +702,8 @@ const Service = () => {
                     {/*    /!*<Col lg={1}></Col>*!/*/}
                     {/*</Row>*/}
                     <Row>
-                        <Col lg={2}></Col>
-                        <Col lg={8}>
+                        <Col lg={3}></Col>
+                        <Col lg={6}>
                             <ScrollAnimation duration={2}
                                              animateIn='fadeInUp'
                                              animateOnce={true}>
@@ -809,7 +809,7 @@ const Service = () => {
                                             </Nav.Item>
                                         </Nav>
                                     </Col>
-                                    <Col lg={9} className='pl-0 border-0 pl-3 pr-3 pt-3 pb-4' style={{backgroundColor:'white'}}>
+                                    <Col lg={9} className='pl-0 border-0 pl-2 pr-2 pt-3 pb-4' style={{backgroundColor:'white'}}>
                                         <Tab.Content>
                                             <Tab.Pane eventKey="first">
                                                 <div className="row">
@@ -922,7 +922,7 @@ const Service = () => {
                                 </Row>
                             </ScrollAnimation>
                         </Col>
-                        <Col lg={2}></Col>
+                        <Col lg={3}></Col>
                     </Row>
                 </Tab.Container>
             </section>
