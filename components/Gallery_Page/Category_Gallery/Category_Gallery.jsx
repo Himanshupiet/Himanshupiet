@@ -12,7 +12,6 @@ import CategoryGalleryStyle from './Category_Gallery.module.css'
 
 const Category_Gallery = (props) => {
   const[ getAllGalleryList, setGetAllGalleryList ] = useState([])
-  const[ activeGalleryProd, setActiveGalleryProd ] = useState([])
 
   useEffect(() => {
       props.galleryActions.getAllGallery().then(res => {
@@ -25,17 +24,68 @@ const Category_Gallery = (props) => {
                           sName: s[0],
                           subCat: s[1]
                       }
-                  })
+                  }),
+                  catN:Object.entries(val && val[1]).map(s => {
+                      return {
+                          sName: s[0],
+                          subCat: s[1],
+                          isActive:false
+                      }})
               }
           })
-          setGetAllGalleryList(gList)
+          let a = gList.map(val=> {
+              let x = [] ;
+              val.cat.map(c => {
+                  c.subCat.map(v =>{
+                   x.push({...v})
+                  })
+              })
+              let aCat = val.cat
+              aCat.unshift({
+                  sName:'All',
+                  subCat:x,
+                  isActive:true
+              })
+              let bb = aCat
+                 return {
+                     ...val,
+                     ['cat']:aCat,
+                     ['catN']:aCat
+             }
+
+          })
+          console.log(a)
+          let updateList = a.map(val => {
+              return {
+                  ...val,
+                  cat:val.cat.filter(v => v.sName === 'All')
+              }
+          })
+          setGetAllGalleryList(updateList)
       })
   },[])
-    console.log(getAllGalleryList)
 
-
-  const handleCatFilter = (gallery) => {
-      setActiveGalleryProd(gallery)
+ const handleCatFilter = (gallery, pId, cat, idx) => {
+          let activeCat = getAllGalleryList.map(val => {
+              if (val.name == gallery.name) {
+                  let fCat = val.catN.filter(c => c.sName == cat.sName)
+                  let filterCName = val.catN.map(n => {
+                      if (n.sName == cat.sName) {
+                          return {...n, isActive: true}
+                      } else {
+                          return {...n, isActive: false}
+                      }
+                  })
+                  return {
+                      ...val,
+                      cat: fCat,
+                      catN: filterCName
+                  }
+              } else {
+                  return val
+              }
+          })
+          setGetAllGalleryList(activeCat)
   }
 
   return(
@@ -56,24 +106,14 @@ const Category_Gallery = (props) => {
                             <div key={idx}>
                                <h2>{gallery.name}</h2>
                                 <ul className={CategoryGalleryStyle.gallerytabs}>
-                                <li>
-                                    <button
-                                        className={
-                                           CategoryGalleryStyle.btn_active
-                                        }
-                                        onClick={() => handleCatFilter(gallery)}
-                                    >
-                                        All
-                                    </button>
-                                </li>
-                                  { gallery.cat && gallery.cat.length ?
-                                      gallery.cat.map((category, i) => {
+                                  { gallery.catN && gallery.catN.length ?
+                                      gallery.catN.map((category, i) => {
                                          return(
                                                   <li key={i}>
                                                       <button
-                                                          onClick={() => handleCatFilter(gallery)}
+                                                          onClick={() => handleCatFilter(gallery, idx, category, i)}
                                                           className={
-                                                              CategoryGalleryStyle.btn_active
+                                                              category.isActive ? CategoryGalleryStyle.btn_active : ''
                                                           }
                                                       >
                                                           {category.sName}
@@ -90,46 +130,54 @@ const Category_Gallery = (props) => {
                                             <Col xl={1}></Col>
                                             <Col xl={10}>
                                                 <Row>
-                                                    {gallery.cat && gallery.cat.length ?
+                                                    {
+                                                      gallery.cat && gallery.cat.length ?
                                                         gallery.cat.map((category, i) =>
-                                                            category.subCat.map(val => {
-                                                                return (
-                                                                    <Col
-                                                                        lg={3}
-                                                                        sm={6}
-                                                                    >
-                                                                        <ScrollAnimation
-                                                                            animateIn={'fadeInUp'}
-                                                                            animateOnce={true}
-                                                                            duration={1}
+
+                                                                category &&
+                                                                category.subCat &&
+                                                                category.subCat.length ?
+                                                                  category.subCat.map(val => {
+                                                                    return (
+                                                                        <Col
+                                                                            lg={3}
+                                                                            sm={6}
                                                                         >
-                                                                            <div
-                                                                                className={CategoryGalleryStyle.gallery_inner}>
-                                                                                <Link href='/gallery/pico'>
-                                                                                    <a title='Gallery Image'>
-                                                                                        <img
-                                                                                            src={val.bannerImage}
-                                                                                            width='550'
-                                                                                            height='533'
-                                                                                            className='img'
-                                                                                        />
-                                                                                        <div
-                                                                                            className={CategoryGalleryStyle.gallery_overlay}>
+                                                                            <ScrollAnimation
+                                                                                animateIn={'fadeInUp'}
+                                                                                animateOnce={true}
+                                                                                duration={1}
+                                                                            >
+                                                                                <div
+                                                                                    className={CategoryGalleryStyle.gallery_inner}>
+                                                                                    <Link href='/gallery/pico'>
+                                                                                        <a title='Gallery Image'>
+                                                                                            <img
+                                                                                                src={val.bannerImage}
+                                                                                                width='550'
+                                                                                                height='533'
+                                                                                                className='img'
+                                                                                            />
                                                                                             <div
-                                                                                                className={CategoryGalleryStyle.info_box}>
-                                                                                                <span>{val.organisation}</span>
-                                                                                                <p>{val.organisationLocation}</p>
+                                                                                                className={CategoryGalleryStyle.gallery_overlay}>
+                                                                                                <div
+                                                                                                    className={CategoryGalleryStyle.info_box}>
+                                                                                                    <span>{val.organisation}</span>
+                                                                                                    <p>{val.organisationLocation}</p>
+                                                                                                </div>
                                                                                             </div>
-                                                                                        </div>
-                                                                                    </a>
-                                                                                </Link>
-                                                                            </div>
-                                                                        </ScrollAnimation>
-                                                                    </Col>
-                                                                )
-                                                        }))
-                                                        :
-                                                        null
+                                                                                        </a>
+                                                                                    </Link>
+                                                                                </div>
+                                                                            </ScrollAnimation>
+                                                                        </Col>
+                                                                     )
+                                                                   })
+                                                                 : null
+
+                                                        )
+                                                         :
+                                                      null
                                                     }
                                                 </Row>
                                                 <Row>
