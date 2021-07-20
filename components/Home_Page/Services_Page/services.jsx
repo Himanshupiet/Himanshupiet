@@ -561,27 +561,13 @@ const Service = () => {
                                                     Tools
                                                 </Nav.Link>
                                             </Nav.Item>
-                                            <Nav.Item className='border-bottom'>
-                                                <Nav.Link eventKey="eight">
-                                                    {/*<i className='fa fa-wrench pr-2'></i>*/}
-                                                    {/*Tools*/}
-                                                    <p></p>
-                                                </Nav.Link>
-                                            </Nav.Item>
-                                            <Nav.Item className='border-bottom'>
-                                                <Nav.Link eventKey="nine">
-                                                    {/*<i className='fa fa-wrench pr-2'></i>*/}
-                                                    {/*Tools*/}
-                                                    <p></p>
-                                                </Nav.Link>
-                                            </Nav.Item>
                                         </Nav>
                                     </Col>
-                                    <Col lg={9} className={`${ServiceStyle.right_side} pl-0 border-0 pl-3 pr-3 pt-5 pb-4`} style={{backgroundColor:'white'}}>
+                                    <Col lg={9} className={`${ServiceStyle.right_side} pl-0 border-0 pl-3 pr-3 pt-3 pb-4`} style={{backgroundColor:'white'}}>
                                         <Tab.Content>
                                             <Tab.Pane eventKey="first">
                                                 <div className="row">
-                                                    <div className="col-sm-3">
+                                                    <div className="col-sm-3 mt-2">
                                                         <div className={`${ServiceStyle.panel_body} card`}>
                                                             <div>
                                                                 <p className={`${ServiceStyle.panel_heading} card-title`}>Rigid Touchscreen</p>
@@ -589,7 +575,7 @@ const Service = () => {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div className="col-sm-3">
+                                                    <div className="col-sm-3 mt-2">
                                                         <div className={`${ServiceStyle.panel_body} card`}>
                                                             <div>
                                                                 <p className={`${ServiceStyle.panel_heading} card-title`}>Rotation Timer</p>
@@ -597,7 +583,7 @@ const Service = () => {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div className="col-sm-3">
+                                                    <div className="col-sm-3 mt-2">
                                                         <div className={`${ServiceStyle.panel_body} card`}>
                                                             <div>
                                                                 <p className={`${ServiceStyle.panel_heading} card-title`}>Fallsafe Levers</p>
@@ -605,7 +591,7 @@ const Service = () => {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div className="col-sm-3">
+                                                    <div className="col-sm-3 mt-2">
                                                         <div className={`${ServiceStyle.panel_body} card`}>
                                                             <div>
                                                                 <p className={`${ServiceStyle.panel_heading} card-title`}>Rotating Dock</p>
@@ -633,7 +619,7 @@ const Service = () => {
                                                             </div>
                                                         </div>
                                                     </Col>
-                                                    <Col lg={3}>
+                                                    <Col lg={3} className='mt-2'>
                                                         <div className={`${ServiceStyle.panel_body} card`}>
                                                             <div>
                                                                 <p className={`${ServiceStyle.panel_heading} card-title`}>25 years warrenty</p>
