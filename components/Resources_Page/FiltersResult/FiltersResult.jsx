@@ -202,7 +202,7 @@ const FiltersResult = (props) => {
                           <li key={i}>
                             <button
                               onClick ={() => {
-                                       handlePagination(val, types.id)
+                                       handlePagination(val, types.id, 'product')
                                        setActiveProduct(i+1)
                                      }
                               }
