@@ -36,55 +36,6 @@ const RestaurentGallery = (props) => {
                     </div>
                   </div>
               )):null}
-
-              {/*<div className={RestaurentStyle.gallery_inner}>*/}
-              {/*  <div className={RestaurentStyle.gallery_inner_main}>*/}
-              {/*    <img src={`https://marraforni.com/wp/wp-content/uploads/2017/10/Marra-Forni-Rotator-Brick-Oven-Client-Pizzeria-Vetri-Oven.jpg`} alt={''} width="400" height="300" className="img-fluid" />*/}
-              {/*    <div className={RestaurentStyle.gallery_hover}></div>*/}
-              {/*  </div>*/}
-              {/*</div>*/}
-              {/*<div className={RestaurentStyle.gallery_inner}>*/}
-              {/*  <div className={RestaurentStyle.gallery_inner_main}>*/}
-              {/*    <img src={`https://marraforni.com/wp/wp-content/uploads/2017/10/Marra-Forni-Rotator-Brick-Oven-Client-Pizzeria-Vetri-Pizza-Makers.jpg`} alt={''} width="400" height="300" className="img-fluid" />*/}
-              {/*    <div className={RestaurentStyle.gallery_hover}></div>*/}
-              {/*  </div>*/}
-              {/*</div>*/}
-              {/*<div className={RestaurentStyle.gallery_inner}>*/}
-              {/*  <div className={RestaurentStyle.gallery_inner_main}>*/}
-              {/*    <img src={`https://marraforni.com/wp/wp-content/uploads/2017/10/Marra-Forni-Rotator-Brick-Oven-Client-Pizzeria-Vetri-Pizza-Making.jpg`} alt={''} width="400" height="300" className="img-fluid" />*/}
-              {/*    <div className={RestaurentStyle.gallery_hover}></div>*/}
-              {/*  </div>*/}
-              {/*</div>*/}
-              {/*<div className={RestaurentStyle.gallery_inner}>*/}
-              {/*  <div className={RestaurentStyle.gallery_inner_main}>*/}
-              {/*    <img src={`https://marraforni.com/wp/wp-content/uploads/2018/01/fresh-pico-pizza.jpg`} alt={''} width="400" height="300" className="img-fluid" />*/}
-              {/*    <div className={RestaurentStyle.gallery_hover}></div>*/}
-              {/*  </div>*/}
-              {/*</div>*/}
-              {/*<div className={RestaurentStyle.gallery_inner}>*/}
-              {/*  <div className={RestaurentStyle.gallery_inner_main}>*/}
-              {/*    <img src={`https://marraforni.com/wp/wp-content/uploads/2018/01/lines-at-pico.jpg`} alt={''} width="400" height="300" className="img-fluid" />*/}
-              {/*    <div className={RestaurentStyle.gallery_hover}></div>*/}
-              {/*  </div>*/}
-              {/*</div>*/}
-              {/*<div className={RestaurentStyle.gallery_inner}>*/}
-              {/*  <div className={RestaurentStyle.gallery_inner_main}>*/}
-              {/*    <img src={`https://marraforni.com/wp/wp-content/uploads/2018/01/pico-rotator-brick-oven-in-action.jpg`} alt={''} width="400" height="300" className="img-fluid" />*/}
-              {/*    <div className={RestaurentStyle.gallery_hover}></div>*/}
-              {/*  </div>*/}
-              {/*</div>*/}
-              {/*<div className={RestaurentStyle.gallery_inner}>*/}
-              {/*  <div className={RestaurentStyle.gallery_inner_main}>*/}
-              {/*    <img src={`https://marraforni.com/wp/wp-content/uploads/2018/01/pico-rotator-brick-oven.jpg`} alt={''} width="400" height="300" className="img-fluid" />*/}
-              {/*    <div className={RestaurentStyle.gallery_hover}></div>*/}
-              {/*  </div>*/}
-              {/*</div>*/}
-              {/*<div className={RestaurentStyle.gallery_inner}>*/}
-              {/*  <div className={RestaurentStyle.gallery_inner_main}>*/}
-              {/*    <img src={`https://marraforni.com/wp/wp-content/uploads/2018/01/IMG_1198.jpg`} alt={''} width="400" height="300" className="img-fluid" />*/}
-              {/*    <div className={RestaurentStyle.gallery_hover}></div>*/}
-              {/*  </div>*/}
-              {/*</div>*/}
             </div>
           </div>
         </Col>
