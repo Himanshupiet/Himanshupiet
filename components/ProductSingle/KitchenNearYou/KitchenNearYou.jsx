@@ -59,7 +59,7 @@ const KitchenNearYou = (props) => {
                     </Col>
                     <Col lg='auto' className={`${KitchenNearYouStyle.main_img} pt-4`}>
                         <img alt="TouchScreen"
-                             src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Rotator.png`}
+                             src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Oven-Red.png`}
                              style={{height:'500px'}}/>
                         <div className={KitchenNearYouStyle.water}>
                             <div className={KitchenNearYouStyle.dot}></div>

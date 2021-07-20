@@ -234,7 +234,7 @@ const Category_Gallery = (props) => {
                                                                                 >
                                                                                     <div
                                                                                         className={CategoryGalleryStyle.gallery_inner}>
-                                                                                        <Link href='/gallery/pico'>
+                                                                                        <Link href={`/gallery/${val.id}`}>
                                                                                             <a title='Gallery Image'>
                                                                                                 <img
                                                                                                     src={val.bannerImage}
@@ -259,7 +259,6 @@ const Category_Gallery = (props) => {
                                                                      )
                                                                    })
                                                                  : null
-
                                                         )
                                                          :
                                                       null

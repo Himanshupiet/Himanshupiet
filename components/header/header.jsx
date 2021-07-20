@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Link from 'next/link';
-import {Col, Container, Dropdown, DropdownButton, Modal, Row, Tab, Tabs} from 'react-bootstrap'
+import {Col, Container, Modal, Row, Tab, Tabs} from 'react-bootstrap'
 import ActiveLink from './ActiveLink';
 import headerStyle from './header.module.css';
 import CountryList from "../common/GetAQuote/CountryList";
@@ -46,81 +46,7 @@ const Header = (props) => {
             message: '',
         }
     };
-    const options = [
-        {
-            id: 1,
-            label: "Red",
-            value: "Red",
-        },
-        {
-            id: 2,
-            label: "Blue",
-            value: "Blue",
-        },
-        {
-            id: 3,
-            label: "White",
-            value: "White",
-        },
-        {
-            id: 4,
-            label: "Brown",
-            value: "Brown",
-        },
-        {
-            id: 5,
-            label: "Black",
-            value: "Black",
-        },
-    ];
-    const facadeOption = [
-        {
-            id: 1,
-            label: "Black - Standard for RT Models",
-            value: "Black",
-        },
-        {
-            id: 2,
-            label: "Stainless Steel",
-            value: "Stainless",
-        },
 
-    ];
-    const tilesOption = [
-        {
-            id: 1,
-            label: "Square",
-            value: "Square",
-        },
-        {
-            id: 2,
-            label: "Penny Round",
-            value: "Penny",
-        },
-        {
-            id: 3,
-            label: "Broken",
-            value: "Broken",
-        },
-        {
-            id: 4,
-            label: "Custom Tiles",
-            value: "Custom",
-        },
-    ]
-    const legsOption = [
-        {
-            id: 1,
-            label: 'Black',
-            value: 'Black'
-        },
-        {
-            id: 2,
-            label: 'Stainless Steel',
-            value: 'Stainless Steel'
-
-        },
-    ];
     const [fixedHeaderClass, setFixedHeaderClass] = useState("");
     const [mobileNavOpen, setMobileNavOpen] = useState(false);
     const [mobileProductOpen, setMobileProductOpen] = useState(false);
@@ -161,21 +87,7 @@ const Header = (props) => {
             }
         }
     }
-    const handleColor = (e) => {
-        setColors(e)
 
-    }
-    const handleFacade = (e) => {
-        setFacade(e)
-    }
-    const handleLegs = (e) => {
-        setLegs(e)
-
-    }
-    const handleTiles = (e) => {
-        setTiles(e)
-
-    }
     const handleChange = (event) => {
         const {name, value} = event.target;
         setGformData((preValues) => {
