@@ -27,6 +27,7 @@ const FiltersResult = (props) => {
   useEffect(() => {
     let indexOfLastTodo = currentPage * productPerPage
     let indexOfFirstTodo = indexOfLastTodo - productPerPage
+
     let currentProduct = product.map(val => {
        let pagination = Math.ceil((val && val.cat && val.cat.length)/ productPerPage)
        return {
@@ -136,7 +137,7 @@ const FiltersResult = (props) => {
     }
 
   }
-console.log(resourceResult)
+
   return(
     <>
       <div className={ResultStyle.searchbox_outer}>
