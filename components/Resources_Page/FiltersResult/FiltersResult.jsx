@@ -78,7 +78,6 @@ const FiltersResult = (props) => {
   },[product, blogList, allCaseStudyList ])
 
   const handlePagination = (value, typeId, cat, types) => {
-      console.log(value, typeId, cat,)
     if(cat == 'product') {
         let indexOfLastTodo = value.name * productPerPage
         let indexOfFirstTodo = indexOfLastTodo - productPerPage
@@ -86,6 +85,7 @@ const FiltersResult = (props) => {
         let currentProduct = productResult.map(val => {
             let indexOfLast = val.catCurrentPage * productPerPage
             let indexOfFirst = indexOfLast - productPerPage
+
             let pagination = Math.ceil((val && val.cat && val.cat.length) / productPerPage)
             if (val.id == typeId) {
                 let pages = types.paginationArr.map(xx => {
@@ -128,21 +128,21 @@ const FiltersResult = (props) => {
     }
 
     if(cat == 'blog') {
-        let indexOfLast = blogResult.catCurrentPage * productPerPage
-        let indexOfFirst = indexOfLast - productPerPage
-        let pagination = Math.ceil((blogList && blogList.length) / productPerPage)
+        let indexOfLastB = value * 3
+        let indexOfFirstB = indexOfLastB - 3
+        let pagination = Math.ceil((blogList && blogList.length) / 3)
         let currentBlog = {
                     paginationArr: pagination ?
                         Array(pagination - 1 + 1).fill().map((_, idx) => 1 + idx) :
                         [],
                     catCurrentPage: value,
-                    blogList: blogList && blogList.length && blogList.slice(indexOfFirst, indexOfLast)
+                    blogList: blogList && blogList.length && blogList.slice(indexOfFirstB, indexOfLastB)
             }
         setBlogResult(currentBlog)
     }
 
     if(cat == 'caseStudy') {
-        let indexOfLast = caseStudyResult.catCurrentPage * productPerPage
+        let indexOfLast = value * productPerPage
         let indexOfFirst = indexOfLast - productPerPage
         let pagination = Math.ceil((allCaseStudyList && allCaseStudyList.length) / productPerPage)
         let currentCaseStudy = {
