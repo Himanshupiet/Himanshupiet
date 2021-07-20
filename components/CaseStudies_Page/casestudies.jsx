@@ -137,30 +137,6 @@ const CaseStudiesPage = () => {
                             {/*        </div>*/}
                             {/*    </div>*/}
                             {/*</Col>*/}
-                            {/*<Col lg={3}>*/}
-                            {/*    <div className={`${CaseStudyStyle.card_design} card`}>*/}
-                            {/*        <img src="https://marraforni.com/wp/wp-content/uploads/2021/06/UB.png"*/}
-                            {/*             className="card-img-top" alt="..."/>*/}
-                            {/*        <div className="card-body">*/}
-                            {/*            <h3 className="card-title">Ocean Edge</h3>*/}
-                            {/*            <p className="card-text">Permanent dining experience and popular guest*/}
-                            {/*                attraction with Marra.</p>*/}
-                            {/*            <a href="#" className="mf_btn">View Case Study</a>*/}
-                            {/*        </div>*/}
-                            {/*    </div>*/}
-                            {/*</Col>*/}
-                            {/*<Col lg={3}>*/}
-                            {/*    <div className={`${CaseStudyStyle.card_design} card`}>*/}
-                            {/*        <img src="https://marraforni.com/wp/wp-content/uploads/2021/06/UB.png"*/}
-                            {/*             className="card-img-top" alt="..."/>*/}
-                            {/*        <div className="card-body">*/}
-                            {/*            <h3 className="card-title">Ocean Edge</h3>*/}
-                            {/*            <p className="card-text">Permanent dining experience and popular guest*/}
-                            {/*                attraction with.</p>*/}
-                            {/*            <a href="#" className="mf_btn">View Case Study</a>*/}
-                            {/*        </div>*/}
-                            {/*    </div>*/}
-                            {/*</Col>*/}
                         </Row>
                     </Col>
                     <Col lg={1}></Col>

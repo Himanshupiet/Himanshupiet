@@ -82,12 +82,6 @@ const BlogSidebar = (props) => {
                             </Link>
                         </li>
                     )) : null}
-                    {/*<li className="cat-item">*/}
-                    {/*    <Link href={{*/}
-                    {/*        pathname: "/blog",*/}
-                    {/*        query: {name: "Marketing"},*/}
-                    {/*    }}><a title='Awesome Chefs'>Awesome Chefs</a></Link>*/}
-                    {/*</li>*/}
                 </ul>
             </div>
             <div className={`${BlogSidebarStyle.card_item} card mb-3 p-3`}>
@@ -133,5 +127,3 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(BlogSidebar))
-
-// export default BlogSidebar

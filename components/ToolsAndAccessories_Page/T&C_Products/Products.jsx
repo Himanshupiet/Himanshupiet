@@ -34,7 +34,7 @@ const Products = (props) => {
                       <Col sm={6}>
                         <div className={ProductStyle.image_box}>
                           <img
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Red-Peel.png`}
+                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Loading-Peels.png`}
                             alt="Picture of the author"
                             width={170}
                             height={300}
@@ -79,7 +79,7 @@ const Products = (props) => {
                       <Col sm={6}>
                         <div className={ProductStyle.image_box}>
                           <img
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Round-Steel-Peel.png`}
+                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Turning-Peels-copy.png`}
                             alt="Picture of the author"
                             width={170}
                             height={300}
@@ -102,6 +102,51 @@ const Products = (props) => {
                             <a 
                               title='Aluminum Turning Peels'
                               className='mf_btn'  
+                            >
+                              Explore more
+                            </a>
+                          </Link>
+                        </div>
+                      </Col>
+                    </Row>
+                  </div>
+                </ScrollAnimation>
+              </Col>
+              <Col lg={6} className={ProductStyle.product_outer}>
+                <ScrollAnimation
+                    animateIn='fadeInUp'
+                    animateOnce={true}
+                    duration={1}
+                    className={ProductStyle.product_main}
+                >
+                  <div>
+                    <Row>
+                      <Col sm={6}>
+                        <div className={ProductStyle.image_box}>
+                          <img
+                              src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Turning-Peels-copy.png`}
+                              alt="Picture of the author"
+                              width={170}
+                              height={300}
+                              className='img-fluid'
+                          />
+                        </div>
+                      </Col>
+                      <Col sm={6}>
+                        <div className={ProductStyle.info_box}>
+                          <h3>Aluminum Turning Peels</h3>
+                          <ul>
+                            <li>Perforated Round 8” with 59” handle – #MF.120</li>
+                            <li>Perforated Round 10” with 59” handle – #MF.126</li>
+                            <li>Replacement Peel, 8”</li>
+                            <li>Replacement Peel, 10″</li>
+                            <li>Replacement Handle 38”</li>
+                            <li>Replacement Handle 59″</li>
+                          </ul>
+                          <Link href='/'>
+                            <a
+                                title='Aluminum Turning Peels'
+                                className='mf_btn'
                             >
                               Explore more
                             </a>
@@ -136,7 +181,7 @@ const Products = (props) => {
                       <Col sm={6}>
                         <div className={ProductStyle.image_box}>
                           <img
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Brush-1.png`}
+                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Brush.png`}
                             alt="Picture of the author"
                             width={170}
                             height={300}
@@ -177,7 +222,7 @@ const Products = (props) => {
                       <Col sm={6}>
                         <div className={ProductStyle.image_box}>
                           <img
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/BrushMF.png`}
+                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Single-Brush.png`}
                             alt="Picture of the author"
                             width={170}
                             height={300}
@@ -408,6 +453,88 @@ const Products = (props) => {
             </ScrollAnimation>
             <Row>
               <Col lg={6} className={ProductStyle.product_outer}>
+                <ScrollAnimation
+                    animateIn='fadeInUp'
+                    animateOnce={true}
+                    duration={1}
+                    className={ProductStyle.product_main}
+                >
+                  <div>
+                    <Row>
+                      <Col sm={6}>
+                        <div className={ProductStyle.image_box}>
+                          <img
+                              src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/7-Slot-Wall-Mounting-Tool.png`}
+                              alt="Picture of the author"
+                              width={170}
+                              height={300}
+                              className='img-fluid'
+                          />
+                        </div>
+                      </Col>
+                      <Col sm={6}>
+                        <div className={ProductStyle.info_box}>
+                          <h3>Wall Mounted Tool Rack</h3>
+                          <ul>
+                            <li>5-Slot Wall</li>
+                            <li>Mounted Tool Rack – Part<br/>#MFTOOLSPPC1618G</li>
+                          </ul>
+                          <Link href='/'>
+                            <a
+                                title='Aluminum Turning Peels'
+                                className='mf_btn'
+                            >
+                              Explore more
+                            </a>
+                          </Link>
+                        </div>
+                      </Col>
+                    </Row>
+                  </div>
+                </ScrollAnimation>
+              </Col>
+              <Col lg={6} className={ProductStyle.product_outer}>
+                <ScrollAnimation
+                    animateIn='fadeInUp'
+                    animateOnce={true}
+                    duration={1}
+                    className={ProductStyle.product_main}
+                >
+                  <div>
+                    <Row>
+                      <Col sm={6}>
+                        <div className={ProductStyle.image_box}>
+                          <img
+                              src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Pizza-Bubble-Hook.png`}
+                              alt="Picture of the author"
+                              width={170}
+                              height={300}
+                              className='img-fluid'
+                          />
+                        </div>
+                      </Col>
+                      <Col sm={6}>
+                        <div className={ProductStyle.info_box}>
+                          <h3>Wall Mounted Tool Rack</h3>
+                          <ul>
+                            <li>5-Slot Wall</li>
+                            <li>Mounted Tool Rack – Part<br/>#MFTOOLSPPC1618G</li>
+                          </ul>
+                          <Link href='/'>
+                            <a
+                                title='Aluminum Turning Peels'
+                                className='mf_btn'
+                            >
+                              Explore more
+                            </a>
+                          </Link>
+                        </div>
+                      </Col>
+                    </Row>
+                  </div>
+                </ScrollAnimation>
+              </Col>
+              <Col lg={6} className={ProductStyle.product_outer}>
                 <ScrollAnimation 
                   animateIn='fadeInUp'
                   animateOnce={true}  
@@ -419,7 +546,7 @@ const Products = (props) => {
                       <Col sm={6}>
                         <div className={ProductStyle.image_box}>
                           <img
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Hanging-Peel-1.png`}
+                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/7-Slot-Wall-Mounting-Tool.png`}
                             alt="Picture of the author"
                             width={170}
                             height={300}
