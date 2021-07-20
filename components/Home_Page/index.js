@@ -85,22 +85,10 @@ const MainHomePage = props => {
             {/*    highlightData={ highlightData5 } */}
             {/*/>*/}
             {/*<Reliable />*/}
-            {/*<HighLight*/}
-            {/*    highlightData={ highlightData2 } */}
-            {/*/>*/}
             {/*<QodefSlider/>*/}
-            {/*<HighLight*/}
-            {/*    highlightData={highlightData3}*/}
-            {/*/>*/}
             {/*<RotateImage360D/>*/}
-            {/*<HighLight*/}
-            {/*    highlightData={highlightData4}*/}
-            {/*/>*/}
             <VideoGallery/>
             <Features_Services/>
-            {/*<KitchenNearYou/>*/}
-
-            {/*<Service/>*/}
             <FormPage/>
             <LogoSlider/>
             <Footer/>
