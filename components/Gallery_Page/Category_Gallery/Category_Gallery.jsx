@@ -12,7 +12,7 @@ import CategoryGalleryStyle from './Category_Gallery.module.css'
 
 const Category_Gallery = (props) => {
   const[ getAllGalleryList, setGetAllGalleryList ] = useState([])
-  const[ galleryPerPage, setGalleryPerPage ] = useState(1)
+  const[ galleryPerPage, setGalleryPerPage ] = useState(4)
   const[ currentPage, setCurrentPage ] = useState(1)
 
   useEffect(() => {
