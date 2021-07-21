@@ -15,19 +15,23 @@ import {API_HOST} from "../../env";
 const CaseStudiesPage = () => {
     const [data, setData] = useState([])
     const [filter, setFilter] = useState([])
-    const [activeValue, setActiveValue] = useState(0)
+    const [activeValue, setActiveValue] = useState(1)
 
     const Language = [
         {
             id:1,
-            language:'English'
+            language:'All'
         },
         {
             id:2,
-            language:'Italian'
+            language:'English'
         },
         {
             id:3,
+            language:'Italian'
+        },
+        {
+            id:4,
             language:'French'
         },
     ]
@@ -50,7 +54,11 @@ const CaseStudiesPage = () => {
 
     const filterItem = (cat) => {
         const updateData = data && data.length && data.filter((catItem) => {
-            return catItem.language === cat;
+            if(cat === 'All'){
+                return catItem.language
+            }else {
+                return catItem.language === cat;
+            }
         })
 
         setFilter(updateData)
@@ -98,7 +106,7 @@ const CaseStudiesPage = () => {
                 <Row>
                     <Col lg={1}></Col>
                     <Col lg={10} className={CaseStudyStyle.case_study}>
-                        <h2 className='pb-2'>CASE STUDIES</h2>
+                        <h2 className='pb-2'>CASE STUDIES1</h2>
                         <div className={`${CaseStudyStyle.btn_group} btn-group mb-2`} role="group">
                             {Language.map((data,i)=>(
                                 <button type="button" key={data.id}
@@ -112,17 +120,19 @@ const CaseStudiesPage = () => {
                         <Row>
                             {(filter && filter.length) ? filter.map((data, i) => (
                                 <Col lg={3} key={data.id} className='mt-5'>
-                                    <div className={`${CaseStudyStyle.card_design} card`}>
-                                        <img src="https://marraforni.com/wp/wp-content/uploads/2021/06/UB.png"
-                                             className="card-img-top" alt="..."/>
-                                        <div className="card-body">
-                                            <h3 className="card-title">{data.title}</h3>
-                                            <p className="card-text">{data.description}</p>
-                                            {/*<Link href={data.fileUrl} target="_blank">*/}
-                                                <a href={data.fileUrl} target="_blank" className="mf_btn">View Case Study</a>
-                                            {/*</Link>*/}
+                                    <a href={data.fileUrl} target="_blank" >
+                                        <div className={`${CaseStudyStyle.card_design} card`}>
+                                            <img src="https://marraforni.com/wp/wp-content/uploads/2021/06/UB.png"
+                                                 className="card-img-top" alt="..."/>
+                                            <div className="card-body" style={{textAlign: 'center'}}>
+                                                <h3 className="card-title">{data.title}</h3>
+                                                <p className="card-text">{data.description}</p>
+                                                {/*<Link href={data.fileUrl} target="_blank">*/}
+                                                    <a className="mf_btn">View Case Study</a>
+                                                {/*</Link>*/}
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </Col>
                             )) : null}
                             {/*<Col lg={3}>*/}
