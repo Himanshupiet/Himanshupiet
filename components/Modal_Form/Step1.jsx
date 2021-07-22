@@ -209,6 +209,24 @@ const Step1 = (props) => {
                     </DropdownButton>
                     <DropdownButton
                         id="tiles"
+                        title="Tile No"
+                        name='tiles'
+                        variant="secondary"
+                        value={props.tiles}
+                        onSelect={(e) => props.handleOnChange(e, 'tiles')}>
+                        {(tilesShape && tilesShape.length) ? tilesShape.map((item, id) => {
+                            return (
+                                <Dropdown.Item
+                                    eventKey={item}
+                                    key={item}
+                                >
+                                    {item}
+                                </Dropdown.Item>
+                            );
+                        }) : null}
+                    </DropdownButton>
+                    <DropdownButton
+                        id="tiles"
                         title="Tiles"
                         name='tiles'
                         variant="secondary"
@@ -293,7 +311,7 @@ const Step1 = (props) => {
                         />
                     </div>
                 </div>
-                <div className='position-relative'
+                <div className={`${StepStyle.main_image} position-relative`}
                      style={{height: '40%', textAlign: 'center', paddingRight: '380px', marginTop: '-35px'}}>
                     {images &&
                     <img

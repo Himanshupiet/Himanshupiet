@@ -25,6 +25,21 @@
 .form_style input{
     background: rgba( 246, 247, 252, 1.00 )!important;
 }
+@media only screen and (max-width: 768px) {
+    .main_image{
+       padding-right: 344px!important;
+    }
+    .main_btn_section{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .main_btn_section button{
+        margin-top: 20px!important;
+    }
+}
+
 
 .textarea:focus {
     outline: none !important;

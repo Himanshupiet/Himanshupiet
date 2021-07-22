@@ -339,6 +339,11 @@
   padding-bottom: 60px!important;
   height: 750px;
 }
+@media only screen and (max-width: 768px) {
+  .my_model_body{
+    height: 990px!important;
+  }
+}
 .my_model_body input{
   border: 0!important;
   border-radius: 0!important;
