@@ -9,6 +9,7 @@ const BlogSingle = (props) => {
   const router = useRouter()
   const {id} = router.query
   const [data, setData] = useState({})
+    console.log(data)
   useEffect(() => {
     axios.get(`${API_HOST}blog/getBlogDetailsByUniqueURL?alias=false&blogUrl=` + id, {
         headers: {
@@ -28,7 +29,7 @@ const BlogSingle = (props) => {
         title={data && data.title}
         description={data && data.blogDescription}
         keywords = {data && data.metaKeyword}
-        image = {data && data.bannerWebpImageUrl}
+        image = {data && data.bannerImageUrl}
         imageAlt = {data && data.altTag}
       />
       <BlogSingleMain />

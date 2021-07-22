@@ -78,7 +78,7 @@ const Footer = (props) => {
                                         </li>
                                         <li>
                                             <Link href="/press">
-                                                <a title="Press Coverage">Press Coverage</a>
+                                                <a title="Press Coverage">Press & Media </a>
                                             </Link>
                                         </li>
                                         <li>
