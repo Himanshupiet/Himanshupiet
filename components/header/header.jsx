@@ -77,7 +77,7 @@ const Header = (props) => {
     const handleShow = () => setShow(true);
 
     const checkStickyHeader = () => {
-        if (window.innerWidth > 991) {
+        if (window.innerWidth > 991 || window.innerWidth < 991) {
             if (window.scrollY > 150) {
                 setFixedHeaderClass(headerStyle.active_sticky_header);
                 setImage(`${process.env.NEXT_PUBLIC_BASE_PATH}/images/LogoRed.png`)
