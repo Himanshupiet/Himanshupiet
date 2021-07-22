@@ -9,7 +9,6 @@ import Link from "next/link";
 const VideoSlider = (props) => {
     const pressData = props.data
     const AllPressData = pressData && pressData.content && pressData.content.length ? pressData.content : []
-    console.log(AllPressData.slice(0,4))
 
     let VideoSliderSettings = {
         speed: 1500,
