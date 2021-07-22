@@ -122,7 +122,7 @@ const CaseStudiesPage = () => {
                                 <Col lg={3} key={data.id} className='mt-5'>
                                     <a href={data.fileUrl} target="_blank" >
                                         <div className={`${CaseStudyStyle.card_design} card`}>
-                                            <img src="https://marraforni.com/wp/wp-content/uploads/2021/06/UB.png"
+                                            <img src={data.caseStudyImageUrl}
                                                  className="card-img-top" alt="..."/>
                                             <div className="card-body" style={{textAlign: 'center'}}>
                                                 <h3 className="card-title">{data.title}</h3>
