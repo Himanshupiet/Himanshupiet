@@ -14,7 +14,6 @@ const BlogSidebar = (props) => {
     const [tags, setTags] = useState([])
     const [category, setCategory] = useState([])
 
-
     useEffect(() => {
         props.productActions.getAllPost()
     }, [])

@@ -7,7 +7,7 @@ import GetAQuote from "../common/GetAQuote/GetAQuote";
 import FaqStyle from './faq.module.css'
 import BlogSidebarStyle from "../Blog_Page/BlogSidebar/BlogSidebar.module.css";
 import MainHomePageStyle from "../Home_Page/index.module.css";
-import ContactStyle from "../ContactUs_Page/contact.module.css";
+
 
 
 const Faq = () => {

@@ -141,7 +141,6 @@ const BlogContent = (props) => {
                     ))}
                 </ul> : null
             }
-
             <div className={BlogContentStyle.main_section}>
                 <Masonry
                     breakpointCols={breakpointColumnsObj}
