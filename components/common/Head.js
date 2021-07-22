@@ -7,7 +7,9 @@ const Head = props => {
     const {
         title,
         description,
-        keywords
+        keywords,
+        image,
+        imageAlt
     } = props
 
     const {pathname} = useRouter()
@@ -38,7 +40,7 @@ const Head = props => {
             <meta name="title" content={title || ''}/>
             <meta name="keywords" content={keywords || ''}/>
             <meta name="image"
-                  content="https://ares.decipherzone.com/blog-manager/uploads/banner_80ffb230-0ac5-4a62-9b7a-633221db615f.jpg"/>
+                  content={image || ''} alt={imageAlt || ''}/>
             <meta name="description"
                   content={description || ''}/>
             <meta property="og:type" content="article"/>

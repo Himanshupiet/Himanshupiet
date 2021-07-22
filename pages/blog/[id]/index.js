@@ -1,14 +1,35 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import BlogSingleMain from '../../../components/BlogSingle'
 import Head from '../../../components/common/Head'
+import {useRouter} from "next/router";
+import axios from "axios";
+import {API_HOST} from '../../../env'
 
 const BlogSingle = (props) => {
+  const router = useRouter()
+  const {id} = router.query
+  const [data, setData] = useState({})
+  useEffect(() => {
+    axios.get(`${API_HOST}blog/getBlogDetailsByUniqueURL?alias=false&blogUrl=` + id, {
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    }).then((res) => {
+        if (res.status) {
+            setData(res.data)
+        }
+    }).catch((error) => {
+    })
+}, [id])
+
     return(
 			<>
       <Head
-        title='5 Ways MarraStone Revolutionizes The Brick Oven | Marra Froni | Secret For Great Authentic Italian Food'
-        description='Food enthusiasts have been fired up about brick ovens since the beginning of written history. Did you know that sundried bricks are the first known"/>
-        <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large'
+        title={data && data.title}
+        description={data && data.blogDescription}
+        keywords = {data && data.metaKeyword}
+        image = {data && data.bannerWebpImageUrl}
+        imageAlt = {data && data.altTag}
       />
       <BlogSingleMain />
     </>
