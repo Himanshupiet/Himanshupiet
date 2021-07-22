@@ -5,7 +5,6 @@ import {Container, Row, Col} from 'react-bootstrap';
 import GalleryStyle from './index.module.css'
 import Category_Gallery from './Category_Gallery/Category_Gallery';
 import Testimonials from './../ProductSingle/Testimonials/Testimonials';
-import StoryForm from './StoryForm/StoryForm';
 import TopBanner from './TopBanner/TopBanner';
 import MainHomePageStyle from "../Home_Page/index.module.css";
 import GetAQuote from "../common/GetAQuote/GetAQuote";

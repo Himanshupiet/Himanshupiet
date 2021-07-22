@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {Col, Container, Row, Accordion, Card} from 'react-bootstrap'
+import React from 'react';
+import {Col, Container, Row} from 'react-bootstrap'
 import Header from "../header/header";
 import Footer from "../footer/footer";
 import CarrerSingle from './careersingle.module.css'

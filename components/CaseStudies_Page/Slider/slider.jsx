@@ -6,7 +6,6 @@ import SliderStyle from './slider.module.css'
 
 const SliderPage = () => {
     var settings = {
-        // dots: true,
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,

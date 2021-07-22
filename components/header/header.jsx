@@ -3,12 +3,10 @@ import Link from 'next/link';
 import {Col, Container, Modal, Row, Tab, Tabs} from 'react-bootstrap'
 import ActiveLink from './ActiveLink';
 import headerStyle from './header.module.css';
-import CountryList from "../common/GetAQuote/CountryList";
 import {withRouter} from 'next/router'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import * as productActions from '../../actions/product'
-import * as blogActions from "../../actions/blog";
 import MasterForm from "../Modal_Form/MasterForm";
 
 

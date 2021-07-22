@@ -51,7 +51,7 @@ const Head = props => {
             <meta property="og:image:width" content="1024" data-dynamic="true"/>
             <meta property="og:image:height" content="576" data-dynamic="true"/>
             <meta property="og:image"
-                  content="https://ares.decipherzone.com/blog-manager/uploads/banner_80ffb230-0ac5-4a62-9b7a-633221db615f.jpg"/>
+                  content={image}/>
             <meta property="og:description"
                   content={description || ''}/>
             <meta property="og:type" content="article"/>
@@ -60,7 +60,7 @@ const Head = props => {
             <meta name="twitter:site" content="@DecipherZone"/>
             <meta name="twitter:creator" content="@DecipherZone"/>
             <meta name="twitter:image"
-                  content="https://ares.decipherzone.com/blog-manager/uploads/banner_80ffb230-0ac5-4a62-9b7a-633221db615f.jpg"/>
+                  content={image}/>
             <meta name="twitter:title" content={title || ''}/>
             <meta name="twitter:description"
                   content={description || ''}/>

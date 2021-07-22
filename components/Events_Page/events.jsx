@@ -12,6 +12,7 @@ import moment from 'moment';
 const EventsPage = () => {
     const [slider, setSlider] = useState([])
     const [loading, setLoader] = useState(false)
+    console.log('slider ', slider)
 
     useEffect(() => {
         setLoader(true)
@@ -123,10 +124,10 @@ const EventsPage = () => {
                         return (
                             <>
                                 <Col lg={6} className={`${EventStyle.main_img} p-0`}>
-                                    {i % 2 === 0 ? <img style={{height:'700px'}}
-                                            src={data.imagePath}/>
+                                    {i % 2 === 0 ? <img style={{height: '700px'}}
+                                                        src={data.imagePath}/>
                                         :
-                                        <div style={{backgroundColor: '#e31422',height:'700px'}}>
+                                        <div style={{backgroundColor: '#e31422', height: '700px'}}>
                                             <div className={`${EventStyle.card_design}`}>
                                                 <h1>{data.title}</h1>
                                                 <h5>{`${eventTimeFrom}-${eventTimeTo}`}</h5>
@@ -150,7 +151,7 @@ const EventsPage = () => {
                                 </Col>
                                 <Col lg={6} className={`${EventStyle.main_img} p-0`}>
                                     {i % 2 === 0 ?
-                                        <div style={{backgroundColor: '#e31422',height:'700px'}}>
+                                        <div style={{backgroundColor: '#e31422', height: '700px'}}>
                                             <div className={`${EventStyle.card_design}`}>
                                                 <h1>{data.title}</h1>
                                                 <h5>{`${eventTimeFrom}-${eventTimeTo}`}</h5>
@@ -169,7 +170,7 @@ const EventsPage = () => {
                                             </div>
                                         </div>
                                         :
-                                        <img src={data.imagePath} style={{height:'700px'}}/>
+                                        <img src={data.imagePath} style={{height: '700px'}}/>
                                     }
 
                                 </Col>
@@ -178,32 +179,6 @@ const EventsPage = () => {
                     }) : null}
                 </Row>
             </Container>
-            {/*<Container fluid>*/}
-            {/*    <Row>*/}
-            {/*        <Col lg={6} style={{backgroundColor: '#e31422'}}>*/}
-            {/*            <div className={`${EventStyle.card_design}`}>*/}
-            {/*                <h1>RC Show, Toronto, Canada</h1>*/}
-            {/*                <h5>March 1 – 3, 2020</h5>*/}
-            {/*                <p className='text-white'>Marra Forni is excited to participate at RC Show 2020. Come see*/}
-            {/*                    the famous Marra Forni*/}
-            {/*                    Rotator, Electric and Due Bocche brick ovens on display for 3 days in Toronto,*/}
-            {/*                    Canada.</p>*/}
-            {/*                <p>Find out more about the RC Show 2020 here.</p>*/}
-            {/*                <ul className='d-flex pl-0'>*/}
-            {/*                    <li>00<p id="days">Months</p></li>*/}
-            {/*                    <li>00<p id="days">Day</p></li>*/}
-            {/*                    <li>00<p id="days">Hour</p></li>*/}
-            {/*                    <li>00<p id="days">Minute</p></li>*/}
-            {/*                    <li>00<p id="days">Second</p></li>*/}
-            {/*                </ul>*/}
-            {/*                <button className='mt-3 form-control btn-dark text-white'>Request Private Demo</button>*/}
-            {/*            </div>*/}
-            {/*        </Col>*/}
-            {/*        <Col lg={6} className={`${EventStyle.main_img} p-0`}>*/}
-            {/*            <img src='https://marraforni.com/wp/wp-content/uploads/2020/02/PIC_7194-scaled.jpg'/>*/}
-            {/*        </Col>*/}
-            {/*    </Row>*/}
-            {/*</Container>*/}
             <Container fluid className={`${EventStyle.heading_style} p-5`}>
                 <Row>
                     <Col lg={8} className='pl-5'>

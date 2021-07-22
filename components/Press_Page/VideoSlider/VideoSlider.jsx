@@ -14,6 +14,7 @@ const customStyles = {
         bottom: 'auto',
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
+        width: '62%',
     },
 };
 
@@ -65,7 +66,6 @@ const VideoSlider = (props) => {
     };
 
     const openModal = (url) => {
-        debugger
         setOpen(true);
         setYoutubeUrl(url)
     }
@@ -90,7 +90,8 @@ const VideoSlider = (props) => {
                                                 <iframe className="embed-responsive-item"
                                                     src={data.videoUrl}
                                                     width='500'
-                                                    height='250'></iframe>
+                                                    height='250'
+                                                ></iframe>
                                             </div>
 
                                             <div className={VideoSliderStyle.icon_overlay}>
@@ -138,11 +139,11 @@ const VideoSlider = (props) => {
                 >
                     <Row classNames={VideoSliderStyle.close_Button}>
                         <button type="button" onClick={closeModal} class="close" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+                            <span aria-hidden="true" className={`${VideoSliderStyle.cross} text-white`}>&times;</span>
                         </button>
                     </Row>
 
-                    <iframe width="420" height="345" src={youtubeUrl} frameborder="0" allowfullscreen></iframe>
+                    <iframe width="790" height="345" src={youtubeUrl} frameborder="0" allowfullscreen></iframe>
                 </Modal>
             </Row>
         </Container>

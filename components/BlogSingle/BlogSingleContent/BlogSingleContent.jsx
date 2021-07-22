@@ -1,19 +1,18 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import {Row, Col} from 'react-bootstrap'
 import {faFacebookF, faLinkedinIn, faPinterestP, faTwitter} from '@fortawesome/free-brands-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import BlogSingleContentStyle from './BlogSingleContent.module.css'
 import Link from 'next/link';
-import axios from "axios";
-import {API_HOST} from "../../../env";
 
 const BlogSingleContent = (props) => {
-    const {title, blogData, metaKeyword, altTag, createdBy, renderedHtmlPreview,tags,blogDescription,bannerWebpImageUrl} = props.data;
+    const {title, blogData, metaKeyword, altTag, createdBy, tags, blogDescription, bannerWebpImageUrl} = props.data;
 
     return (
         <>
             <div className={BlogSingleContentStyle.feature_image}>
-                <img alt={altTag} src={bannerWebpImageUrl} className='img-fluid' style={{objectFit:'cover',height:'500px'}}/>
+                <img alt={altTag} src={bannerWebpImageUrl} className='img-fluid'
+                     style={{objectFit: 'cover', height: '500px'}}/>
             </div>
             <div className={BlogSingleContentStyle.title_box}>
                 <h2>{title}</h2>
@@ -22,7 +21,7 @@ const BlogSingleContent = (props) => {
                 </div>
             </div>
             <div className={BlogSingleContentStyle.content_box}>
-                    <div dangerouslySetInnerHTML={{__html: blogData}}></div>
+                <div dangerouslySetInnerHTML={{__html: blogData}}></div>
             </div>
             <div className={BlogSingleContentStyle.social_box}>
                 <Row>
