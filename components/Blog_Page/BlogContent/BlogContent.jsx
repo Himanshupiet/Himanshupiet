@@ -31,13 +31,17 @@ const BlogContent = (props) => {
             const allBlogs = props.blog.blog.result.content;
             setBlog(props.blog.blog.result.content)
             if (!name && !tag) {
-                setFilter(allBlogs)
+                setFilter(allBlogs.filter(val => val.status === 'ACTIVE'))
+                setActiveValue(0)
             } else {
                 const updateData = props.blog.blog.result.content.filter((catItem) => {
                     return catItem.category === name || catItem.tags === tag;
                 })
-                setFilter(updateData)
-                setActiveValue(queryIndex)
+                setFilter(
+                    router.query.queryIndex ? updateData && updateData.length && updateData.filter(val => val.status === 'ACTIVE')
+                        :allBlogs.filter(val => val.status === 'ACTIVE')
+                )
+                setActiveValue(router.query.queryIndex ? queryIndex: 0)
             }
         }
     }, [props.blog])
@@ -60,7 +64,7 @@ const BlogContent = (props) => {
         const updateData = blog && blog.length && blog.filter((catItem) => {
             return catItem.category === cat;
         })
-        setFilter(updateData)
+        setFilter(updateData && updateData.length && updateData.filter(val => val.status === 'ACTIVE'))
     }
 
     const convertDataToHtml = (blocks) => {
@@ -112,7 +116,6 @@ const BlogContent = (props) => {
         </div>
     )) : null
 
-
     return (
         <Container fluid className='mb-5 mt-5'>
             {(category && category.length) ?
@@ -121,7 +124,7 @@ const BlogContent = (props) => {
                         <button
                             className={activeValue == 0 ? BlogContentStyle.activecatfilter : null}
                             onClick={() => {
-                                setFilter(blog)
+                                setFilter(blog.filter(val => val.status === 'ACTIVE'))
                                 setActiveValue(0)
                             }}>All
                         </button>
