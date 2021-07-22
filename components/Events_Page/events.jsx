@@ -6,6 +6,7 @@ import EventStyle from './events.module.css'
 import axios from "axios";
 import {API_HOST} from "../../env";
 import Loader from "../Loading/loading";
+import moment from 'moment';
 
 
 const EventsPage = () => {
@@ -96,6 +97,30 @@ const EventsPage = () => {
             <Container fluid>
                 <Row>
                     {(slider && slider.length) ? slider.map((data, i) => {
+                        var eventStart = moment(data.eventStartedTo)
+                        var eventEnd =  moment(data.eventStartedFrom)
+                        
+                        const eventTimeFrom = data.eventStartedFrom && `${eventStart.format('MMMM DD YYYY')} `
+                        const eventTimeTo = data.eventStartedTo && `${eventEnd.format('MMMM DD YYYY')}`
+                       
+                        var years = eventStart.diff(eventEnd, 'year');
+                        eventEnd.add(years, 'years');
+
+                        var months = eventStart.diff(eventEnd, 'months');
+                        eventEnd.add(months, 'months');
+
+                        var days = eventStart.diff(eventEnd, 'days');
+                        eventEnd.add(days, 'days')
+
+                        var hours = eventStart.diff(eventEnd, 'hours');
+                        eventEnd.add(hours, 'hours')
+
+                        var minutes = eventStart.diff(eventEnd, 'minutes');
+                        eventEnd.add(minutes, 'minutes')
+
+                        var seconds = eventStart.diff(eventEnd, 'seconds');
+                        eventEnd.add(seconds, 'seconds')
+
                         return (
                             <>
                                 <Col lg={6} className={`${EventStyle.main_img} p-0`}>
@@ -105,15 +130,15 @@ const EventsPage = () => {
                                         <div style={{backgroundColor: '#e31422', height: '700px'}}>
                                             <div className={`${EventStyle.card_design}`}>
                                                 <h1>{data.title}</h1>
-                                                <h5>March 1 – 3, 2020</h5>
+                                                <h5>{`${eventTimeFrom}-${eventTimeTo}`}</h5>
                                                 <p className='text-white'>{data.message}</p>
                                                 <p>Find out more about the RC Show 2020 here.</p>
                                                 <ul className='d-flex pl-0'>
-                                                    <li>00<p id="days">Months</p></li>
-                                                    <li>00<p id="days">Day</p></li>
-                                                    <li>00<p id="days">Hour</p></li>
-                                                    <li>00<p id="days">Minute</p></li>
-                                                    <li>00<p id="days">Second</p></li>
+                                                    <li>{months}<p id="days">Months</p></li>
+                                                    <li>{days}<p id="days">Day</p></li>
+                                                    <li>{hours}<p id="days">Hour</p></li>
+                                                    <li>{minutes}<p id="days">Minute</p></li>
+                                                    <li>{seconds}<p id="days">Second</p></li>
                                                 </ul>
                                                 <button className='mt-3 form-control btn-dark text-white'>Request
                                                     Private
@@ -129,15 +154,15 @@ const EventsPage = () => {
                                         <div style={{backgroundColor: '#e31422', height: '700px'}}>
                                             <div className={`${EventStyle.card_design}`}>
                                                 <h1>{data.title}</h1>
-                                                <h5>March 1 – 3, 2020</h5>
+                                                <h5>{`${eventTimeFrom}-${eventTimeTo}`}</h5>
                                                 <p className='text-white'>{data.message}</p>
                                                 <p>Find out more about the RC Show 2020 here.</p>
                                                 <ul className='d-flex pl-0'>
-                                                    <li>00<p id="days">Months</p></li>
-                                                    <li>00<p id="days">Day</p></li>
-                                                    <li>00<p id="days">Hour</p></li>
-                                                    <li>00<p id="days">Minute</p></li>
-                                                    <li>00<p id="days">Second</p></li>
+                                                    <li>{months}<p id="days">Months</p></li>
+                                                    <li>{days}<p id="days">Day</p></li>
+                                                    <li>{hours}<p id="days">Hour</p></li>
+                                                    <li>{minutes}<p id="days">Minute</p></li>
+                                                    <li>{seconds}<p id="days">Second</p></li>
                                                 </ul>
                                                 <button className='mt-3 form-control btn-dark text-white'>Request
                                                     Private Demo
