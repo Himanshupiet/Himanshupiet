@@ -478,8 +478,11 @@ const FiltersResult = (props) => {
                     return(
                         <Col lg={4} md={6} key={i}>
                             <div className={ResultStyle.blog_inner}>
-                                <img src={`https://marraforni.com/wp/wp-content/uploads/2021/06/UB.png`} width="400"
-                                     height="500" className="img-fluid" alt=""/>
+                                <img src={caseStudy.caseStudyImageUrl}
+                                     width="400"
+                                     height="500"
+                                     className="img-fluid"
+                                     alt="caseStudy.caseStudyImageUrl"/>
                                 <div className={ResultStyle.blog_info}>
                                     <h3 title={caseStudy.title}>{caseStudy.title.substr(0, 50)}{caseStudy.title.length > 50 && "..."}</h3>
                                     <p>{caseStudy.description.substr(0, 100)}{caseStudy.description.length > 100 && "..."}</p>

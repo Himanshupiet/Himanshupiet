@@ -14,15 +14,15 @@ const VideoSlider = (props) => {
         speed: 1500,
         arrows: false,
         dots: false,
-        slidesToShow: 7,
-        slidesToScroll: 7,
+        slidesToShow: 4,
+        slidesToScroll: 4,
         autoplay: true,
         infinite: true,
         responsive: [
             {
                 breakpoint: 1400,
                 settings: {
-                    slidesToShow: 5
+                    slidesToShow: 4
                 }
             },
             {
@@ -58,8 +58,9 @@ const VideoSlider = (props) => {
                 <Col lg={10}>
                     <h2>Videos</h2>
                     <Slider {...VideoSliderSettings}>
-                        {(AllPressData && AllPressData.length) ? AllPressData.map((data, i) => (
-                            <div key={data.id}>
+                        {(AllPressData && AllPressData.length) ? AllPressData.map((data, i) => {
+                            debugger
+                          return ( <div key={data.id}>
                                 <div className={VideoSliderStyle.slider_inner_main}>
                                     <Link href={data.videoUrl}>
                                         <a title={data.title}>
@@ -83,8 +84,8 @@ const VideoSlider = (props) => {
                                         </a>
                                     </Link>
                                 </div>
-                            </div>
-                        )) : null}
+                            </div>)
+                        }) : null}
                         {/*<div>*/}
                         {/*  <div className={VideoSliderStyle.slider_inner_main}>*/}
                         {/*    <div className={VideoSliderStyle.slider_inner}>*/}
