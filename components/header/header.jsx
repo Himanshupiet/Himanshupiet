@@ -350,7 +350,7 @@ const Header = (props) => {
                                         className={`${headerStyle.sub_menu} ${mobileBlogOpen ? headerStyle.sub_menu_active : ""}`}>
                                         <ul>
                                             <li>
-                                                <Link href="/">
+                                                <Link href="/case-studies">
                                                     <a title="Case Studies"><span>Case Studies</span></a>
                                                 </Link>
                                             </li>
