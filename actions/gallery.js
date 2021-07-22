@@ -20,3 +20,23 @@ export const getAllGallery = () => {
             })
     }
 }
+
+export const getAllSegmentGallery = () => {
+    return dispatch => {
+        const API_URL = `${API_HOST}gallery/getAllGalleryByMarketSegments
+`
+
+        return axios({
+            url: API_URL,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            data: {},
+            method: 'get'
+        })
+            .then(response =>  response.data)
+            .catch(error => {
+                return error
+            })
+    }
+}
