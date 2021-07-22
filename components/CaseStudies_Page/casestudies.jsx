@@ -8,9 +8,6 @@ import CaseStudyStyle from './studies.module.css'
 import SliderPage from "./Slider/slider";
 import axios from "axios";
 import {API_HOST} from "../../env";
-// import Link from "next/link";
-// import BlogContentStyle from "../Blog_Page/BlogContent/BlogContent.module.css";
-
 
 const CaseStudiesPage = () => {
     const [data, setData] = useState([])
@@ -19,23 +16,22 @@ const CaseStudiesPage = () => {
 
     const Language = [
         {
-            id:1,
-            language:'All'
+            id: 1,
+            language: 'All'
         },
         {
-            id:2,
-            language:'English'
+            id: 2,
+            language: 'English'
         },
         {
-            id:3,
-            language:'Italian'
+            id: 3,
+            language: 'Italian'
         },
         {
-            id:4,
-            language:'French'
+            id: 4,
+            language: 'French'
         },
     ]
-
 
     useEffect(() => {
         axios.get(`${API_HOST}case-study/getAll`, {
@@ -54,9 +50,9 @@ const CaseStudiesPage = () => {
 
     const filterItem = (cat) => {
         const updateData = data && data.length && data.filter((catItem) => {
-            if(cat === 'All'){
+            if (cat === 'All') {
                 return catItem.language
-            }else {
+            } else {
                 return catItem.language === cat;
             }
         })
@@ -108,19 +104,20 @@ const CaseStudiesPage = () => {
                     <Col lg={10} className={CaseStudyStyle.case_study}>
                         <h2 className='pb-2'>CASE STUDIES1</h2>
                         <div className={`${CaseStudyStyle.btn_group} btn-group mb-2`} role="group">
-                            {Language.map((data,i)=>(
+                            {Language.map((data, i) => (
                                 <button type="button" key={data.id}
-                                   className={`${CaseStudyStyle.left_btn} btn btn-outline-danger ${i + 1 == activeValue ? `${CaseStudyStyle.btn_style}` : ''}`} onClick={() => {
-                                    filterItem(`${data.language}`)
-                                    setActiveValue(i + 1)
-                                }}>{data.language}
-                            </button>
+                                        className={`${CaseStudyStyle.left_btn} btn btn-outline-danger ${i + 1 == activeValue ? `${CaseStudyStyle.btn_style}` : ''}`}
+                                        onClick={() => {
+                                            filterItem(`${data.language}`)
+                                            setActiveValue(i + 1)
+                                        }}>{data.language}
+                                </button>
                             ))}
                         </div>
                         <Row>
                             {(filter && filter.length) ? filter.map((data, i) => (
                                 <Col lg={3} key={data.id} className='mt-5'>
-                                    <a href={data.fileUrl} target="_blank" >
+                                    <a href={data.fileUrl} target="_blank">
                                         <div className={`${CaseStudyStyle.card_design} card`}>
                                             <img src={data.caseStudyImageUrl}
                                                  className="card-img-top" alt="..."/>
@@ -128,25 +125,13 @@ const CaseStudiesPage = () => {
                                                 <h3 className="card-title">{data.title}</h3>
                                                 <p className="card-text">{data.description}</p>
                                                 {/*<Link href={data.fileUrl} target="_blank">*/}
-                                                    <a className="mf_btn">View Case Study</a>
+                                                <a className="mf_btn">View Case Study</a>
                                                 {/*</Link>*/}
                                             </div>
                                         </div>
                                     </a>
                                 </Col>
                             )) : null}
-                            {/*<Col lg={3}>*/}
-                            {/*    <div className={`${CaseStudyStyle.card_design} card`}>*/}
-                            {/*        <img src="https://marraforni.com/wp/wp-content/uploads/2021/06/UB.png"*/}
-                            {/*             className="card-img-top" alt="..."/>*/}
-                            {/*        <div className="card-body">*/}
-                            {/*            <h3 className="card-title">Urban Bricks</h3>*/}
-                            {/*            <p className="card-text">Pandemic Converts Temporary Dining Alternative to*/}
-                            {/*                Permanent.</p>*/}
-                            {/*            <a href="#" className="mf_btn">View Case Study</a>*/}
-                            {/*        </div>*/}
-                            {/*    </div>*/}
-                            {/*</Col>*/}
                         </Row>
                     </Col>
                     <Col lg={1}></Col>

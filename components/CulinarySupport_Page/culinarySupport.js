@@ -4,11 +4,9 @@ import Header from "../header/header";
 import Footer from "../footer/footer";
 import MainHomePageStyle from "../Home_Page/index.module.css";
 import GetAQuote from "../common/GetAQuote/GetAQuote";
-import TermsConditionsStyle from "../TermsAndConditions/TermsAndConditionsContent/TermsAndConditionsContent.module.css";
 import KitchenNearYou from "../ProductSingle/KitchenNearYou/KitchenNearYou";
 import VideoGallery from "../Home_Page/VideoGallery/VideoGallery";
 import CulinaryStyle from './culinary.module.css'
-import ContactStyle from "../ContactUs_Page/contact.module.css";
 
 const CulinarySupport = (props) => {
     return (

@@ -57,7 +57,6 @@ const BlogSingleMain = (props) => {
         }
     }
 
-
     return (
         <>
             <Header/>

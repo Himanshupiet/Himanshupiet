@@ -22,6 +22,7 @@ const AboutUsMain = (props) => {
 
         })
     }, [])
+
     return (
         <>
             <Header/>
