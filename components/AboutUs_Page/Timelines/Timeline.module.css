@@ -5,17 +5,27 @@
 .heading{
     margin: -36px 0 20px 0!important;
 }
-/*.middle_img{*/
-/*    background-image : linear-gradient(rgba(99, 99, 99, 0.7)), url('../../../public/images/Marra-Distribition.png');*/
-/*    height: 1000px;*/
-/*    width: 100%;*/
-/*    background-repeat: no-repeat;*/
-/*    background-size: cover;*/
-/*    background-position: center;*/
-/*    opacity: 10;*/
-/*    object-fit: contain;*/
-/*}*/
-/*.middle_img p{*/
-/*    padding-top: 800px;*/
-/*    color: white;*/
-/*}*/
+.our_mission h2{
+    /*text-align: center;*/
+    margin-bottom: 30px;
+    color: #e31422;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 30px;
+    line-height: 1.5em;
+    letter-spacing: -.8px;
+}
+.outer_section{
+    margin: 100px 0px 50px 0px;
+}
+.side_video{
+    border: none!important;
+}
+.side_video_content{
+    background: #1d1d1d;
+}
+.our_mission_heading h5{
+    color: #e31422!important;
+    font-size: 19px;
+    font-weight: 500;
+}

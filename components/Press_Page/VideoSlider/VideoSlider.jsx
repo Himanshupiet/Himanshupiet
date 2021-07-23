@@ -107,27 +107,6 @@ const VideoSlider = (props) => {
                                 </div>
                             </div>
                         )) : null}
-                        {/*<div>*/}
-                        {/*  <div className={VideoSliderStyle.slider_inner_main}>*/}
-                        {/*    <div className={VideoSliderStyle.slider_inner}>*/}
-                        {/*      <img alt='Videos' width='500' height='250' src={'https://mondrian.mashable.com/uploads%252Fcard%252Fimage%252F1624444%252Ffec3bb46-a019-4545-957e-ad25f777275f.png%252F400x225.png'} className='img-fluid' />*/}
-                        {/*      <div className={VideoSliderStyle.icon_overlay}>*/}
-                        {/*        <span><i className="bx bx-play-circle"></i></span>*/}
-                        {/*      </div>*/}
-                        {/*    </div>*/}
-                        {/*    <h6>The Daily Show</h6>*/}
-                        {/*  </div>*/}
-                        {/*</div>*/}
-                        {/*  <div className={VideoSliderStyle.slider_inner_main}>*/}
-                        {/*    <div className={VideoSliderStyle.slider_inner}>*/}
-                        {/*      <img alt='Videos' width='500' height='250' src={'https://mondrian.mashable.com/uploads%252Fcard%252Fimage%252F1624444%252Ffec3bb46-a019-4545-957e-ad25f777275f.png%252F400x225.png'} className='img-fluid' />*/}
-                        {/*      <div className={VideoSliderStyle.icon_overlay}>*/}
-                        {/*        <span><i className="bx bx-play-circle"></i></span>*/}
-                        {/*      </div>*/}
-                        {/*    </div>*/}
-                        {/*    <h6>Rai Italia</h6>*/}
-                        {/*  </div>*/}
-                        {/*</div>*/}
                     </Slider>
                 </Col>
                 <Col lg={1}></Col>

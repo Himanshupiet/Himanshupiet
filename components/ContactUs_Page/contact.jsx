@@ -29,7 +29,7 @@ const Contact = () => {
                                 <div className='d-flex pl-3'>
                                     <i className="fa fa-desktop fa-4x align-self-center"></i>
                                     <div className='align-self-center'>
-                                        <Link href={`${process.env.NEXT_PUBLIC_BASE_PATH}/culinary-support`}>
+                                        <Link href='/culinary-support'>
                                             <a title='Culinary Support'>
                                                 <h3>Curlinary Support</h3>
                                             </a>
@@ -53,7 +53,7 @@ const Contact = () => {
                                 <div className='d-flex pl-3'>
                                     <i className="fa fa-user fa-4x align-self-center"></i>
                                     <div className='align-self-center'>
-                                        <Link href={`${process.env.NEXT_PUBLIC_BASE_PATH}/tech-support`}>
+                                        <Link href='/tech-support'>
                                             <a title='Culinary Support'>
                                                 <h3>Tech Support</h3>
                                             </a>
@@ -77,7 +77,7 @@ const Contact = () => {
                                 <div className='d-flex pl-3'>
                                     <i className="fa fa-magic fa-4x align-self-center"></i>
                                     <div className='align-self-center'>
-                                        <Link href={`${process.env.NEXT_PUBLIC_BASE_PATH}/sales-support`}>
+                                        <Link href='/sales-support'>
                                             <a title='Sales Support'>
                                                 <h3>Sales of Support</h3>
                                             </a>
