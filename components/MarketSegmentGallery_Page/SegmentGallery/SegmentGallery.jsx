@@ -14,7 +14,7 @@ import CategoryGalleryStyle from "../../Gallery_Page/Category_Gallery/Category_G
 const SegmentGallery = (props) => {
   const[segmentGallery, setSegmentGallery] = useState([])
   const[allSegmentGallery, setAllSegmentGallery] = useState([])
-  const[ galleryPerPage, setGalleryPerPage ] = useState(1)
+  const[ galleryPerPage, setGalleryPerPage ] = useState(4)
   const[ currentPage, setCurrentPage ] = useState(1)
 
   useEffect(() => {
