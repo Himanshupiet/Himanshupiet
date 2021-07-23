@@ -12,6 +12,7 @@ import axios from "axios";
 import {API_HOST} from "../../../env";
 import Masonry from 'react-masonry-css'
 
+import Loader from "../../Loading/loading";
 const BlogContent = (props) => {
     const router = useRouter()
     const tag = router.query.tag
@@ -21,9 +22,14 @@ const BlogContent = (props) => {
     const [filter, setFilter] = useState([])
     const [category, setCategory] = useState([])
     const [activeValue, setActiveValue] = useState(0)
-
+    const [loading, setLoader] = useState(false)
     useEffect(() => {
-        props.productActions.getAllPost()
+        setLoader(true)
+        props.productActions.getAllPost().then(() => {
+            setLoader(false)
+        }).catch(()=>{
+            setLoader(false)
+        })
     }, [])
 
     useEffect(() => {
@@ -117,7 +123,10 @@ const BlogContent = (props) => {
     )) : null
 
     return (
+    <>
+        <Loader data={loading}/>
         <Container fluid className='mb-5 mt-5'>
+              
             {(category && category.length) ?
                 <ul className={BlogContentStyle.catfilter}>
                     <li>
@@ -151,7 +160,8 @@ const BlogContent = (props) => {
                 </Masonry>
             </div>
         </Container>
-    )
+    </> 
+  )
 }
 const mapStateToProps = ({blog}) => {
     return {blog}

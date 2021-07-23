@@ -17,13 +17,15 @@ import Testimonials from '../../../components/ProductSingle/Testimonials/Testimo
 import {useRouter} from "next/router";
 import axios from "axios";
 import {API_HOST} from "../../../env";
-
+import Loader from "../../../components/Loading/loading";
 
 
 const SingleProduct = (props) => {
     const router = useRouter()
     const {id} = router.query
     const [data, setData] = useState(false)
+
+    const [loading, setLoader] = useState(false)
     console.log(data)
     let highlightData = {
         Heading: '',
@@ -35,15 +37,17 @@ const SingleProduct = (props) => {
 		}
     }
     useEffect(() => {
+        setLoader(true)
         axios.get(`${API_HOST}category/getCategoryByName?name=`+ id, {headers:{
                 'Content-Type': 'application/json',
             }
         }).then((res)=>{
+            setLoader(false)
             if(res.status){
                 setData(res.data)
             }
         }).catch((error) => {
-
+            setLoader(false)
         })
     }, [id])
     return(
@@ -53,6 +57,7 @@ const SingleProduct = (props) => {
                 description='Marra Forni offers a one-stop-shop for restaurant oven and oven equipment and appliances and other foodservice businesses. Our innovative solutions range from'
             />
             <Header />
+            <Loader data={loading}/>
             <TopBanner data={data} />
             <Overview data={data}/>
             <Modals />

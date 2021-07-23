@@ -4,13 +4,15 @@ import Head from '../../../components/common/Head'
 import {useRouter} from "next/router";
 import axios from "axios";
 import {API_HOST} from '../../../env'
+import Loader from "../../../components/Loading/loading";
 
 const BlogSingle = (props) => {
   const router = useRouter()
   const {id} = router.query
   const [data, setData] = useState({})
-    console.log(data)
+  const [loading, setLoader] = useState(false)
   useEffect(() => {
+    setLoader(true)
     axios.get(`${API_HOST}blog/getBlogDetailsByUniqueURL?alias=false&blogUrl=` + id, {
         headers: {
             'Content-Type': 'application/json',
@@ -19,7 +21,9 @@ const BlogSingle = (props) => {
         if (res.status) {
             setData(res.data)
         }
+        setLoader(false)
     }).catch((error) => {
+      setLoader(false)
     })
 }, [id])
 
@@ -29,9 +33,10 @@ const BlogSingle = (props) => {
         title={data && data.title}
         description={data && data.blogDescription}
         keywords = {data && data.metaKeyword}
-        image = {data && data.bannerImageUrl}
+        image = {data && data.bannerWebpImageUrl}
         imageAlt = {data && data.altTag}
       />
+       <Loader data={loading}/>
       <BlogSingleMain />
     </>
     )

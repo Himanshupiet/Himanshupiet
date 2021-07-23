@@ -11,12 +11,19 @@ import {Col, Container, Row} from 'react-bootstrap';
 import ProductStyle from './Products.module.css';
 import ScrollAnimation from "react-animate-on-scroll";
 
+import Loader from "../Loading/loading";
 
 const Products = (props) => {
     const [product, setProduct] = useState([])
+    const [loading, setLoader] = useState(false)
 
     useEffect(() => {
-        props.productActions.getAllProduct()
+        setLoader(true)
+        props.productActions.getAllProduct().then((res) =>{
+            setLoader(false)
+        }).catch((error) => {
+            setLoader(false)
+        })
     }, [])
 
     useEffect(() => {
@@ -24,7 +31,9 @@ const Products = (props) => {
     }, [props.product])
 
     return (
+        
         <section className={ProductStyle.section_outer}>
+             <Loader data={loading}/>
             <Container fluid>
                 <Row>
                     <Col lg={1}></Col>
