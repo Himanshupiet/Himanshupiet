@@ -8,7 +8,6 @@ import OurTeamStyle from './OurTeam.module.css'
 const OurTeam = (props) => {
     const teamData = props.userData
     const ourTeam = teamData.content
-    console.log('our team ', ourTeam)
 
     return (
         <Container fluid>

@@ -4,6 +4,11 @@
   padding-bottom: 80px;
   text-align: center;
 }
+.overlay{
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+}
 .gallery_outer_main{
   padding: 50px 0;
 }
