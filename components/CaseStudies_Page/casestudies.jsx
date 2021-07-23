@@ -8,6 +8,7 @@ import CaseStudyStyle from './studies.module.css'
 import SliderPage from "./Slider/slider";
 import axios from "axios";
 import {API_HOST} from "../../env";
+import ModalImage from "react-modal-image";
 
 const CaseStudiesPage = () => {
     const [data, setData] = useState([])
@@ -146,8 +147,11 @@ const CaseStudiesPage = () => {
                         <Row>
                             <Col lg={3}>
                                 <div className="card border-0">
-                                    <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Roma-2.jpg`}
-                                         className="card-img-top" alt="..."/>
+                                    <ModalImage
+                                        alt="Here is the caption"
+                                        small={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Roma-2.jpg`}
+                                        large={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Roma-2.jpg`}
+                                    />
                                     <div className="card-body">
                                         <h3 className="card-title">STADIUM & ARENA</h3>
                                     </div>
@@ -155,9 +159,11 @@ const CaseStudiesPage = () => {
                             </Col>
                             <Col lg={3}>
                                 <div className="card border-0">
-                                    <img
-                                        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Moxy-Chelsea-Marriott.png`}
-                                        className="card-img-top" alt="..."/>
+                                    <ModalImage
+                                        alt="Here is the caption"
+                                        small={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Moxy-Chelsea-Marriott.png`}
+                                        large={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Moxy-Chelsea-Marriott.png`}
+                                    />
                                     <div className="card-body">
                                         <h3 className="card-title">HOTEL AND RESORT</h3>
                                     </div>
@@ -165,9 +171,11 @@ const CaseStudiesPage = () => {
                             </Col>
                             <Col lg={3}>
                                 <div className="card border-0">
-                                    <img
-                                        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Great-Trailer-for-Campus.jpg`}
-                                        className="card-img-top" alt="..."/>
+                                    <ModalImage
+                                        alt="Here is the caption"
+                                        small={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Great-Trailer-for-Campus.jpg`}
+                                        large={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Great-Trailer-for-Campus.jpg`}
+                                    />
                                     <div className="card-body">
                                         <h3 className="card-title">COUNTRY CLUB</h3>
                                     </div>
@@ -175,9 +183,11 @@ const CaseStudiesPage = () => {
                             </Col>
                             <Col lg={3}>
                                 <div className="card border-0">
-                                    <img
-                                        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Great-Trailer-for-Campus.jpg`}
-                                        className="card-img-top" alt="..."/>
+                                    <ModalImage
+                                        alt="Here is the caption"
+                                        small={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Great-Trailer-for-Campus.jpg`}
+                                        large={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Great-Trailer-for-Campus.jpg`}
+                                    />
                                     <div className="card-body">
                                         <h3 className="card-title">CORPORATE DINING</h3>
                                     </div>

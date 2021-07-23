@@ -21,10 +21,15 @@ const OurTeam = (props) => {
                             data.role !== 'Admin' ?
                                 <Col xl={3} lg={4} sm={6} key={data.id}>
                                     <div className={OurTeamStyle.team_outer}>
-                                        <img className='img-fluid'
-                                             src={data.imageUrl}
-                                             alt='Our Team' width='1500' height='1500'/>
-
+                                        {data.imageUrl ?
+                                            <img className='img-fluid'
+                                                 src={data.imageUrl}
+                                                 alt='Our Team' width='1500' height='1500'/>
+                                            :
+                                            <img className='img-fluid'
+                                                 src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/img_avatar.png`}
+                                                 alt='Our Team' width='1500' height='1500'/>
+                                        }
                                         <div className={OurTeamStyle.team_overlay}>
                                             <h4>{data.firstName}</h4>
                                             <p>{data.designation}</p>
