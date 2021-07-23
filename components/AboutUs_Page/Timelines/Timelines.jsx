@@ -144,9 +144,9 @@ const Timelines = (props) => {
                                     <img className="timeline__img"
                                          src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Marra-Distribition.png`}
                                          alt='About Us' width='1500' height='1500'/>
-                                    <p className="timeline__content-desc">In 1999 the brother entre’ into the pizza oven
-                                        business began with a client request to source an Authentic Italian Brick
-                                        Oven. </p>
+                                    <p className="timeline__content-desc">Marra Forni currently markets and supports
+                                        products in 5 continents and 23 countries
+                                        worldwide.</p>
                                 </div>
                             </div>
                         </div>
@@ -154,17 +154,130 @@ const Timelines = (props) => {
                     <Col lg={1}></Col>
                 </Row>
             </Container>
-            {/*<Container fluid className={`${TimelineStyle.middle_img}`}>*/}
-            {/*    <Row>*/}
-            {/*        <Col lg={2}></Col>*/}
-            {/*        <Col lg={7}>*/}
-            {/*            <div>*/}
-            {/*                <p>Marra Forni currently markets and supports products in 5 continents and 23 countries*/}
-            {/*                    worldwide. </p>*/}
-            {/*            </div>*/}
-            {/*        </Col>*/}
-            {/*    </Row>*/}
-            {/*</Container>*/}
+            <Container className={`${TimelineStyle.our_mission}`}>
+                <Row>
+                    {/*<Col lg={1}></Col>*/}
+                    <Col lg={12} className={TimelineStyle.outer_section}>
+                        {/*<h2>Our Mission</h2>*/}
+                        <Row>
+                            <Col lg={6}>
+                                <div className={`${TimelineStyle.mission_statement}`}>
+                                    <h2>OUR MISSION</h2>
+                                    <p>At Marra Forni, we value each of our customers individually, with respect and
+                                        gratitude. We carefully list
+                                        en to our customer’s needs so that our understanding may result in delivering
+                                        the best possible customer experience and innovative customized solution,
+                                        providing inspiration and growth in their business.
+                                    </p>
+                                    <p>At Marra Forni, our family of employees is what defines us in the global
+                                        marketplace. We recognize the significant individual talents and unique
+                                        contributions that each of our employees provides in making our products highly
+                                        sought after, respected and valued in the foodservice industry.
+                                    </p>
+                                    <p>At Marra Forni, we are all as individuals and as an organization, committed to
+                                        operating and managing our business responsibly and profitably our Owners and
+                                        Shareholders, allowing for continued growth and reinvestment in our
+                                        business.
+                                    </p>
+                                </div>
+                            </Col>
+                            <Col lg={6}>
+                                <div className={`${TimelineStyle.side_video} card`}>
+                                    <iframe width="531" height="360" src="https://www.youtube.com/embed/ZspT1T45rIQ"
+                                            title="YouTube video player" frameBorder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen></iframe>
+                                    <div className={`${TimelineStyle.mission_statement} mt-3`}>
+                                        <h2>OUR VISION</h2>
+                                        <p>To partner with and inspire our customers across the world by providing
+                                            innovative brick oven cooking solutions while maintaining our Artisan roots.
+                                        </p>
+                                    </div>
+                                    {/*<div className={`${TimelineStyle.side_video_content} card-body text-center`}>*/}
+                                    {/*    <p className="card-text text-white">Subscribe To Our YouTube Channel</p>*/}
+                                    {/*    <button href="#" className="mf_btn">Youtube</button>*/}
+                                    {/*</div>*/}
+                                </div>
+                            </Col>
+                        </Row>
+                    </Col>
+                    {/*<Col lg={1}></Col>*/}
+                </Row>
+            </Container>
+            <Container className={`${TimelineStyle.our_mission}`}>
+                <Row>
+                    <Col lg={12} className={TimelineStyle.outer_section}>
+                        <h2>OUR VALUES</h2>
+                        <Row>
+                            <Col lg={4}>
+                                <div className={TimelineStyle.our_mission_heading}>
+                                    <h5>
+                                        <i className="fa fa-star pr-1"></i>
+                                        Value
+                                    </h5>
+                                    <p> We promise to deliver exceptional value in all that we do through our commitment
+                                        to quality, innovation, support and partnership.</p>
+                                </div>
+                            </Col>
+                            <Col lg={4}>
+                                <div className={TimelineStyle.our_mission_heading}>
+                                    <h5>
+                                        <i className="fa fa-star pr-1"></i>
+                                        Quality
+                                    </h5>
+                                    <p> We are committed to preserving our tradition of artisan workmanship combined
+                                        with state-of-the-art technology and design innovation, to produce the highest
+                                        quality products in our industry.</p>
+                                </div>
+                            </Col>
+                            <Col lg={4}>
+                                <div className={TimelineStyle.our_mission_heading}>
+                                    <h5>
+                                        <i className="fa fa-user pr-1"></i>
+                                        Integrity and Respect
+                                    </h5>
+                                    <p>We believe in doing the right thing, for our company, for our employees, for our
+                                        customers, and for our industry. </p>
+                                </div>
+                            </Col>
+                        </Row>
+                        <Row className='pt-5'>
+                            <Col lg={4}>
+                                <div className={TimelineStyle.our_mission_heading}>
+                                    <h5>
+                                        <i className="fa fa-lightbulb-o pr-1"></i>
+                                        Service
+                                    </h5>
+                                    <p> We are committed to exceeding the expectations of our customers by providing the
+                                        highest level of customer support possible.</p>
+                                </div>
+                            </Col>
+                            <Col lg={4}>
+                                <div className={TimelineStyle.our_mission_heading}>
+                                    <h5>
+                                        <i className="fa fa-user pr-1"></i>
+                                        Family
+                                    </h5>
+                                    <p> We are committed to our people, working together as a team toward the
+                                        achievement of a common goal, and to the responsibility of helping them to
+                                        achieve success in their personal and professional endeavors.</p>
+                                </div>
+                            </Col>
+                            <Col lg={4}>
+                                <div className={TimelineStyle.our_mission_heading}>
+                                    <h5>
+                                        <i className="fa fa-lightbulb-o pr-1"></i>
+                                        Customer Experience
+                                    </h5>
+                                    <p>We promise to embrace continuous improvement as the foundation for achieving the
+                                        positive experience that each of our customers, internal and external, has as a
+                                        result of engaging with our company. </p>
+                                </div>
+                            </Col>
+                        </Row>
+                    </Col>
+                </Row>
+            </Container>
         </>
     )
 }
