@@ -41,7 +41,7 @@ const SegmentGallery = (props) => {
           })
 
           let list = sList.map(val => {
-              let pagination = Math.ceil((val && val.cat && val.cat.length)/ 1)
+              let pagination = Math.ceil((val && val.cat && val.cat.length)/ 4)
               if(val.name == 'All'){
                   return {
                       ...val,
