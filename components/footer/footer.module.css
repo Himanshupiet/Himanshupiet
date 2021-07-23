@@ -10,9 +10,10 @@
   border-bottom: 1px solid #ccd0d9;
 }
 .footer .top_footer p{
-  font-size: 15px;
-  font-weight: 400;
+  font-size: 20px;
+  font-weight: 300;
   color: #ccd0d9;
+  /*letter-spacing: 1px;*/
 }
 .footer h3{
   color: #fff;

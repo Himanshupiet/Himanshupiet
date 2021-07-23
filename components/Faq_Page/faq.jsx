@@ -7,7 +7,7 @@ import GetAQuote from "../common/GetAQuote/GetAQuote";
 import FaqStyle from './faq.module.css'
 import BlogSidebarStyle from "../Blog_Page/BlogSidebar/BlogSidebar.module.css";
 import MainHomePageStyle from "../Home_Page/index.module.css";
-
+import Link from 'next/link';
 
 
 const Faq = () => {
@@ -96,10 +96,12 @@ const Faq = () => {
                 <Row>
                     <Col lg={1}></Col>
                     <Col lg={7}>
-                        <div className='mt-5 mb-5'>
+                        <div className={`${FaqStyle.main_section} mb-5`}>
                             <h2>Frequently Asked Questions (FAQs)</h2>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                has been the industry's standard dummy.</p>
+                            <p>When outfitting your home or restaurant with the finest Neapolitan, Marra Forni is the
+                                clear choice. Whether you need a custom built and artisan tiled oven to match your
+                                restaurant, or the ultimate build-in pizza oven for your outdoor living area, Marra
+                                Forni has an oven for the job.</p>
                             <Accordion className='mt-4'>
                                 {faqData.map((item, i) => {
                                     return (
@@ -123,25 +125,52 @@ const Faq = () => {
                         </div>
                     </Col>
                     <Col lg={3}>
-                        <div className={`${BlogSidebarStyle.searchbox} mt-5`}>
+                        <div className={`${BlogSidebarStyle.searchbox} ${FaqStyle.main_section}`}>
                             <input type="search" name="blogsearch" placeholder="Search"/>
                             <button><i className="bx bx-search"></i></button>
                         </div>
                         <div className={`${BlogSidebarStyle.card_item} card mb-3 p-3`}>
                             <div className={FaqStyle.phone_number}>
                                 <i className="fa fa-phone-square"></i>
-                                <span>+ (123) 456 - 7890</span>
+                                <span>888.239.0575</span>
+                            </div>
+                            <div className={FaqStyle.phone_number}>
+                                <i className="fa fa-fax"></i>
+                                <span>240.667.7991</span>
                             </div>
                         </div>
                         <div className={`${BlogSidebarStyle.card_item} card mb-3 p-3`}>
                             <div className={FaqStyle.icon_list}>
-                                <i className="fa fa-facebook-f fa-1x"></i>
-                                <i className="fa fa-twitter"></i>
-                                <i className="fa fa-instagram"></i>
-                                <i className="fa fa-youtube"></i>
-                                <i className="fa fa-skype"></i>
-                                <i className="fa fa-github-alt"></i>
-                                <i className="fa fa-github-square"></i>
+                                <Link href='https://www.facebook.com/marraforni'>
+                                    <a title='facebook'>
+                                        <i className="fa fa-facebook-f fa-1x"></i>
+                                    </a>
+                                </Link>
+                                <Link href='https://twitter.com/MarraForni'>
+                                    <a title='twitter'>
+                                        <i className="fa fa-twitter"></i>
+                                    </a>
+                                </Link>
+                                <Link href='https://www.instagram.com/marraforni'>
+                                    <a title='instagrap'>
+                                        <i className="fa fa-instagram"></i>
+                                    </a>
+                                </Link>
+                                <Link href='https://www.youtube.com/user/marraforni'>
+                                    <a title='youtube'>
+                                        <i className="fa fa-youtube"></i>
+                                    </a>
+                                </Link>
+                                <Link href='https://www.linkedin.com/company/marraforni/'>
+                                    <a title='linkedin'>
+                                        <i className="fa fa-linkedin"></i>
+                                    </a>
+                                </Link>
+                                <Link href='https://www.pinterest.com/marraforni/'>
+                                    <a title='pinterest'>
+                                        <i className="fa fa-pinterest"></i>
+                                    </a>
+                                </Link>
                             </div>
                         </div>
                         <div className={`${BlogSidebarStyle.card_item} card mb-3 p-3`}>
