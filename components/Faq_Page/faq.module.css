@@ -69,3 +69,17 @@
     margin-left: 15px;
     font-weight: 600;
 }
+.icon_list a{
+    color: gray;
+}
+.icon_list a:hover{
+    color: #e31422;
+}
+.main_section{
+    margin-top: 45px;
+}
+@media only screen and (max-width: 768px) {
+    .main_section{
+        margin-top: 0px!important;
+    }
+}

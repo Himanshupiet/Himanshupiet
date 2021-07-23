@@ -139,22 +139,32 @@ const Timelines = (props) => {
                                     </p>
                                 </div>
                             </div>
+                            <div className="timeline-item" data-text="ABOUT OF THE MARRA FORNI">
+                                <div className="timeline__content">
+                                    <img className="timeline__img"
+                                         src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Marra-Distribition.png`}
+                                         alt='About Us' width='1500' height='1500'/>
+                                    <p className="timeline__content-desc">In 1999 the brother entre’ into the pizza oven
+                                        business began with a client request to source an Authentic Italian Brick
+                                        Oven. </p>
+                                </div>
+                            </div>
                         </div>
                     </Col>
                     <Col lg={1}></Col>
                 </Row>
             </Container>
-            <Container fluid className={`${TimelineStyle.middle_img}`}>
-                <Row>
-                    <Col lg={2}></Col>
-                    <Col lg={7}>
-                        <div>
-                            <p>Marra Forni currently markets and supports products in 5 continents and 23 countries
-                                worldwide. </p>
-                        </div>
-                    </Col>
-                </Row>
-            </Container>
+            {/*<Container fluid className={`${TimelineStyle.middle_img}`}>*/}
+            {/*    <Row>*/}
+            {/*        <Col lg={2}></Col>*/}
+            {/*        <Col lg={7}>*/}
+            {/*            <div>*/}
+            {/*                <p>Marra Forni currently markets and supports products in 5 continents and 23 countries*/}
+            {/*                    worldwide. </p>*/}
+            {/*            </div>*/}
+            {/*        </Col>*/}
+            {/*    </Row>*/}
+            {/*</Container>*/}
         </>
     )
 }
