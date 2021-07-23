@@ -4,13 +4,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import TopBannerStyle from './TopBannerSlider.module.css'
 import {Container, Row, Col} from 'react-bootstrap';
+import Link from 'next/link';
 
 const TopBannerSlider = (props) => {
     const slider = props.slider
 
     let TopBannerSliderSettings = {
         speed: 800,
-        arrows: false,
+        arrows: true,
         dots: false,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -31,6 +32,11 @@ const TopBannerSlider = (props) => {
                                     <h1>{item.title}</h1>
                                     <h3>{item.createdAt}</h3>
                                     <p>{item.message}</p>
+                                    <Link href='/events'>
+                                        <a title='events' className='mf_btn'>
+                                            Events
+                                        </a>
+                                    </Link>
                                 </div>
                             </Col>
                             <Col lg={1}></Col>

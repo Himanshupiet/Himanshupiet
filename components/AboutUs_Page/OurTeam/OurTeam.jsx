@@ -24,6 +24,7 @@ const OurTeam = (props) => {
                                         <img className='img-fluid'
                                              src={data.imageUrl}
                                              alt='Our Team' width='1500' height='1500'/>
+
                                         <div className={OurTeamStyle.team_overlay}>
                                             <h4>{data.firstName}</h4>
                                             <p>{data.designation}</p>
