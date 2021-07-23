@@ -122,7 +122,7 @@ const VideoSlider = (props) => {
                         </button>
                     </Row>
 
-                    <iframe width="790" height="345" src={youtubeUrl} frameborder="0" allowfullscreen></iframe>
+                    <iframe width="100%" height="400" src={youtubeUrl} frameborder="0" allowfullscreen></iframe>
                 </Modal>
             </Row>
         </Container>
