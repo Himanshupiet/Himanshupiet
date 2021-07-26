@@ -96,7 +96,7 @@ const Product = (props) => {
                                 <ScrollAnimation duration={2} animateIn="fadeInRight" animateOnce={true}>
                                     <div className={ProductStyle.hire_developer_page}>
                                         <img
-                                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Francesco-Redskin-ove.jpg`}
+                                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/quality_banner.jpg`}
                                             alt="Hire Developers Who Code Smartly"/>
                                         <div className={ProductStyle.hire_developer_page_para}>
                                             <h3 className={ProductStyle.dg_title31}>High-Volume Pizza Making.</h3>

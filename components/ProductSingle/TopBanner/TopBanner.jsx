@@ -11,7 +11,7 @@ import TopBannerStyle from './TopBanner.module.css';
 const TopBanner = (props) => {
     const { categoryName, imageUrl } = props.data;
   return(
-    <section className={TopBannerStyle.section_outer} style={{backgroundImage:`url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/Rotator-Banner-scaled.webp)`}}>
+    <section className={TopBannerStyle.section_outer} style={{backgroundImage:`url(${process.env.NEXT_PUBLIC_BASE_PATH}/images/product_banner_image.jpg)`}}>
       <ScrollAnimation animateIn="zoomIn" animateOnce={true} duration={1}>  
         <div className={TopBannerStyle.title_box}>
             {categoryName}<br />

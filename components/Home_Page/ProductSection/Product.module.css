@@ -142,6 +142,8 @@
     width: 100%;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .hire_developer_page_para {

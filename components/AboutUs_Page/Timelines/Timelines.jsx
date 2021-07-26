@@ -75,7 +75,7 @@ const Timelines = (props) => {
                             <h3>Timeline</h3>
                         </div>
                         <div className="timeline">
-                            <div className="timeline-item" data-text="ABOUT OF THE MARRA FORNI">
+                            <div className="timeline-item" data-text="Marra Forni Timeline">
                                 <div className={`${TimelineStyle.heading} timeline__content`}>
                                     <img className="timeline__img"
                                          src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/AboutUs_Timeline/PIC_7775.jpg`}
@@ -91,7 +91,7 @@ const Timelines = (props) => {
                                     </p>
                                 </div>
                             </div>
-                            <div className="timeline-item" data-text="ABOUT OF THE MARRA FORNI">
+                            <div className="timeline-item" data-text="Marra Forni Timeline">
                                 <div className={`${TimelineStyle.heading} timeline__content`}>
                                     <img className="timeline__img"
                                          src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/AboutUs_Timeline/PIC_7591-1.jpg`}
@@ -112,7 +112,7 @@ const Timelines = (props) => {
                                         previous Operations Management experience in Italy.</p>
                                 </div>
                             </div>
-                            <div className="timeline-item" data-text="ABOUT OF THE MARRA FORNI">
+                            <div className="timeline-item" data-text="Marra Forni Timeline">
                                 <div className="timeline__content">
                                     <img className="timeline__img"
                                          src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/about-us-image-3.png`}
@@ -122,10 +122,10 @@ const Timelines = (props) => {
                                         Oven. </p>
                                 </div>
                             </div>
-                            <div className="timeline-item" data-text="ABOUT OF THE MARRA FORNI">
+                            <div className="timeline-item" data-text="Marra Forni Timeline">
                                 <div className="timeline__content">
                                     <img className="timeline__img"
-                                         src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/KI-Award-Electric-Oven.png`}
+                                         src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/brothers.jpg`}
                                          alt='About Us' width='1500' height='1500'/>
                                     <p className="timeline__content-desc">
                                         Early attempts with importing became a challenge and when European manufacturers
@@ -139,7 +139,7 @@ const Timelines = (props) => {
                                     </p>
                                 </div>
                             </div>
-                            <div className="timeline-item" data-text="ABOUT OF THE MARRA FORNI">
+                            <div className="timeline-item" data-text="Marra Forni Timeline">
                                 <div className="timeline__content">
                                     <img className="timeline__img"
                                          src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Marra-Distribition.png`}
@@ -183,7 +183,7 @@ const Timelines = (props) => {
                             </Col>
                             <Col lg={6}>
                                 <div className={`${TimelineStyle.side_video} card`}>
-                                    <iframe width="531" height="360" src="https://www.youtube.com/embed/ZspT1T45rIQ"
+                                    <iframe width="531" height="360" src="https://www.youtube.com/embed/r0-q0YIHxO4?rel=0"
                                             title="YouTube video player" frameBorder="0"
                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                             allowFullScreen></iframe>
@@ -222,12 +222,11 @@ const Timelines = (props) => {
                             <Col lg={4}>
                                 <div className={TimelineStyle.our_mission_heading}>
                                     <h5>
-                                        <i className="fa fa-star pr-1"></i>
-                                        Quality
+                                        <i className="fa fa-lightbulb-o pr-1"></i>
+                                        Service
                                     </h5>
-                                    <p> We are committed to preserving our tradition of artisan workmanship combined
-                                        with state-of-the-art technology and design innovation, to produce the highest
-                                        quality products in our industry.</p>
+                                    <p> We are committed to exceeding the expectations of our customers by providing the
+                                        highest level of customer support possible.</p>
                                 </div>
                             </Col>
                             <Col lg={4}>
@@ -245,11 +244,12 @@ const Timelines = (props) => {
                             <Col lg={4}>
                                 <div className={TimelineStyle.our_mission_heading}>
                                     <h5>
-                                        <i className="fa fa-lightbulb-o pr-1"></i>
-                                        Service
+                                        <i className="fa fa-star pr-1"></i>
+                                        Quality
                                     </h5>
-                                    <p> We are committed to exceeding the expectations of our customers by providing the
-                                        highest level of customer support possible.</p>
+                                    <p> We are committed to preserving our tradition of artisan workmanship combined
+                                        with state-of-the-art technology and design innovation, to produce the highest
+                                        quality products in our industry.</p>
                                 </div>
                             </Col>
                             <Col lg={4}>

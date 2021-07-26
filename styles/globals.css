@@ -704,4 +704,5 @@ input:focus{
 }
 .slick-prev:before, .slick-next:before{
   font-size: 45px!important;
+  color: #000000!important;
 }
