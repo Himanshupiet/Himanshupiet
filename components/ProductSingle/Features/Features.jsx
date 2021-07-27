@@ -21,16 +21,14 @@ const Features = (props) => {
                   <div className={FeaturesStyle.inner}>
                     <h2>Standard Features</h2>
                     <ol>
-                      <li>Touchscreen</li>
-                      <li>Dome Terra Cotta Finish</li>
-                      <li>Turbo Burner</li>
-                      <li>Durable Proprietary Brick Deck</li>
-                      <li>Door</li>
-                      <li>Stainless Steel Flue Collar/Adapter</li>
-                      <li>Steel Stand</li>
-                      <li>Powder Coating</li>
-                      <li>2 Year Deck and Dome Warranty</li>
-                      <li>1 Year Parts and Labor Warranty</li>
+                        { props && props.data && props.data.standardFeatures && props.data.standardFeatures.length ?
+                            props.data.standardFeatures.map((val, i) => {
+                                return (
+                                    <li key={i}>{val}</li>
+                                )
+                            })
+                            : null
+                        }
                     </ol>
                   </div>
                 </ScrollAnimation>
@@ -40,13 +38,14 @@ const Features = (props) => {
                   <div className={FeaturesStyle.inner}>
                     <h2>Optional Features</h2>
                     <ol>
-                      <li>Custom Tile Application</li>
-                      <li>Integrated Exhaust System</li>
-                      <li>Exhaust Fan</li>
-                      <li>Stainless Steel Mast/Stand</li>
-                      <li>All Fuel Grease Duct</li>
-                      <li>Gas Burning Accessories</li>
-                      <li>Aluminum Oven Tools</li>
+                     { props && props.data && props.data.optionalFeatures && props.data.optionalFeatures.length ?
+                         props.data.optionalFeatures.map((val, i) => {
+                           return (
+                               <li key={i}>{val}</li>
+                           )
+                         })
+                         : null
+                     }
                     </ol>
                   </div>
                 </ScrollAnimation>

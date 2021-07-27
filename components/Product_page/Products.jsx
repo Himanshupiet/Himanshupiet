@@ -12,6 +12,8 @@ import ProductStyle from './Products.module.css';
 import ScrollAnimation from "react-animate-on-scroll";
 
 import Loader from "../Loading/loading";
+import axios from "axios";
+import {API_HOST} from "../../env";
 
 const Products = (props) => {
     const [product, setProduct] = useState([])
@@ -19,21 +21,24 @@ const Products = (props) => {
 
     useEffect(() => {
         setLoader(true)
-        props.productActions.getAllProduct().then((res) =>{
-            setLoader(false)
+        axios.get(`${API_HOST}product-page/getAllCategoriesByType`, {headers:{
+                'Content-Type': 'application/json',
+            }
+        }).then((res)=>{
+            if(res && res.data){
+                setProduct(res.data)
+                setLoader(false)
+            }
         }).catch((error) => {
             setLoader(false)
         })
     }, [])
 
-    useEffect(() => {
-        setProduct(props.product.product)
-    }, [props.product])
 
     return (
         
         <section className={ProductStyle.section_outer}>
-             <Loader data={loading}/>
+            <Loader data={loading}/>
             <Container fluid>
                 <Row>
                     <Col lg={1}></Col>
@@ -42,12 +47,12 @@ const Products = (props) => {
                             <div key={id}>
                                 <ScrollAnimation duration={2} animateIn="zoomIn" animateOnce={true}>
                                     <div className={ProductStyle.product_headingbox}>
-                                        <h2>{item.name}</h2>
+                                        <h2>{item.productType}</h2>
                                         <p>{item.description}</p>
                                     </div>
                                 </ScrollAnimation>
                                 <Row className={ProductStyle.innovation}>
-                                    {item.categoryList.map(res => (
+                                    {item.categories.map(res => (
                                         <Col lg={4} md={6} key={res.id}>
                                             <ScrollAnimation duration={2} animateIn="fadeInUp" animateOnce={true}>
                                                 <div className={ProductStyle.product_inner}>

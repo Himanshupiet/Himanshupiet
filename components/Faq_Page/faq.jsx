@@ -131,6 +131,10 @@ const Faq = () => {
                         </div>
                         <div className={`${BlogSidebarStyle.card_item} card mb-3 p-3`}>
                             <div className={FaqStyle.phone_number}>
+                                <i className="fa fa-map-marker"></i>
+                                <span>10310 Southard Dr.Beltsville MD 20705</span>
+                            </div>
+                            <div className={FaqStyle.phone_number}>
                                 <i className="fa fa-phone-square"></i>
                                 <span>888.239.0575</span>
                             </div>

@@ -123,8 +123,8 @@ const CaseStudiesPage = () => {
                                             <img src={data.caseStudyImageUrl}
                                                  className="card-img-top" alt="..."/>
                                             <div className="card-body" style={{textAlign: 'center'}}>
-                                                <h3 className="card-title">{data.title}</h3>
-                                                <p className="card-text">{data.description}</p>
+                                                <h3 className="card-title">{data.title.substr(1,15)+'...'}</h3>
+                                                <p className="card-text">{data.description.substr(1,40)+'...'}</p>
                                                 {/*<Link href={data.fileUrl} target="_blank">*/}
                                                 <a className="mf_btn">View Case Study</a>
                                                 {/*</Link>*/}
