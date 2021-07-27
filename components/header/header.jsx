@@ -8,6 +8,8 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import * as productActions from '../../actions/product'
 import MasterForm from "../Modal_Form/MasterForm";
+import axios from 'axios'
+import { API_HOST } from '../../env'
 
 
 /**
@@ -63,13 +65,24 @@ const Header = (props) => {
 
         return () => window.removeEventListener("scroll", checkStickyHeader, {passive: true});
     }, []);
+
     useEffect(() => {
-        props.productActions.getAllProduct()
+        axios.get(`${API_HOST}product-page/getAllCategoriesByType`, {headers:{
+                'Content-Type': 'application/json',
+            }
+        }).then((res)=>{
+            if(res && res.data){
+                setProduct(res.data)
+            }
+        }).catch((error) => {
+
+        })
     }, [])
 
     useEffect(() => {
-        setProduct(props.product.product)
-    }, [props.product])
+        props.byboShow ? handleShow() : null
+    }, [props.byboShow]);
+
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -270,10 +283,12 @@ const Header = (props) => {
                                         className={`${headerStyle.product_sub_menu} ${mobileProductOpen ? headerStyle.product_sub_menu_active : ""}`}>
                                         <Tabs defaultActiveKey={product.id} id="uncontrolled-tab-example">
                                             {(product && product.length) ? product.map((item, id) => (
-                                                <Tab eventKey={item.name} title={item.name}
-                                                     key={id}>
+                                                <Tab
+                                                    eventKey={item.productType}
+                                                    title={item.productType}
+                                                    key={id}>
                                                     <Row>
-                                                        {item.categoryList.map((res, id) => (
+                                                        {item.categories.map((res, id) => (
                                                             <>
                                                                 {
                                                                     id === 0 &&
@@ -297,7 +312,7 @@ const Header = (props) => {
                                                         <Col sm={9}>
                                                             <div className={headerStyle.rest_product}>
                                                                 <ul>
-                                                                    {item.categoryList.map((res, id) => (
+                                                                    {item.categories.map((res, id) => (
                                                                         <>
                                                                             { id !== 0 &&
                                                                                 <li key={id}>

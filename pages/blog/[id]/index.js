@@ -13,7 +13,7 @@ const BlogSingle = (props) => {
   const [loading, setLoader] = useState(false)
   useEffect(() => {
     setLoader(true)
-    axios.get(`${API_HOST}blog/getBlogDetailsByUniqueURL?alias=false&blogUrl=` + id, {
+    axios.get(`${API_HOST}blog/getBlogDetailsByUniqueURL?alias=true&blogUrl=` + id, {
         headers: {
             'Content-Type': 'application/json',
         }

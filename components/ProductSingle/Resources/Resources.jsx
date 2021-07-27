@@ -11,9 +11,8 @@ import ScrollAnimation from 'react-animate-on-scroll';
 
 const Resources = (props) => {
     const {subCategoryList} = props.data
-    console.log(subCategoryList)
     return (
-        <section className={ResourcesStyle.section_outer}>
+        <section className={`${ResourcesStyle.section_outer}`} id="resources_model">
             <Container fluid>
                 <Row>
                     <Col lg={1}></Col>

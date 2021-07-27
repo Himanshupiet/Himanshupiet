@@ -19,14 +19,14 @@ const Overview = (props) => {
                     <Col lg={10}>
                         <Row>
                             <Col lg={6} className='pt-5'>
-                                <h2>{categoryName}</h2>
-                                <p>{categoryDescription}</p>
-                                <button className='mf_btn'>Check it Out</button>
+                                <h2>{props.data.productCategory}</h2>
+                                <p>{props.data.productDescription}</p>
+                                <button className='mf_btn' onClick={() => props.onCheckOut()}>Check it Out</button>
                             </Col>
                             <Col lg={6} className={OverviewStyle.culinary_img}>
                                 <img
                                     className='img-fluid'
-                                    src={imageUrl}
+                                    src={props.data.uploadImage}
                                     alt='Commercial Brick Oven'
                                     width='440'
                                     height='500'

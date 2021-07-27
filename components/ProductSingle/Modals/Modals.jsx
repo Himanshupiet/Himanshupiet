@@ -23,62 +23,31 @@ const Modals = (props) => {
               </div>
             </ScrollAnimation>
             <Row>
-              <Col lg={3} md={6}>
-                <ScrollAnimation duration={2} animateIn="fadeInUp" animateOnce={true}>
-                  <div className={ModalsStyle.product_inner}>
-                    <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/UrbanBrick.webp`} width="400" height="500" className="img-fluid" alt="Rotator RT90" />
-                    <div className={ModalsStyle.product_info}>
-                      <h3>Rotator RT90</h3>
-                      <p>{("Perfect brick oven for trailers and mobile operations.").substr(0,90)}{("Perfect brick oven for trailers and mobile operations.").length > 90 && "..."}</p>
-                      <Link href="/pdf/RT90.pdf">
-                        <a className="mf_btn" target="_blank" title="Rotator RT90">Quick Specs</a>
-                      </Link>
-                    </div>
-                  </div>
-                </ScrollAnimation>
-              </Col>
-              <Col lg={3} md={6}>
-                <ScrollAnimation duration={2} animateIn="fadeInUp" animateOnce={true}>
-                  <div className={ModalsStyle.product_inner}>
-                    <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/WholeFoods.webp`} width="400" height="500" className="img-fluid" alt="Rotator RT110" />
-                    <div className={ModalsStyle.product_info}>
-                      <h3>Rotator RT110</h3>
-                      <p>{("Fast-casuals, small mom-and-pops operations.").substr(0,90)}{("Fast-casuals, small mom-and-pops operations.").length > 90 && "..."}</p>
-                      <Link href="/pdf/RT90.pdf">
-                        <a className="mf_btn" target="_blank" title="Rotator RT110">Quick Specs</a>
-                      </Link>
-                    </div>
-                  </div>
-                </ScrollAnimation>
-              </Col>
-              <Col lg={3} md={6}>
-                <ScrollAnimation duration={2} animateIn="fadeInUp" animateOnce={true}>
-                  <div className={ModalsStyle.product_inner}>
-                    <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Wegmans.webp`} width="400" height="500" className="img-fluid" alt="Rotator RT130" />
-                    <div className={ModalsStyle.product_info}>
-                      <h3>Rotator RT130</h3>
-                      <p>{("Great for Universities, Hotels, Stadiums, etc").substr(0,90)}{("Great for Universities, Hotels, Stadiums, etc").length > 90 && "..."}</p>
-                      <Link href="/pdf/RT90.pdf">
-                        <a className="mf_btn" target="_blank" title="Rotator RT130">Quick Specs</a>
-                      </Link>
-                    </div>
-                  </div>
-                </ScrollAnimation>
-              </Col>
-              <Col lg={3} md={6}>
-                <ScrollAnimation duration={2} animateIn="fadeInUp" animateOnce={true}>
-                  <div className={ModalsStyle.product_inner}>
-                    <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/800-Degrees.webp`} width="400" height="500" className="img-fluid" alt="Rotator RT150" />
-                    <div className={ModalsStyle.product_info}>
-                      <h3>Rotator RT150</h3>
-                      <p>{("Chains and Franchises where performance is key.").substr(0,90)}{("Chains and Franchises where performance is key.").length > 90 && "..."}</p>
-                      <Link href="/pdf/RT90.pdf">
-                        <a className="mf_btn" target="_blank" title="Rotator RT150">Quick Specs</a>
-                      </Link>
-                    </div>
-                  </div>
-                </ScrollAnimation>
-              </Col>
+                { props &&
+                  props.data &&
+                  props.data.productPageCardFiles &&
+                  props.data.productPageCardFiles.length ?
+                    props.data.productPageCardFiles.map((cat, i) =>{
+                      return (
+                          <Col lg={3} md={6} key={i}>
+                              <ScrollAnimation duration={2} animateIn="fadeInUp" animateOnce={true}>
+                                  <div className={ModalsStyle.product_inner}>
+                                      <img src={cat.imageUrl} width="400" height="500" className="img-fluid" alt="Rotator RT90" />
+                                      <div className={ModalsStyle.product_info}>
+                                          <h3>{cat.title}</h3>
+                                          <p>{(cat.description).substr(0,90)}{(cat.description).length > 90 && "..."}</p>
+                                          <Link href={cat.fileUrl}>
+                                              <a className="mf_btn" target="_blank" title="Rotator RT90">Quick Specs</a>
+                                          </Link>
+                                      </div>
+                                  </div>
+                              </ScrollAnimation>
+                          </Col>
+                      )
+                    })
+                    : null
+                }
+
             </Row>
           </Col>
           <Col lg={1}></Col>

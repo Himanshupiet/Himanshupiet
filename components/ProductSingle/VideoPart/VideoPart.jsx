@@ -14,13 +14,13 @@ const VideoPart = (props) => {
       <Container fluid>
         <Row>
           <Col md={6} className={VideoPartStyle.video_section}>
-            <iframe title="Rotator Double Mouth" width="1060" height="355" src="https://www.youtube.com/embed/AbPpq3K54ww?feature=oembed" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen=""></iframe>
+            <iframe title="Rotator Double Mouth" width="1060" height="355" src={props.data.videoUrl} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen=""></iframe>
           </Col>
           <Col md={6} className={VideoPartStyle.content_section}>
             <ScrollAnimation animateIn="zoomIn" duration={2} animateOnce={true}>
-              <h2>The Marra Forni Rotator</h2>
-              <h3>Due Bocci Demo</h3>
-              <p>Discover the Rotator Brick Oven, recommended by top chefs globally for making pizzas in 90 seconds. The Rotator requires Little to No expertise required for cooking recipes and Pizzas by pizzaiolo. Easy to control with the innovative Touchscreen display.</p>
+              <h2>{props.data.productCategory}</h2>
+              <h3>{props.data.videoTitle}</h3>
+              <p>{props.data.videoDescription}</p>
             </ScrollAnimation>
           </Col>
         </Row>
