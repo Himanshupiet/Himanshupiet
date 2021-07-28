@@ -13,11 +13,12 @@ const BlogSingle = (props) => {
   const [loading, setLoader] = useState(false)
   useEffect(() => {
     setLoader(true)
-    axios.get(`${API_HOST}blog/getBlogDetailsByUniqueURL?alias=true&blogUrl=` + id, {
+    axios.get(`${API_HOST}blog/getBlogDetailsByUniqueURL?alias=false&blogUrl=` + id, {
         headers: {
             'Content-Type': 'application/json',
         }
     }).then((res) => {
+        console.log(res,'gggg')
         if (res.status) {
             setData(res.data)
         }
@@ -25,10 +26,10 @@ const BlogSingle = (props) => {
     }).catch((error) => {
       setLoader(false)
     })
-}, [id])
+  }, [id])
 
     return(
-			<>
+	<>
       <Head
         title={data && data.title}
         description={data && data.blogDescription}
