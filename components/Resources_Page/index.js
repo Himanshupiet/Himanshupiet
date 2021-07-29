@@ -373,7 +373,7 @@ const Resources_main = (props) => {
                     setCaseStudySelect={setCaseStudySelect}
                     getAllBlogForResource={ getAllBlogForResource }
                     getAllCaseStudy={ getAllCaseStudy }
-                    handleResource  Select={ handleResourceSelect }
+                    handleResourceSelect={ handleResourceSelect }
                   />
                 </Col>
                 <Col md={9}>
