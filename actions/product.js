@@ -28,8 +28,7 @@ export const getAllProduct = () => {
 
 export const getAllResourceData = () => {
     return dispatch => {
-        const API_URL = `${API_HOST}product/getAllProduct`
-
+        const API_URL = `${API_HOST}product/getResourceFiles`
         return axios({
             url: API_URL,
             headers: {
