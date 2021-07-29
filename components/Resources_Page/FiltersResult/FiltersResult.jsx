@@ -228,7 +228,7 @@ const FiltersResult = (props) => {
           if(val.name == item.name){
                return {
                    ...val,
-                  cat: val.cat.map((sc, ii) => {
+                   newCat: val.cat.map((sc, ii) => {
                       if(sc.name == c.name){
                           return{
                               ...sc,
@@ -257,6 +257,7 @@ const FiltersResult = (props) => {
       })
       setResourceResult({resourceList:list})
   }
+
 
   return(
     <>
