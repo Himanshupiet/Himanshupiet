@@ -83,8 +83,8 @@ const Resources_main = (props) => {
     }
   }, [props.product])
 
-  const getAllResourceData = () => {
-      props.productActions.getAllResourceData().then(res => {
+  const getAllResourceData = (data) => {
+      props.productActions.getAllResourceData(data).then(res => {
           let getGData = Object.entries(res)
           let gList = getGData.map(val => {
               return {
@@ -219,9 +219,9 @@ const Resources_main = (props) => {
         if(blogSelect){
             getAllBlogForResource(productArr)
         }
-          if(caseStudySelect){
-              getAllCaseStudy(productArr)
-          }
+        if(caseStudySelect){
+          getAllCaseStudy(productArr)
+        }
       }else if( productArr && productArr.length && productArr[0].cat && productArr[0].cat.length > 1) {
         setFilterProduct(productArr)
         setSearchProduct(productArr)
@@ -229,9 +229,9 @@ const Resources_main = (props) => {
         if(blogSelect){
             getAllBlogForResource(productArr)
         }
-          if(caseStudySelect){
-              getAllCaseStudy(productArr)
-          }
+        if(caseStudySelect){
+           getAllCaseStudy(productArr)
+        }
       }else{
         if(productArr && productArr.length &&  productArr[0].cat && productArr[0].cat.length){
           setFilterProduct(productArr)
@@ -240,9 +240,9 @@ const Resources_main = (props) => {
           if(blogSelect){
               getAllBlogForResource(productArr)
           }
-            if(caseStudySelect){
-                getAllCaseStudy(productArr)
-            }
+          if(caseStudySelect){
+             getAllCaseStudy(productArr)
+          }
         }else{
           setFilterProduct(allProduct)
           setSearchProduct(allProduct)
