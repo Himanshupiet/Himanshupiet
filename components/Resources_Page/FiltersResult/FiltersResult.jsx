@@ -1,7 +1,13 @@
 import React, {useState, useEffect} from 'react'
 import Link from 'next/link'
-import { Col, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap'
 import ResultStyle from './FiltersResult.module.css'
+
+
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import * as productActions from '../../../actions/product'
+import {withRouter} from "next/router";
 
 const FiltersResult = (props) => {
   const{
@@ -27,7 +33,7 @@ const FiltersResult = (props) => {
     let indexOfLastTodo = currentPage * productPerPage
     let indexOfFirstTodo = indexOfLastTodo - productPerPage
 
-    let currentProduct = product.map(val => {
+    let currentProduct = product && product.length && product.map(val => {
        let pagination = Math.ceil((val && val.cat && val.cat.length)/ productPerPage)
        return {
          ...val,
@@ -87,6 +93,66 @@ const FiltersResult = (props) => {
     setCaseStudyResult(currentCaseStudy)
     setResourceResult(currentResourceList)
   },[product, blogList, allCaseStudyList, resourceList ])
+
+  useEffect(() => {
+    if(productResult && productResult.length && resourceResult && resourceResult.resourceList && resourceResult.resourceList.length && resourceResult.resourceList.filter(v => v.checked == true ).length) {
+        getAllResourceData(productResult)
+    }
+  },[ productResult ])
+
+    const getAllResourceData = (data) => {
+        props.productActions.getAllResourceData(data).then(res => {
+            let getGData = Object.entries(res)
+            let gList = getGData.map(val => {
+                return {
+                    name: val && val[0],
+                    cat: Object.entries(val && val[1]).map(s => {
+                        return{
+                            name: s[0],
+                            subCat:Object.entries(s && s[1]).map((v,i) => {
+                                return {
+                                    name: v[0],
+                                    sCat: v[1].map(vvv => {return {...vvv,name:vvv.name+v[0]}}),
+                                    sNewCat:v[1].map(vvv => {return {...vvv,name:vvv.name+v[0]}}),
+                                    active:i+1 == 1 ? true : false
+                                }
+                            })
+                        }
+                    })
+                }
+            })
+
+            let indexOfLastTodo = currentPage * productPerPage
+            let indexOfFirstTodo = indexOfLastTodo - productPerPage
+
+            let aa = []
+              resourceResult.resourceList.map(val => {
+                gList.map(prod => {
+                  let rsPagination = Math.ceil((prod && prod.cat && prod.cat.length)/ productPerPage)
+                  aa.push({
+                      ...val,
+                      cat:prod.cat,
+                      newCat:prod && prod.cat && prod.cat.length && prod.cat.slice(indexOfFirstTodo, indexOfLastTodo) || [],
+                        paginationArr: rsPagination ?
+                        Array(rsPagination - 1 + 1).fill().map((_, idx) => {
+                            return{
+                                name:1 + idx,
+                                activeProduct:1 + idx == 1 ? true :false
+                            }}
+                        ) :
+                        [],
+                        catCurrentPage: 1
+                  })
+                })
+              }
+            )
+            const arrayUniqueByKey = [...new Map(aa.map(item =>
+                [item['name'], item])).values()];
+
+            setResourceResult({resourceList: arrayUniqueByKey})
+        })
+    }
+
 
   const handlePagination = (value, typeId, cat, types) => {
     if(cat == 'product') {
@@ -258,7 +324,6 @@ const FiltersResult = (props) => {
       setResourceResult({resourceList:list})
   }
 
-
   return(
     <>
       {/*<div className={ResultStyle.searchbox_outer}>*/}
@@ -345,9 +410,15 @@ const FiltersResult = (props) => {
           resourceResult.resourceList.map((item, idx) =>{
               return (
                   <div key={idx}>
-                      <div className={ResultStyle.product_headingbox}>
-                          <h2>{item.name}</h2>
-                      </div>
+                      { item &&
+                        item.newCat &&
+                        item.newCat.length ?
+                          <div className={ResultStyle.product_headingbox}>
+                              <h2>{item.name}</h2>
+                          </div>
+                          :
+                          null
+                      }
                       <Row>
                           { item &&
                             item.newCat &&
@@ -379,7 +450,7 @@ const FiltersResult = (props) => {
                                                                         </li>
                                                                     )
                                                                 })
-                                                              : null
+                                                              : 'No result found'
                                                           }
                                                           </ul>
                                                       </Col>
@@ -576,4 +647,10 @@ const FiltersResult = (props) => {
   }
 
 
-export default FiltersResult
+const mapDispatchToProps = dispatch => {
+    return {
+        productActions: bindActionCreators(productActions, dispatch)
+    }
+}
+
+export default connect(null, mapDispatchToProps)(withRouter(FiltersResult))
