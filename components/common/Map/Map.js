@@ -9,8 +9,9 @@ import {
     InfoWindow
 } from 'react-google-maps'
 
-import { API_HOST } from '../../env'
+import { API_HOST } from '../../../env'
 import axios from 'axios'
+import mapStyle from './Map.module.css'
 
  const enhance = _.identity;
 
@@ -27,7 +28,7 @@ const MapWithAMakredInfoWindow = compose(
  )(props => {
     return(
             <GoogleMap
-                defaultZoom={8}
+                defaultZoom={2}
                 defaultCenter={{lat: 26.874760, lng: 75.759070}}
             >
                 { props &&
@@ -35,16 +36,36 @@ const MapWithAMakredInfoWindow = compose(
                   props.mapList.length ?
                     props.mapList.map(v => (
                         v && v.locationDetailList && v.locationDetailList.length && v.locationDetailList.map(loc => (
-                                loc && loc.addressDetailList && loc.addressDetailList.map((item, i) => {
+                            loc && loc.addressDetailList && loc.addressDetailList.map((item, i) => {
+                                
                             return (
                                 <Marker
                                     position={{lat:item.latitude , lng: item.longitude}}
                                     onClick={props.onToggleOpen}
                                     key={i}
                                 >
+                                    {console.log(v.type, 'kkkk')}
                                     { props.isOpen &&
                                         <InfoWindow onCloseClick={props.onToggleOpen}>
-                                            <i className={'fa fa-user'}/>
+                                            <div className={mapStyle.info_box_outer}>
+                                                <p>
+                                                    <strong>
+                                                    { 
+                                                        (v.type == 'rep') 
+                                                        ? "Rep" 
+                                                        : (v.type == 'dealer') 
+                                                        ? 'Dealer' 
+                                                        : 'Service Agent'
+                                                    } {v.type}
+                                                    </strong>
+                                                </p>
+                                                <p>
+                                                    <strong>{item.companyName}</strong>
+                                                    <br/>{item.address}
+                                                    <br/><a href={item.websiteUrl} target="_blank" rel="external nofollow">{item.websiteUrl}</a>
+                                                    <br/>{item.mobileNumber}
+                                                </p>
+                                            </div>
                                         </InfoWindow>
                                     }
                                 </Marker>
