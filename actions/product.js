@@ -26,7 +26,28 @@ export const getAllProduct = () => {
     }
 }
 
-export const getAllResourceData = (data) => {
+export const getSubCategory = () => {
+    return dispatch => {
+        const API_URL = `${API_HOST}subCategoryController/getAllSubCategoryNames`
+
+        return axios({
+            url: API_URL,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            data: {},
+            method: 'get'
+        })
+            .then(response =>
+                response.data
+            )
+            .catch(error => {
+                return error
+            })
+    }
+}
+
+export const getAllResourceData = (data, sCat) => {
     let queryParams = [];
     data && data.length && data.map(product => {
         product.cat.map(val => {
@@ -38,6 +59,12 @@ export const getAllResourceData = (data) => {
     queryParams && queryParams.length && queryParams.map(query => {
         params.append('categoryName', query.categoryName)
     })
+
+    let a = sCat && sCat.length && sCat.filter(v => v.active == true)
+    a && a.length && a.map(c => {
+        params.append('subCategoryName', c.name)
+    })
+
     return dispatch => {
         const API_URL = `${API_HOST}product/getResourceFiles`
         return axios({

@@ -30,11 +30,14 @@ const Resources_main = (props) => {
   const[ blogSelect, setBlogSelect ] = useState(false)
   const[ caseStudySelect, setCaseStudySelect ] = useState(false)
 
+  const[ subCatList, setSubCatList ] = useState([])
+
   useEffect(() => {
     props.productActions.getAllProduct()
       getAllResourceData()
       getAllBlogForResource([])
       getAllCaseStudy([])
+      getSubCategory()
   },[])
 
   useEffect(() => {
@@ -82,6 +85,16 @@ const Resources_main = (props) => {
       )
     }
   }, [props.product])
+
+  const getSubCategory = () => {
+      props.productActions.getSubCategory().then(res => {
+          setSubCatList(
+              res && res.length && res.map(v => {
+                return{name:v, active:false}
+               })
+          )
+      })
+  }
 
   const getAllResourceData = (data) => {
       props.productActions.getAllResourceData(data).then(res => {
@@ -344,6 +357,23 @@ const Resources_main = (props) => {
       setResourceList(fList)
       setResourceFList(fList)
   }
+
+  const selectCat = (item) => {
+      let fList = subCatList.map(v => {
+          if(v.name == item.name){
+              return{
+                  ...v,
+                  active:!v.active
+              }
+          }else{
+              return{
+                  ...v
+              }
+          }
+      })
+      setSubCatList(fList)
+  }
+
   return(
     <>
       <Header />
@@ -374,6 +404,8 @@ const Resources_main = (props) => {
                     getAllBlogForResource={ getAllBlogForResource }
                     getAllCaseStudy={ getAllCaseStudy }
                     handleResourceSelect={ handleResourceSelect }
+                    subCatList={ subCatList }
+                    selectCat={ selectCat }
                   />
                 </Col>
                 <Col md={9}>
@@ -390,6 +422,7 @@ const Resources_main = (props) => {
                     blogList={ blogList }
                     allCaseStudyList={ allCaseStudyList }
                     handleSearch={ handleSearch }
+                    subCatList={ subCatList }
                   />
                 </Col>
               </Row>
