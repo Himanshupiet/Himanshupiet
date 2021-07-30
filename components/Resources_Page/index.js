@@ -23,6 +23,7 @@ const Resources_main = (props) => {
   const[ newArr, setNewArr ] = useState([])
 
   const[ resourceList, setResourceList ] = useState([])
+  const[ resourceFList, setResourceFList ] = useState([])
   const[ blogList, setBlogList ] = useState([])
   const[ allCaseStudyList, setAllCaseStudyList ] = useState([])
 
@@ -82,9 +83,35 @@ const Resources_main = (props) => {
     }
   }, [props.product])
 
-  const getAllResourceData = () => {
-      props.productActions.getAllResourceData().then(res => {
-         setResourceList(res)
+  const getAllResourceData = (data) => {
+      props.productActions.getAllResourceData(data).then(res => {
+          let getGData = Object.entries(res)
+          let gList = getGData.map(val => {
+              return {
+                  name: val && val[0],
+                  cat: Object.entries(val && val[1]).map(s => {
+                      return{
+                          name: s[0],
+                          subCat:Object.entries(s && s[1]).map((v,i) => {
+                              return {
+                                        name: v[0],
+                                        sCat: v[1].map(vvv => {return {...vvv,name:vvv.name+v[0]}}),
+                                        sNewCat:v[1].map(vvv => {return {...vvv,name:vvv.name+v[0]}}),
+                                        active:i+1 == 1 ? true : false
+                                      }
+                          })
+                      }
+                  })
+              }
+          })
+          let checkList = gList.map(v => {
+              return{
+                  ...v,
+                  checked: false
+              }
+          })
+         setResourceList(checkList)
+         setResourceFList(checkList)
       })
   }
 
@@ -192,9 +219,9 @@ const Resources_main = (props) => {
         if(blogSelect){
             getAllBlogForResource(productArr)
         }
-          if(caseStudySelect){
-              getAllCaseStudy(productArr)
-          }
+        if(caseStudySelect){
+          getAllCaseStudy(productArr)
+        }
       }else if( productArr && productArr.length && productArr[0].cat && productArr[0].cat.length > 1) {
         setFilterProduct(productArr)
         setSearchProduct(productArr)
@@ -202,9 +229,9 @@ const Resources_main = (props) => {
         if(blogSelect){
             getAllBlogForResource(productArr)
         }
-          if(caseStudySelect){
-              getAllCaseStudy(productArr)
-          }
+        if(caseStudySelect){
+           getAllCaseStudy(productArr)
+        }
       }else{
         if(productArr && productArr.length &&  productArr[0].cat && productArr[0].cat.length){
           setFilterProduct(productArr)
@@ -213,9 +240,9 @@ const Resources_main = (props) => {
           if(blogSelect){
               getAllBlogForResource(productArr)
           }
-            if(caseStudySelect){
-                getAllCaseStudy(productArr)
-            }
+          if(caseStudySelect){
+             getAllCaseStudy(productArr)
+          }
         }else{
           setFilterProduct(allProduct)
           setSearchProduct(allProduct)
@@ -298,6 +325,25 @@ const Resources_main = (props) => {
     }
   }
 
+  const handleResourceSelect = (e, item, i) => {
+      let fList = []
+      fList = resourceList.map(v => {
+          if (v.name == item.name) {
+              return {
+                  ...v,
+                  checked: !v.checked,
+                  filter: v.checked
+              }
+          } else {
+              return {
+                  ...v,
+                  filter: !v.checked
+              }
+          }
+      })
+      setResourceList(fList)
+      setResourceFList(fList)
+  }
   return(
     <>
       <Header />
@@ -327,12 +373,20 @@ const Resources_main = (props) => {
                     setCaseStudySelect={setCaseStudySelect}
                     getAllBlogForResource={ getAllBlogForResource }
                     getAllCaseStudy={ getAllCaseStudy }
+                    handleResourceSelect={ handleResourceSelect }
                   />
                 </Col>
                 <Col md={9}>
                   <FiltersResult
                     product={ filterProduct }
-                    resourceList={ resourceList }
+                    resourceList={
+                        resourceFList &&
+                        resourceFList.length &&
+                        resourceFList.find(v => v.filter == false) ?
+                            resourceFList.filter(val => val.filter == false)
+                            :
+                            resourceFList.filter(val => val.checked == false)
+                    }
                     blogList={ blogList }
                     allCaseStudyList={ allCaseStudyList }
                     handleSearch={ handleSearch }

@@ -1,0 +1,7 @@
+.info_box_outer p{
+  font-size: 14px;
+  font-weight: 400;  
+}
+.info_box_outer p:first-child{
+  margin-bottom: 10px;
+}

@@ -1,7 +1,13 @@
 import React, {useState, useEffect} from 'react'
 import Link from 'next/link'
-import { Col, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap'
 import ResultStyle from './FiltersResult.module.css'
+
+
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import * as productActions from '../../../actions/product'
+import {withRouter} from "next/router";
 
 const FiltersResult = (props) => {
   const{
@@ -27,7 +33,7 @@ const FiltersResult = (props) => {
     let indexOfLastTodo = currentPage * productPerPage
     let indexOfFirstTodo = indexOfLastTodo - productPerPage
 
-    let currentProduct = product.map(val => {
+    let currentProduct = product && product.length && product.map(val => {
        let pagination = Math.ceil((val && val.cat && val.cat.length)/ productPerPage)
        return {
          ...val,
@@ -62,20 +68,91 @@ const FiltersResult = (props) => {
     }
 
 
-    let rsPagination = Math.ceil((resourceList && resourceList && resourceList.length)/ productPerPage)
     let currentResourceList = {
-        resourceList:resourceList && resourceList.length && resourceList.slice(indexOfFirstTodo, indexOfLastTodo),
-          paginationArr: rsPagination ?
-              Array(rsPagination - 1 + 1).fill().map((_, idx) => 1 + idx) :
-              [],
-          catCurrentPage: 1
+      resourceList:resourceList && resourceList.length &&
+        resourceList.map(val => {
+            let rsPagination = Math.ceil((val && val.cat && val.cat.length)/ productPerPage)
+            return{
+                ...val,
+                newCat:val && val.cat && val.cat.length && val.cat.slice(indexOfFirstTodo, indexOfLastTodo),
+                paginationArr: rsPagination ?
+                    Array(rsPagination - 1 + 1).fill().map((_, idx) => {
+                        return{
+                            name:1 + idx,
+                            activeProduct:1 + idx == 1 ? true :false
+                        }}
+                    ) :
+                    [],
+                catCurrentPage: 1
+            }
+        })
     }
 
     setProductResult(currentProduct)
     setBlogResult(currentBlog)
     setCaseStudyResult(currentCaseStudy)
     setResourceResult(currentResourceList)
-  },[product, blogList, allCaseStudyList ])
+  },[product, blogList, allCaseStudyList, resourceList ])
+
+  useEffect(() => {
+    if(productResult && productResult.length && resourceResult && resourceResult.resourceList && resourceResult.resourceList.length && resourceResult.resourceList.filter(v => v.checked == true ).length) {
+        getAllResourceData(productResult)
+    }
+  },[ productResult ])
+
+    const getAllResourceData = (data) => {
+        props.productActions.getAllResourceData(data).then(res => {
+            let getGData = Object.entries(res)
+            let gList = getGData.map(val => {
+                return {
+                    name: val && val[0],
+                    cat: Object.entries(val && val[1]).map(s => {
+                        return{
+                            name: s[0],
+                            subCat:Object.entries(s && s[1]).map((v,i) => {
+                                return {
+                                    name: v[0],
+                                    sCat: v[1].map(vvv => {return {...vvv,name:vvv.name+v[0]}}),
+                                    sNewCat:v[1].map(vvv => {return {...vvv,name:vvv.name+v[0]}}),
+                                    active:i+1 == 1 ? true : false
+                                }
+                            })
+                        }
+                    })
+                }
+            })
+
+            let indexOfLastTodo = currentPage * productPerPage
+            let indexOfFirstTodo = indexOfLastTodo - productPerPage
+
+            let aa = []
+              resourceResult.resourceList.map(val => {
+                gList.map(prod => {
+                  let rsPagination = Math.ceil((prod && prod.cat && prod.cat.length)/ productPerPage)
+                  aa.push({
+                      ...val,
+                      cat:prod.cat,
+                      newCat:prod && prod.cat && prod.cat.length && prod.cat.slice(indexOfFirstTodo, indexOfLastTodo) || [],
+                        paginationArr: rsPagination ?
+                        Array(rsPagination - 1 + 1).fill().map((_, idx) => {
+                            return{
+                                name:1 + idx,
+                                activeProduct:1 + idx == 1 ? true :false
+                            }}
+                        ) :
+                        [],
+                        catCurrentPage: 1
+                  })
+                })
+              }
+            )
+            const arrayUniqueByKey = [...new Map(aa.map(item =>
+                [item['name'], item])).values()];
+
+            setResourceResult({resourceList: arrayUniqueByKey})
+        })
+    }
+
 
   const handlePagination = (value, typeId, cat, types) => {
     if(cat == 'product') {
@@ -127,6 +204,59 @@ const FiltersResult = (props) => {
         setProductResult(currentProduct)
     }
 
+      if(cat == 'resource') {
+          let indexOfLastR = value.name * 3
+          let indexOfFirstR = indexOfLastR - 3
+
+          let currentResource = {
+              resourceList:resourceList.map((val) => {
+
+                  let indexOfLastTodo = currentPage * productPerPage
+                  let indexOfFirstTodo = indexOfLastTodo - productPerPage
+                  let catVal = val && val.cat && val.cat.length && val.cat.slice(indexOfFirstTodo, indexOfLastTodo)
+                  let catFVal = val && val.cat && val.cat.length && val.cat.slice(indexOfFirstR, indexOfLastR)
+
+                  if(val.name == types.name) {
+                      return {
+                          ...val,
+                          newCat: catFVal,
+                          paginationArr: types.paginationArr.map(p => {
+                              if (p.name == value.name) {
+                                  return {
+                                      ...p,
+                                      activeProduct: true
+                                  }
+                              } else {
+                                  return {
+                                      ...p,
+                                      activeProduct: false
+                                  }
+                              }
+                          }),
+                          catCurrentPage: value
+                      }
+                  }else{
+                      let rsPagination = Math.ceil((val && val.cat && val.cat.length)/ productPerPage)
+                      return{
+                          ...val,
+                          newCat:catVal,
+                          paginationArr: rsPagination ?
+                              Array(rsPagination - 1 + 1).fill().map((_, idx) => {
+                                  return{
+                                      name:1 + idx,
+                                      activeProduct:1 + idx == 1 ? true : false
+                                  }}
+                              ) :
+                              [],
+                          catCurrentPage: 1
+                      }
+                  }
+              })
+
+          }
+          setResourceResult(currentResource)
+      }
+
     if(cat == 'blog') {
         let indexOfLastB = value * 3
         let indexOfFirstB = indexOfLastB - 3
@@ -159,26 +289,61 @@ const FiltersResult = (props) => {
 
   }
 
+  const handleCat = (v, c, item, index) => {
+      let list = resourceResult.resourceList.map(val => {
+          if(val.name == item.name){
+               return {
+                   ...val,
+                   newCat: val.cat.map((sc, ii) => {
+                      if(sc.name == c.name){
+                          return{
+                              ...sc,
+                              subCat:sc.subCat.map(subC => {
+                                  if(subC.name == v.name){
+                                      return{
+                                          ...subC,
+                                          active: true
+                                      }
+                                  }else{
+                                      return {
+                                          ...subC,
+                                          active: false
+                                      }
+                                  }
+                              } )
+                          }
+                      }else{
+                          return sc
+                      }
+               })
+          }
+          }else{
+              return val
+          }
+      })
+      setResourceResult({resourceList:list})
+  }
+
   return(
     <>
-      <div className={ResultStyle.searchbox_outer}>
-        <input 
-          type='search' 
-          ref={textSearch} 
-          name='searchtext' 
-          placeholder='Search'
-          onChange={(e) => {
-            handleSearch(e.target.value)
-          }}
-        />
-        <button
-          onClick={() => {
-            handleSearch(textSearch.current.value)
-          }}
-        >
-          <i className='bx bx-search'></i>
-        </button>
-      </div>
+      {/*<div className={ResultStyle.searchbox_outer}>*/}
+        {/*<input */}
+          {/*type='search' */}
+          {/*ref={textSearch} */}
+          {/*name='searchtext' */}
+          {/*placeholder='Search'*/}
+          {/*onChange={(e) => {*/}
+            {/*handleSearch(e.target.value)*/}
+          {/*}}*/}
+        {/*/>*/}
+        {/*<button*/}
+          {/*onClick={() => {*/}
+            {/*handleSearch(textSearch.current.value)*/}
+          {/*}}*/}
+        {/*>*/}
+          {/*<i className='bx bx-search'/>*/}
+        {/*</button>*/}
+      {/*</div>*/}
       {
         productResult && productResult.length ?
           productResult.map((types, index)=>{
@@ -239,152 +404,108 @@ const FiltersResult = (props) => {
           null
       }
 
-      <div className={ResultStyle.product_headingbox}>
-        <h2>Spec Sheets</h2>
-      </div>
-      <Row>
-        <Col lg={4} md={6}>
-          <div className={ResultStyle.inner}>
-            <ul>
-              <li><Link href="/"><a title="Rotator Gas" target="_blank">Rotator</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">RT90 Brick Oven</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">RT 110 Brick Oven</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">RT130 Brick Oven</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">RT150 Brick Oven</a></Link></li>
-            </ul>
-          </div>
-        </Col>
-        <Col lg={4} md={6}>
-          <div className={ResultStyle.inner}>
-            <ul>
-              <li><Link href="/"><a title="Rotator Gas" target="_blank">Electric</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">ELMS 25-20 Brick Oven </a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">ELMR 39-43 Brick Oven</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">ELNP 39-43 Brick Oven</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">ELNP 56-43 Brick Oven</a></Link></li>
-            </ul>
-          </div>
-        </Col>
-        <Col lg={4} md={6}>
-          <div className={ResultStyle.inner}>
-            <ul>
-              <li><Link href="/"><a title="Rotator Gas" target="_blank">Enclosed Facade</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">EF70 Brick Oven</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">EF80 Brick Oven</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">EF90 Brick Oven</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">EF110 Brick Oven</a></Link></li>
-            </ul>
-          </div>
-        </Col>
-      </Row>
-      <Row>
-        <Col md={12}>
-          <ul className={ResultStyle.pagination}>
-            <li><button className={ResultStyle.activepagination}>1</button></li>
-            <li><button>2</button></li>
-            <li><button>3</button></li>
-            <li><button>4</button></li>
-            <li><button>5</button></li>
-          </ul>
-        </Col>
-      </Row>
-      <div className={ResultStyle.product_headingbox}>
-        <h2>CAD Drawings</h2>
-      </div>
-      <Row>
-        <Col lg={4} md={6}>
-          <div className={ResultStyle.inner}>
-            <ul>
-              <li><Link href="/"><a title="Rotator Gas" target="_blank">Rotator</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">RT90 Brick Oven</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">RT 110 Brick Oven</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">RT130 Brick Oven</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">RT150 Brick Oven</a></Link></li>
-            </ul>
-          </div>
-        </Col>
-        <Col lg={4} md={6}>
-          <div className={ResultStyle.inner}>
-            <ul>
-              <li><Link href="/"><a title="Rotator Gas" target="_blank">Electric</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">ELNP 56-43 Brick Oven</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">ELMS 68-32 Brick Oven</a></Link></li>
-            </ul>
-          </div>
-        </Col>
-        <Col lg={4} md={6}>
-          <div className={ResultStyle.inner}>
-            <ul>
-              <li><Link href="/"><a title="Rotator Gas" target="_blank">Enclosed Facade: Wood/Gas</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">EF70 Brick Oven</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">EF80 Brick Oven</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">EF90 Brick Oven</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">EF110 Brick Oven</a></Link></li>
-            </ul>
-          </div>
-        </Col>
-      </Row>
-      <Row>
-        <Col md={12}>
-          <ul className={ResultStyle.pagination}>
-            <li><button className={ResultStyle.activepagination}>1</button></li>
-            <li><button>2</button></li>
-            <li><button>3</button></li>
-            <li><button>4</button></li>
-            <li><button>5</button></li>
-          </ul>
-        </Col>
-      </Row>
-      <div className={ResultStyle.product_headingbox}>
-        <h2>Revit Files</h2>
-      </div>
-      <Row>
-        <Col lg={4} md={6}>
-          <div className={ResultStyle.inner}>
-            <ul>
-              <li><Link href="/"><a title="Rotator Gas" target="_blank">Rotator</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">RT90 Brick Oven</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">RT 110 Brick Oven</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">RT130 Brick Oven</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">RT150 Brick Oven</a></Link></li>
-            </ul>
-          </div>
-        </Col>
-        <Col lg={4} md={6}>
-          <div className={ResultStyle.inner}>
-            <ul>
-              <li><Link href="/"><a title="Rotator Gas" target="_blank">Electric</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">ELMS 25-20 Brick Oven</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">ELMR 39-43 Brick Oven</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">ELNP 39-43 Brick Oven</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">ELNP 56-43 Brick Oven</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">ELMS 68-32 Brick Oven</a></Link></li>
-            </ul>
-          </div>
-        </Col>
-        <Col lg={4} md={6}>
-          <div className={ResultStyle.inner}>
-            <ul>
-              <li><Link href="/"><a title="Rotator Gas" target="_blank">Enclosed Facade: Wood/Gas</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">EF70 Brick Oven</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">EF80 Brick Oven</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">EF90 Brick Oven</a></Link></li>
-              <li><Link href="/"><a title="RT90G" target="_blank">EF110 Brick Oven</a></Link></li>
-            </ul>
-          </div>
-        </Col>
-      </Row>
-      <Row>
-        <Col md={12}>
-          <ul className={ResultStyle.pagination}>
-            <li><button className={ResultStyle.activepagination}>1</button></li>
-            <li><button>2</button></li>
-            <li><button>3</button></li>
-            <li><button>4</button></li>
-            <li><button>5</button></li>
-          </ul>
-        </Col>
-      </Row>
+      { resourceResult &&
+        resourceResult.resourceList &&
+        resourceResult.resourceList.length ?
+          resourceResult.resourceList.map((item, idx) =>{
+              return (
+                  <div key={idx}>
+                      { item &&
+                        item.newCat &&
+                        item.newCat.length ?
+                          <div className={ResultStyle.product_headingbox}>
+                              <h2>{item.name}</h2>
+                          </div>
+                          :
+                          null
+                      }
+                      <Row>
+                          { item &&
+                            item.newCat &&
+                            item.newCat.length ?
+                              item.newCat.map((c,i) => {
+                                  return(
+                                      <Col lg={4} md={6} key={i}>
+                                          <div className={ResultStyle.inner}>
+                                              <ul>
+                                                  <li><Link href="/"><a title="Rotator Gas" target="_blank">{c.name}</a></Link></li>
+                                                  <Row>
+                                                      <Col md={12}>
+                                                          <ul className={ResultStyle.gallerytabs}>
+                                                          {
+                                                              c &&
+                                                              c.subCat &&
+                                                              c.subCat.length ?
+                                                                c.subCat.map((v,indx) => {
+                                                                    return(
+                                                                        <li key={indx} className={ResultStyle.btn_active} style={{width: `${100/c.subCat.length}%`}}>
+                                                                            <button
+                                                                                onClick={() => handleCat(v, c, item, indx)}
+                                                                                className={
+                                                                                    v.active ? ResultStyle.btn_active : ''
+                                                                                }
+                                                                            >
+                                                                                {v.name}
+                                                                            </button>
+                                                                        </li>
+                                                                    )
+                                                                })
+                                                              : 'No result found'
+                                                          }
+                                                          </ul>
+                                                      </Col>
+                                                  </Row>
+                                                  { c && c.subCat && c.subCat.length && c.subCat.filter(t => t.active).map((v,indx) => (
+                                                      v &&
+                                                      v.sCat &&
+                                                      v.sCat.length ?
+                                                          v.sNewCat.map((vv, idxx) => {
+                                                                  return (
+                                                                      <li key={idxx}>
+                                                                          <a title="RT90G" target="_blank"
+                                                                             href={vv.url}>{vv.name}</a>
+                                                                      </li>
+                                                                  )
+                                                          })
+                                                          :null
+                                                      )
+                                                   )
+                                                  }
+                                              </ul>
+                                          </div>
+                                      </Col>
+                                  )
+                              })
+
+                              : null
+                          }
+                      </Row>
+                      <Row>
+                          <Col md={12}>
+                              <ul className={ResultStyle.pagination}>
+                                  { item &&
+                                    item.paginationArr &&
+                                    item.paginationArr.length ?
+                                      item.paginationArr.map((page, pIdx) => {
+                                          return(
+                                              <li key={pIdx}>
+                                                  <button
+                                                      onClick ={() => handlePagination(page, item.id, 'resource', item)}
+                                                      className={page.activeProduct ? ResultStyle.activepagination : ''}
+                                                  >{page.name}</button>
+                                              </li>
+                                          )
+                                      })
+                                      : null
+                                  }
+                              </ul>
+                          </Col>
+                      </Row>
+                  </div>
+              )
+          })
+         : null
+      }
 
       <div className={ResultStyle.product_headingbox}>
         <h2>Videos</h2>
@@ -526,4 +647,10 @@ const FiltersResult = (props) => {
   }
 
 
-export default FiltersResult
+const mapDispatchToProps = dispatch => {
+    return {
+        productActions: bindActionCreators(productActions, dispatch)
+    }
+}
+
+export default connect(null, mapDispatchToProps)(withRouter(FiltersResult))

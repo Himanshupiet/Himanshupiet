@@ -7,6 +7,7 @@ import GetAQuote from "../common/GetAQuote/GetAQuote";
 import MainHomePageStyle from "../Home_Page/index.module.css";
 import Link from "next/link";
 
+import ReactGoogleMaps from '../common/Map/Map'
 const Contact = () => {
     return (
         <>
@@ -14,6 +15,7 @@ const Contact = () => {
             <Container fluid className={ContactStyle.contact_banner}>
                 <h1>Contact Us</h1>
             </Container>
+            <ReactGoogleMaps/>
             <Container fluid className={ContactStyle.card_section}>
                 <Row className={ContactStyle.row_style}>
                     <Col lg={4} md={12}>

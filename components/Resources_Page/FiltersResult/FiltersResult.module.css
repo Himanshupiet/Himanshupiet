@@ -180,3 +180,30 @@
 .blog_inner .blog_info{
   padding: 20px 10px;
 }
+.gallerytabs{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallerytabs button{
+  width: 100%;
+  outline: none;
+  color: #565656;
+  background-color: transparent;
+  border: 0;
+  padding: 9px 40px;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+.gallerytabs button.btn_active,
+.gallerytabs button:hover{
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
+  background-color: #b31b1b;
+  border-color: #b31b1b;
+  color: #fff;
+  border-bottom: none;
+}

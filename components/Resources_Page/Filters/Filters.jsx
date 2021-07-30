@@ -36,17 +36,13 @@ const Filters = (props) => {
     }
   },[caseStudySelect])
 
-  const unique = (array, propertyName) => {
-    return array.filter((e, i) => array.findIndex(a => a[propertyName] === e[propertyName]) === i);
-  }
-
   const selectBlogWithCat = () => {
     setBlogSelect(!blogSelect)
   }
 
  const selectCaseStudyWithCat = () => {
      setCaseStudySelect(!caseStudySelect)
-  }
+ }
 
   return(
     <div className={FilterStyle.filter_outer}>
@@ -60,7 +56,10 @@ const Filters = (props) => {
             })
           }}
         >
-          Products <span><i className={filterOpen.ProductOpen ? "bx bxs-chevron-down" : "bx bxs-chevron-up"}></i></span>
+          Products
+          <span>
+             <i className={filterOpen.ProductOpen ? "bx bxs-chevron-down" : "bx bxs-chevron-up"}/>
+          </span>
         </li>
         <div className={`${FilterStyle.filter_option} ${filterOpen.ProductOpen ? FilterStyle.openFilterOption : ''}`}>
           <ul>
@@ -96,17 +95,27 @@ const Filters = (props) => {
             })
           }}
         >
-          Resources <span><i className={filterOpen.ResourcesOpen ? "bx bxs-chevron-down" : "bx bxs-chevron-up"}></i></span>
+          Resources
+          <span>
+              <i className={filterOpen.ResourcesOpen ? "bx bxs-chevron-down" : "bx bxs-chevron-up"}/>
+          </span>
         </li>
         <div className={`${FilterStyle.filter_option} ${filterOpen.ResourcesOpen ? FilterStyle.openFilterOption : ''}`}>
           <ul>
               { resourceList && resourceList.length ?
-                  unique(resourceList, 'productType').map((item, i) => {
+                  resourceList.map((item, i) => {
                     return (
                       <li key={i}>
                         <label>
-                            <input type='checkbox' value='Spec Sheets' />
-                            {item.productType}
+                            <input
+                                onChange={(e) =>{
+                                    props.handleResourceSelect(e, item, i)
+                                }}
+                                type='checkbox'
+                                value={item.name}
+                                checked={item.checked}
+                            />
+                            {item.name}
                         </label>
                       </li>
                     )

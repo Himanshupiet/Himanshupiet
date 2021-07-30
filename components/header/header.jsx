@@ -10,7 +10,7 @@ import * as productActions from '../../actions/product'
 import MasterForm from "../Modal_Form/MasterForm";
 import axios from 'axios'
 import { API_HOST } from '../../env'
-
+import HeaderSearchBox from './Search_Box/SearchBox';
 
 /**
  * @author
@@ -58,6 +58,7 @@ const Header = (props) => {
     const [buttonIsDisable, setButtonIsDisable] = useState(false);
     const [product, setProduct] = useState([])
     const [img, setImage] = useState('')
+		const [isOpenSearchBox, setIsOpenSearchBox] = useState(false)
 
     useEffect(() => {
         window.addEventListener('scroll', checkStickyHeader, {passive: true});
@@ -250,7 +251,7 @@ const Header = (props) => {
                                                                width="226" height="60"/></a>
                                 </Link>
                                 <div className={headerStyle.mobile_slbox}>
-                                    <div className={`${headerStyle.searchicon} ${headerStyle.mobile_show}`}>
+                                    <div className={`${headerStyle.searchicon} ${headerStyle.mobile_show}`} onClick={() => {setIsOpenSearchBox(true)}}>
                                         <button><i className='bx bx-search-alt-2'></i></button>
                                     </div>
                                     <div className={headerStyle.mobile_show}>
@@ -440,7 +441,7 @@ const Header = (props) => {
                                         Brick Oven
                                     </button>
                                 </div>
-                                <div className={`${headerStyle.searchicon} ${headerStyle.desktop_show}`}>
+                                <div className={`${headerStyle.searchicon} ${headerStyle.desktop_show}`} onClick={() => {setIsOpenSearchBox(true)}}>
                                     <i className='bx bx-search-alt-2'></i>
                                 </div>
                                 <div className={headerStyle.desktop_show}>
@@ -449,7 +450,10 @@ const Header = (props) => {
                                 </div>
                             </div>
                         </nav>
-                    </Col>
+												{
+													isOpenSearchBox && <HeaderSearchBox setIsOpenSearchBox={setIsOpenSearchBox} />
+												}										
+										</Col>
                     <Col xl={1}></Col>
                 </Row>
             </header>
