@@ -95,13 +95,19 @@ const FiltersResult = (props) => {
   },[product, blogList, allCaseStudyList, resourceList ])
 
   useEffect(() => {
-    if(productResult && productResult.length && resourceResult && resourceResult.resourceList && resourceResult.resourceList.length && resourceResult.resourceList.filter(v => v.checked == true ).length) {
-        getAllResourceData(productResult)
-    }
-  },[ productResult ])
 
-    const getAllResourceData = (data) => {
-        props.productActions.getAllResourceData(data).then(res => {
+    if(productResult &&
+        productResult.length &&
+        resourceResult &&
+        resourceResult.resourceList &&
+        resourceResult.resourceList.length &&
+        resourceResult.resourceList.filter(v => v.checked == true ).length) {
+        getAllResourceData(productResult, props.subCatList)
+    }
+  },[ productResult])
+
+    const getAllResourceData = (data, sCat) => {
+        props.productActions.getAllResourceData(data, sCat).then(res => {
             let getGData = Object.entries(res)
             let gList = getGData.map(val => {
                 return {

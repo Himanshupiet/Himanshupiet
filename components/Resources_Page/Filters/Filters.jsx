@@ -17,7 +17,8 @@ const Filters = (props) => {
     ProductOpen: true,
     ResourcesOpen: true,
     OtherinfoOpen: true,
-    LanguageOpen: true
+    LanguageOpen: true,
+    subCatOpen:true
   });
 
   useEffect(() => {
@@ -87,6 +88,43 @@ const Filters = (props) => {
             }
           </ul>
         </div>
+
+        <li
+          className={FilterStyle.filters}
+          onClick={() => {
+              setFilterOpen((preValues)=>{
+                  return {...preValues, subCatOpen: !filterOpen.subCatOpen}
+              })
+          }}
+      >
+          Sub-Category
+          <span>
+         <i className={filterOpen.subCatOpen ? "bx bxs-chevron-down" : "bx bxs-chevron-up"}/>
+      </span>
+      </li>
+        <div className={`${FilterStyle.filter_option} ${filterOpen.subCatOpen ? FilterStyle.openFilterOption : ''}`}>
+          <ul>
+              {
+                  props && props.subCatList && props.subCatList.length  && props.subCatList.map((sCat, index) => {
+                      return (
+                          <li key={index}>
+                              <label>
+                                  <input
+                                      onChange={(e) =>{
+                                          props.selectCat(sCat)
+                                      }}
+                                      type='checkbox'
+                                      checked={sCat.active} />
+                                  {sCat.name}
+                              </label>
+                          </li>
+                      )
+                  })
+
+              }
+          </ul>
+      </div>
+
         <li 
           className={FilterStyle.filters} 
           onClick={() => {
@@ -123,6 +161,7 @@ const Filters = (props) => {
               :null}
           </ul>
         </div>
+
         <li 
           className={FilterStyle.filters} 
           onClick={() => {
