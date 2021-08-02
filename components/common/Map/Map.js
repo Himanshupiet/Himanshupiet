@@ -96,6 +96,14 @@ const MapWithAMakredInfoWindow = compose(
                                     }}
                                     onClick={() => onToggleOpen(item, loc, v)}
                                     key={i}
+                                    icon={
+                                         v.type.toLowerCase() == 'rep' ?
+                                        `${process.env.NEXT_PUBLIC_BASE_PATH}/images/Map/marker-icon-green.png` :
+                                        ( v.type.toLowerCase() == 'dealer' ) ?
+                                        `${process.env.NEXT_PUBLIC_BASE_PATH}/images/Map/marker-icon-blue.png` :
+                                        `${process.env.NEXT_PUBLIC_BASE_PATH}/images/Map/marker-icon-red.png`
+
+                                    }
                                 >
                                     { item.isOpen &&
                                         <InfoWindow onCloseClick={() => onToggleOpen(item, loc, v)}>
@@ -103,9 +111,9 @@ const MapWithAMakredInfoWindow = compose(
                                                 <p>
                                                     <strong>
                                                     { 
-                                                        (v.type == 'rep') 
+                                                        (v.type.toLowerCase() == 'rep')
                                                         ? "Rep" 
-                                                        : (v.type == 'dealer') 
+                                                        : (v.type.toLowerCase() == 'dealer')
                                                         ? 'Dealer' 
                                                         : 'Service Agent'
                                                     }
@@ -221,9 +229,9 @@ const ReactGoogleMaps = (props) => {
                                     <Col md={4} key={i} style={{fontSize:'18px', display: 'grid'}}>
                                         <i className={'fa fa-map-marker '}
                                            style={{color:
-                                               val.type === 'rep' ?
+                                               val.type.toLowerCase() === 'rep' ?
                                                '#00A300':
-                                                val.type === 'dealer' ?
+                                                val.type.toLowerCase() === 'dealer' ?
                                                 '#1e7ba6':
                                                 '#e31422',
                                                  fontSize: '26px'
