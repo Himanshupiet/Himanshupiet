@@ -76,7 +76,7 @@ const HeaderSearchBox = (props) => {
               searchText.hits ?
                       <div className={SearchBoxStyle.search_result}>
                           { searchText.hits.length ?
-                            searchText.hits.map((item, i) => {
+                            searchText.hits.filter(val => (val.index == 'blog_index') || (val.index == 'product_index') ).map((item, i) => {
                               return (
                                   <Link
                                       href={
@@ -92,7 +92,7 @@ const HeaderSearchBox = (props) => {
                                                     '/'
                                             }
                                       key={i}>
-                                      <a title={item.sourceAsMap.productName || item.sourceAsMap.title}>{item.sourceAsMap.productName || item.sourceAsMap.title.substr(0, 100)}</a>
+                                      <a title={item.sourceAsMap.productName || item.sourceAsMap.title}>{item.sourceAsMap.productName || item.sourceAsMap.title.substr(0, 100) + '...'}</a>
                                   </Link>
                               )
                             })
