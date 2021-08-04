@@ -58,6 +58,7 @@ const Header = (props) => {
     const [buttonIsDisable, setButtonIsDisable] = useState(false);
     const [product, setProduct] = useState([])
     const [img, setImage] = useState('')
+    
 		const [isOpenSearchBox, setIsOpenSearchBox] = useState(false)
 
     useEffect(() => {

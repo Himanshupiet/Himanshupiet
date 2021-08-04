@@ -126,7 +126,7 @@
   .timeline-item {
     align-self: baseline !important;
     width: 100%;
-    padding: 0 30px 150px 80px;
+    padding: 0 30px 150px 46px;
   }
   .timeline-item:before {
     left: 10px !important;
@@ -138,5 +138,10 @@
   }
   .timeline-item:last-child {
     padding-bottom: 40px;
+  }
+}
+@media only screen and (max-width:360px) {
+  .timeline-item {
+    padding: 0 30px 150px 0;
   }
 }
