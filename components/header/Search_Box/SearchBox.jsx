@@ -33,7 +33,7 @@ const HeaderSearchBox = (props) => {
   useEffect(() => {
       if(queryParams)
       axios({
-          url: `${API_HOST}search/searchDataInElasticSearch?from=0&query=${queryParams}&size=10`,
+          url: `${API_HOST}search/searchDataInElasticSearch?query=${queryParams}`,
           headers: {
               'Content-Type': 'application/json'
           },
@@ -76,7 +76,7 @@ const HeaderSearchBox = (props) => {
               searchText.hits ?
                       <div className={SearchBoxStyle.search_result}>
                           { searchText.hits.length ?
-                            searchText.hits.filter(val => (val.index == 'blog_index') || (val.index == 'product_index') ).map((item, i) => {
+                            searchText.hits.filter(val => (val.index == 'blog_index') || (val.index == 'product_page_index') ).map((item, i) => {
                               return (
                                   <Link
                                       href={
@@ -86,13 +86,13 @@ const HeaderSearchBox = (props) => {
                                                 '/product' :
                                                 ( item.index == 'blog_index' ) ?
                                                     `/blog/${item.sourceAsMap.uniqueUrl}` :
-                                                ( item.index == 'product_index' ) ?
-                                                    `/product/${item.sourceAsMap.title}`
+                                                ( item.index == 'product_page_index' ) ?
+                                                    `/product/${item.sourceAsMap.productCategory}`
                                                     :
                                                     '/'
                                             }
                                       key={i}>
-                                      <a title={item.sourceAsMap.productName || item.sourceAsMap.title}>{item.sourceAsMap.productName || item.sourceAsMap.title.substr(0, 100) + '...'}</a>
+                                      <a title={item.sourceAsMap.productCategory || item.sourceAsMap.title}>{item.sourceAsMap.productCategory || item.sourceAsMap.title}</a>
                                   </Link>
                               )
                             })
