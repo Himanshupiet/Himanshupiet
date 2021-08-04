@@ -132,7 +132,10 @@ const FiltersResult = (props) => {
             let indexOfFirstTodo = indexOfLastTodo - productPerPage
 
             let aa = []
-              resourceResult.resourceList.map(val => {
+            resourceResult &&
+            resourceResult.resourceList &&
+            resourceResult.resourceList.length &&
+            resourceResult.resourceList.map(val => {
                 gList.map(prod => {
                   let rsPagination = Math.ceil((prod && prod.cat && prod.cat.length)/ productPerPage)
                   aa.push({
@@ -350,6 +353,110 @@ const FiltersResult = (props) => {
           {/*<i className='bx bx-search'/>*/}
         {/*</button>*/}
       {/*</div>*/}
+
+      { resourceResult &&
+      resourceResult.resourceList &&
+      resourceResult.resourceList.length ?
+          resourceResult.resourceList.map((item, idx) =>{
+              return (
+                  <div key={idx}>
+                      { item &&
+                      item.newCat &&
+                      item.newCat.length ?
+                          <div className={ResultStyle.product_headingbox}>
+                              <h2>{item.name}</h2>
+                          </div>
+                          :
+                          null
+                      }
+                      <Row>
+                          { item &&
+                          item.newCat &&
+                          item.newCat.length ?
+                              item.newCat.map((c,i) => {
+                                  return(
+                                      <Col lg={4} md={6} key={i}>
+                                          <div className={ResultStyle.inner}>
+                                              <ul>
+                                                  <li><Link href="/"><a title="Rotator Gas" target="_blank">{c.name}</a></Link></li>
+                                                  <Row>
+                                                      <Col md={12}>
+                                                          <ul className={ResultStyle.gallerytabs}>
+                                                              {
+                                                                  c &&
+                                                                  c.subCat &&
+                                                                  c.subCat.length ?
+                                                                      c.subCat.map((v,indx) => {
+                                                                          return(
+                                                                              <li key={indx} className={ResultStyle.btn_active} style={{width: `${100/c.subCat.length}%`}}>
+                                                                                  <button
+                                                                                      onClick={() => handleCat(v, c, item, indx)}
+                                                                                      className={
+                                                                                          v.active ? ResultStyle.btn_active : ''
+                                                                                      }
+                                                                                  >
+                                                                                      {v.name}
+                                                                                  </button>
+                                                                              </li>
+                                                                          )
+                                                                      })
+                                                                      : 'No result found'
+                                                              }
+                                                          </ul>
+                                                      </Col>
+                                                  </Row>
+                                                  { c && c.subCat && c.subCat.length && c.subCat.filter(t => t.active).map((v,indx) => (
+                                                          v &&
+                                                          v.sCat &&
+                                                          v.sCat.length ?
+                                                              v.sNewCat.map((vv, idxx) => {
+                                                                  return (
+                                                                      <li key={idxx}>
+                                                                          <a title="RT90G" target="_blank"
+                                                                             href={vv.url}>{vv.name}</a>
+                                                                      </li>
+                                                                  )
+                                                              })
+                                                              :null
+                                                      )
+                                                  )
+                                                  }
+                                              </ul>
+                                          </div>
+                                      </Col>
+                                  )
+                              })
+
+                              : null
+                          }
+                      </Row>
+                      <Row>
+                          <Col md={12}>
+                              <ul className={ResultStyle.pagination}>
+                                  { item &&
+                                  item.paginationArr &&
+                                  item.paginationArr.length ?
+                                      item.paginationArr.map((page, pIdx) => {
+                                          return(
+                                              <li key={pIdx}>
+                                                  <button
+                                                      onClick ={() => handlePagination(page, item.id, 'resource', item)}
+                                                      className={page.activeProduct ? ResultStyle.activepagination : ''}
+                                                  >{page.name}</button>
+                                              </li>
+                                          )
+                                      })
+                                      : null
+                                  }
+                              </ul>
+                          </Col>
+                      </Row>
+                  </div>
+              )
+          })
+          : null
+      }
+
       {
         productResult && productResult.length ?
           productResult.map((types, index)=>{
@@ -410,108 +517,6 @@ const FiltersResult = (props) => {
           null
       }
 
-      { resourceResult &&
-        resourceResult.resourceList &&
-        resourceResult.resourceList.length ?
-          resourceResult.resourceList.map((item, idx) =>{
-              return (
-                  <div key={idx}>
-                      { item &&
-                        item.newCat &&
-                        item.newCat.length ?
-                          <div className={ResultStyle.product_headingbox}>
-                              <h2>{item.name}</h2>
-                          </div>
-                          :
-                          null
-                      }
-                      <Row>
-                          { item &&
-                            item.newCat &&
-                            item.newCat.length ?
-                              item.newCat.map((c,i) => {
-                                  return(
-                                      <Col lg={4} md={6} key={i}>
-                                          <div className={ResultStyle.inner}>
-                                              <ul>
-                                                  <li><Link href="/"><a title="Rotator Gas" target="_blank">{c.name}</a></Link></li>
-                                                  <Row>
-                                                      <Col md={12}>
-                                                          <ul className={ResultStyle.gallerytabs}>
-                                                          {
-                                                              c &&
-                                                              c.subCat &&
-                                                              c.subCat.length ?
-                                                                c.subCat.map((v,indx) => {
-                                                                    return(
-                                                                        <li key={indx} className={ResultStyle.btn_active} style={{width: `${100/c.subCat.length}%`}}>
-                                                                            <button
-                                                                                onClick={() => handleCat(v, c, item, indx)}
-                                                                                className={
-                                                                                    v.active ? ResultStyle.btn_active : ''
-                                                                                }
-                                                                            >
-                                                                                {v.name}
-                                                                            </button>
-                                                                        </li>
-                                                                    )
-                                                                })
-                                                              : 'No result found'
-                                                          }
-                                                          </ul>
-                                                      </Col>
-                                                  </Row>
-                                                  { c && c.subCat && c.subCat.length && c.subCat.filter(t => t.active).map((v,indx) => (
-                                                      v &&
-                                                      v.sCat &&
-                                                      v.sCat.length ?
-                                                          v.sNewCat.map((vv, idxx) => {
-                                                                  return (
-                                                                      <li key={idxx}>
-                                                                          <a title="RT90G" target="_blank"
-                                                                             href={vv.url}>{vv.name}</a>
-                                                                      </li>
-                                                                  )
-                                                          })
-                                                          :null
-                                                      )
-                                                   )
-                                                  }
-                                              </ul>
-                                          </div>
-                                      </Col>
-                                  )
-                              })
-
-                              : null
-                          }
-                      </Row>
-                      <Row>
-                          <Col md={12}>
-                              <ul className={ResultStyle.pagination}>
-                                  { item &&
-                                    item.paginationArr &&
-                                    item.paginationArr.length ?
-                                      item.paginationArr.map((page, pIdx) => {
-                                          return(
-                                              <li key={pIdx}>
-                                                  <button
-                                                      onClick ={() => handlePagination(page, item.id, 'resource', item)}
-                                                      className={page.activeProduct ? ResultStyle.activepagination : ''}
-                                                  >{page.name}</button>
-                                              </li>
-                                          )
-                                      })
-                                      : null
-                                  }
-                              </ul>
-                          </Col>
-                      </Row>
-                  </div>
-              )
-          })
-         : null
-      }
 
       <div className={ResultStyle.product_headingbox}>
         <h2>Videos</h2>

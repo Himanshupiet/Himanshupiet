@@ -18,7 +18,6 @@ const BlogSingle = (props) => {
             'Content-Type': 'application/json',
         }
     }).then((res) => {
-        console.log(res,'gggg')
         if (res.status) {
             setData(res.data)
         }
