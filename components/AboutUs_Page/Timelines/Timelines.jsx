@@ -183,7 +183,7 @@ const Timelines = (props) => {
                             </Col>
                             <Col lg={6}>
                                 <div className={`${TimelineStyle.side_video} card`}>
-                                    <iframe width="531" height="360" src="https://www.youtube.com/embed/r0-q0YIHxO4?rel=0"
+                                    <iframe width="100%" height="360" src="https://www.youtube.com/embed/r0-q0YIHxO4?rel=0"
                                             title="YouTube video player" frameBorder="0"
                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                             allowFullScreen></iframe>

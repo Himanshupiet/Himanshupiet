@@ -15710,6 +15710,12 @@ input[type="submit"] {
 	padding: 0 50px
 }
 
+@media only screen and (min-width:280px) and (max-width: 520px) {
+	button {
+		padding: 0 7px
+	}
+}
+
 button:focus,
 input[type="button"]:focus,
 input[type="reset"]:focus,
