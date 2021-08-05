@@ -3,11 +3,13 @@ import Link from 'next/link'
 import { Col, Row } from 'react-bootstrap'
 import ResultStyle from './FiltersResult.module.css'
 
-
-import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
+import { connect } from 'react-redux'
+import { withRouter } from 'next/router'
+import { bindActionCreators } from 'redux'
 import * as productActions from '../../../actions/product'
-import {withRouter} from "next/router";
+
+import VideoModal from  '../../../components/common/VideoModal/videoModal'
+
 
 const FiltersResult = (props) => {
   const{
@@ -16,6 +18,7 @@ const FiltersResult = (props) => {
       blogList,
       allCaseStudyList,
       handleSearch } = props
+
   const[ productResult, setProductResult ] = useState([])
   const[ blogResult, setBlogResult ] = useState({})
   const[ caseStudyResult, setCaseStudyResult ] = useState({})
@@ -26,6 +29,9 @@ const FiltersResult = (props) => {
 
   const[ activeBlog, setActiveBlog ] = useState(1)
   const[ activeCaseStudy, setActiveCaseStudy ] = useState(1)
+
+  const [open, setOpen] = useState(false)
+  const [youtubeUrl, setYoutubeUrl] = useState()
 
   let textSearch = React.createRef();
 
@@ -118,8 +124,8 @@ const FiltersResult = (props) => {
                             subCat:Object.entries(s && s[1]).map((v,i) => {
                                 return {
                                     name: v[0],
-                                    sCat: v[1].map(vvv => {return {...vvv,name:vvv.name+v[0]}}),
-                                    sNewCat:v[1].map(vvv => {return {...vvv,name:vvv.name+v[0]}}),
+                                    sCat: v[1].map(vvv => {return {...vvv,name:vvv.name}}),
+                                    sNewCat:v[1].map(vvv => {return {...vvv,name:vvv.name}}),
                                     active:i+1 == 1 ? true : false
                                 }
                             })
@@ -333,6 +339,15 @@ const FiltersResult = (props) => {
       setResourceResult({resourceList:list})
   }
 
+  const closeModal = () => {
+    setOpen(false)
+  }
+
+  const openVideoModal = (video) => {
+      setYoutubeUrl(video)
+      setOpen(true)
+  }
+
   return(
     <>
       {/*<div className={ResultStyle.searchbox_outer}>*/}
@@ -524,12 +539,19 @@ const FiltersResult = (props) => {
       <Row>
         <Col lg={4} md={6}>
           <div className={ResultStyle.gallery_inner}>
-              <a>
-                  <iframe title="Rotator Double Mouth" width="1060" height="355" src="https://www.youtube.com/embed/AbPpq3K54ww?feature=oembed" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen=""></iframe>
+              <a onClick={() => openVideoModal('https://www.youtube.com/embed/AbPpq3K54ww?feature=oembed')}>
+                 <iframe
+                     //title='Rotator Double Mouth'
+                     width='100%'
+                     height='355'
+                     src='https://www.youtube.com/embed/AbPpq3K54ww?feature=oembed'
+                     frameBorder='0'
+                     allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
+                     allowFullScreen=''/>
                 <div className={ResultStyle.gallery_overlay}>
                   <div className={ResultStyle.info_box}>
                     <span><i className='bx bx-play-circle'></i></span>
-                    <p>Chef Tony Gemignani Live!</p>
+                    {/*<p>Chef Tony Gemignani Live!</p>*/}
                   </div>
                 </div>
                 <div className={ResultStyle.gallery_coloroverlay}>
@@ -541,6 +563,13 @@ const FiltersResult = (props) => {
           </div>
         </Col>
       </Row>
+
+      <VideoModal
+          open={ open }
+          closeModal={ closeModal }
+          youtubeUrl={ youtubeUrl }
+      />
+
       <Row>
         <Col md={12}>
           <ul className={ResultStyle.pagination}>
@@ -655,8 +684,7 @@ const FiltersResult = (props) => {
         </Row>
     </>
    )
-  }
-
+}
 
 const mapDispatchToProps = dispatch => {
     return {
