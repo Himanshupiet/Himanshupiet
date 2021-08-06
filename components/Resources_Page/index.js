@@ -22,6 +22,8 @@ const Resources_main = (props) => {
   const[ searchCaseStudy, setSearchCaseStudy ] = useState([])
   const[ newArr, setNewArr ] = useState([])
 
+  const[ allVideos, setAllVideos ] = useState([])
+
   const[ resourceList, setResourceList ] = useState([])
   const[ resourceFList, setResourceFList ] = useState([])
   const[ blogList, setBlogList ] = useState([])
@@ -38,6 +40,7 @@ const Resources_main = (props) => {
       getAllBlogForResource([])
       getAllCaseStudy([])
       getSubCategory()
+      getAllVideos([])
   },[])
 
   useEffect(() => {
@@ -139,6 +142,20 @@ const Resources_main = (props) => {
       props.productActions.getAllCaseStudy(data).then(res => {
         setAllCaseStudyList(res)
         setSearchCaseStudy(res)
+      })
+  }
+
+  const getAllVideos = (data) => {
+      props.productActions.getAllVideos(data).then(res => {
+          let getGData = Object.entries(res)
+          let gList = getGData.map(val => {
+              return {
+                  name: val && val[0],
+                  url: val && val[1]
+              }
+          })
+          console.log(gList)
+          setAllVideos(gList)
       })
   }
 
@@ -421,6 +438,7 @@ const Resources_main = (props) => {
                     }
                     blogList={ blogList }
                     allCaseStudyList={ allCaseStudyList }
+                    allVideosList={ allVideos }
                     handleSearch={ handleSearch }
                     subCatList={ subCatList }
                   />
