@@ -4,6 +4,8 @@ import { Col, Container, Row } from 'react-bootstrap'
 import CountryList from './CountryList'
 import GetAQuoteStyle from './GetAQuote.module.css'
 
+import Router from 'next/router'
+
 const GetAQuote = (props) => {
   const initialValues = {
     firstName: '',
@@ -166,6 +168,7 @@ const GetAQuote = (props) => {
       console.log(gformData);
       setGformData(initialValues);
       setButtonIsDisable(false);
+      Router.push('/thankyou');
     }
     setButtonIsDisable(false);
   }

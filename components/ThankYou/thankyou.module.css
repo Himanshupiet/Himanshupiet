@@ -1,0 +1,38 @@
+.imgcss{
+
+    text-align: center;
+}
+
+.paraline{
+    margin-top: 50px;
+    line-height: 1;
+    font-size: 16px;
+}
+
+.linkstyle{
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    text-align:center;
+}
+
+.linkbutton{
+    background-color: #e31422;
+    height: 60px;
+    border-radius: 4px;
+
+}
+
+.linkbutton:hover{
+    background-color: black !important; 
+}
+
+.linkstyle:hover{
+    color: #fff !important;
+}
+
+.section_outer{
+    padding: 50px 0px;
+  }
+
+
