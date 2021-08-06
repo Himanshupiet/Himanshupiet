@@ -152,3 +152,36 @@ export const getAllBlogForResource = (data) => {
             })
     }
 }
+
+export const getAllVideos = (data) => {
+    let queryParams = [];
+    data && data.length && data.map(product => {
+        product.cat.map(val => {
+            queryParams.push(val)
+        })
+    })
+
+    let params = new URLSearchParams();
+    queryParams && queryParams.length && queryParams.map(query => {
+       params.append('categoryName', query.categoryName)
+    })
+    return dispatch => {
+        const API_URL = `${API_HOST}product-page/getAllCategoryVideo`
+        return axios({
+            url: API_URL,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            data: {},
+            method: 'get',
+            params: params
+        })
+            .then(response => {
+                    return response.data
+                }
+            )
+            .catch(error => {
+                return error
+            })
+    }
+}

@@ -3,11 +3,13 @@ import Link from 'next/link'
 import { Col, Row } from 'react-bootstrap'
 import ResultStyle from './FiltersResult.module.css'
 
-
-import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
+import { connect } from 'react-redux'
+import { withRouter } from 'next/router'
+import { bindActionCreators } from 'redux'
 import * as productActions from '../../../actions/product'
-import {withRouter} from "next/router";
+
+import VideoModal from  '../../../components/common/VideoModal/videoModal'
+
 
 const FiltersResult = (props) => {
   const{
@@ -15,17 +17,23 @@ const FiltersResult = (props) => {
       resourceList,
       blogList,
       allCaseStudyList,
+      allVideosList,
       handleSearch } = props
+
   const[ productResult, setProductResult ] = useState([])
   const[ blogResult, setBlogResult ] = useState({})
   const[ caseStudyResult, setCaseStudyResult ] = useState({})
   const[ resourceResult, setResourceResult ] = useState({})
+  const[ videosResult, setVideosResult ] = useState({})
 
   const[ productPerPage, setProductPerPage ] = useState(3)
   const[ currentPage, setCurrentPage ] = useState(1)
 
   const[ activeBlog, setActiveBlog ] = useState(1)
   const[ activeCaseStudy, setActiveCaseStudy ] = useState(1)
+
+  const [open, setOpen] = useState(false)
+  const [youtubeUrl, setYoutubeUrl] = useState()
 
   let textSearch = React.createRef();
 
@@ -67,7 +75,6 @@ const FiltersResult = (props) => {
             catCurrentPage: 1
     }
 
-
     let currentResourceList = {
       resourceList:resourceList && resourceList.length &&
         resourceList.map(val => {
@@ -88,10 +95,24 @@ const FiltersResult = (props) => {
         })
     }
 
+    let vPagination = Math.ceil((allVideosList && allVideosList && allVideosList.length)/ productPerPage)
+    let currentVideoList = {
+        allVideosList:allVideosList && allVideosList.length && allVideosList.slice(indexOfFirstTodo, indexOfLastTodo),
+        paginationArr: vPagination ?
+          Array(vPagination - 1 + 1).fill().map((_, idx) => {
+              return{
+                  name:1 + idx,
+                  active:1 + idx == 1 ? true :false
+              }
+          }) :
+          [],
+      catCurrentPage: 1
+    }
     setProductResult(currentProduct)
     setBlogResult(currentBlog)
     setCaseStudyResult(currentCaseStudy)
     setResourceResult(currentResourceList)
+    setVideosResult(currentVideoList)
   },[product, blogList, allCaseStudyList, resourceList ])
 
   useEffect(() => {
@@ -106,62 +127,61 @@ const FiltersResult = (props) => {
       }
   },[ productResult, props.subCatList])
 
-    const getAllResourceData = (data, sCat) => {
-        props.productActions.getAllResourceData(data, sCat).then(res => {
-            let getGData = Object.entries(res)
-            let gList = getGData.map(val => {
-                return {
-                    name: val && val[0],
-                    cat: Object.entries(val && val[1]).map(s => {
-                        return{
-                            name: s[0],
-                            subCat:Object.entries(s && s[1]).map((v,i) => {
-                                return {
-                                    name: v[0],
-                                    sCat: v[1].map(vvv => {return {...vvv,name:vvv.name+v[0]}}),
-                                    sNewCat:v[1].map(vvv => {return {...vvv,name:vvv.name+v[0]}}),
-                                    active:i+1 == 1 ? true : false
-                                }
-                            })
-                        }
-                    })
-                }
-            })
-
-            let indexOfLastTodo = currentPage * productPerPage
-            let indexOfFirstTodo = indexOfLastTodo - productPerPage
-
-            let aa = []
-            resourceResult &&
-            resourceResult.resourceList &&
-            resourceResult.resourceList.length &&
-            resourceResult.resourceList.map(val => {
-                gList.map(prod => {
-                  let rsPagination = Math.ceil((prod && prod.cat && prod.cat.length)/ productPerPage)
-                  aa.push({
-                      ...val,
-                      cat:prod.cat,
-                      newCat:prod && prod.cat && prod.cat.length && prod.cat.slice(indexOfFirstTodo, indexOfLastTodo) || [],
-                        paginationArr: rsPagination ?
-                        Array(rsPagination - 1 + 1).fill().map((_, idx) => {
-                            return{
-                                name:1 + idx,
-                                activeProduct:1 + idx == 1 ? true :false
-                            }}
-                        ) :
-                        [],
-                        catCurrentPage: 1
-                  })
+  const getAllResourceData = (data, sCat) => {
+    props.productActions.getAllResourceData(data, sCat).then(res => {
+        let getGData = Object.entries(res)
+        let gList = getGData.map(val => {
+            return {
+                name: val && val[0],
+                cat: Object.entries(val && val[1]).map(s => {
+                    return{
+                        name: s[0],
+                        subCat:Object.entries(s && s[1]).map((v,i) => {
+                            return {
+                                name: v[0],
+                                sCat: v[1].map(vvv => {return {...vvv,name:vvv.name}}),
+                                sNewCat:v[1].map(vvv => {return {...vvv,name:vvv.name}}),
+                                active:i+1 == 1 ? true : false
+                            }
+                        })
+                    }
                 })
-              }
-            )
-            const arrayUniqueByKey = [...new Map(aa.map(item =>
-                [item['name'], item])).values()];
-
-            setResourceResult({resourceList: arrayUniqueByKey})
+            }
         })
-    }
 
+        let indexOfLastTodo = currentPage * productPerPage
+        let indexOfFirstTodo = indexOfLastTodo - productPerPage
+
+        let aa = []
+        resourceResult &&
+        resourceResult.resourceList &&
+        resourceResult.resourceList.length &&
+        resourceResult.resourceList.map(val => {
+            gList.map(prod => {
+              let rsPagination = Math.ceil((prod && prod.cat && prod.cat.length)/ productPerPage)
+              aa.push({
+                  ...val,
+                  cat:prod.cat,
+                  newCat:prod && prod.cat && prod.cat.length && prod.cat.slice(indexOfFirstTodo, indexOfLastTodo) || [],
+                    paginationArr: rsPagination ?
+                    Array(rsPagination - 1 + 1).fill().map((_, idx) => {
+                        return{
+                            name:1 + idx,
+                            activeProduct:1 + idx == 1 ? true :false
+                        }}
+                    ) :
+                    [],
+                    catCurrentPage: 1
+              })
+            })
+          }
+        )
+        const arrayUniqueByKey = [...new Map(aa.map(item =>
+            [item['name'], item])).values()];
+
+        setResourceResult({resourceList: arrayUniqueByKey})
+    })
+  }
 
   const handlePagination = (value, typeId, cat, types) => {
     if(cat == 'product') {
@@ -213,7 +233,7 @@ const FiltersResult = (props) => {
         setProductResult(currentProduct)
     }
 
-      if(cat == 'resource') {
+    if(cat == 'resource') {
           let indexOfLastR = value.name * 3
           let indexOfFirstR = indexOfLastR - 3
 
@@ -296,6 +316,24 @@ const FiltersResult = (props) => {
         setCaseStudyResult(currentCaseStudy)
     }
 
+    if(cat == 'video') {
+          let indexOfLastV = value.name * 3
+          let indexOfFirstV = indexOfLastV - 3
+
+          let currentVideos = {
+              paginationArr: typeId.paginationArr.map(page => {
+                  if(page.name == value.name){
+                      return{...page, active:true}
+                  }else{
+                      return{...page, active:false}
+                  }
+              }),
+              catCurrentPage: value,
+              allVideosList: allVideosList && allVideosList.length && allVideosList.slice(indexOfFirstV, indexOfLastV)
+          }
+        setVideosResult(currentVideos)
+    }
+
   }
 
   const handleCat = (v, c, item, index) => {
@@ -331,6 +369,15 @@ const FiltersResult = (props) => {
           }
       })
       setResourceResult({resourceList:list})
+  }
+
+  const closeModal = () => {
+    setOpen(false)
+  }
+
+  const openVideoModal = (video) => {
+      setYoutubeUrl(video)
+      setOpen(true)
   }
 
   return(
@@ -517,35 +564,69 @@ const FiltersResult = (props) => {
           null
       }
 
+      { videosResult &&
+        videosResult.allVideosList &&
+        videosResult.allVideosList.length ?
+          <>
+              <div className={ResultStyle.product_headingbox}>
+                <h2>Videos</h2>
+              </div>
+              <Row>
+                  { videosResult.allVideosList.map((video, i) => {
+                      return (
+                          <Col lg={4} md={6} key={i}>
+                              <div className={ResultStyle.gallery_inner}>
+                                  <a onClick={() => openVideoModal(video.url)}>
+                                      <iframe
+                                          width='100%'
+                                          height='355'
+                                          src={video.url}
+                                          frameBorder='0'
+                                          allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
+                                          allowFullScreen=''/>
+                                      <div className={ResultStyle.gallery_coloroverlay}>
+                                          <div className={ResultStyle.info_box}>
+                                              <span><i className='bx bx-play-circle'></i></span>
+                                          </div>
+                                      </div>
+                                  </a>
+                              </div>
+                          </Col>
+                      )
+                    })
+                  }
+              </Row>
+          </>
+          :null
+      }
 
-      <div className={ResultStyle.product_headingbox}>
-        <h2>Videos</h2>
-      </div>
-      <Row>
-        <Col lg={4} md={6}>
-          <div className={ResultStyle.gallery_inner}>
-              <a>
-                  <iframe title="Rotator Double Mouth" width="1060" height="355" src="https://www.youtube.com/embed/AbPpq3K54ww?feature=oembed" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen=""></iframe>
-                <div className={ResultStyle.gallery_overlay}>
-                  <div className={ResultStyle.info_box}>
-                    <span><i className='bx bx-play-circle'></i></span>
-                    <p>Chef Tony Gemignani Live!</p>
-                  </div>
-                </div>
-                <div className={ResultStyle.gallery_coloroverlay}>
-                  <div className={ResultStyle.info_box}>
-                    <span><i className='bx bx-play-circle'></i></span>
-                  </div>
-                </div>
-              </a>
-          </div>
-        </Col>
-      </Row>
+      <VideoModal
+          open={ open }
+          closeModal={ closeModal }
+          youtubeUrl={ youtubeUrl }
+      />
+
       <Row>
         <Col md={12}>
-          <ul className={ResultStyle.pagination}>
-            <li><button className={ResultStyle.activepagination}>1</button></li>
-          </ul>
+            <ul className={ResultStyle.pagination}>
+                { videosResult &&
+                  videosResult.paginationArr &&
+                  videosResult.paginationArr.length ?
+                    videosResult.paginationArr.map((val, i) => {
+                        return (
+                            <li key={i}>
+                                <button
+                                    onClick = {() => {
+                                        handlePagination(val,videosResult , 'video')
+                                    }}
+                                    className={ val.active ? ResultStyle.activepagination : ''}
+                                    key={i}>{val.name}</button>
+                            </li>
+                        )
+                    })
+                    : null
+                }
+            </ul>
         </Col>
       </Row>
       {/*blog filter*/}
@@ -655,8 +736,7 @@ const FiltersResult = (props) => {
         </Row>
     </>
    )
-  }
-
+}
 
 const mapDispatchToProps = dispatch => {
     return {

@@ -1,9 +1,16 @@
 import React from 'react';
 import {Col, Container, Row} from 'react-bootstrap'
 import FormStyle from './form.module.css'
+import Router from 'next/router'
 
 
 const FormPage = () => {
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+          Router.push('/thankyou')
+     }
+
     return (
         <>
             <Container fluid>
@@ -104,7 +111,7 @@ const FormPage = () => {
                                         placeholder="Your message Here"
                                     />
                                 </div>
-                                <button type="submit" className="mf_btn">Submit</button>
+                                <button type="submit" className="mf_btn" onClick={handleSubmit}>Submit</button>
                             </form>
                         </div>
                     </Col>

@@ -22,6 +22,8 @@ const Resources_main = (props) => {
   const[ searchCaseStudy, setSearchCaseStudy ] = useState([])
   const[ newArr, setNewArr ] = useState([])
 
+  const[ allVideos, setAllVideos ] = useState([])
+
   const[ resourceList, setResourceList ] = useState([])
   const[ resourceFList, setResourceFList ] = useState([])
   const[ blogList, setBlogList ] = useState([])
@@ -29,6 +31,7 @@ const Resources_main = (props) => {
 
   const[ blogSelect, setBlogSelect ] = useState(false)
   const[ caseStudySelect, setCaseStudySelect ] = useState(false)
+  const[ videoSelect, setVideoSelect ] = useState(false)
 
   const[ subCatList, setSubCatList ] = useState([])
 
@@ -38,6 +41,7 @@ const Resources_main = (props) => {
       getAllBlogForResource([])
       getAllCaseStudy([])
       getSubCategory()
+      getAllVideos([])
   },[])
 
   useEffect(() => {
@@ -45,6 +49,12 @@ const Resources_main = (props) => {
        getAllBlogForResource([])
      }
   },[blogSelect])
+
+  useEffect(() => {
+     if(!videoSelect){
+         getAllVideos([])
+     }
+  },[videoSelect])
 
   useEffect(() => {
      if(!caseStudySelect){
@@ -142,6 +152,19 @@ const Resources_main = (props) => {
       })
   }
 
+  const getAllVideos = (data) => {
+      props.productActions.getAllVideos(data).then(res => {
+          let getGData = Object.entries(res)
+          let gList = getGData.map(val => {
+              return {
+                  name: val && val[0],
+                  url: val && val[1]
+              }
+          })
+          setAllVideos(gList)
+      })
+  }
+
   const handleSelect = (e, typeId, cat, idx, index) => {
     const { value } = e.target
     let productData = [...newArr]
@@ -175,6 +198,9 @@ const Resources_main = (props) => {
           if(caseStudySelect){
               getAllCaseStudy(productData)
           }
+          if(videoSelect){
+              getAllVideos(productData)
+          }
         } else {
           productData.map(val => {
             if (val.id == typeId) {
@@ -189,6 +215,9 @@ const Resources_main = (props) => {
           }
           if(caseStudySelect){
               getAllCaseStudy(productData)
+          }
+          if(videoSelect){
+             getAllVideos(productData)
           }
         }
 
@@ -208,6 +237,9 @@ const Resources_main = (props) => {
         }
         if(caseStudySelect){
             getAllCaseStudy(productData)
+        }
+        if(videoSelect){
+            getAllVideos(productData)
         }
       }
     }else{
@@ -235,6 +267,9 @@ const Resources_main = (props) => {
         if(caseStudySelect){
           getAllCaseStudy(productArr)
         }
+        if(videoSelect){
+            getAllVideos(productArr)
+        }
       }else if( productArr && productArr.length && productArr[0].cat && productArr[0].cat.length > 1) {
         setFilterProduct(productArr)
         setSearchProduct(productArr)
@@ -244,6 +279,9 @@ const Resources_main = (props) => {
         }
         if(caseStudySelect){
            getAllCaseStudy(productArr)
+        }
+        if(videoSelect){
+           getAllVideos(productArr)
         }
       }else{
         if(productArr && productArr.length &&  productArr[0].cat && productArr[0].cat.length){
@@ -256,6 +294,9 @@ const Resources_main = (props) => {
           if(caseStudySelect){
              getAllCaseStudy(productArr)
           }
+          if(videoSelect){
+             getAllVideos(productArr)
+          }
         }else{
           setFilterProduct(allProduct)
           setSearchProduct(allProduct)
@@ -266,6 +307,9 @@ const Resources_main = (props) => {
           if(caseStudySelect){
               getAllCaseStudy(allProduct)
           }
+         if(videoSelect){
+            getAllVideos(allProduct)
+         }
         }
       }
     }
@@ -406,6 +450,8 @@ const Resources_main = (props) => {
                     handleResourceSelect={ handleResourceSelect }
                     subCatList={ subCatList }
                     selectCat={ selectCat }
+                    setVideoSelect={setVideoSelect}
+                    videoSelect={videoSelect}
                   />
                 </Col>
                 <Col md={9}>
@@ -421,8 +467,10 @@ const Resources_main = (props) => {
                     }
                     blogList={ blogList }
                     allCaseStudyList={ allCaseStudyList }
+                    allVideosList={ allVideos }
                     handleSearch={ handleSearch }
                     subCatList={ subCatList }
+                    getAllVideos={ getAllVideos }
                   />
                 </Col>
               </Row>

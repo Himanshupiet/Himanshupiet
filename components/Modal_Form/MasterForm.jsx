@@ -7,9 +7,8 @@ import {
 import Step1 from './Step1';
 import Step2 from './Step2';
 // import Step3 from './Step3';
-
-
 import MultiStepProgressBar from './MultiStepProgressBar';
+import Router from 'next/router';
 
 class MasterForm extends Component {
     constructor(props) {
@@ -154,6 +153,8 @@ class MasterForm extends Component {
       Product: ${product}\n
       File: ${choosefile}\n
       Message: ${message}`);
+
+      Router.push('/thankyou');
     };
 
     // _next and _previous functions will be called on button click

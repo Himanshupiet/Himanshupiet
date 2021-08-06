@@ -1,11 +1,13 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
+
 import Header from '../header/header'
 import Footer from '../footer/footer'
-import TopBannerSlider from './TopBannerSlider/TopBannerSlider'
 import VideoSlider from './VideoSlider/VideoSlider'
 import PressContent from './PressContent/PressContent'
-import axios from "axios";
-import {API_HOST} from "../../env";
+import TopBannerSlider from './TopBannerSlider/TopBannerSlider'
+
+import axios from 'axios'
+import { API_HOST } from '../../env'
 
 const PressMain = (props) => {
     const [data, setData] = useState([])
@@ -54,7 +56,6 @@ const PressMain = (props) => {
             <TopBannerSlider slider={slider}/>
             <VideoSlider data={data}/>
             <PressContent/>
-            {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/r0-q0YIHxO4?controls=0&rel=0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}
             <Footer/>
         </>
     )

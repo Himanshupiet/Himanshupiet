@@ -1,28 +1,21 @@
-import React, { useEffect, useState } from 'react'
-import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { Container, Row, Col } from 'react-bootstrap';
+import React, { useState } from 'react'
+import Link from 'next/link'
+import Slider from 'react-slick'
+import { Container, Row, Col } from 'react-bootstrap'
+
+import VideoModal from '../../common/VideoModal/videoModal'
+
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 import VideoSliderStyle from './VideoSlider.module.css'
-import Link from "next/link";
-import Modal from 'react-modal';
-const customStyles = {
-    content: {
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)',
-        width: '62%',
-    },
-};
 
 const VideoSlider = (props) => {
     const pressData = props.data
     const AllPressData = pressData && pressData.content && pressData.content.length ? pressData.content : []
+
     const [open, setOpen] = useState(false)
     const [youtubeUrl, setYoutubeUrl] = useState()
+
     let VideoSliderSettings = {
         speed: 1500,
         arrows: false,
@@ -63,14 +56,15 @@ const VideoSlider = (props) => {
                 }
             }
         ]
-    };
+    }
 
     const openModal = (url) => {
-        setOpen(true);
+        setOpen(true)
         setYoutubeUrl(url)
     }
+
     const closeModal = () => {
-        setOpen(false);
+        setOpen(false)
     }
 
     return (
@@ -110,20 +104,11 @@ const VideoSlider = (props) => {
                     </Slider>
                 </Col>
                 <Col lg={1}></Col>
-                <Modal
-                    isOpen={open}
-                    onRequestClose={closeModal}
-                    style={customStyles}
-                    contentLabel="Example Modal"
-                >
-                    <Row classNames={VideoSliderStyle.close_Button}>
-                        <button type="button" onClick={closeModal} class="close" aria-label="Close">
-                            <span aria-hidden="true" className={`${VideoSliderStyle.cross} text-white`}>&times;</span>
-                        </button>
-                    </Row>
-
-                    <iframe width="100%" height="400" src={youtubeUrl} frameborder="0" allowfullscreen></iframe>
-                </Modal>
+                <VideoModal
+                    open={ open }
+                    closeModal={ closeModal }
+                    youtubeUrl={ youtubeUrl }
+                />
             </Row>
         </Container>
     )
