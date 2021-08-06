@@ -95,7 +95,7 @@ const Header = (props) => {
                 setFixedHeaderClass(headerStyle.active_sticky_header);
                 setImage(`${process.env.NEXT_PUBLIC_BASE_PATH}/images/LogoRed.png`)
             } else {
-                if (screen.width < 768 ) {
+                if (screen.width <= 768 ) {
                     setFixedHeaderClass("");
                     setImage(`${process.env.NEXT_PUBLIC_BASE_PATH}/images/LogoRed.png`)
                 } else {
