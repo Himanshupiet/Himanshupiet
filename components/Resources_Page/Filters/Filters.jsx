@@ -10,7 +10,7 @@ const Filters = (props) => {
       blogSelect,
       setBlogSelect,
       caseStudySelect,
-      setCaseStudySelect,
+      setCaseStudySelect
   } = props
   const[ productFilter, setProductFilter ] = useState([])
   const [filterOpen, setFilterOpen] = useState({
@@ -37,8 +37,12 @@ const Filters = (props) => {
     }
   },[caseStudySelect])
 
-  const selectBlogWithCat = () => {
-    setBlogSelect(!blogSelect)
+ const selectBlogWithCat = () => {
+   setBlogSelect(!blogSelect)
+ }
+
+ const selectVideoWithCat = () => {
+    props.setVideoSelect(!props.videoSelect)
   }
 
  const selectCaseStudyWithCat = () => {
@@ -175,7 +179,15 @@ const Filters = (props) => {
         <div className={`${FilterStyle.filter_option} ${filterOpen.OtherinfoOpen ? FilterStyle.openFilterOption : ''}`}>
           <ul>
             <li>
-              <label><input type='checkbox' value='Video' />Video</label>
+              <label>
+                  <input
+                      type='checkbox'
+                      value='Video'
+                      onClick={selectVideoWithCat}
+                      checked={props.videoSelect}
+                  />
+                  Video
+              </label>
             </li>
             <li>
               <label>

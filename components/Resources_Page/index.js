@@ -31,6 +31,7 @@ const Resources_main = (props) => {
 
   const[ blogSelect, setBlogSelect ] = useState(false)
   const[ caseStudySelect, setCaseStudySelect ] = useState(false)
+  const[ videoSelect, setVideoSelect ] = useState(false)
 
   const[ subCatList, setSubCatList ] = useState([])
 
@@ -48,6 +49,12 @@ const Resources_main = (props) => {
        getAllBlogForResource([])
      }
   },[blogSelect])
+
+  useEffect(() => {
+     if(!videoSelect){
+         getAllVideos([])
+     }
+  },[videoSelect])
 
   useEffect(() => {
      if(!caseStudySelect){
@@ -154,7 +161,6 @@ const Resources_main = (props) => {
                   url: val && val[1]
               }
           })
-          console.log(gList)
           setAllVideos(gList)
       })
   }
@@ -192,6 +198,9 @@ const Resources_main = (props) => {
           if(caseStudySelect){
               getAllCaseStudy(productData)
           }
+          if(videoSelect){
+              getAllVideos(productData)
+          }
         } else {
           productData.map(val => {
             if (val.id == typeId) {
@@ -206,6 +215,9 @@ const Resources_main = (props) => {
           }
           if(caseStudySelect){
               getAllCaseStudy(productData)
+          }
+          if(videoSelect){
+             getAllVideos(productData)
           }
         }
 
@@ -225,6 +237,9 @@ const Resources_main = (props) => {
         }
         if(caseStudySelect){
             getAllCaseStudy(productData)
+        }
+        if(videoSelect){
+            getAllVideos(productData)
         }
       }
     }else{
@@ -252,6 +267,9 @@ const Resources_main = (props) => {
         if(caseStudySelect){
           getAllCaseStudy(productArr)
         }
+        if(videoSelect){
+            getAllVideos(productArr)
+        }
       }else if( productArr && productArr.length && productArr[0].cat && productArr[0].cat.length > 1) {
         setFilterProduct(productArr)
         setSearchProduct(productArr)
@@ -261,6 +279,9 @@ const Resources_main = (props) => {
         }
         if(caseStudySelect){
            getAllCaseStudy(productArr)
+        }
+        if(videoSelect){
+           getAllVideos(productArr)
         }
       }else{
         if(productArr && productArr.length &&  productArr[0].cat && productArr[0].cat.length){
@@ -273,6 +294,9 @@ const Resources_main = (props) => {
           if(caseStudySelect){
              getAllCaseStudy(productArr)
           }
+          if(videoSelect){
+             getAllVideos(productArr)
+          }
         }else{
           setFilterProduct(allProduct)
           setSearchProduct(allProduct)
@@ -283,6 +307,9 @@ const Resources_main = (props) => {
           if(caseStudySelect){
               getAllCaseStudy(allProduct)
           }
+         if(videoSelect){
+            getAllVideos(allProduct)
+         }
         }
       }
     }
@@ -423,6 +450,8 @@ const Resources_main = (props) => {
                     handleResourceSelect={ handleResourceSelect }
                     subCatList={ subCatList }
                     selectCat={ selectCat }
+                    setVideoSelect={setVideoSelect}
+                    videoSelect={videoSelect}
                   />
                 </Col>
                 <Col md={9}>
@@ -441,6 +470,7 @@ const Resources_main = (props) => {
                     allVideosList={ allVideos }
                     handleSearch={ handleSearch }
                     subCatList={ subCatList }
+                    getAllVideos={ getAllVideos }
                   />
                 </Col>
               </Row>
