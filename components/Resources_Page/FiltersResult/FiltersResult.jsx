@@ -576,7 +576,7 @@ const FiltersResult = (props) => {
                       return (
                           <Col lg={4} md={6} key={i}>
                               <div className={ResultStyle.gallery_inner}>
-                                  <a onClick={() => openVideoModal('https://www.youtube.com/embed/AbPpq3K54ww?feature=oembed')}>
+                                  <a onClick={() => openVideoModal(video.url)}>
                                       <iframe
                                           width='100%'
                                           height='355'
