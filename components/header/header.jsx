@@ -95,8 +95,13 @@ const Header = (props) => {
                 setFixedHeaderClass(headerStyle.active_sticky_header);
                 setImage(`${process.env.NEXT_PUBLIC_BASE_PATH}/images/LogoRed.png`)
             } else {
-                setFixedHeaderClass("");
-                setImage(`${process.env.NEXT_PUBLIC_BASE_PATH}/images/LogoWhite.png`)
+                if (screen.width < 768 ) {
+                    setFixedHeaderClass("");
+                    setImage(`${process.env.NEXT_PUBLIC_BASE_PATH}/images/LogoRed.png`)
+                } else {
+                    setFixedHeaderClass("");
+                    setImage(`${process.env.NEXT_PUBLIC_BASE_PATH}/images/LogoWhite.png`)
+                }
             }
         }
     }
@@ -247,9 +252,10 @@ const Header = (props) => {
                                     </button>
                                 </div>
                                 <Link href="/">
-                                    <a title="MarraForni"><img alt="Marra Forni"
-                                                               src={img}
-                                                               width="226" height="60"/></a>
+                                    <a title="MarraForni">
+                                        <img alt="Marra Forni"
+                                             src={img}
+                                             width="226" height="60"/></a>
                                 </Link>
                                 <div className={headerStyle.mobile_slbox}>
                                     <div className={`${headerStyle.searchicon} ${headerStyle.mobile_show}`} onClick={() => {setIsOpenSearchBox(true)}}>

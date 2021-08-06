@@ -222,7 +222,7 @@
     display: block !important;
   }
   .product_menu_outer button{
-    margin: 0 130px;
+    margin: 0;
   }
   .desktop_show{
     display: none !important;
@@ -245,13 +245,15 @@
   .mobile_navbar .custom_navbar .site_nav{
     flex: 0 0 100%;
     max-width: 100%;
-    display: block;
+    display: flex;
     max-height: 0;
     padding: 0;
     border: 0;
     overflow-y: auto;
     transition: all 0.3s ease;
-    text-align: center;
+    justify-content: normal;
+    flex-direction: column;
+    align-items: baseline;
   }
   .mobile_navbar .menu_icon button{
     font-size: 25px;
@@ -278,7 +280,9 @@
     margin: 0;
     padding: 10px 0;
     position: unset;
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
   }
   .mobile_navbar .site_nav > div > a{
     display: block;
@@ -290,23 +294,16 @@
     justify-content: space-between;
   }
   .mobile_navbar .sub_menu_outer > a{
-    /*flex: 0 0 90%;*/
-    flex: 0 0 100%;
-    /*max-width: 90%;*/
-    max-width: 100%!important;
     color: #fff!important;
   }
   .mobile_navbar .sub_menu_outer button{
-    flex: 0 0 10%;
-    max-width: 10%;
     text-align: right;
     font-size: 16px;
     display: block;
-    /*background-color: transparent;*/
     background-color: #e31422;
     outline: none;
     border: none;
-    margin: 0 130px;
+    margin: 0 0;
   }
   .mobile_navbar .sub_menu_outer .sub_menu{
     opacity: 1;
@@ -321,10 +318,10 @@
     transition: all 0.4s ease;
   }
   .mobile_navbar .sub_menu ul li a{
-    background-color: #fff;
+    background-color: rgb(227 20 34 / 18%);
     color: #232323;
-    border-bottom: 1px solid #232323;
     position: relative;
+    padding-left: 1.75rem;
   }
   .mobile_navbar .mob_nav_open{
     border-top: 1px solid #e31422 !important;
