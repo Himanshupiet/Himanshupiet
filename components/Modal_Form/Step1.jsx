@@ -5,6 +5,10 @@ import {FormGroup, Label, Input} from 'reactstrap';
 import StepStyle from "./Step3.module.css";
 import axios from "axios";
 import {API_HOST} from "../../env";
+import {bindActionCreators} from "redux";
+import * as productActions from "../../actions/product";
+import {connect} from "react-redux";
+import {withRouter} from "next/router";
 
 const Step1 = (props) => {
     const images = props.choosefile
@@ -19,6 +23,14 @@ const Step1 = (props) => {
     const [groutUrl, setGroutUrl] = useState([])
 
     console.log('groutUrl', groutUrl)
+
+    useEffect(() => {
+        props.productActions.getAllProduct()
+    },[])
+
+    useEffect(() => {
+console.log(props.product,'hhyhhhghh')
+    },[props.product])
 
     useEffect(() => {
         axios.get(`${API_HOST}Tiles/gettitleShape`, {
@@ -365,7 +377,18 @@ const Step1 = (props) => {
     );
 };
 
-export default Step1;
+
+const mapStateToProps = ({product}) => {
+    return {product}
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        productActions: bindActionCreators(productActions, dispatch)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Step1))
 
 
 
