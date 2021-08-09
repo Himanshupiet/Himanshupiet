@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Link from 'next/link';
-import {Col, Container, Modal, Row, Tab, Tabs} from 'react-bootstrap'
+import {Col, Container, Modal, Row, Tab, Tabs, Button} from 'react-bootstrap'
 import ActiveLink from './ActiveLink';
 import headerStyle from './header.module.css';
 import {withRouter} from 'next/router'
@@ -9,7 +9,7 @@ import {bindActionCreators} from 'redux'
 import * as productActions from '../../actions/product'
 import MasterForm from "../Modal_Form/MasterForm";
 import axios from 'axios'
-import { API_HOST } from '../../env'
+import {API_HOST} from '../../env'
 import HeaderSearchBox from './Search_Box/SearchBox';
 
 /**
@@ -60,7 +60,7 @@ const Header = (props) => {
     const [product, setProduct] = useState([])
     const [img, setImage] = useState('')
 
-		const [isOpenSearchBox, setIsOpenSearchBox] = useState(false)
+    const [isOpenSearchBox, setIsOpenSearchBox] = useState(false)
 
     useEffect(() => {
         window.addEventListener('scroll', checkStickyHeader, {passive: true});
@@ -70,7 +70,8 @@ const Header = (props) => {
     }, []);
 
     useEffect(() => {
-        axios.get(`${API_HOST}product-page/getAllCategoriesByType`, {headers:{
+        axios.get(`${API_HOST}product-page/getAllCategoriesByType`, {
+            headers: {
                 'Content-Type': 'application/json',
             }
         }).then((res)=>{
@@ -102,7 +103,7 @@ const Header = (props) => {
                 setFixedHeaderClass(headerStyle.active_sticky_header);
                 setImage(`${process.env.NEXT_PUBLIC_BASE_PATH}/images/LogoRed.png`)
             } else {
-                if (screen.width <= 768 ) {
+                if (screen.width <= 768) {
                     setFixedHeaderClass("");
                     setImage(`${process.env.NEXT_PUBLIC_BASE_PATH}/images/LogoRed.png`)
                 } else {
@@ -257,6 +258,12 @@ const Header = (props) => {
                         {/*=================== Modal Section ==============================*/}
                         <Modal show={show} onHide={handleClose} size='xl' className={`${headerStyle.my_model}`}>
                             <Modal.Body className={`${headerStyle.my_model_body} show-grid`}>
+                                {/*<a className='mf_btn' variant="secondary" onClick={handleClose}>*/}
+                                {/*    Close*/}
+                                {/*</a>*/}
+                                <a variant="secondary" onClick={handleClose}>
+                                    <i className="fa fa-times fa-2x mb-3"></i>
+                                </a>
                                 <MasterForm/>
                             </Modal.Body>
                         </Modal>
@@ -282,7 +289,10 @@ const Header = (props) => {
                                              width="226" height="60"/></a>
                                 </Link>
                                 <div className={headerStyle.mobile_slbox}>
-                                    <div className={`${headerStyle.searchicon} ${headerStyle.mobile_show}`} onClick={() => {setIsOpenSearchBox(true)}}>
+                                    <div className={`${headerStyle.searchicon} ${headerStyle.mobile_show}`}
+                                         onClick={() => {
+                                             setIsOpenSearchBox(true)
+                                         }}>
                                         <button><i className='bx bx-search-alt-2'></i></button>
                                     </div>
                                     <div className={headerStyle.mobile_show}>
@@ -345,18 +355,19 @@ const Header = (props) => {
                                                                 <ul>
                                                                     {item.categories.map((res, id) => (
                                                                         <>
-                                                                            { id !== 0 &&
-                                                                                <li key={id}>
-                                                                                    <Link href={`/product/${res.categoryName}`}>
-                                                                                        <a title={res.categoryName}>
-                                                                                            <img
-                                                                                                src={res.imageUrl}
-                                                                                                width="100" height="100"
-                                                                                                alt="Top Product"/>
-                                                                                            <p>{res.categoryName}</p>
-                                                                                        </a>
-                                                                                    </Link>
-                                                                                </li>
+                                                                            {id !== 0 &&
+                                                                            <li key={id}>
+                                                                                <Link
+                                                                                    href={`/product/${res.categoryName}`}>
+                                                                                    <a title={res.categoryName}>
+                                                                                        <img
+                                                                                            src={res.imageUrl}
+                                                                                            width="100" height="100"
+                                                                                            alt="Top Product"/>
+                                                                                        <p>{res.categoryName}</p>
+                                                                                    </a>
+                                                                                </Link>
+                                                                            </li>
                                                                             }
                                                                         </>
                                                                     ))}
@@ -433,9 +444,6 @@ const Header = (props) => {
                                         </ul>
                                     </div>
                                 </div>
-
-
-
                                 <div>
                                     <ActiveLink activeClassName="active_menu" href="/tools-and-accessories">
                                         <a title="Tools" data-title="Tools"><span>Tools</span></a>
@@ -501,7 +509,7 @@ const Header = (props) => {
                                 </div>
                                 <div className={headerStyle.sub_menu_outer}>
                                     {/*<ActiveLink activeClassName="active_menu" href="">*/}
-                                        <a title="Contact Us" data-title="Contact Us"><span>Contact Us</span></a>
+                                    <a title="Contact Us" data-title="Contact Us"><span>Contact Us</span></a>
                                     {/*</ActiveLink>*/}
                                     <button className={headerStyle.mobile_show} onClick={() => {
                                         setMobileProductOpen(false);
@@ -534,11 +542,15 @@ const Header = (props) => {
                                     </div>
                                 </div>
                                 <div>
-                                    <button className={`${headerStyle.brick_own_btn} mf_btn`} style={{padding: "8px"}} onClick={handleShow}>Build Your
+                                    <button className={`${headerStyle.brick_own_btn} mf_btn`} style={{padding: "8px"}}
+                                            onClick={handleShow}>Build Your
                                         Brick Oven
                                     </button>
                                 </div>
-                                <div className={`${headerStyle.searchicon} ${headerStyle.desktop_show}`} onClick={() => {setIsOpenSearchBox(true)}}>
+                                <div className={`${headerStyle.searchicon} ${headerStyle.desktop_show}`}
+                                     onClick={() => {
+                                         setIsOpenSearchBox(true)
+                                     }}>
                                     <i className='bx bx-search-alt-2'></i>
                                 </div>
                                 <div className={headerStyle.desktop_show}>
@@ -547,10 +559,10 @@ const Header = (props) => {
                                 </div>
                             </div>
                         </nav>
-												{
-													isOpenSearchBox && <HeaderSearchBox setIsOpenSearchBox={setIsOpenSearchBox} />
-												}
-										</Col>
+                        {
+                            isOpenSearchBox && <HeaderSearchBox setIsOpenSearchBox={setIsOpenSearchBox}/>
+                        }
+                    </Col>
                     <Col xl={1}></Col>
                 </Row>
             </header>
