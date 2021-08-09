@@ -42,7 +42,7 @@ const Step1 = (props) => {
     }, [props.product])
 
     useEffect(() => {
-        getFacadeByName()
+        getFacadeByNameImgUrl()
     }, [facade])
 
     useEffect(() => {
@@ -63,7 +63,7 @@ const Step1 = (props) => {
         })
     }
 
-    const getFacadeByName = () => {
+    const getFacadeByNameImgUrl = () => {
         axios.get(`${API_HOST}facade/getFacadeByName?facadeName=${facade}`, {
             headers: {
                 'Content-Type': 'application/json',

@@ -83,11 +83,26 @@ class MasterForm extends Component {
     }
 
     fileUploaded = ev => {
-        const reader = new FileReader()
-        reader.readAsDataURL(ev.target.files[0])
-        reader.onloadend = ev => {
-            this.setState({ choosefile: reader.result })
-        }
+        let file = ev.target.files[0];
+        let formData = new FormData();
+        formData.append('bannerImage', file);
+            axios({
+                url: `${API_HOST}blog-image/createBlogImage`,
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                data: formData,
+                method: 'post'
+            })
+              .then(response => {
+                  this.setState({
+                      choosefile: response && response.data
+                  })
+                }
+              )
+              .catch(error => {
+                  return error
+              })
     }
 
     handleSubmit = (event) => {
@@ -124,7 +139,7 @@ class MasterForm extends Component {
             groutColor: grout,
             groutColorImageUrl: 'https://marraforni.com/wp/wp-content/themes/ultima-child/assets/s3/make/Grout_Red.png',
             lastName: lname,
-            logoImaeUrl: "https://jdev.decipherzone.com/mfback/blog-image/Penny_Blue.png",
+            logoImaeUrl: choosefile,
             message: message,
             phoneNumber: pnumber,
             productCategory: product,
