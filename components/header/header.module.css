@@ -444,3 +444,7 @@
 /*    position: relative;*/
 /*  }*/
 /*}*/
+.my_model i{
+  color: #e31422;
+  cursor: pointer;
+}
