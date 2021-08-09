@@ -349,6 +349,15 @@
   .my_model_body{
     height: 990px!important;
   }
+  .product_menu_outer{
+    display: none!important;
+  }
+  /*.sub_mobile_menu_outer{*/
+  /*  display: block!important;*/
+  /*}*/
+}
+.sub_mobile_product_outer{
+  display: none!important;
 }
 .my_model_body input{
   border: 0!important;
