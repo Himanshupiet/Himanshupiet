@@ -75,7 +75,13 @@ const Header = (props) => {
             }
         }).then((res)=>{
             if(res && res.data){
-                setProduct(res.data)
+                let productArr = res && res.data && res.data.length && res.data.map(type => {
+                    return{
+                        ...type,
+                        isOpen:false
+                    }
+                })
+                setProduct(productArr)
             }
         }).catch((error) => {
 
@@ -224,6 +230,23 @@ const Header = (props) => {
         }
         setButtonIsDisable(false);
     }
+
+    const openProductWithType = (type) => {
+        let typeArr = product.map(val => {
+            if(val.productType == type.productType){
+                return{
+                    ...val,
+                    isOpen:!val.isOpen
+                }
+            }else{
+                return{
+                    ...val,
+                    isOpen:false
+                }
+            }
+        })
+        setProduct(typeArr)
+    }
     return (
         <>
             <header
@@ -284,8 +307,7 @@ const Header = (props) => {
                                         setMobileBlogOpen(false);
                                         setMobileGalleryOpen(false);
                                         setMobileContactOpen(false);
-                                    }
-                                    }>
+                                    }}>
                                         <i className={mobileProductOpen ? "bx bxs-chevron-down" : "bx bxs-chevron-up"}></i>
                                     </button>
                                     <div
@@ -347,104 +369,73 @@ const Header = (props) => {
                                         </Tabs>
                                     </div>
                                 </div>
+
                                 <div className={`${headerStyle.sub_menu_outer} ${headerStyle.sub_mobile_product_outer}`}>
-                                    {/*<ActiveLink activeClassName="active_menu" href="">*/}
                                     <a title="Products" data-title="Products"><span>Products</span></a>
-                                    {/*</ActiveLink>*/}
-                                    <button className={headerStyle.mobile_show} onClick={() => {
-                                        setMobileProductOpen(false);
-                                        setMobileBlogOpen(false);
-                                        setMobileGalleryOpen(false);
-                                        setMobileContactOpen(!mobileContactOpen);
-                                    }
-                                    }>
+                                    <button
+                                       className={headerStyle.mobile_show}
+                                           onClick={() => {
+                                            setMobileProductOpen(!mobileProductOpen);
+                                            setMobileBlogOpen(false);
+                                            setMobileGalleryOpen(false);
+                                            setMobileContactOpen(false);
+                                       }}>
                                         <i className={mobileContactOpen ? "bx bxs-chevron-down" : "bx bxs-chevron-up"}></i>
                                     </button>
                                     <div
-                                        className={`${headerStyle.sub_menu} ${mobileContactOpen ? headerStyle.sub_menu_active : ""}`}>
+                                        className={`${headerStyle.sub_menu} ${mobileProductOpen ? headerStyle.sub_menu_active : ""}`}>
                                         <ul>
-                                            <li style={{backgroundColor:'rgb(227 20 34 / 18%);'}}>
-                                                <div className={`${headerStyle.sub_menu_outer} ${headerStyle.sub_mobile_product_outer}`}>
-                                                    {/*<ActiveLink activeClassName="active_menu" href="">*/}
-                                                    <a title="Ovens" data-title="Ovens"><span>Ovens</span></a>
-                                                    {/*</ActiveLink>*/}
-                                                    <button className={headerStyle.mobile_show} onClick={() => {
-                                                        setMobileProductOpen(false);
-                                                        setMobileBlogOpen(false);
-                                                        setMobileGalleryOpen(false);
-                                                        setMobileContactOpen(false);
-                                                        setMobileOvensOpen(!mobileOvensOpen)
-                                                    }
-                                                    }>
-                                                        <i className={mobileContactOpen ? "bx bxs-chevron-down" : "bx bxs-chevron-up"}></i>
-                                                    </button>
-                                                    <div
-                                                        className={`${headerStyle.sub_menu} ${mobileContactOpen ? headerStyle.sub_menu_active : ""}`}>
-                                                        <ul>
-                                                            <li>
-                                                                <Link href="/ovens">
-                                                                    <a title="Ovens"><span>Ovens</span></a>
-                                                                </Link>
-                                                            </li>
-                                                            <li>
-                                                                <Link href="/prep-tables">
-                                                                    <a title="Prep Table"><span>Prep Table</span></a>
-                                                                </Link>
-                                                            </li>
-                                                            <li>
-                                                                <Link href="/">
-                                                                    <a title="Find a Sales Rep"><span>Find a Sales Rep</span></a>
-                                                                </Link>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li style={{backgroundColor:'rgb(227 20 34 / 18%);'}}>
-                                                <div className={`${headerStyle.sub_menu_outer} ${headerStyle.sub_mobile_product_outer}`}>
-                                                    {/*<ActiveLink activeClassName="active_menu" href="">*/}
-                                                    <a title="Prep Tables" data-title="Prep Tables"><span>Prep Tables</span></a>
-                                                    {/*</ActiveLink>*/}
-                                                    <button className={headerStyle.mobile_show} onClick={() => {
-                                                        setMobileProductOpen(false);
-                                                        setMobileBlogOpen(false);
-                                                        setMobileGalleryOpen(false);
-                                                        setMobileContactOpen(false);
-                                                        setMobileOvensOpen(!mobileOvensOpen)
-                                                    }
-                                                    }>
-                                                        <i className={mobileContactOpen ? "bx bxs-chevron-down" : "bx bxs-chevron-up"}></i>
-                                                    </button>
-                                                    <div
-                                                        className={`${headerStyle.sub_menu} ${mobileContactOpen ? headerStyle.sub_menu_active : ""}`}>
-                                                        <ul>
-                                                            <li>
-                                                                <Link href="/ovens">
-                                                                    <a title="Ovens"><span>Ovens</span></a>
-                                                                </Link>
-                                                            </li>
-                                                            <li>
-                                                                <Link href="/prep-tables">
-                                                                    <a title="Prep Table"><span>Prep Table</span></a>
-                                                                </Link>
-                                                            </li>
-                                                            <li>
-                                                                <Link href="/">
-                                                                    <a title="Find a Sales Rep"><span>Find a Sales Rep</span></a>
-                                                                </Link>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <Link href="/">
-                                                    <a title="Find a Sales Rep"><span>Find a Sales Rep</span></a>
-                                                </Link>
-                                            </li>
+                                            { product && product.length ?
+                                              product.map(type => {
+                                                  return(
+                                                        <li style={{backgroundColor:'rgb(227 20 34 / 18%);'}}>
+                                                            <div className={`${headerStyle.sub_menu_outer} ${headerStyle.sub_mobile_product_outer}`}>
+                                                                <a title={type.productType} data-title={type.productType}><span>{type.productType}</span></a>
+                                                                { type && type.categories && type.categories.length ?
+                                                                  <>
+                                                                  <button
+                                                                    className={headerStyle.mobile_show}
+                                                                    onClick={() => {
+                                                                        setMobileBlogOpen(false);
+                                                                        setMobileGalleryOpen(false);
+                                                                        setMobileContactOpen(false);
+                                                                        openProductWithType(type)
+                                                                    }}>
+                                                                      <i
+                                                                        className={type.isOpen ? "bx bxs-chevron-down" : "bx bxs-chevron-up"}></i>
+                                                                  </button>
+
+                                                                  <div className={`${headerStyle.sub_menu} ${type.isOpen ? headerStyle.sub_menu_active : ""}`}>
+                                                                    <ul>
+                                                                        { type.categories && type.categories.length ?
+                                                                            type.categories.map(cat => {
+                                                                            return(
+                                                                            <li style={{backgroundColor:'rgb(227 20 34 / 18%);'}}>
+                                                                                <div className={`${headerStyle.sub_menu_outer} ${headerStyle.sub_mobile_product_outer}`}>
+                                                                                  <a title={cat.categoryName} data-title={cat.categoryName}><span>{cat.categoryName}</span></a>
+                                                                                </div>
+                                                                            </li>
+                                                                            )
+                                                                        })
+                                                                            :null
+                                                                        }
+                                                                    </ul>
+                                                                    </div>
+                                                                  </>
+                                                                  : null
+                                                                }
+                                                            </div>
+                                                        </li>
+                                                  )
+                                              })
+                                               :null
+                                            }
                                         </ul>
                                     </div>
                                 </div>
+
+
+
                                 <div>
                                     <ActiveLink activeClassName="active_menu" href="/tools-and-accessories">
                                         <a title="Tools" data-title="Tools"><span>Tools</span></a>
