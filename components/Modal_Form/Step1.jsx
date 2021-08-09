@@ -22,8 +22,7 @@ const Step1 = (props) => {
     const [facades, setFacades] = useState([])
     const [tilesColor, setTilesColor] = useState([])
     const [grouts, setGrouts] = useState([])
-    const [imageUrl, setImageUrl] = useState([])
-    const [facadeUrl, setFacadeUrl] = useState([])
+
     const [productOption, setProductOption] = useState([])
 
     useEffect(() => {
@@ -71,7 +70,7 @@ const Step1 = (props) => {
             }
         }).then((res) => {
             if (res.status) {
-                setFacadeUrl(res.data)
+                props.setFacadeUrl(res.data)
             }
         }).catch((error) => {
 
@@ -85,7 +84,7 @@ const Step1 = (props) => {
             }
         }).then((res) => {
             if (res.status) {
-                setImageUrl(res.data)
+                props.setImageUrl(res.data)
             }
         }).catch((error) => {
 
@@ -182,12 +181,12 @@ const Step1 = (props) => {
                       }
                   </DropdownButton>
                   <DropdownButton
-                    id="tiles"
+                    id="tilesNo"
                     title="Tile No"
-                    name='tiles'
+                    name='tilesNo'
                     variant="secondary"
-                    value={props.tiles}
-                    onSelect={(e) => props.handleOnChange(e, 'tiles')}>
+                    value={props.tilesNo}
+                    onSelect={(e) => props.handleOnChange(e, 'tilesNo')}>
                       {(tilesNo && tilesNo.length) ? tilesNo.map((item, id) => {
                           return (
                             <Dropdown.Item
@@ -303,7 +302,7 @@ const Step1 = (props) => {
 
                   <img
                     className='oven-image-tile position-absolute'
-                    src={imageUrl && imageUrl.tileImageUrl}
+                    src={props.imageUrl && props.imageUrl.tileImageUrl}
                     alt=''
                     style={{zIndex: '2', width: '400px'}}
                   />
@@ -316,7 +315,7 @@ const Step1 = (props) => {
 
                   <img
                     className='oven-image-facade position-absolute'
-                    src={facadeUrl.facadeFileUrl}
+                    src={props.facadeUrl.facadeFileUrl}
                     alt=''
                     style={{width: '400px'}}
                   />

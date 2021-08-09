@@ -1,16 +1,15 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react'
 import {Col, Container, Row} from 'react-bootstrap'
 import {
     Button,
-} from 'reactstrap';
+} from 'reactstrap'
 
-import Step1 from './Step1';
-import Step2 from './Step2';
-// import Step3 from './Step3';
-import MultiStepProgressBar from './MultiStepProgressBar';
-import Router from 'next/router';
-import axios from "axios";
-import {API_HOST} from "../../env";
+import Step1 from './Step1'
+import Step2 from './Step2'
+import MultiStepProgressBar from './MultiStepProgressBar'
+import Router from 'next/router'
+import axios from 'axios'
+import {API_HOST} from '../../env'
 
 class MasterForm extends Component {
     constructor(props) {
@@ -21,7 +20,6 @@ class MasterForm extends Component {
             color: 'Blue',
             facade: 'Black',
             grout:'',
-            legs: '',
             fname: '',
             lname: '',
             email: '',
@@ -32,7 +30,10 @@ class MasterForm extends Component {
             state: '',
             product: '',
             choosefile: '',
-            message: ''
+            message: '',
+            tilesNo:'',
+            imageUrl:{},
+            facadeUrl:{}
         }
     }
 
@@ -69,7 +70,6 @@ class MasterForm extends Component {
     }
 
     handleChange= (event) => {
-        console.log(event)
         const {name, value} = event.target
         this.setState({
             [name]: value
@@ -96,12 +96,11 @@ class MasterForm extends Component {
             tiles,
             color,
             facade,
-            legs,
+            tilesNo,
             grout,
             fname,
             lname,
             email,
-            cemail,
             pnumber,
             staddress,
             city,
@@ -109,31 +108,31 @@ class MasterForm extends Component {
             country,
             product,
             choosefile,
-            message
+            message,
+            imageUrl,
+            facadeUrl
         } = this.state
 
-
         let ovenData = {
-            city: "Jaipur",
-            colorsName: "Red",
-            country: "India",
-            email: "devtest@gmail.com",
-            facadeColor: "Blue",
-            facadeColorImageUrl: "https://jdev.decipherzone.com/mfback/blog-image/Penny_Blue.png",
-            firstName: "dev",
-            groutColor: "Black",
-            groutColorImageUrl: "https://jdev.decipherzone.com/mfback/blog-image/Penny_Blue.png",
-            lastName: "Dev2",
-            legsId: 1,
+            city: city,
+            colorsName: color,
+            country: country,
+            email: email,
+            facadeColor: facade,
+            facadeColorImageUrl: facadeUrl.facadeFileUrl,
+            firstName: fname,
+            groutColor: grout,
+            groutColorImageUrl: 'https://marraforni.com/wp/wp-content/themes/ultima-child/assets/s3/make/Grout_Red.png',
+            lastName: lname,
             logoImaeUrl: "https://jdev.decipherzone.com/mfback/blog-image/Penny_Blue.png",
-            message: "Hii Dev",
-            phoneNumber: "8852698745",
-            productCategory: "Oven",
-            state: "Rajasthan",
-            streetAddress: "New Colony",
-            tilesColor: "Yellow",
-            tilesColorImageUrl: "https://jdev.decipherzone.com/mfback/blog-image/Penny_Blue.png",
-            tilesNumber: "25669"
+            message: message,
+            phoneNumber: pnumber,
+            productCategory: product,
+            state: state,
+            streetAddress:staddress,
+            tilesColor:tiles,
+            tilesColorImageUrl: imageUrl.tileImageUrl,
+            tilesNumber: tilesNo
         }
 
         axios({
@@ -144,13 +143,13 @@ class MasterForm extends Component {
             data: ovenData,
             method: 'post'
         })
-          .then(response =>
-            console.log(response, response.status, 'sfdgdg')
+          .then(response => {
+                Router.push('/thankyou')
+            }
           )
           .catch(error => {
               return error
           })
-        // Router.push('/thankyou');
     };
 
     _next = () =>  {
@@ -169,6 +168,17 @@ class MasterForm extends Component {
         })
     }
 
+    setImageUrl = (data) => {
+      this.setState({
+          imageUrl:data
+      })
+    }
+
+    setFacadeUrl = (data) => {
+        this.setState({
+            facadeUrl:data
+        })
+    }
     render() {
         return (
           <>
@@ -184,14 +194,18 @@ class MasterForm extends Component {
                                     currentStep={this.state.currentStep}
                                     handleChange={this.handleChange}
                                     handleFile={this.fileUploaded}
-                                    legs={this.state.legs}
                                     color={this.state.color}
                                     tiles={this.state.tiles}
                                     facade={this.state.facade}
                                     grout={this.state.grout}
                                     product={this.state.product}
                                     choosefile={this.state.choosefile}
+                                    tilesNo={this.state.tilesNo}
                                     handleOnChange={this.handleOnChange}
+                                    imageUrl={this.state.imageUrl}
+                                    facadeUrl={this.state.facadeUrl}
+                                    setFacadeUrl={this.setFacadeUrl}
+                                    setImageUrl={this.setImageUrl}
                                   />
                                   <Step2
                                     currentStep={this.state.currentStep}
