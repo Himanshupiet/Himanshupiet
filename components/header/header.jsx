@@ -258,9 +258,6 @@ const Header = (props) => {
                         {/*=================== Modal Section ==============================*/}
                         <Modal show={show} onHide={handleClose} size='xl' className={`${headerStyle.my_model}`}>
                             <Modal.Body className={`${headerStyle.my_model_body} show-grid`}>
-                                {/*<a className='mf_btn' variant="secondary" onClick={handleClose}>*/}
-                                {/*    Close*/}
-                                {/*</a>*/}
                                 <a variant="secondary" onClick={handleClose}>
                                     <i className="fa fa-times fa-2x mb-3"></i>
                                 </a>
@@ -399,7 +396,7 @@ const Header = (props) => {
                                             { product && product.length ?
                                               product.map(type => {
                                                   return(
-                                                        <li style={{backgroundColor:'rgb(227 20 34 / 18%);'}}>
+                                                        <li>
                                                             <div className={`${headerStyle.sub_menu_outer} ${headerStyle.sub_mobile_product_outer}`}>
                                                                 <a title={type.productType} data-title={type.productType}><span>{type.productType}</span></a>
                                                                 { type && type.categories && type.categories.length ?
@@ -416,7 +413,7 @@ const Header = (props) => {
                                                                         className={type.isOpen ? "bx bxs-chevron-down" : "bx bxs-chevron-up"}></i>
                                                                   </button>
 
-                                                                  <div className={`${headerStyle.sub_menu} ${type.isOpen ? headerStyle.sub_menu_active : ""}`}>
+                                                                  <div className={`${headerStyle.sub_menu} ${headerStyle.sub_menu_mobile} ${type.isOpen ? headerStyle.sub_menu_active : ""}`}>
                                                                     <ul>
                                                                         { type.categories && type.categories.length ?
                                                                             type.categories.map(cat => {

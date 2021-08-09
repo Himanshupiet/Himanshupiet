@@ -57,11 +57,12 @@
 .sub_menu ul{
   list-style: none;
   margin: 0;
+  background-color: rgb(227 20 34 / 18%)
 }
 .sub_menu ul li a{
   padding: 5px 16px;
   display: block;
-  background-color: #e31422;
+  /*background-color: #e31422;*/
   color: #fff;
   font-weight: 400;
   transition: all 0.3s ease;
@@ -303,7 +304,8 @@
     justify-content: space-between;
   }
   .mobile_navbar .sub_menu_outer > a{
-    color: #fff!important;
+    /*color: #fff!important;*/
+    color: black;
   }
   .mobile_navbar .sub_menu_outer button{
     text-align: right;
@@ -327,7 +329,7 @@
     transition: all 0.4s ease;
   }
   .mobile_navbar .sub_menu ul li a{
-    background-color: rgb(227 20 34 / 18%);
+    /*background-color: rgb(227 20 34 / 18%);*/
     color: #232323;
     position: relative;
     padding-left: 1.75rem;
