@@ -9,12 +9,12 @@ import Step2 from './Step2';
 // import Step3 from './Step3';
 import MultiStepProgressBar from './MultiStepProgressBar';
 import Router from 'next/router';
+import axios from "axios";
+import {API_HOST} from "../../env";
 
 class MasterForm extends Component {
     constructor(props) {
-        super(props);
-
-        // Set the intiial input values
+        super(props)
         this.state = {
             currentStep: 1,
             tiles: 'Penny',
@@ -33,64 +33,44 @@ class MasterForm extends Component {
             product: '',
             choosefile: '',
             message: ''
-        };
-
-        // Bind the submission to handleChange()
-        this.handleChange = this.handleChange.bind(this);
-
-        // Bind new functions for next and previous
-        this._next = this._next.bind(this);
-        this._prev = this._prev.bind(this);
+        }
     }
 
-    // The "next" and "previous" button functions
-    get previousButton() {
-        let currentStep = this.state.currentStep;
-
-        // If the current step is not 1, then render the "previous" button
+    get previousButton () {
+        let currentStep = this.state.currentStep
         if (currentStep !== 1) {
             return (
-                <Button className='mf_btn ml-5' onClick={this._prev}>
-                    Previous
-                </Button>
-            );
+              <Button className='mf_btn ml-5' onClick={this._prev}>
+                  Previous
+              </Button>
+            )
         }
-
-        // ...else return nothing
         return null;
     }
 
-    get nextButton() {
+    get nextButton () {
         let currentStep = this.state.currentStep;
-        // If the current step is not 3, then render the "next" button
         if (currentStep < 2) {
             return (
-                <Button className='mf_btn' onClick={this._next} style={{marginTop:'500px',textAlign:'center',marginLeft:'48%'}}>
-                    Next
-                </Button>
-            );
+              <Button className='mf_btn' onClick={this._next} style={{marginTop:'500px',textAlign:'center',marginLeft:'48%'}}>
+                  Next
+              </Button>
+            )
         }
-        // ...else render nothing
-        return null;
+        return null
     }
 
-    // Test current step with ternary
-
-    get submitButton() {
-        let currentStep = this.state.currentStep;
-
-        // If the current step is the last step, then render the "submit" button
+    get submitButton () {
+        let currentStep = this.state.currentStep
         if (currentStep > 1) {
-            return <Button className='mf_btn mr-5 float-right'>Submit</Button>;
+            return <Button className='mf_btn mr-5 float-right'>Submit</Button>
         }
-        // ...else render nothing
-        return null;
+        return null
     }
 
-    // Use the submitted data to set the state
-    handleChange(event) {
+    handleChange= (event) => {
         console.log(event)
-        const {name, value} = event.target;
+        const {name, value} = event.target
         this.setState({
             [name]: value
         });
@@ -99,9 +79,7 @@ class MasterForm extends Component {
     handleOnChange = (value,name) => {
         this.setState({
             [name] : value
-        },() => {
-
-        });
+        })
     }
 
     fileUploaded = ev => {
@@ -112,10 +90,8 @@ class MasterForm extends Component {
         }
     }
 
-
-    // Trigger an alert on form submission
     handleSubmit = (event) => {
-        event.preventDefault();
+        event.preventDefault()
         const {
             tiles,
             color,
@@ -134,103 +110,116 @@ class MasterForm extends Component {
             product,
             choosefile,
             message
-            // password
-        } = this.state;
-        console.log(`Your registration detail: \n 
-      tiles: ${tiles}\n
-      facade: ${facade}\n
-      legs: ${legs}\n
-      color: ${color} \n 
-      FirstName: ${fname} \n
-      LastName: ${lname}\n
-      Email: ${email}\n
-      ConfirmEmail: ${cemail}\n
-      PhoneNumber: ${pnumber}\n
-      StreetAddress: ${staddress}\n
-      City: ${city}\n
-      State/Provience: ${state}\n
-      Country: ${country}\n
-      Product: ${product}\n
-      File: ${choosefile}\n
-      Message: ${message}`);
+        } = this.state
 
-      Router.push('/thankyou');
+
+        let ovenData = {
+            city: "Jaipur",
+            colorsName: "Red",
+            country: "India",
+            email: "devtest@gmail.com",
+            facadeColor: "Blue",
+            facadeColorImageUrl: "https://jdev.decipherzone.com/mfback/blog-image/Penny_Blue.png",
+            firstName: "dev",
+            groutColor: "Black",
+            groutColorImageUrl: "https://jdev.decipherzone.com/mfback/blog-image/Penny_Blue.png",
+            lastName: "Dev2",
+            legsId: 1,
+            logoImaeUrl: "https://jdev.decipherzone.com/mfback/blog-image/Penny_Blue.png",
+            message: "Hii Dev",
+            phoneNumber: "8852698745",
+            productCategory: "Oven",
+            state: "Rajasthan",
+            streetAddress: "New Colony",
+            tilesColor: "Yellow",
+            tilesColorImageUrl: "https://jdev.decipherzone.com/mfback/blog-image/Penny_Blue.png",
+            tilesNumber: "25669"
+        }
+
+        axios({
+            url: `${API_HOST}oven/createOven`,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            data: ovenData,
+            method: 'post'
+        })
+          .then(response =>
+            console.log(response, response.status, 'sfdgdg')
+          )
+          .catch(error => {
+              return error
+          })
+        // Router.push('/thankyou');
     };
 
-    // _next and _previous functions will be called on button click
-    _next() {
-        let currentStep = this.state.currentStep;
-
-        // If the current step is 1 or 2, then add one on "next" button click
+    _next = () =>  {
+        let currentStep = this.state.currentStep
         currentStep = currentStep >= 2 ? 3 : currentStep + 1;
         this.setState({
             currentStep: currentStep
-        });
+        })
     }
 
-    _prev() {
-        let currentStep = this.state.currentStep;
-        // If the current step is 2 or 3, then subtract one on "previous" button click
-        currentStep = currentStep <= 1 ? 1 : currentStep - 1;
+    _prev = () => {
+        let currentStep = this.state.currentStep
+        currentStep = currentStep <= 1 ? 1 : currentStep - 1
         this.setState({
             currentStep: currentStep
-        });
+        })
     }
 
     render() {
         return (
-            <>
-                <Container>
-                    <Row>
-                        {/*<Col lg={1}></Col>*/}
-                        <Col lg={12}>
-                            <form onSubmit={this.handleSubmit}>
-                                <div>
-                                    <MultiStepProgressBar currentStep={this.state.currentStep}/>
-                                </div>
-                                <div>
-                                    <Step1
-                                        currentStep={this.state.currentStep}
-                                        handleChange={this.handleChange}
-                                        handleFile={this.fileUploaded}
-                                        legs={this.state.legs}
-                                        color={this.state.color}
-                                        tiles={this.state.tiles}
-                                        facade={this.state.facade}
-                                        grout={this.state.grout}
-                                        product={this.state.product}
-                                        choosefile={this.state.choosefile}
-                                        handleOnChange={this.handleOnChange}
-                                    />
-                                    <Step2
-                                        currentStep={this.state.currentStep}
-                                        handleChange={this.handleChange}
-                                        fname={this.state.fname}
-                                        lname={this.state.lname}
-                                        email={this.state.email}
-                                        cemail={this.state.cemail}
-                                        pnumber={this.state.pnumber}
-                                        staddress={this.state.staddress}
-                                        city={this.state.city}
-                                        state={this.state.state}
-                                        message={this.state.message}
-                                        country={this.state.country}
-                                    />
-                                </div>
-                                <div>
-                                    {this.previousButton}
-                                    {this.nextButton}
-                                    {this.submitButton}
-                                </div>
-                            </form>
-                        </Col>
-                        {/*<Col lg={1}></Col>*/}
-                    </Row>
-                </Container>
-            </>
-        );
+          <>
+              <Container>
+                  <Row>
+                      <Col lg={12}>
+                          <form onSubmit={this.handleSubmit}>
+                              <div>
+                                  <MultiStepProgressBar currentStep={this.state.currentStep}/>
+                              </div>
+                              <div>
+                                  <Step1
+                                    currentStep={this.state.currentStep}
+                                    handleChange={this.handleChange}
+                                    handleFile={this.fileUploaded}
+                                    legs={this.state.legs}
+                                    color={this.state.color}
+                                    tiles={this.state.tiles}
+                                    facade={this.state.facade}
+                                    grout={this.state.grout}
+                                    product={this.state.product}
+                                    choosefile={this.state.choosefile}
+                                    handleOnChange={this.handleOnChange}
+                                  />
+                                  <Step2
+                                    currentStep={this.state.currentStep}
+                                    handleChange={this.handleChange}
+                                    fname={this.state.fname}
+                                    lname={this.state.lname}
+                                    email={this.state.email}
+                                    cemail={this.state.cemail}
+                                    pnumber={this.state.pnumber}
+                                    staddress={this.state.staddress}
+                                    city={this.state.city}
+                                    state={this.state.state}
+                                    message={this.state.message}
+                                    country={this.state.country}
+                                  />
+                              </div>
+                              <div>
+                                  {this.previousButton}
+                                  {this.nextButton}
+                                  {this.submitButton}
+                              </div>
+                          </form>
+                      </Col>
+                  </Row>
+              </Container>
+          </>
+        )
     }
 }
 
-export default MasterForm;
-
+export default MasterForm
