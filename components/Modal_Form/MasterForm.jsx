@@ -159,7 +159,8 @@ class MasterForm extends Component {
             method: 'post'
         })
           .then(response => {
-                Router.push('/thankyou')
+              Router.push('/thankyou')
+              this.props.onHide()
             }
           )
           .catch(error => {

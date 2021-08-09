@@ -264,7 +264,7 @@ const Header = (props) => {
                                 <a variant="secondary" onClick={handleClose}>
                                     <i className="fa fa-times fa-2x mb-3"></i>
                                 </a>
-                                <MasterForm/>
+                                <MasterForm onHide={handleClose}/>
                             </Modal.Body>
                         </Modal>
                         {/*======================== End Modal Section ==============================*/}
