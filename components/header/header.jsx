@@ -103,7 +103,8 @@ const Header = (props) => {
                 setFixedHeaderClass(headerStyle.active_sticky_header);
                 setImage(`${process.env.NEXT_PUBLIC_BASE_PATH}/images/LogoRed.png`)
             } else {
-                if (screen.width <= 768) {
+                if (screen.width <=
+                    768) {
                     setFixedHeaderClass("");
                     setImage(`${process.env.NEXT_PUBLIC_BASE_PATH}/images/LogoRed.png`)
                 } else {
@@ -397,7 +398,7 @@ const Header = (props) => {
                                               product.map(type => {
                                                   return(
                                                         <li>
-                                                            <div className={`${headerStyle.sub_menu_outer} ${headerStyle.sub_mobile_product_outer}`}>
+                                                            <div className={`${headerStyle.sub_menu_outer} ${headerStyle.sub_nested_menu} ${headerStyle.sub_mobile_product_outer}`}>
                                                                 <a title={type.productType} data-title={type.productType}><span>{type.productType}</span></a>
                                                                 { type && type.categories && type.categories.length ?
                                                                   <>
@@ -410,7 +411,7 @@ const Header = (props) => {
                                                                         openProductWithType(type)
                                                                     }}>
                                                                       <i
-                                                                        className={type.isOpen ? "bx bxs-chevron-down" : "bx bxs-chevron-up"}></i>
+                                                                        className={type.isOpen ? "bx bx-minus" : "bx bx-plus"}></i>
                                                                   </button>
 
                                                                   <div className={`${headerStyle.sub_menu} ${headerStyle.sub_menu_mobile} ${type.isOpen ? headerStyle.sub_menu_active : ""}`}>
@@ -418,7 +419,7 @@ const Header = (props) => {
                                                                         { type.categories && type.categories.length ?
                                                                             type.categories.map(cat => {
                                                                             return(
-                                                                            <li style={{backgroundColor:'rgb(227 20 34 / 18%);'}}>
+                                                                            <li>
                                                                                 <div className={`${headerStyle.sub_menu_outer} ${headerStyle.sub_mobile_product_outer}`}>
                                                                                   <a title={cat.categoryName} data-title={cat.categoryName}><span>{cat.categoryName}</span></a>
                                                                                 </div>

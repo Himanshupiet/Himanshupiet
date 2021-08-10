@@ -342,6 +342,19 @@
   .mobile_navbar .sub_menu_outer .sub_menu_active{
     max-height: 1000px;
   }
+  .sub_nested_menu {
+    background-color: rgb(227 20 34 / 18%);
+  }
+  .sub_nested_menu >  a {
+    color: #232323;
+  }
+  .sub_nested_menu > button {
+    background-color: transparent!important;
+    color: #e31422;
+    margin-top: .25rem!important;
+    margin-right: .20rem!important;
+  }
+  .sub_nested_menu > button > i {font-weight: 800;}
 }
 .my_model_body{
   padding-bottom: 60px!important;
