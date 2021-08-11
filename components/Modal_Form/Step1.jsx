@@ -22,6 +22,7 @@ const Step1 = (props) => {
     const [facades, setFacades] = useState([])
     const [tilesColor, setTilesColor] = useState([])
     const [grouts, setGrouts] = useState([])
+    console.log(grouts)
 
     const [productOption, setProductOption] = useState([])
 
@@ -120,7 +121,7 @@ const Step1 = (props) => {
     }
 
     const getAllGrout = () => {
-        axios.get(`${API_HOST}grout/getAllGrout`, {
+        axios.get(`${API_HOST}grout/getAllGroutColors`, {
             headers: {
                 'Content-Type': 'application/json',
             }
@@ -246,10 +247,10 @@ const Step1 = (props) => {
                       {(grouts && grouts.length) ? grouts.map((item, id) => {
                           return (
                             <Dropdown.Item
-                              eventKey={item.groutColor}
-                              key={item.id}
+                              eventKey={item}
+                              key={item}
                             >
-                                {item.groutColor}
+                                {item}
                             </Dropdown.Item>
                           );
                       }):null
