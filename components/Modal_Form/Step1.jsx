@@ -22,7 +22,6 @@ const Step1 = (props) => {
     const [facades, setFacades] = useState([])
     const [tilesColor, setTilesColor] = useState([])
     const [grouts, setGrouts] = useState([])
-    console.log(grouts)
 
     const [productOption, setProductOption] = useState([])
 
@@ -45,6 +44,11 @@ const Step1 = (props) => {
     useEffect(() => {
         getFacadeByNameImgUrl()
     }, [facade])
+
+    useEffect(() => {
+        if(grout)
+        getGroudImage()
+    }, [grout])
 
     useEffect(() => {
         getTileImage()
@@ -142,6 +146,20 @@ const Step1 = (props) => {
         }).then((res) => {
             if (res.status) {
                 setTilesNo(res.data)
+            }
+        }).catch((error) => {
+
+        })
+    }
+
+    const getGroudImage = () => {
+        axios.get(`${API_HOST}grout/getGroutByColor?color=${grout}`, {
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }).then((res) => {
+            if (res.status) {
+                props.setGroudImageUrl(res.data)
             }
         }).catch((error) => {
 
@@ -303,20 +321,20 @@ const Step1 = (props) => {
 
                   <img
                     className='oven-image-tile position-absolute'
-                    src={props.imageUrl && props.imageUrl.tileImageUrl}
+                    src={props && props.imageUrl && props.imageUrl.tileImageUrl}
                     alt=''
                     style={{zIndex: '2', width: '400px'}}
                   />
                   <img
                     className='oven-image-grout position-absolute'
-                    src='https://marraforni.com/wp/wp-content/themes/ultima-child/assets/s3/make/Grout_Red.png'
-                    alt='Grout Red'
+                    src={props && props.groudUrl && props.groudUrl.fileUrl}
+                    alt=''
                     style={{zIndex: '1', width: '400px'}}
                   />
 
                   <img
                     className='oven-image-facade position-absolute'
-                    src={props.facadeUrl.facadeFileUrl}
+                    src={props && props.facadeUrl && props.facadeUrl.facadeFileUrl}
                     alt=''
                     style={{width: '400px'}}
                   />

@@ -33,7 +33,8 @@ class MasterForm extends Component {
             message: '',
             tilesNo:'',
             imageUrl:{},
-            facadeUrl:{}
+            facadeUrl:{},
+            groudUrl:{}
         }
     }
 
@@ -125,7 +126,8 @@ class MasterForm extends Component {
             choosefile,
             message,
             imageUrl,
-            facadeUrl
+            facadeUrl,
+            groudUrl
         } = this.state
 
         let ovenData = {
@@ -137,7 +139,7 @@ class MasterForm extends Component {
             facadeColorImageUrl: facadeUrl.facadeFileUrl,
             firstName: fname,
             groutColor: grout,
-            groutColorImageUrl: 'https://marraforni.com/wp/wp-content/themes/ultima-child/assets/s3/make/Grout_Red.png',
+            groutColorImageUrl: groudUrl.fileUrl ,
             lastName: lname,
             logoImaeUrl: choosefile,
             message: message,
@@ -195,6 +197,13 @@ class MasterForm extends Component {
             facadeUrl:data
         })
     }
+
+    setGroudImageUrl = (data) => {
+        this.setState({
+            groudUrl:data
+        })
+    }
+
     render() {
         return (
           <>
@@ -220,8 +229,10 @@ class MasterForm extends Component {
                                     handleOnChange={this.handleOnChange}
                                     imageUrl={this.state.imageUrl}
                                     facadeUrl={this.state.facadeUrl}
+                                    groudUrl={this.state.groudUrl}
                                     setFacadeUrl={this.setFacadeUrl}
                                     setImageUrl={this.setImageUrl}
+                                    setGroudImageUrl={this.setGroudImageUrl}
                                   />
                                   <Step2
                                     currentStep={this.state.currentStep}
