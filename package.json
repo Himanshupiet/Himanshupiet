@@ -18,8 +18,6 @@
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "boxicons": "^2.0.7",
-    "fs": "0.0.1-security",
-    "globby": "^12.0.0",
     "html2canvas": "^1.1.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
