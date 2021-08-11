@@ -1,10 +1,10 @@
 module.exports = {
-  siteUrl: 'https://example.com',
+  siteUrl: `${process.env.NEXT_PUBLIC_BASE_URL}${process.env.NEXT_PUBLIC_BASE_PATH}`,
   generateRobotsTxt: true,
   exclude: ['/server-sitemap.xml'], // <= exclude here
   robotsTxtOptions: {
     additionalSitemaps: [
-      'https://example.com/server-sitemap.xml', // <==== Add here
+      `${process.env.NEXT_PUBLIC_BASE_URL}${process.env.NEXT_PUBLIC_BASE_PATH}/server-sitemap.xml`
     ],
   },
 }
