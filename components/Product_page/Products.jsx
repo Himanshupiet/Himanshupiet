@@ -61,13 +61,13 @@ const Products = (props) => {
                                                             src={res.imageUrl}
                                                             className="img-fluid"
                                                             style={{transform: 'scale(.9)'}}
-                                                            alt="The Rotator"/>
+                                                            alt=""/>
                                                     {/*</div>*/}
                                                     <div className={ProductStyle.product_info}>
                                                         <h3>{res.categoryName}</h3>
                                                         <p>{res.categoryDescription.substr(0, 80) + "..."}</p>
-                                                        <Link href={`/product/${res.categoryName}`}>
-                                                            <a className="mf_btn" title="The Rotator">Explore more</a>
+                                                        <Link href={`/product/${res.aliasUrl}`}>
+                                                            <a className="mf_btn" title={res.aliasUrl}>Explore more</a>
                                                         </Link>
                                                     </div>
                                                 </div>

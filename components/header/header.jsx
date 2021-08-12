@@ -334,8 +334,8 @@ const Header = (props) => {
                                                                     <Col sm={3}>
                                                                         <div className={headerStyle.special_product}>
                                                                             <Link
-                                                                                href={`/product/${res.categoryName}`}>
-                                                                                <a title="">
+                                                                                href={`/product/${res.aliasUrl}`}>
+                                                                                <a title={res.aliasUrl}>
                                                                                     <img
                                                                                         src={res.imageUrl}
                                                                                         width="200" height="200"
@@ -356,8 +356,8 @@ const Header = (props) => {
                                                                             {id !== 0 &&
                                                                             <li key={id}>
                                                                                 <Link
-                                                                                    href={`/product/${res.categoryName}`}>
-                                                                                    <a title={res.categoryName}>
+                                                                                    href={`/product/${res.aliasUrl}`}>
+                                                                                    <a title={res.aliasUrl}>
                                                                                         <img
                                                                                             src={res.imageUrl}
                                                                                             width="100" height="100"
@@ -419,9 +419,14 @@ const Header = (props) => {
                                                                         { type.categories && type.categories.length ?
                                                                             type.categories.map(cat => {
                                                                             return(
-                                                                            <li>
+                                                                            <li >
                                                                                 <div className={`${headerStyle.sub_menu_outer} ${headerStyle.sub_mobile_product_outer}`}>
-                                                                                  <a title={cat.categoryName} data-title={cat.categoryName}><span>{cat.categoryName}</span></a>
+                                                                                    <Link
+                                                                                        href={`/product/${cat.aliasUrl}`}
+                                                                                        title={cat.aliasUrl}
+                                                                                        data-title={cat.aliasUrl}>
+                                                                                        <span>{cat.categoryName}</span>
+                                                                                    </Link>
                                                                                 </div>
                                                                             </li>
                                                                             )

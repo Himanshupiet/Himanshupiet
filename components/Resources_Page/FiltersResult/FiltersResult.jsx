@@ -525,8 +525,8 @@ const FiltersResult = (props) => {
                           <div className={ResultStyle.product_info}>
                             <h3>{cat.name}</h3>
                             <p>{cat.catDescription.substr(0,60)}{cat.catDescription.length > 60 && "..."}</p>
-                            <Link href="/discover-the-rotator-brick-oven">
-                              <a className="mf_btn" title="The Rotator">Explore more</a>
+                            <Link href={`/product/${cat.aliasUrl}`}>
+                              <a className="mf_btn" title={cat.aliasUrl}>Explore more</a>
                             </Link>
                           </div>
                         </div>
