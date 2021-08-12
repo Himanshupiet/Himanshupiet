@@ -15,7 +15,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
         blogUrlList.result.content.map(val => {
         return{
             loc: `${UrlDomain}/blog/${val.uniqueUrl}`,
-            lastmod: new Date(val.date).toISOString()
+            lastmod: new Date(val.date).toISOString(),
+            changefreq:'daily',
+            priority:0.7
         }
     })
 
@@ -31,7 +33,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
             product.categories.map(val => {
                 productUrls.push({
                     loc: `${UrlDomain}/product/${val.categoryName}`,
-                    lastmod: new Date().toISOString()
+                    lastmod: new Date().toISOString(),
+                    changefreq:'daily',
+                    priority:0.7
                 })
             })
         })
@@ -47,68 +51,78 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
         pressUrlList.map(val => {
             return{
                 loc: `${UrlDomain}/press/${val.uniqueUrl}`,
-                lastmod: new Date(val.date).toISOString()
+                lastmod: new Date(val.date).toISOString(),
+                changefreq:'daily',
+                priority:0.7
             }
         })
-
-    const caseStudysAPI = await fetch(`${API_HOST}case-study/getAll`)
-    const caseStudysUrlList = await caseStudysAPI.json()
-    const caseStudysUrls =
-        caseStudysUrlList &&
-        caseStudysUrlList.content &&
-        caseStudysUrlList.content.length &&
-        caseStudysUrlList.content.map(val => {
-            return{
-                loc: val.fileUrl,
-                lastmod: new Date(val.updatedAt).toISOString()
-            }
-        })
-
 
     const fields = [
         {
             loc: UrlDomain,
-            lastmod: new Date().toISOString()
+            lastmod: new Date().toISOString(),
+            changefreq:'daily',
+            priority:0.7
         },
         {
             loc: `${UrlDomain}/about-marra-forni`,
-            lastmod: new Date().toISOString()
+            lastmod: new Date().toISOString(),
+            changefreq:'daily',
+            priority:0.7
         },
         {
             loc: `${UrlDomain}/tools-and-accessories`,
-            lastmod: new Date().toISOString()
+            lastmod: new Date().toISOString(),
+            changefreq:'daily',
+            priority:0.7
         },
         {
             loc: `${UrlDomain}/gallery`,
-            lastmod: new Date().toISOString()
+            lastmod: new Date().toISOString(),
+            changefreq:'daily',
+            priority:0.7
         },
         {
             loc: `${UrlDomain}/market-segment-gallery`,
-            lastmod: new Date().toISOString()
+            lastmod: new Date().toISOString(),
+            changefreq:'daily',
+            priority:0.7
         },
         {
             loc: `${UrlDomain}/contact`,
-            lastmod: new Date().toISOString()
+            lastmod: new Date().toISOString(),
+            changefreq:'daily',
+            priority:0.7
         },
         {
             loc: `${UrlDomain}/resources`,
-            lastmod: new Date().toISOString()
+            lastmod: new Date().toISOString(),
+            changefreq:'daily',
+            priority:0.7
         },
         {
             loc: `${UrlDomain}/events`,
-            lastmod: new Date().toISOString()
+            lastmod: new Date().toISOString(),
+            changefreq:'daily',
+            priority:0.7
         },
         {
             loc: `${UrlDomain}/privacy-policy`,
-            lastmod: new Date().toISOString()
+            lastmod: new Date().toISOString(),
+            changefreq:'daily',
+            priority:0.7
         },
         {
             loc: `${UrlDomain}/terms-and-conditions`,
-            lastmod: new Date().toISOString()
+            lastmod: new Date().toISOString(),
+            changefreq:'daily',
+            priority:0.7
         },
         {
             loc: `${UrlDomain}/careers`,
-            lastmod: new Date().toISOString()
+            lastmod: new Date().toISOString(),
+            changefreq:'daily',
+            priority:0.7
         },
         {
             loc: `${UrlDomain}/faqs`,
@@ -116,68 +130,97 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
         },
         {
             loc:`${UrlDomain}/register`,
-            lastmod: new Date().toISOString()
+            lastmod: new Date().toISOString(),
+            changefreq:'daily',
+            priority:0.7
         },
         {
             loc: 'https://www.facebook.com/marraforni/',
-            lastmod: new Date().toISOString()
+            lastmod: new Date().toISOString(),
+            changefreq:'daily',
+            priority:0.7
         },
         {
             loc: 'https://twitter.com/MarraForni/',
-            lastmod: new Date().toISOString()
+            lastmod: new Date().toISOString(),
+            changefreq:'daily',
+            priority:0.7
         },
         {
             loc: 'https://www.instagram.com/marraforni/',
-            lastmod: new Date().toISOString()
+            lastmod: new Date().toISOString(),
+            changefreq:'daily',
+            priority:0.7
         },
         {
             loc: 'https://www.linkedin.com/company/marraforni/',
-            lastmod: new Date().toISOString()
+            lastmod: new Date().toISOString(),
+            changefreq:'daily',
+            priority:0.7
         },
         {
             loc: 'https://www.youtube.com/user/marraforni',
-            lastmod: new Date().toISOString()
+            lastmod: new Date().toISOString(),
+            changefreq:'daily',
+            priority:0.7
         },
         {
             loc: 'https://www.pinterest.com/marraforni/',
-            lastmod: new Date().toISOString()
+            lastmod: new Date().toISOString(),
+            changefreq:'daily',
+            priority:0.7
         },
         {
             loc: `${UrlDomain}/press`,
-            lastmod: new Date().toISOString()
+            lastmod: new Date().toISOString(),
+            changefreq:'daily',
+            priority:0.7
         },
         {
             loc: `${UrlDomain}/case-studies`,
-            lastmod: new Date().toISOString()
+            lastmod: new Date().toISOString(),
+            changefreq:'daily',
+            priority:0.7
         },
         {
             loc: `${UrlDomain}/product`,
-            lastmod: new Date().toISOString()
+            lastmod: new Date().toISOString(),
+            changefreq:'daily',
+            priority:0.7
         },
         {
             loc: `${UrlDomain}/culinary-support`,
-            lastmod: new Date().toISOString()
+            lastmod: new Date().toISOString(),
+            changefreq:'daily',
+            priority:0.7
         },
         {
             loc: `${UrlDomain}/tech-support`,
-            lastmod: new Date().toISOString()
+            lastmod: new Date().toISOString(),
+            changefreq:'daily',
+            priority:0.7
         },
         {
             loc: `${UrlDomain}/sales-support`,
-            lastmod: new Date().toISOString()
-        },
-        {
-            loc: `${UrlDomain}/blog`,
-            lastmod: new Date().toISOString()
+            lastmod: new Date().toISOString(),
+            changefreq:'daily',
+            priority:0.7
         },
         {
             loc: `${UrlDomain}/blog`,
             lastmod: new Date().toISOString(),
+            changefreq:'daily',
+            priority:0.7
+        },
+        {
+            loc: `${UrlDomain}/thankyou`,
+            lastmod: new Date().toISOString(),
+            changefreq:'daily',
+            priority:0.7
         },
         ...blogUrls,
         ...productUrls,
-        ...pressUrls,
-        ...caseStudysUrls
+        ...pressUrls
 
     ]
     return getServerSideSitemap(ctx, fields)
