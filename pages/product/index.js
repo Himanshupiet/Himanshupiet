@@ -25,7 +25,7 @@ const Product = (props) => {
                 backgroundAttachment: 'fixed',
                 backgroundSize: 'cover'
             }}/>
-            <Product    s/>
+            <Products/>
             <Container fluid className={MainHomePageStyle.quoteform_outer}>
                 <Row>
                     <Col lg={1}></Col>
