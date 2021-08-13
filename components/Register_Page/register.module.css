@@ -152,3 +152,6 @@
     background: linear-gradient(#f2a126, #e45d6a, #e31422)
 
 }
+.register_form span{
+    color: #e31422!important;
+}

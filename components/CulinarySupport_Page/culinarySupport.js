@@ -43,7 +43,7 @@ const CulinarySupport = (props) => {
                     <Col lg={1}></Col>
                 </Row>
             </Container>
-            <Container fluid style={{padding: '0'}}>
+            <Container fluid style={{padding: '0'}} className={CulinaryStyle.main_section}>
                 <KitchenNearYou/>
             </Container>
             <VideoGallery/>

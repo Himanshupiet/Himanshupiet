@@ -41,7 +41,7 @@ const EventsPage = () => {
                 <Row>
                     <Col lg={1}></Col>
                     <Col lg={10}>
-                        <Row className='pt-5 pb-5'>
+                        <Row className={`${EventStyle.heading} pt-5 pb-5`}>
                             <Col lg={6} className={EventStyle.content_section}>
                                 <h1>Private and Hands-on Demonstrations</h1>
                             </Col>
@@ -99,10 +99,10 @@ const EventsPage = () => {
                     {(slider && slider.length) ? slider.map((data, i) => {
                         var eventStart = moment(data.eventStartedTo)
                         var eventEnd =  moment(data.eventStartedFrom)
-                        
+
                         const eventTimeFrom = data.eventStartedFrom && `${eventStart.format('MMMM DD YYYY')} `
                         const eventTimeTo = data.eventStartedTo && `${eventEnd.format('MMMM DD YYYY')}`
-                       
+
                         var years = eventStart.diff(eventEnd, 'year');
                         eventEnd.add(years, 'years');
 
@@ -186,7 +186,7 @@ const EventsPage = () => {
                             efficient, customizable and
                             feature pack brick oven in the world.</p>
                     </Col>
-                    <Col lg={4}>
+                    <Col lg={4} className={EventStyle.main_btn}>
                         <button className='mf_btn'>Build Your Brick Oven</button>
                     </Col>
                 </Row>

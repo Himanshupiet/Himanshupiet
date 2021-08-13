@@ -29,7 +29,7 @@
 }
 @media only screen and (max-width: 768px) {
     .right_image img{
-        margin-left: 60px!important;
+        margin-left: 45px!important;
         margin-top: -32px;
     }
 }

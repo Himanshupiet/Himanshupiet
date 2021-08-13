@@ -41,13 +41,16 @@
     color: #fff;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 768px) {
     .slider_inner {
         height: 470px;
     }
 
     .slider_content {
         padding-top: 90px;
+    }
+    .slider_content h1{
+        font-size: 37px;
     }
 }
 

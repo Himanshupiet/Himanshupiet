@@ -233,11 +233,6 @@ const Footer = (props) => {
                                                 <a title="case studies">Case Studies</a>
                                             </Link>
                                         </li>
-                                        <li>
-                                            <Link href="/events">
-                                                <a title="events">Events</a>
-                                            </Link>
-                                        </li>
                                     </ul>
                                 </Col>
                                 <Col lg={3} md={6} className={footerStyle.footer_inner}>
