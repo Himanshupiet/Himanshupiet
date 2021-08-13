@@ -9,6 +9,7 @@ const ToolsAndAccessories = (props) => {
       <Head
           title='Tools & Accessories - MarraForni'
           description='The perfect pizza is the result of the right ingredients, the right oven, and the right tools and accessories to get the job done!  All of Marra Forni’s'
+          canonical='tools-and-accessories'
       />
       <ToolsAndAccessoriesMain />
     </>

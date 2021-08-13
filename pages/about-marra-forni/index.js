@@ -8,6 +8,7 @@ const AboutUs = (props) => {
       <Head
         title='Brick Oven Manufacturers | Commercial Pizza Oven | Marraforni'
         description='Marraforni is the fastest growing Brick Oven Manufacturers from United State Capital Washington DC.'
+        canonical='about-marra-forni'
       />
       <AboutUsMain />
     </>

@@ -8,7 +8,8 @@ const Faqs = () => {
         <>
             <Head
                 title='FAQ - MarraForni'
-                description='MARRA FORNI FAQ'
+                description='Have A Question?'
+                canonical='faqs'
             />
             <Faq/>
         </>

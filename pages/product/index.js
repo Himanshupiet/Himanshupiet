@@ -15,6 +15,7 @@ const Product = (props) => {
             <Head
                 title='Products - MarraForni'
                 description='Marra Forni offers a one-stop-shop for restaurant oven and oven equipment and appliances and other foodservice businesses. Our innovative solutions range from'
+                canonical='https://marraforni.com/product'
             />
             <Header/>
             <div style={{
@@ -24,7 +25,7 @@ const Product = (props) => {
                 backgroundAttachment: 'fixed',
                 backgroundSize: 'cover'
             }}/>
-            <Products/>
+            <Product    s/>
             <Container fluid className={MainHomePageStyle.quoteform_outer}>
                 <Row>
                     <Col lg={1}></Col>
