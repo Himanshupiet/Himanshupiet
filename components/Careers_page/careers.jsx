@@ -40,11 +40,11 @@ const CareerPage = () => {
                     <Col lg={10} className='pt-5'>
                         <Row>
                             <Col lg={2}></Col>
-                            <Col lg={4}>
+                            <Col lg={4} className={CareerStyle.right_image}>
                                 <img
                                     src='https://d27i7n2isjbnbi.cloudfront.net/careers/photos/114703/normal_photo_1558615544.png'/>
                             </Col>
-                            <Col lg={6} className='pt-4'>
+                            <Col lg={6} className='pt-3'>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
                                     molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
                                     numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
