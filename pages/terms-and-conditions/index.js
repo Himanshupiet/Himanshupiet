@@ -8,6 +8,7 @@ const TermsAndConditions = (props) => {
       <Head
         title='Terms and Conditions - MarraForni'
         description='MARRA FORNI Terms and Conditions'
+        canonical='terms-and-conditions'
       />
       <TermsAndConditionsMain />
     </>

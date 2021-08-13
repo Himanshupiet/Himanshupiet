@@ -8,6 +8,7 @@ const TechSupport = ()=>{
             <Head
                 title='Tech Support - MarraForni'
                 description='MARRA FORNI Tech Support Page'
+                canonical='tech-support'
             />
             <TechSupportPage />
         </>

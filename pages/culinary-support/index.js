@@ -9,6 +9,7 @@ const Faqs = () => {
             <Head
                 title='Culinary Support - MarraForni'
                 description='MARRA FORNI Culinary Support'
+                canonical='culinary-support'
             />
             <CulinarySupport/>
         </>
