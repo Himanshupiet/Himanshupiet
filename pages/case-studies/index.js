@@ -8,8 +8,9 @@ const CaseStudies = () => {
     return (
         <>
             <Head
-                title='Case Study - MarraForni'
-                description='MARRA FORNI Case Study'
+                title='Case Studies - MarraForni'
+                description='Choosing The Right Commercial Brick Oven…Marra Forni is the premier and fastest-growing manufacturer of brick oven cooking solutions to the global commercial'
+                canonical='case-studies'
             />
             <CaseStudiesPage/>
         </>

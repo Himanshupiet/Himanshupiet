@@ -7,7 +7,7 @@ const blog = (props) => {
         <>
             <Head
                title='Marra Forni Blog | Marra Froni | Secret For Great Authentic Italian Food'
-               description='Marra Forni Blog | Marra Froni | Secret For Great Authentic Italian Food'
+               description=''
                canonical='blog'
             />
             <BlogMain />

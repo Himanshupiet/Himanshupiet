@@ -9,6 +9,7 @@ const ThankYouPage = (props) => {
             <Head
                 title='Thank you - MarraForni'
                 description='Thank you for your interest!'
+                canonical='thankyou'
             />
             <ThankYou />
         </>

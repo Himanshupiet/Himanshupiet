@@ -8,6 +8,7 @@ const PrivacyPolicy = (props) => {
       <Head
         title='Privacy Policy - MarraForni'
         description='MARRA FORNI PRIVACY POLICY'
+        canonical='privacy-policy'
       />
       <PrivacyPolicyMain />
     </>

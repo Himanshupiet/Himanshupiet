@@ -8,6 +8,7 @@ const Press = (props) => {
       <Head
         title='Press - MarraForni'
         description='New U Street Venue Wants People to Sit Down and Eat Wood-Fired Pizzas In a Nightclub'
+        canonical='press'
       />
       <PressMain />
     </>
