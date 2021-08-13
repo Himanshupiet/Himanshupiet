@@ -35,6 +35,7 @@ const BlogSingle = (props) => {
         keywords = {data && data.metaKeyword}
         image = {data && data.bannerWebpImageUrl}
         imageAlt = {data && data.altTag}
+        canonical={`blog/${data.uniqueUrl}`}
       />
        <Loader data={loading}/>
       <BlogSingleMain />

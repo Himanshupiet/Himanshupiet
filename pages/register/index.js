@@ -8,6 +8,7 @@ const register = ()=>{
             <Head
                 title='Register - MarraForni'
                 description='MARRA FORNI Register Page'
+                canonical='register'
             />
             <Register />
         </>

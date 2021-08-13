@@ -61,8 +61,9 @@ const SingleProduct = (props) => {
     return(
         <>
             <Head
-                title='Rotator Brick Oven - MarraForni'
-                description='Marra Forni offers a one-stop-shop for restaurant oven and oven equipment and appliances and other foodservice businesses. Our innovative solutions range from'
+                title={`${data.productCategory} - MarraForni`}
+                description={data.productDescription}
+                canonical={`product/${data.aliasUrl}`}
             />
             <Header byboShow={byboShow}/>
             <Loader data={loading}/>

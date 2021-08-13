@@ -12,8 +12,6 @@ const RestaurentMain = (props) => {
     const {id} = router.query
     const [data, setData] = useState({})
 
-    console.log(data)
-
     useEffect(() => {
         axios.get(`${API_HOST}gallery/getGalleryById?id=` + id, {
             headers: {
@@ -27,6 +25,7 @@ const RestaurentMain = (props) => {
 
         })
     }, [id])
+
     return (
         <>
             <Header/>
