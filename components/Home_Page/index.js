@@ -19,52 +19,6 @@ import FormPage from "./GetAQuoteForm_Page/form";
 import VideoGallery from './VideoGallery/VideoGallery'
 import Service from "./Services_Page/services";
 
-// const highlightData1 = {
-//     Heading: 'High-Volume Cooking',
-//     subHeading: 'Grow your business and expand your menu with Marra Forni’s Brick Oven Cooking Solutions.',
-//     buttonText: 'Build Your Own Oven!',
-//     backgroundImage: {
-//         IsImage: true,
-//         imagePath: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/painthouse-one.jpg`
-//     }
-// };
-// let highlightData2 = {
-//     Heading: 'Customize Your Commercial Brick Oven, Add Logo!!',
-//     subHeading: 'Premium and Beautiful Tile Options.',
-//     buttonText: 'Build Your Own Oven!',
-//     backgroundImage: {
-//         IsImage: true,
-//         imagePath: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/painthouse-three.jpg`
-//     }
-// };
-// let highlightData3 = {
-//     Heading: 'Customized Handcrafted Brick Oven, Add Your Logo',
-//     subHeading: 'Premium and Beautiful Tile Options.',
-//     buttonText: 'Build Your Own Oven!',
-//     backgroundImage: {
-//         IsImage: true,
-//         // imagePath: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/Marra-Forni-Client.jpg`
-//     }
-// };
-// let highlightData4 = {
-//     Heading: '',
-//     subHeading: 'You are a few clicks away from owning the most durable, energy efficient, customizable and feature-packed brick oven in the world.',
-//     buttonText: 'Build Your Own Oven!',
-//     backgroundImage: {
-//         IsImage: true,
-//         imagePath: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/painthouse-one.jpg`
-//     }
-// };
-// let highlightData5 = {
-//     Heading: 'Explore Our Industrial Kitchen Appliances',
-//     subHeading: 'Slicers, Mixers & Prep Tables',
-//     buttonText: 'GET A QUOTE',
-//     backgroundImage: {
-//         IsImage: false,
-//         imagePath: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/PaintBrush_Slider/painthouse-two.jpg`
-//     }
-// };
-
 const MainHomePage = props => {
     return (
         <>

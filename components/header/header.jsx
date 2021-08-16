@@ -74,12 +74,12 @@ const Header = (props) => {
             headers: {
                 'Content-Type': 'application/json',
             }
-        }).then((res)=>{
-            if(res && res.data){
+        }).then((res) => {
+            if (res && res.data) {
                 let productArr = res && res.data && res.data.length && res.data.map(type => {
-                    return{
+                    return {
                         ...type,
-                        isOpen:false
+                        isOpen: false
                     }
                 })
                 setProduct(productArr)
@@ -235,15 +235,15 @@ const Header = (props) => {
 
     const openProductWithType = (type) => {
         let typeArr = product.map(val => {
-            if(val.productType == type.productType){
-                return{
+            if (val.productType == type.productType) {
+                return {
                     ...val,
-                    isOpen:!val.isOpen
+                    isOpen: !val.isOpen
                 }
-            }else{
-                return{
+            } else {
+                return {
                     ...val,
-                    isOpen:false
+                    isOpen: false
                 }
             }
         })
@@ -379,70 +379,77 @@ const Header = (props) => {
                                     </div>
                                 </div>
 
-                                <div className={`${headerStyle.sub_menu_outer} ${headerStyle.sub_mobile_product_outer}`}>
-                                    <a title="Products" data-title="Products"><span>Products</span></a>
+                                <div
+                                    className={`${headerStyle.sub_menu_outer} ${headerStyle.sub_mobile_product_outer}`}>
+                                    <ActiveLink activeClassName="active_menu" href="/product">
+                                        <a title="Products" data-title="Products"><span>Products</span></a>
+                                    </ActiveLink>
                                     <button
-                                       className={headerStyle.mobile_show}
-                                           onClick={() => {
+                                        className={headerStyle.mobile_show}
+                                        onClick={() => {
                                             setMobileProductOpen(!mobileProductOpen);
                                             setMobileBlogOpen(false);
                                             setMobileGalleryOpen(false);
                                             setMobileContactOpen(false);
-                                       }}>
+                                        }}>
                                         <i className={mobileContactOpen ? "bx bxs-chevron-down" : "bx bxs-chevron-up"}></i>
                                     </button>
                                     <div
                                         className={`${headerStyle.sub_menu} ${mobileProductOpen ? headerStyle.sub_menu_active : ""}`}>
                                         <ul>
-                                            { product && product.length ?
-                                              product.map(type => {
-                                                  return(
+                                            {product && product.length ?
+                                                product.map(type => {
+                                                    return (
                                                         <li>
-                                                            <div className={`${headerStyle.sub_menu_outer} ${headerStyle.sub_nested_menu} ${headerStyle.sub_mobile_product_outer}`}>
-                                                                <a title={type.productType} data-title={type.productType}><span>{type.productType}</span></a>
-                                                                { type && type.categories && type.categories.length ?
-                                                                  <>
-                                                                  <button
-                                                                    className={headerStyle.mobile_show}
-                                                                    onClick={() => {
-                                                                        setMobileBlogOpen(false);
-                                                                        setMobileGalleryOpen(false);
-                                                                        setMobileContactOpen(false);
-                                                                        openProductWithType(type)
-                                                                    }}>
-                                                                      <i
-                                                                        className={type.isOpen ? "bx bx-minus" : "bx bx-plus"}></i>
-                                                                  </button>
+                                                            <div
+                                                                className={`${headerStyle.sub_menu_outer} ${headerStyle.sub_nested_menu} ${headerStyle.sub_mobile_product_outer}`}>
+                                                                <a title={type.productType}
+                                                                   data-title={type.productType}><span>{type.productType}</span></a>
+                                                                {type && type.categories && type.categories.length ?
+                                                                    <>
+                                                                        <button
+                                                                            className={headerStyle.mobile_show}
+                                                                            onClick={() => {
+                                                                                setMobileBlogOpen(false);
+                                                                                setMobileGalleryOpen(false);
+                                                                                setMobileContactOpen(false);
+                                                                                openProductWithType(type)
+                                                                            }}>
+                                                                            <i
+                                                                                className={type.isOpen ? "bx bx-minus" : "bx bx-plus"}></i>
+                                                                        </button>
 
-                                                                  <div className={`${headerStyle.sub_menu} ${headerStyle.sub_menu_mobile} ${type.isOpen ? headerStyle.sub_menu_active : ""}`}>
-                                                                    <ul>
-                                                                        { type.categories && type.categories.length ?
-                                                                            type.categories.map(cat => {
-                                                                            return(
-                                                                            <li >
-                                                                                <div className={`${headerStyle.sub_menu_outer} ${headerStyle.sub_mobile_product_outer}`}>
-                                                                                    <Link
-                                                                                        href={`/product/${cat.aliasUrl}`}
-                                                                                        title={cat.aliasUrl}
-                                                                                        data-title={cat.aliasUrl}>
-                                                                                        <span>{cat.categoryName}</span>
-                                                                                    </Link>
-                                                                                </div>
-                                                                            </li>
-                                                                            )
-                                                                        })
-                                                                            :null
-                                                                        }
-                                                                    </ul>
-                                                                    </div>
-                                                                  </>
-                                                                  : null
+                                                                        <div
+                                                                            className={`${headerStyle.sub_menu} ${headerStyle.sub_menu_mobile} ${type.isOpen ? headerStyle.sub_menu_active : ""}`}>
+                                                                            <ul>
+                                                                                {type.categories && type.categories.length ?
+                                                                                    type.categories.map(cat => {
+                                                                                        return (
+                                                                                            <li>
+                                                                                                <div
+                                                                                                    className={`${headerStyle.sub_menu_outer} ${headerStyle.sub_mobile_product_outer}`}>
+                                                                                                    <Link
+                                                                                                        href={`/product/${cat.aliasUrl}`}
+                                                                                                        title={cat.aliasUrl}
+                                                                                                        data-title={cat.aliasUrl}>
+                                                                                                        <span>{cat.categoryName}</span>
+                                                                                                    </Link>
+                                                                                                </div>
+                                                                                            </li>
+                                                                                        )
+                                                                                    })
+                                                                                    : null
+                                                                                }
+                                                                            </ul>
+                                                                        </div>
+                                                                    </>
+                                                                    : null
                                                                 }
                                                             </div>
                                                         </li>
-                                                  )
-                                              })
-                                               :null
+                                                    )
+                                                })
+                                                : null
                                             }
                                         </ul>
                                     </div>

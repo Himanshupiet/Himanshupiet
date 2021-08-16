@@ -46,6 +46,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-transition: opacity 0.25s ease;
   transition: opacity 0.25s ease;
+  margin-top: 20px!important;
 }
 .m360_loader {
   border-radius: 100%;
@@ -97,4 +98,10 @@
   top: 50%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+@media only screen and (max-width: 768px) {
+  .m360_hint, .m360_loader {
+    display: none;
+  }
+
 }
