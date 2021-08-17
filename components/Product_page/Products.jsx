@@ -21,11 +21,12 @@ const Products = (props) => {
 
     useEffect(() => {
         setLoader(true)
-        axios.get(`${API_HOST}product-page/getAllCategoriesByType`, {headers:{
+        axios.get(`${API_HOST}product-page/getAllCategoriesByType`, {
+            headers: {
                 'Content-Type': 'application/json',
             }
-        }).then((res)=>{
-            if(res && res.data){
+        }).then((res) => {
+            if (res && res.data) {
                 setProduct(res.data)
                 setLoader(false)
             }
@@ -36,7 +37,6 @@ const Products = (props) => {
 
 
     return (
-        
         <section className={ProductStyle.section_outer}>
             <Loader data={loading}/>
             <Container fluid>
@@ -57,11 +57,11 @@ const Products = (props) => {
                                             <ScrollAnimation duration={2} animateIn="fadeInUp" animateOnce={true}>
                                                 <div className={ProductStyle.product_inner}>
                                                     {/*<div style={{overflow: 'hidden', height: '320px',verticalAlign:'middle',display:'flex',justifyContent:'center',alignItems:'center'}}>*/}
-                                                        <img
-                                                            src={res.imageUrl}
-                                                            className="img-fluid"
-                                                            style={{transform: 'scale(.9)'}}
-                                                            alt=""/>
+                                                    <img
+                                                        src={res.imageUrl}
+                                                        className="img-fluid"
+                                                        style={{transform: 'scale(.9)'}}
+                                                        alt=""/>
                                                     {/*</div>*/}
                                                     <div className={ProductStyle.product_info}>
                                                         <h3>{res.categoryName}</h3>

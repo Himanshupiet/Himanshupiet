@@ -193,10 +193,6 @@ const Timelines = (props) => {
                                             innovative brick oven cooking solutions while maintaining our Artisan roots.
                                         </p>
                                     </div>
-                                    {/*<div className={`${TimelineStyle.side_video_content} card-body text-center`}>*/}
-                                    {/*    <p className="card-text text-white">Subscribe To Our YouTube Channel</p>*/}
-                                    {/*    <button href="#" className="mf_btn">Youtube</button>*/}
-                                    {/*</div>*/}
                                 </div>
                             </Col>
                         </Row>

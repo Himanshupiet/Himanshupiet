@@ -47,21 +47,6 @@ const Footer = (props) => {
                                 <div className={footerStyle.top_footer}>
                                     <p><b>★★★★★ Google Reviews • Exceptional Customer Experience • International
                                         Shipping</b></p>
-                                    {/*<p>Marra Forni is the premier manufacturer of brick oven cooking solutions to the global*/}
-                                    {/*    commercial foodservice industry. We continue to exceed customer expectations through*/}
-                                    {/*    our handcrafted workmanship, innovative technology, and a continued commitment to*/}
-                                    {/*    achieving best-in-class quality, performance, and service.</p>*/}
-                                    {/*<p>Each oven is built brick-by-brick using the same tried and tested process used by*/}
-                                    {/*    Italian masons hundreds of years ago. Our flagship Rotator Smart oven gives you full*/}
-                                    {/*    control of crucial functions such as temperature, deck rotation speed, direction,*/}
-                                    {/*    and auto on/off. Enjoy labor and energy savings thanks to better heat absorption,*/}
-                                    {/*    retention, and faster, more consistent cooking. Every oven is tiled to order,*/}
-                                    {/*    offering you abundant color choices to complement your dream kitchen.</p>*/}
-                                    {/*<p>Our product line includes a full line of brick-oven cooking solutions, <Link*/}
-                                    {/*    href="/marra-forni-prep-tables"><a>refrigerated prep tables</a></Link>, <Link*/}
-                                    {/*    href="/mixers"><a>mixers</a></Link>, slicers, and <Link href="/ventilation"><a>direct*/}
-                                    {/*    venting</a></Link>. Marra Forni currently sells and supports its products in 5*/}
-                                    {/*    continents and 23 countries worldwide.</p>*/}
                                 </div>
                                 : null
                             }

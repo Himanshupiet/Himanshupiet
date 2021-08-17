@@ -10,7 +10,6 @@ const Reliable = (props) => {
             className={ReliableStyle.section_outer}>
             <Container>
                 <Row>
-                    {/*<Col lg={1}></Col>*/}
                     <Col lg={12}>
                         <Row
                             className='align-items-center'>
@@ -67,7 +66,6 @@ const Reliable = (props) => {
                             </Col>
                         </Row>
                     </Col>
-                    {/*<Col lg={1}></Col>*/}
                 </Row>
             </Container>
         </section>

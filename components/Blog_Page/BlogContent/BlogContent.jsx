@@ -112,7 +112,7 @@ const BlogContent = (props) => {
                         </a>
                     </Link>
 
-                    {/*<p>{item.blogDescription.substr(0, 150)}</p>*/}
+                    <p>{item.blogDescription.substr(0, 150)}</p>
                     <div className={BlogContentStyle.blog_date}>
                         {new Date(item.date).toLocaleDateString()}
                     </div>

@@ -9,7 +9,6 @@ const Authentic = (props) => {
         <section className={AuthenticStyle.section_outer}>
             <Container>
                 <Row>
-                    {/*<Col lg={1}></Col>*/}
                     <Col lg={12}>
                         <Row>
                             <Col
@@ -67,7 +66,6 @@ const Authentic = (props) => {
                             </Col>
                         </Row>
                     </Col>
-                    {/*<Col lg={1}></Col>*/}
                 </Row>
             </Container>
 

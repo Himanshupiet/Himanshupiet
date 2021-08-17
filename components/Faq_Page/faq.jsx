@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {Col, Container, Row, Accordion, Card} from 'react-bootstrap'
 import Header from "../header/header";
 import Footer from "../footer/footer";
-import TermsConditionsStyle from "../TermsAndConditions/TermsAndConditionsContent/TermsAndConditionsContent.module.css";
 import GetAQuote from "../common/GetAQuote/GetAQuote";
 import FaqStyle from './faq.module.css'
 import BlogSidebarStyle from "../Blog_Page/BlogSidebar/BlogSidebar.module.css";
