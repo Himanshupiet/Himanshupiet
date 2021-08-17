@@ -19,7 +19,7 @@ const SalesSupportPage = (props) => {
                     <Col lg={1}></Col>
                     <Col lg={10}>
                         <Row>
-                            <Col lg={6} className='pt-5'>
+                            <Col lg={6} className={`${SelesSupportStyle.main} pt-5`}>
                                 <h2>Stunning On All Screens</h2>
                                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing
                                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh

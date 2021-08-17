@@ -23,6 +23,8 @@ const BlogContent = (props) => {
     const [category, setCategory] = useState([])
     const [activeValue, setActiveValue] = useState(0)
     const [loading, setLoader] = useState(false)
+
+
     useEffect(() => {
         setLoader(true)
         props.productActions.getAllPost().then(() => {
@@ -109,8 +111,11 @@ const BlogContent = (props) => {
                             <h2>{item.title}</h2>
                         </a>
                     </Link>
-                    <div className={BlogContentStyle.blog_date}>{item.date}</div>
-                    <p>{item.blogDescription.substr(0, 150)}</p>
+
+                    {/*<p>{item.blogDescription.substr(0, 150)}</p>*/}
+                    <div className={BlogContentStyle.blog_date}>
+                        {new Date(item.date).toLocaleDateString()}
+                    </div>
                     {/*<div dangerouslySetInnerHTML={{__html: item.renderedHtmlPreview}}></div>*/}
                     <div className={BlogContentStyle.meta_box}>
                         <img alt='Author' width='42' height='42'
