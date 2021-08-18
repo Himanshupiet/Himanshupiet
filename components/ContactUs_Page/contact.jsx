@@ -20,7 +20,7 @@ const Contact = () => {
                 <Row className={ContactStyle.row_style}>
                     <Col lg={4} md={12}>
                         <div className={`${ContactStyle.card} ${ContactStyle.card_one}`}>
-                            <div className={`${ContactStyle.imgBx} d-flex pl-5`}>
+                            <div className={`${ContactStyle.imgBx} d-flex pl-3`}>
                                 <i className="fa fa-desktop fa-4x align-self-center"></i>
                                 <div className='align-self-center p-3'>
                                     <h3>Curlinary Support</h3>
@@ -44,7 +44,7 @@ const Contact = () => {
                     </Col>
                     <Col lg={4} md={12}>
                         <div className={`${ContactStyle.card} ${ContactStyle.card_two}`}>
-                            <div className={`${ContactStyle.imgBx} d-flex pl-5`}>
+                            <div className={`${ContactStyle.imgBx} d-flex pl-3`}>
                                 <i className="fa fa-user fa-4x align-self-center"></i>
                                 <div className='align-self-center p-3'>
                                     <h3>Tech Support</h3>
@@ -68,7 +68,7 @@ const Contact = () => {
                     </Col>
                     <Col lg={4} md={12}>
                         <div className={`${ContactStyle.card} ${ContactStyle.card_one}`}>
-                            <div className={`${ContactStyle.imgBx} d-flex pl-5`}>
+                            <div className={`${ContactStyle.imgBx} d-flex pl-3`}>
                                 <i className="fa fa-magic fa-4x align-self-center"></i>
                                 <div className='align-self-center p-2'>
                                     <h3>Sales of Support</h3>
@@ -76,7 +76,7 @@ const Contact = () => {
                                 </div>
                             </div>
                             <div className={ContactStyle.details}>
-                                <div className='d-flex pl-3'>
+                                <div className='d-flex pl-1'>
                                     <i className="fa fa-magic fa-4x align-self-center"></i>
                                     <div className='align-self-center'>
                                         <Link href='/sales-support'>
