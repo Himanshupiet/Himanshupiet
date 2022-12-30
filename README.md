@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @Himanshupiet
-- 👀 I’m interested in MERN
-- 🌱 I’m currently learning React 
+- 👀 I’m interested in MERN developer
+- 🌱 I’m currently MERN developer 
 - 💞️ I’m looking to collaborate on React Developer
 
 
