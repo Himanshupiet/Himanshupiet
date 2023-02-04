@@ -1,4 +1,4 @@
-- 👋 Hi, I’m @Himanshupiet
+- 👋 Hi, I’m Himanshu
 - 👀 I’m interested in MERN developer
 - 🌱 I’m currently MERN developer 
 - 💞️ I’m looking to collaborate on React Developer
